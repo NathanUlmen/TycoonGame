@@ -1,7 +1,5 @@
 public class DriverClass {
     public static void main(String[] args) {
-        boolean on = true;
-        int button = 1;
         Dropper[] droppers = new Dropper[2];
         
         droppers[0] = new IronDropper(2000);
