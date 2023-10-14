@@ -32,7 +32,7 @@ public class Dropper {
     }
     
     protected Ore createOre() {
-        return new Ore(); // Default ore creation
+        return new Ore(); 
     }
 
     public void stopDropping() {
@@ -41,13 +41,8 @@ public class Dropper {
         System.out.println("Ore production halted.");
     }
 
-    public void getTotalOreDropped() {
-        System.out.println(this.dropperName + "Has dropped " + totalOreDropped + "ore");
+    public int getTotalOreDropped() {
+        return totalOreDropped;
     }
 
-    // public static void main(String[] args) {
-    //     // Example usage of the Dropper class
-    //     Dropper dropper = new Dropper(5); // Set the drop rate to 5 ores per second
-    //     dropper.startDropping();
-    // }
 }
