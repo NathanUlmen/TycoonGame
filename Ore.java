@@ -1,6 +1,7 @@
 public class Ore {
-    protected double oreValue;
+    protected long oreValue;
     protected String oreName;
+    private boolean isDeleted;
     
 
     // public Ore(String oreName, double oreValue) {
@@ -11,13 +12,22 @@ public class Ore {
     public Ore() {
         this.oreName = "Default Ore(Parent of All)";
         this.oreValue = 1;
+        this.isDeleted = false;
     }
 
-    public double getOreValue() {
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public long getOreValue() {
         return this.oreValue;
     }
 
     public String getOreName() {
         return this.oreName;
+    }
+
+    public void delete() {
+        isDeleted = true;
     }
 }

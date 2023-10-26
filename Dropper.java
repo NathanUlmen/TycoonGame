@@ -5,24 +5,28 @@ public class Dropper {
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped = 0; //The number of ore objects this dropper has created.
     private Timer timer;
-    private String dropperName;
+    public String dropperName;
     private DropperListener listener;
 
-    public Dropper(int dropRate) {
+    public Dropper(int dropRate, String dropperName) {
         this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
         this.timer = new Timer();
         this.dropperName = dropperName;
+
     }
 
     public void startDropping() {
-        Timer timer = new Timer();
+        if (timer == null) {
+            timer = new Timer();
+        }
+        
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                     Ore ore = createOre();
                     totalOreDropped++;
-                    System.out.println("Mining a new ore! (Ore# : " + totalOreDropped + ")");
+                    System.out.println(dropperName + " is Mining a new ore! (Ore# : " + totalOreDropped + ")");
             }
         }, 0, dropRate); // Schedule the task to run every 1000 milliseconds (1 second)
     }
@@ -36,9 +40,13 @@ public class Dropper {
     }
 
     public void stopDropping() {
-        timer.cancel();
-        timer.purge();
-        System.out.println("Ore production halted.");
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+            System.out.println(dropperName + " ore production halted.");
+        } else {
+            System.out.println(dropperName + " is not dropping ore.");
+        }
     }
 
     public int getTotalOreDropped() {

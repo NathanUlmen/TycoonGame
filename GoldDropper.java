@@ -1,7 +1,6 @@
 public class GoldDropper extends Dropper{
-    public GoldDropper(int dropRate) {
-        super(dropRate);
-        dropRate = 1000;
+    public GoldDropper(int dropRate, String dropperName) {
+        super(1000, "Gold Mine");
     }
     
     @Override
