@@ -30,4 +30,8 @@ public class Ore {
     public void delete() {
         isDeleted = true;
     }
+
+    public void setOreValue() {
+        oreValue = oreValue + 0;
+    }
 }

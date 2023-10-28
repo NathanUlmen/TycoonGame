@@ -1,6 +1,6 @@
 public class IronDropper extends Dropper{
-    public IronDropper(int dropRate, String dropperName) {
-        super(2000, "Iron Mine");
+    public IronDropper(int dropRate, String dropperName, CircularOreArray<Ore> sharedOreArray) {
+        super(2000, "Iron Mine", sharedOreArray);
     }
 
     @Override

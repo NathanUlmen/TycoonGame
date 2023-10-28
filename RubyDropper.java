@@ -1,7 +1,7 @@
 public class RubyDropper extends Dropper{
 
-    public RubyDropper(int dropRate, String dropperName) {
-        super(2000, "Ruby Mine");
+    public RubyDropper(int dropRate, String dropperName, CircularOreArray<Ore> sharedOreArray) {
+        super(100, "Ruby Mine", sharedOreArray);
         
     }
 

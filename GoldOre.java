@@ -9,4 +9,10 @@ public class GoldOre extends Ore implements OreInterface{
     public long getValue() {
         return oreValue;
     }
+
+    @Override
+    public void setOreValue() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setOreValue'");
+    }
 }

@@ -7,12 +7,15 @@ public class Dropper {
     private Timer timer;
     public String dropperName;
     private DropperListener listener;
+    protected CircularOreArray<Ore> sharedOreArray;
 
-    public Dropper(int dropRate, String dropperName) {
+    public Dropper(int dropRate, String dropperName, CircularOreArray<Ore> sharedOreArray) {
         this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
         this.timer = new Timer();
         this.dropperName = dropperName;
+        this.sharedOreArray = sharedOreArray;
+        
 
     }
 
@@ -24,9 +27,15 @@ public class Dropper {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                if (sharedOreArray.size() < 250 ) {
                     Ore ore = createOre();
+                    sharedOreArray.add(ore);
                     totalOreDropped++;
                     System.out.println(dropperName + " is Mining a new ore! (Ore# : " + totalOreDropped + ")");
+                } else {
+                    System.out.println("Ore Limit Reached! Production Paused.");
+                }               
+                    
             }
         }, 0, dropRate); // Schedule the task to run every 1000 milliseconds (1 second)
     }
