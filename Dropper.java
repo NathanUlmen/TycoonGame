@@ -15,10 +15,9 @@ public class Dropper {
         this.timer = new Timer();
         this.dropperName = dropperName;
         this.sharedOreArray = sharedOreArray;
-        
-
     }
 
+    //Toggles the dropper on, causing it to produce a new ore object and add it to the circular ore array. If the circular Ore array is full the droppers production is paused. 
     public void startDropping() {
         if (timer == null) {
             timer = new Timer();
@@ -40,14 +39,17 @@ public class Dropper {
         }, 0, dropRate); // Schedule the task to run every 1000 milliseconds (1 second)
     }
 
+    //Havent done anything with this yet.
     public void setListener(DropperListener listener) {
         this.listener = listener;
     }
     
+    //creates an ore object
     protected Ore createOre() {
         return new Ore(); 
     }
 
+    //Toggles the dropper off.
     public void stopDropping() {
         if (timer != null) {
             timer.cancel();
@@ -58,6 +60,7 @@ public class Dropper {
         }
     }
 
+    //returns the total number of ore that the dropper has produced.
     public int getTotalOreDropped() {
         return totalOreDropped;
     }
