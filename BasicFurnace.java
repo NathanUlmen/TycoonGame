@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 public class BasicFurnace extends Furnace{
 
     public BasicFurnace(double processSpeed) {
@@ -6,8 +8,8 @@ public class BasicFurnace extends Furnace{
     }
 
     @Override
-    protected long processEffect(Ore ore) {
-        long earnings = ore.getOreValue() + 0;
+    protected BigInteger processEffect(Ore ore) {
+        BigInteger earnings = ore.getOreValue();
         return earnings;
     }
     

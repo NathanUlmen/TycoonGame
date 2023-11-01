@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 public interface OreInterface {
-    long getValue();
+    BigInteger getValue();
 }

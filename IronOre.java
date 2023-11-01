@@ -1,13 +1,15 @@
+import java.math.BigInteger;
+
 public class IronOre extends Ore implements OreInterface {
     
     public IronOre() {
         super();
-        this.oreValue = 2;
+        this.oreValue = BigInteger.valueOf(2);
         this.oreName = "Iron Ore";
     }
 
     @Override
-    public long getValue() {
+    public BigInteger getValue() {
         return oreValue;
     }
 

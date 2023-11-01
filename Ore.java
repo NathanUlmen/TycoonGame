@@ -1,12 +1,14 @@
+import java.math.BigInteger;
+
 public class Ore {
-    protected long oreValue;
+    protected BigInteger oreValue;
     protected String oreName;
     private boolean isDeleted;
     
 
     public Ore() {
         this.oreName = "Default Ore(Parent of All)";
-        this.oreValue = 1;
+        this.oreValue = oreValue;
         this.isDeleted = false;
     }
 
@@ -16,7 +18,7 @@ public class Ore {
     }
 
     //returns the value of the ore.
-    public long getOreValue() {
+    public BigInteger getOreValue() {
         return oreValue;
     }
 
@@ -29,8 +31,13 @@ public class Ore {
         isDeleted = true;
     }
 
-    //sets the value of the ore. This probably needs work.
-    public void setOreValue() {
-        oreValue = oreValue + 0;
+    //sets the value of the ore from an upgrader. This probably needs work.
+    public void setOreValue(BigInteger newOreValue) {
+        oreValue = newOreValue;
+    }
+
+    public String toString() {
+        String oreInfo = "Ore Name: " + oreName + "\nOre Value: " + oreValue + "Ore State: " + isDeleted;
+        return oreInfo;
     }
 }

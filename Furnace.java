@@ -1,5 +1,7 @@
 //Not finished yet
 
+import java.math.BigInteger;
+
 public abstract class Furnace {
     private double processSpeed;
 
@@ -13,7 +15,12 @@ public abstract class Furnace {
     }
 
     //APplies a bonus to the ore before selling it EX: doubles ore value or adds 10 to ore value.
-    protected abstract long processEffect(Ore ore);
+    protected abstract BigInteger processEffect(Ore ore);
+
+    public String toString() {
+        String furnaceInfo = "";
+        return furnaceInfo;
+    }
 
 }
 

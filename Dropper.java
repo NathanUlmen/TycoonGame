@@ -36,7 +36,7 @@ public class Dropper {
                 }               
                     
             }
-        }, 0, dropRate); // Schedule the task to run every 1000 milliseconds (1 second)
+        }, 0, dropRate); // Schedule the task to run every X milliseconds (1 second = 1000)
     }
 
     //Havent done anything with this yet.
@@ -63,6 +63,12 @@ public class Dropper {
     //returns the total number of ore that the dropper has produced.
     public int getTotalOreDropped() {
         return totalOreDropped;
+    }
+
+    public String toString() {
+        int num = 1000;
+        String dropperInfo = "Dropper Name: " + dropperName + "Drop Rate: " + num/dropRate + " Ores per second\nTotal Ore Dropped: " + totalOreDropped;
+        return dropperInfo;
     }
 
 }
