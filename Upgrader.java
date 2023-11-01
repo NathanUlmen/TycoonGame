@@ -19,10 +19,7 @@ public abstract class Upgrader {
     }
     
     //the specific upgrade effect will vary depending on the upgrader.
-    protected BigInteger upgradeEffect(BigInteger newOreValue) {
-        newOreValue= newOreValue.add(BigInteger.valueOf(1));
-        return newOreValue;
-    }
+    protected abstract BigInteger upgradeEffect(BigInteger newOreValue);
 
     // 
     public void addUpgradeTag() {

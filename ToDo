@@ -1,10 +1,6 @@
-Implement BIG Int instead of normal int/long data types. - Should ask the professor about alternatives/what he thinks
-
 Try and clean up the side bar so its more organized(Put all droppers in a folder, put all ore in their own folder etc.)
 
 Finish the Furnace class so that it works
-
-Create the upgrader class/object types
 
 Create the conveyor class/object types
 
@@ -15,6 +11,9 @@ Create the conveyor class/object types
 Start the GUI side of things?
 
 Save system?
+
+Upgrade tags? 
+    Do I use ENUMS and a Switch statement that is inherent on each ore created, then when the ore is upgraded it does its thing>?
 
 
 

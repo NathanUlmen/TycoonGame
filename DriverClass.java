@@ -5,7 +5,6 @@ public class DriverClass {
     public static void main(String[] args) {
         Dropper[] droppers = new Dropper[3];
         Furnace furnace = new BasicFurnace(0);
-        Wallet wallet = new Wallet();
         CircularOreArray<Ore> sharedOreArray = new CircularOreArray<Ore>(250);
         Upgrader[] upgrader = new Upgrader[2];
         upgrader[0] = new BasicUpgrader(null, sharedOreArray);
@@ -18,7 +17,6 @@ public class DriverClass {
         droppers[1] = new GoldDropper(0, null, sharedOreArray);
         droppers[2] = new RubyDropper(0, null, sharedOreArray);
 
-        System.out.println("Balance: " + wallet.getBalance());
         // droppers[0].startDropping();
         droppers[1].startDropping();
         // droppers[2].startDropping();

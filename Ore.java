@@ -35,7 +35,7 @@ public class Ore {
     public void setOreValue(BigInteger newOreValue) {
         oreValue = newOreValue;
     }
-
+    
     public String toString() {
         String oreInfo = "Ore Name: " + oreName + "\nOre Value: " + oreValue + "Ore State: " + isDeleted;
         return oreInfo;
