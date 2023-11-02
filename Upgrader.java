@@ -14,7 +14,6 @@ public abstract class Upgrader {
     public void upgrade(Ore ore) {
         ore = sharedOreArray.get(1);
         BigInteger newOreValue = ore.getOreValue();
-        upgradeEffect(newOreValue);
         ore.setOreValue(upgradeEffect(newOreValue));
     }
     

@@ -1,11 +1,14 @@
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class DriverClass {
     public static void main(String[] args) {
-        Dropper[] droppers = new Dropper[3];
-        Furnace furnace = new BasicFurnace(0);
+            
         CircularOreArray<Ore> sharedOreArray = new CircularOreArray<Ore>(250);
+        Player player = new Player(BigInteger.valueOf(0), 0, 0);
+        Dropper[] droppers = new Dropper[3];
+        Furnace furnace = new BasicFurnace(0, null, null, sharedOreArray, player);
         Upgrader[] upgrader = new Upgrader[2];
         upgrader[0] = new BasicUpgrader(null, sharedOreArray);
         upgrader[1] = new TheUpgrader(null, null, sharedOreArray);
@@ -41,22 +44,19 @@ public class DriverClass {
         System.out.println("After Upgrade: " + sharedOreArray.get(1).getOreValue());
 
         upgrader[1].upgrade(sharedOreArray.get(1));
+        System.out.println(sharedOreArray.get(1).getOreValue());
         System.out.println("Upgraded by THE Upgrader: " + scientificFormat.format(sharedOreArray.get(1).getOreValue()));
     
-        
-
         System.out.println(scientificFormat.format(sharedOreArray.get(1).getOreValue()));
-        
 
+        furnace.sell(sharedOreArray.get(1));
 
-        
-        System.out.println(upgrader[1].toString());
+        System.out.println(player.getWallet());
 
-
-
-
+    
+        System.out.println(sharedOreArray.toString());
         // droppers[0].stopDropping();
-        droppers[1].stopDropping();
+        // droppers[1].stopDropping();
         System.out.println("Done");
 
         
