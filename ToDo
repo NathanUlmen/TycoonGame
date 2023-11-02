@@ -1,19 +1,23 @@
 Try and clean up the side bar so its more organized(Put all droppers in a folder, put all ore in their own folder etc.)
 
-Finish the Furnace class so that it works
-
 Create the conveyor class/object types
 
     Have a method that is called whenever an ore changes position, this method notifys all subscribers/placed objects(upgrader, conveyor, Furnace) of the location of the ore, if the ore location matches with any of the placed items it calls their method.
         EX: An ores position is changed(a notification is sent out to all listeners) so that its now on the coordinates of an upgrader(listener), the upgrader checks and realizes that teh ores location matches with its own location so it calls its upgrade method on the ore.
 
-
 Start the GUI side of things?
 
 Save system?
 
-Upgrade tags? 
+Upgrade tags?
     Do I use ENUMS and a Switch statement that is inherent on each ore created, then when the ore is upgraded it does its thing>?
+
+Implement position?
+
+Implement other properties?
+    Heat and cold, radiation etc.
+
+Player Inventory?
 
 
 
