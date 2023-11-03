@@ -20,10 +20,10 @@ public class TheUpgrader extends Upgrader{
         val1 = val1.sqrt(MathContext.DECIMAL32);
         // System.out.println("After sqr: " + val1);
 
-        val1 = val1.multiply(BigDecimal.valueOf(1.3), MathContext.DECIMAL32);
+        val1 = val1.multiply(BigDecimal.valueOf(3), MathContext.DECIMAL32);
         // System.out.println("After multiplying by 1.2: " + val1);
 
-        val1 = new BigDecimal(Math.pow(val1.doubleValue(), 2.055));
+        val1 = new BigDecimal(Math.pow(val1.doubleValue(), 2.033));
         // val1 = val1.pow((int) 2.055, MathContext.DECIMAL32);
         //System.out.println("After raising to 2.055: " + val1);
         newOreValue = val1.toBigInteger();
