@@ -1,6 +1,6 @@
 public class GoldDropper extends Dropper{
-    public GoldDropper(int dropRate, String dropperName, CircularOreArray<Ore> sharedOreArray) {
-        super(1000, "Gold Mine", sharedOreArray);
+    public GoldDropper(int dropRate, CircularOreArray<Ore> sharedOreArray) {
+        super(1000, sharedOreArray, 0, 0, "Gold Dropper", 0, 0);
     }
     
     @Override

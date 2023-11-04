@@ -9,34 +9,34 @@ public class DriverClass {
         Player player = new Player(BigInteger.valueOf(0), 0, 0);
         Dropper[] droppers = new Dropper[3];
         Furnace furnace = new BasicFurnace(0, null, null, sharedOreArray, player);
-        Upgrader[] upgrader = new Upgrader[2];
+        Upgrader[] upgrader = new Upgrader[3];
         upgrader[0] = new BasicUpgrader(null, sharedOreArray);
-        upgrader[1] = new TheUpgrader(null, null, sharedOreArray);
+        upgrader[1] = new TheUpgrader(null, null);
+        upgrader[2] = new TheUpgrader(null, sharedOreArray);
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
 
-    
+        System.out.println(sharedOreArray.size());
         System.out.println(sharedOreArray.toString());
-        droppers[0] = new IronDropper(0, null, sharedOreArray);
-        droppers[1] = new GoldDropper(0, null, sharedOreArray);
-        droppers[2] = new RubyDropper(0, null, sharedOreArray);
-
-        // droppers[0].startDropping();
+        droppers[0] = new IronDropper(0, sharedOreArray);
+        droppers[1] = new GoldDropper(0, sharedOreArray);
+        droppers[2] = new RubyDropper(0, sharedOreArray);
+        
+        droppers[0].startDropping();
         droppers[1].startDropping();
-        // droppers[2].startDropping();
+        droppers[2].startDropping();
 
         try {
-            Thread.sleep(2000); // Sleep for 10 seconds to allow ore generation
+            Thread.sleep(6000); // Sleep for 10 seconds to allow ore generation
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+        droppers[0].stopDropping();
         droppers[1].stopDropping();
-        // droppers[1].stopDropping();
-        // droppers[2].stopDropping();
+        droppers[2].stopDropping();
 
-        // System.out.println(droppers[0].getTotalOreDropped());
-        // System.out.println(droppers[1].getTotalOreDropped());;
-        // System.out.println(droppers[2].getTotalOreDropped());;
+        System.out.println(sharedOreArray.toString());
+
         System.out.println("Intitial Value: " + sharedOreArray.get(1).getOreValue());
         
         upgrader[0].upgrade(sharedOreArray.get(1));
@@ -49,12 +49,9 @@ public class DriverClass {
     
         System.out.println(scientificFormat.format(sharedOreArray.get(1).getOreValue()));
 
-        furnace.sell(sharedOreArray.get(1));
+        upgrader[2].upgrade(sharedOreArray.get(1));
 
-        System.out.println(player.getWallet());
 
-    
-        System.out.println(sharedOreArray.toString());
         // droppers[0].stopDropping();
         // droppers[1].stopDropping();
         System.out.println("Done");

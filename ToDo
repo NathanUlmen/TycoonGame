@@ -9,8 +9,8 @@ Start the GUI side of things?
 
 Save system?
 
-Upgrade tags?
-    Do I use ENUMS and a Switch statement that is inherent on each ore created, then when the ore is upgraded it does its thing>?
+Upgrade tags? 
+    Sort of done, need to figure out a way to do it for complex upgraders(ones that can upgrade same ore multiple times.)
 
 Implement position?
 

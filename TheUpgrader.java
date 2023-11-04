@@ -2,10 +2,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 
-public class TheUpgrader extends Upgrader{
+public class TheUpgrader extends SimpleUpgrader{
 
-    public TheUpgrader(String upgraderName, String upgraderEffect, CircularOreArray<Ore> sharedOreArray) {
-        super("The Upgrader", "(sqr(x+x/3 +10) *1.3)^2.055", sharedOreArray);
+    public TheUpgrader(String upgraderEffect, CircularOreArray<Ore> sharedOreArray) {
+        super("The Upgrader", "(sqr(x+x/3 +10) * 3)^2.033", sharedOreArray, -1, -1, upgraderEffect, 0, 0);
     }
     
     @Override
@@ -20,10 +20,10 @@ public class TheUpgrader extends Upgrader{
         val1 = val1.sqrt(MathContext.DECIMAL32);
         // System.out.println("After sqr: " + val1);
 
-        val1 = val1.multiply(BigDecimal.valueOf(1.3), MathContext.DECIMAL32);
+        val1 = val1.multiply(BigDecimal.valueOf(3), MathContext.DECIMAL32);
         // System.out.println("After multiplying by 1.2: " + val1);
 
-        val1 = new BigDecimal(Math.pow(val1.doubleValue(), 2.055));
+        val1 = new BigDecimal(Math.pow(val1.doubleValue(), 2.033));
         // val1 = val1.pow((int) 2.055, MathContext.DECIMAL32);
         //System.out.println("After raising to 2.055: " + val1);
         newOreValue = val1.toBigInteger();
@@ -31,4 +31,10 @@ public class TheUpgrader extends Upgrader{
 
         return newOreValue;
     }
+
+    @Override
+    protected UpgradeTags getThisUpgraderTag() {
+        return UpgradeTags.THE_UPGRADE_TAG;
+    }
+
 }

@@ -1,19 +1,18 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Dropper {
+public abstract class Dropper extends Item{
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped = 0; //The number of ore objects this dropper has created.
     private Timer timer;
     public String dropperName;
-    private DropperListener listener;
-    protected CircularOreArray<Ore> sharedOreArray;
+    protected static CircularOreArray<Ore> sharedOreArray;
 
-    public Dropper(int dropRate, String dropperName, CircularOreArray<Ore> sharedOreArray) {
+    public Dropper(int dropRate, CircularOreArray<Ore> sharedOreArray, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
+        super(dimensionX, dimensionY, itemName, dimensionX, dimensionY);
         this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
         this.timer = new Timer();
-        this.dropperName = dropperName;
         this.sharedOreArray = sharedOreArray;
     }
 
@@ -26,11 +25,11 @@ public class Dropper {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (sharedOreArray.size() < 250 ) {
+                if (sharedOreArray.size() < 250 ) { //This should Be changed to an enum
                     Ore ore = createOre();
                     sharedOreArray.add(ore);
                     totalOreDropped++;
-                    System.out.println(dropperName + " is Mining a new ore! (Ore# : " + totalOreDropped + ")");
+                    System.out.println(getItemName() + " is Mining a new ore! (Ore# : " + totalOreDropped + ")");
                 } else {
                     System.out.println("Ore Limit Reached! Production Paused.");
                 }               
@@ -39,24 +38,17 @@ public class Dropper {
         }, 0, dropRate); // Schedule the task to run every X milliseconds (1 second = 1000)
     }
 
-    //Havent done anything with this yet.
-    public void setListener(DropperListener listener) {
-        this.listener = listener;
-    }
-    
     //creates an ore object
-    protected Ore createOre() {
-        return new Ore(); 
-    }
+    protected abstract Ore createOre();
 
     //Toggles the dropper off.
     public void stopDropping() {
         if (timer != null) {
             timer.cancel();
             timer = null;
-            System.out.println(dropperName + " ore production halted.");
+            System.out.println(getItemName() + " ore production halted.");
         } else {
-            System.out.println(dropperName + " is not dropping ore.");
+            System.out.println(getItemName() + " is not dropping ore.");
         }
     }
 
@@ -66,8 +58,8 @@ public class Dropper {
     }
 
     public String toString() {
-        int num = 1000;
-        String dropperInfo = "Dropper Name: " + dropperName + "Drop Rate: " + num/dropRate + " Ores per second\nTotal Ore Dropped: " + totalOreDropped;
+        double num = 1000;
+        String dropperInfo = "Dropper Name: " + getItemName() + "\nDrop Rate: " + num/dropRate + " Ores per second\nTotal Ore Dropped: " + totalOreDropped;
         return dropperInfo;
     }
 
