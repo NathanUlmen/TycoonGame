@@ -1,19 +1,24 @@
 import java.math.BigInteger;
 
-public abstract class Ore {
-    protected BigInteger oreValue;
+public abstract class Ore extends Item implements Observer{
+    protected static BigInteger oreValue;
     protected String oreName;
     private boolean isDeleted;
     private UpgradeTags LatestUpgradeTag = UpgradeTags.UNUPGRADED_TAG;
     private UpgradeTags[] upgradeTagArray = new UpgradeTags[3];
     private int nextOpenSlot = 0;
+    protected static Subject oreObserver = new OreObserver();
     
 
-    public Ore() {
+    public Ore(Subject oreObserver, BigInteger oreValue, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY);
+        this.oreObserver = oreObserver;
+        oreObserver.registerObserver(this);
         this.oreName = "Default Ore(Parent of All)";
         this.oreValue = oreValue;
         this.isDeleted = false;
     }
+    
 
     //might not need this.
     public boolean isDeleted() {
@@ -63,4 +68,12 @@ public abstract class Ore {
         String oreInfo = "Ore Name: " + oreName + "\nOre Value: " + oreValue + "Ore State: " + isDeleted;
         return oreInfo;
     }
+
+
+    @Override
+    public void update(Ore ore) {
+        
+        
+    }
+
 }

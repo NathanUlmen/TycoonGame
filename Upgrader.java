@@ -1,6 +1,6 @@
 import java.math.BigInteger;
 
-public abstract class Upgrader  extends Item{
+public abstract class Upgrader  extends Item implements Observer{
     private String upgraderEffect;
     protected CircularOreArray<Ore> sharedOreArray;
 
@@ -35,5 +35,21 @@ public abstract class Upgrader  extends Item{
     public String toString() { 
         String upgraderInfo = "Upgrader Name: " + getItemName() + "\nUpgrader Effect: Increases ore value by " + upgraderEffect;
         return upgraderInfo;
+    }
+    
+    @Override
+    public void update(Ore ore) {
+        handlePositionChange(ore);
+    }
+
+    @Override
+    public void handlePositionChange(Ore ore) {
+        int orePositionX = ore.getPositionX();
+        int orePositionY = ore.getPositionY();
+        
+        if (orePositionX == positionX && orePositionY == positionY) {
+            // Perform the appropriate action on the Ore (upgrade, sell, etc.).
+            upgrade(ore);
+        }
     }
 } 

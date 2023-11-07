@@ -12,7 +12,6 @@ public class DriverClass {
         Upgrader[] upgrader = new Upgrader[3];
         upgrader[0] = new BasicUpgrader(null, sharedOreArray);
         upgrader[1] = new TheUpgrader(null, null);
-        upgrader[2] = new TheUpgrader(null, sharedOreArray);
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
 
         System.out.println(sharedOreArray.size());
@@ -31,25 +30,32 @@ public class DriverClass {
             e.printStackTrace();
         }
 
+        upgrader[1].setPosition(1, 1);
+        
+
         droppers[0].stopDropping();
         droppers[1].stopDropping();
         droppers[2].stopDropping();
 
         System.out.println(sharedOreArray.toString());
 
-        System.out.println("Intitial Value: " + sharedOreArray.get(1).getOreValue());
+        // System.out.println("Intitial Value: " + sharedOreArray.get(1).getOreValue());
         
-        upgrader[0].upgrade(sharedOreArray.get(1));
+        // upgrader[0].upgrade(sharedOreArray.get(1));
 
-        System.out.println("After Upgrade: " + sharedOreArray.get(1).getOreValue());
+        // System.out.println("After Upgrade: " + sharedOreArray.get(1).getOreValue());
 
-        upgrader[1].upgrade(sharedOreArray.get(1));
-        System.out.println(sharedOreArray.get(1).getOreValue());
-        System.out.println("Upgraded by THE Upgrader: " + scientificFormat.format(sharedOreArray.get(1).getOreValue()));
+        // upgrader[1].upgrade(sharedOreArray.get(1));
+        // System.out.println(sharedOreArray.get(1).getOreValue());
+        // System.out.println("Upgraded by THE Upgrader: " + scientificFormat.format(sharedOreArray.get(1).getOreValue()));
     
-        System.out.println(scientificFormat.format(sharedOreArray.get(1).getOreValue()));
+        // System.out.println(scientificFormat.format(sharedOreArray.get(1).getOreValue()));
 
-        upgrader[2].upgrade(sharedOreArray.get(1));
+        // System.out.println("Intitial Value: " + sharedOreArray.get(2).getOreValue());
+
+
+
+
 
 
         // droppers[0].stopDropping();
