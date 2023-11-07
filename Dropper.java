@@ -5,7 +5,7 @@ public abstract class Dropper extends Item{
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped = 0; //The number of ore objects this dropper has created.
     private Timer timer;
-    // public String dropperName;
+    public String dropperName;
     protected static CircularOreArray<Ore> sharedOreArray;
 
     public Dropper(int dropRate, CircularOreArray<Ore> sharedOreArray, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
@@ -26,7 +26,9 @@ public abstract class Dropper extends Item{
             @Override
             public void run() {
                 if (sharedOreArray.size() < 250 ) { //This should Be changed to an enum
-                    oreInitializer();
+                    Ore ore = createOre();
+                    sharedOreArray.add(ore);
+                    totalOreDropped++;
                     System.out.println(getItemName() + " is Mining a new ore! (Ore# : " + totalOreDropped + ")");
                 } else {
                     System.out.println("Ore Limit Reached! Production Paused.");
@@ -38,13 +40,6 @@ public abstract class Dropper extends Item{
 
     //creates an ore object
     protected abstract Ore createOre();
-
-    private void oreInitializer() {
-        Ore ore = createOre();
-        sharedOreArray.add(ore);
-        ore.setPosition(getDropPoint(), getDropPoint());
-        totalOreDropped++;
-    }
 
     //Toggles the dropper off.
     public void stopDropping() {
@@ -60,12 +55,6 @@ public abstract class Dropper extends Item{
     //returns the total number of ore that the dropper has produced.
     public int getTotalOreDropped() {
         return totalOreDropped;
-    }
-
-    public int getDropPoint() {
-        int dropPoint = 1;
-        return dropPoint;
-        
     }
 
     public String toString() {

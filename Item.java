@@ -1,9 +1,9 @@
 public abstract class Item {
     
-    protected int positionX;
-    protected int positionY;
-    protected int dimensionX;
-    protected int dimensionY;
+    private int positionX;
+    public int positionY;
+    private int dimensionX;
+    private int dimensionY;
     private String itemName;
 
     public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
@@ -32,11 +32,7 @@ public abstract class Item {
     public void setPositionY(int newY) {
         positionY = newY;
     }
-    
-    public void setPosition(int newX, int newY) {
-        positionX = newX;
-        positionY = newY;
-    }
+
     public int getDimensionX() {
         return dimensionX;
     }

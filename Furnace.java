@@ -2,7 +2,7 @@
 
 import java.math.BigInteger;
 
-public abstract class Furnace extends Item {
+public abstract class Furnace {
     private double processSpeed;
     private String processEffect;
     protected CircularOreArray<Ore> sharedOreArray;
