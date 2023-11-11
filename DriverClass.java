@@ -49,6 +49,7 @@ public class DriverClass {
         theQueue.displayQueue();
         
         theQueue.processOre();
+        
 
         
          for (Dropper dropper : droppers) {

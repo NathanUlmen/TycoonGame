@@ -34,7 +34,7 @@ public abstract class Item {
 
     public Item() {
 
-    }
+    } 
 
     public int getPositionX() {
         return positionX;
@@ -60,13 +60,13 @@ public abstract class Item {
         return dimensionY;
     }
 
-    public void setDimensionX() {
+    // public void setDimensionX() {
 
-    }
+    // }
 
-    public void setDimensionY() {
+    // public void setDimensionY() {
 
-    }
+    // }
 
     public String getItemName() {
         return itemName;

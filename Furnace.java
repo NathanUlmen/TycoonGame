@@ -3,7 +3,7 @@
 import java.math.BigInteger;
 import java.util.LinkedList;
 
-public abstract class Furnace extends Item implements ProcessingItem{
+public abstract class Furnace extends Item implements Process{
     private double processSpeed;
     private String processEffect;
     protected CircularOreArray<Ore> sharedOreArray;
