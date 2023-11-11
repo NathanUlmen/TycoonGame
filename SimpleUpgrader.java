@@ -1,10 +1,11 @@
 import java.math.BigInteger;
+import java.util.LinkedList;
 
 public abstract class SimpleUpgrader extends Upgrader{
 
-    public SimpleUpgrader(String name, String upgraderEffect, CircularOreArray<Ore> sharedOreArray, int positionX,
+    public SimpleUpgrader(String name, String upgraderEffect, int positionX,
             int positionY, String itemName, int dimensionX, int dimensionY) {
-        super(name, upgraderEffect, sharedOreArray, positionX, positionY, itemName, dimensionX, dimensionY);
+        super(name, upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY);
         //TODO Auto-generated constructor stub
     }
 

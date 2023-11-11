@@ -1,7 +1,9 @@
+import java.util.LinkedList;
+
 public class RubyDropper extends Dropper{
 
-    public RubyDropper(int dropRate, CircularOreArray<Ore> sharedOreArray) {
-        super(1000, sharedOreArray, 0, 0, "Ruby Dropper", 0, 0);
+    public RubyDropper() {
+        super(1000, oreQueue, 0, 0, "Ruby Dropper", 0, 0);
         
     }
 

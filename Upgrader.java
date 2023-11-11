@@ -1,20 +1,16 @@
 import java.math.BigInteger;
+import java.util.LinkedList;
 
-public abstract class Upgrader  extends Item{
+public abstract class Upgrader  extends ConveyorType implements ProcessingItem {
     private String upgraderEffect;
-    protected CircularOreArray<Ore> sharedOreArray;
 
-    // public Upgrader(String name, String upgraderEffect, CircularOreArray<Ore> sharedOreArray, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
-    //     super(dimensionY, dimensionY, name, dimensionY, dimensionY);
-    //     this.sharedOreArray = sharedOreArray;
-    //     // this.upgraderName = upgraderName;
-    //     this.upgraderEffect = upgraderEffect;
-    // }
-
-    public Upgrader(String name, String upgraderEffect, CircularOreArray<Ore> sharedOreArray, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
+    public Upgrader(String name, String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
         super(positionX, positionY, itemName, dimensionX, dimensionY);
-        this.sharedOreArray = sharedOreArray;
         this.upgraderEffect = upgraderEffect;
+    }
+    @Override
+    public void process(Ore ore) {
+        upgrade(ore);
     }
 
     //this will upgrade the ore, still need to figure out how to make the sharedOreArray.get() automated so I dont have to set it manually. 

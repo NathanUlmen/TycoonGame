@@ -1,6 +1,8 @@
+import java.util.LinkedList;
+
 public class GoldDropper extends Dropper{
-    public GoldDropper(int dropRate, CircularOreArray<Ore> sharedOreArray) {
-        super(1000, sharedOreArray, 0, 0, "Gold Dropper", 0, 0);
+    public GoldDropper() {
+        super(1000, oreQueue, 0, 0, "Gold Dropper", 0, 0);
     }
     
     @Override

@@ -1,23 +1,29 @@
 //Not finished yet
 
 import java.math.BigInteger;
+import java.util.LinkedList;
 
-public abstract class Furnace {
+public abstract class Furnace extends Item implements ProcessingItem{
     private double processSpeed;
     private String processEffect;
     protected CircularOreArray<Ore> sharedOreArray;
     protected Player player;
+    private LinkedList<Ore> oreQueue = new LinkedList<>();
 
-    public Furnace(double processSpeed, String furnaceName, String processEffect, CircularOreArray<Ore> sharedOreArray, Player player) {
+    public Furnace() {
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
-        this.sharedOreArray = sharedOreArray;
+        // this.oreQueue = oreQueue;
         this.player = player;
+    }
+
+    @Override
+    public void process(Ore ore) {
+        sell(ore);
     }
 
     //Should remove the ore from the circularOreArray and sell it/add the ore value to your wallet
     public void sell(Ore ore) {
-        ore = sharedOreArray.get(1);
         if (ore.isDeleted() != false) {
             System.out.println("This ore has already been sold and is invalid!");
         } else {
@@ -25,7 +31,7 @@ public abstract class Furnace {
             ore.setOreValue(processEffect(soldOreValue));
             player.setWallet(ore.getOreValue());
             ore.delete();
-            sharedOreArray.remove(1);
+            // oreQueue.remove(ore);
         }
     }
 

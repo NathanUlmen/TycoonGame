@@ -1,9 +1,10 @@
 import java.math.BigInteger;
+import java.util.LinkedList;
 
 public class BasicFurnace extends Furnace{
 
-    public BasicFurnace(double processSpeed, String furnaceName, String processEffect, CircularOreArray<Ore> sharedOreArray, Player player) {
-        super(5, "Basic Furnace", " + 0", sharedOreArray, player);
+    public BasicFurnace(double processSpeed, String furnaceName, String processEffect, Player player) {
+        super();
     }
 
     @Override

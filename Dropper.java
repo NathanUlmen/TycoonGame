@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -6,14 +7,16 @@ public abstract class Dropper extends Item{
     private int totalOreDropped = 0; //The number of ore objects this dropper has created.
     private Timer timer;
     public String dropperName;
-    protected static CircularOreArray<Ore> sharedOreArray;
+    // protected static CircularOreArray<Ore> sharedOreArray;
+    // private LinkedList<Ore> oreQueue = new LinkedList<>();
+    protected static LinkedList<Ore> oreQueue = new LinkedList<Ore>();
 
-    public Dropper(int dropRate, CircularOreArray<Ore> sharedOreArray, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
-        super(dimensionX, dimensionY, itemName, dimensionX, dimensionY);
+    public Dropper(int dropRate, LinkedList<Ore> oreQueue, int positionX, int positionY, String itemName, int dimensionX, int dimensionY) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
         this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
         this.timer = new Timer();
-        this.sharedOreArray = sharedOreArray;
+        this.oreQueue = oreQueue;
     }
 
     //Toggles the dropper on, causing it to produce a new ore object and add it to the circular ore array. If the circular Ore array is full the droppers production is paused. 
@@ -25,10 +28,8 @@ public abstract class Dropper extends Item{
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (sharedOreArray.size() < 250 ) { //This should Be changed to an enum
-                    Ore ore = createOre();
-                    sharedOreArray.add(ore);
-                    totalOreDropped++;
+                if (oreQueue.size() < 250 ) { //This should Be changed to an enum
+                    initializeOre();
                     System.out.println(getItemName() + " is Mining a new ore! (Ore# : " + totalOreDropped + ")");
                 } else {
                     System.out.println("Ore Limit Reached! Production Paused.");
@@ -40,6 +41,13 @@ public abstract class Dropper extends Item{
 
     //creates an ore object
     protected abstract Ore createOre();
+
+    //Creates an ore object, adds it to the oreQueue, and increments the totalOreDropped
+    private void initializeOre() {
+        Ore ore = createOre();
+        oreQueue.add(ore);
+        totalOreDropped++;
+    }
 
     //Toggles the dropper off.
     public void stopDropping() {
