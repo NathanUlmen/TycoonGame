@@ -75,6 +75,25 @@ public class TheGameQueue {
         //                      In both these scenarios how does the Item know whats before and whats after it in the queue?
         //                      TheGameQueue knows the order of the items but the items themselves dont what comes before ore after them based on my understanding.
         //                      The process method will then call move the ore to the next item in the Queue (How will it do this? How does it know which item is next in the queue?)                               
+
+        //this is the process() method:
+        //Do this for each object in the Queue. Start from last item in queue go to first,
+
+        //Check to see if ore is currently stored in object: isOreStored();
+            
+        //check to see if there is an object it can pull ore from: getItem();
+
+        //call to object linked to see if it has ore. :getItem().isOreStored();
+
+        //if the object its pulling from has an ore pull that ore: pullOre();
+
+        //once that ore is pulled into item perform process effect on the ore(upgrade/sell).
+
+        //after that all processing Items have been gone through, go through all droppers,
+
+        //dropper will check to see if ore limit is true or false.
+        //dropper will check to see if the Processing item its inserting an ore into has an ore
+        //if no ore is present the dropper will then insert an ore into that object.
         }
         
 

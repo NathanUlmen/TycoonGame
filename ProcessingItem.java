@@ -25,7 +25,7 @@ public class ProcessingItem extends Item {
     }
 
     public void moveOre() {
-        if (storedOre != null) {
+        if (isOreStored()) {
             
         }
     }
