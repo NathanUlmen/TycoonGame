@@ -42,9 +42,9 @@ public class TheGameQueue {
 
         
     // This will be the core method of the entire game, every time its called it will cause the tycoon to "tick". When a tick happens a couple of different things will occur,
-    // all ProcessingItems will fire off the process method in order from end of queue to begining(Queue starts at end and last thing that happens is droppers create ore).
+    // all ProcessingItems will fire off the process method in order from end of queue to beginning(Queue starts at end and last thing that happens is droppers create ore).
     // This process method will "pull" the ore object stored in the item behind it and call the method that corresponds with what item it is(upgrade, sell, move).
-            // 1.This effectively means that a conveyor item is just a placed holder, all it does is pull?
+            // 1.This effectively means that a conveyor item is just a placed holder, all it does is pull and hold ore?
 
             // 2.The ore objects will be stored inside the ProcessingItems. Droppers will effectively insert ore into a ProcessingItem. (This means they need an index of where they are at in the Queue?)
             // What if I want to be able to store multiple ore in a ProcessingItem at one time? EX: there are 2 ore on the same conveyor.
@@ -65,17 +65,8 @@ public class TheGameQueue {
         for (int i = 0; i < queueSize; i++) {
             
         }
-        // for (ProccessingItem processingItem : theTycoon) {
-        //      processingItem.process() <----- 
-        //                      process() this process method is the one I am working on in the ProcessingItem class(I decided to rename the ConveyorType class to "ProcessingItem")
-        //                      1.This process method should have the item check to see if it is storing any ore, if it is then it will carry out the method 
-        //                      that corressponds to the what the item is(upgrade, sell, move)
-        //                      2.What happens next? does the item push the ore forward to the next item in the queue?
-        //                      Does the item pull the ore from the item that feeds into it?
-        //                      In both these scenarios how does the Item know whats before and whats after it in the queue?
-        //                      TheGameQueue knows the order of the items but the items themselves dont what comes before ore after them based on my understanding.
-        //                      The process method will then call move the ore to the next item in the Queue (How will it do this? How does it know which item is next in the queue?)                               
-
+                                    
+        //All ProcessingItems will Implement a method called process from an interface so its nice and easy and all you gotta do is call process().
         //this is the process() method:
         //Do this for each object in the Queue. Start from last item in queue go to first,
 

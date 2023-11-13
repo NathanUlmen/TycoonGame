@@ -11,7 +11,6 @@ public class DriverClass {
     public static void main(String[] args) {
         
             
-        CircularOreArray<Ore> sharedOreArray = new CircularOreArray<Ore>(250);
         Player player = new Player(BigInteger.valueOf(0), 0, 0);
         Dropper[] droppers = new Dropper[3];
         Upgrader[] upgrader = new Upgrader[3];

@@ -9,7 +9,7 @@ Upgrade tags?
 
 
 Implement other properties?
-    Heat and cold, radiation etc.
+    Heat, cold, radiation etc.
 
 The game should function off of a queue system.
     sort of does it now, need to talk to the professor about that, ConcurrentLinkedQueue?

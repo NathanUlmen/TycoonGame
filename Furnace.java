@@ -1,4 +1,4 @@
-//Not finished yet
+//The Furnace Class takes an ore and sells it, getting rid of it and granting you money
 
 import java.math.BigInteger;
 import java.util.LinkedList;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public abstract class Furnace extends ProcessingItem implements Process{
     private double processSpeed;
     private String processEffect;
-    protected CircularOreArray<Ore> sharedOreArray;
+    
     protected Player player;
     private LinkedList<Ore> oreQueue = new LinkedList<>();
 
