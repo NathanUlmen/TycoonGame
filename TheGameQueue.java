@@ -59,6 +59,7 @@ public class TheGameQueue {
             // 6. If I have a high "tick" rate that means the tycoon will be fast and if I have a low tick rate the tycoon will be slow. What if I want specific upgraders/conveyors to have different speeds?
             // Do I do something similar to what I speculated about in point #4 and make it so they only call their process method after X number of ticks? if so Items will need to be able to store a multiple ore 
             // at the same time.
+            // 7. If I wanted to store multiple ore in one Item does that mean that I would need to have each item have their own queue that stores ore?
 
     public void tycoonTick() {
         for (int i = 0; i < queueSize; i++) {
