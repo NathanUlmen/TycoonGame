@@ -18,6 +18,7 @@ public class DriverClass {
         Furnace furnace = new BasicFurnace(0, 0, null, 0, null, null, player);
         upgrader[0] = new BasicUpgrader(null);
         upgrader[1] = new TheUpgrader(null);
+        upgrader[2] = new BasicUpgrader(null);
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
 
 
@@ -34,7 +35,8 @@ public class DriverClass {
         // furnace finds gold ore in upgrader[1] and pulls and processes it. No ore is left in the system.
         theQueue.addItem(upgrader[0], 0);
         theQueue.addItem(upgrader[1], 1);
-        theQueue.addItem(furnace, 2);
+        theQueue.addItem(upgrader[2], 2);
+        theQueue.addItem(furnace, 3);
 
         furnace.setPreviousItem(upgrader[1]);
         upgrader[1].setPreviousItem(upgrader[0]);
@@ -71,8 +73,23 @@ public class DriverClass {
         // }
 
         System.out.println("\n" + player.getWallet());
+        upgrader[1].setPreviousItem(null);
+        upgrader[2].setPreviousItem(upgrader[0]);
+        upgrader[0].setPreviousItem(upgrader[2]);
+        upgrader[0].setCurrentOre(goldOre);
+        for (int i = 0; i < 100; i ++) {
+            theQueue.tycoonTick();
+        }
         
+        upgrader[0].setPreviousItem(null);
+        upgrader[1].setPreviousItem(upgrader[0]);
+        upgrader[2].setPreviousItem(upgrader[1]);
+        furnace.setPreviousItem(upgrader[2]);
 
+        for (int i = 0; i < 100; i ++) {
+            theQueue.tycoonTick();
+        }
+        System.out.println("\n" + player.getWallet());
 
 
 

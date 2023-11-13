@@ -29,7 +29,7 @@ public abstract class ProcessingItem extends Item{
         return storedOre != null;
     }
 
-    public void pullAndProcessOre() { 
+    public void pullAndProcessOre() {
         if (itemToPullFrom != null) {
             if (itemToPullFrom.isOreStored()) {
                 pullOre();
