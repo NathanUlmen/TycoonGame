@@ -3,6 +3,7 @@
 import java.util.LinkedList;
 
 public class TheGameQueue {
+    private ProcessingItem processingItem;
     private static Item[] theTycoon = new Item[100];
     private int queueSize;
 
@@ -63,7 +64,7 @@ public class TheGameQueue {
 
     public void tycoonTick() {
         for (int i = 0; i < queueSize; i++) {
-            
+            ((ProcessingItem) theTycoon[i]).pullAndProcessOre();
         }
                                     
         //All ProcessingItems will Implement a method called process from an interface so its nice and easy and all you gotta do is call process().

@@ -25,32 +25,50 @@ public class DriverClass {
         droppers[1] = new RubyDropper();
         droppers[2] = new GoldDropper();
 
-        System.out.println(player.getWallet());
+        Ore goldOre = new GoldOre();
+        Ore goldOre2 = new GoldOre();
 
-        for (Dropper dropper : droppers) {
-            dropper.startDropping();
-        }
 
-        try {
-            Thread.sleep(5000); // Sleep for 10 seconds to allow ore generation
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        for (Dropper dropper : droppers) {
-            dropper.stopDropping();
-        }
-
+        //Currently wont upgrade the ore stored in upgrader[0] due to the way I made the logic, upgrader[0] never has the ore in this scenario. 
+        //It goes like this: Furnace finds nothing, upgrader[1] finds gold ore in upgrader[0] and pullsAndProcess() it. upgrader[0] finds no linked item.
+        // furnace finds gold ore in upgrader[1] and pulls and processes it. No ore is left in the system.
         theQueue.addItem(upgrader[0], 0);
         theQueue.addItem(upgrader[1], 1);
         theQueue.addItem(furnace, 2);
 
+        furnace.setPreviousItem(upgrader[1]);
+        upgrader[1].setPreviousItem(upgrader[0]);
+
+        upgrader[0].setCurrentOre(goldOre2);
+
         theQueue.tycoonTick();
 
+
         
-         for (Dropper dropper : droppers) {
-            System.out.println(dropper.toString());
-        }
+        // for (Dropper dropper : droppers) {
+        //     dropper.startDropping();
+        // }
+
+        // try {
+        //     Thread.sleep(5000); // Sleep for 10 seconds to allow ore generation
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
+
+        // for (Dropper dropper : droppers) {
+        //     dropper.stopDropping();
+        // }
+
+        // theQueue.addItem(upgrader[0], 0);
+        // theQueue.addItem(upgrader[1], 1);
+        // theQueue.addItem(furnace, 2);
+
+        // theQueue.tycoonTick();
+
+        
+        //  for (Dropper dropper : droppers) {
+        //     System.out.println(dropper.toString());
+        // }
 
         System.out.println("\n" + player.getWallet());
         

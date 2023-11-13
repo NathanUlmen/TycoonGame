@@ -10,3 +10,12 @@ RESET/Prestiege sys:
     You will also recieve X amount of reset shards. Reset shards can be used to purchase reset tier items. They can also be used to purchase boxes
 
 
+Boxes:
+        Standard Box: 75% Research Point Items, 24% Shop Item, 1% Exotic Item.
+        Lucky Box: 86% Research Point Items, 12% Shop Item, 2% Exotic Item.
+        Super Lucky Box: 93% Reseach Point Items, 4% Shop Item, 3% Exotic Item
+        Rigged Box: 100% Exotic Item you dont have.
+
+A box will select 3 items, one from each type, Research Point Item, Shop Item, and an Exotic Item
+    It will then assign the item the value of its rarity
+    then it will generate a random number and reward the items whose number corresponds with the randomly generated item.

@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 import java.util.LinkedList;
 
-public abstract class Upgrader  extends ProcessingItem implements Process {
+public abstract class Upgrader  extends ProcessingItem {
     private String upgraderEffect;
 
     public Upgrader(String name, String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {

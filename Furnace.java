@@ -3,7 +3,7 @@
 import java.math.BigInteger;
 import java.util.LinkedList;
 
-public abstract class Furnace extends ProcessingItem implements Process{
+public abstract class Furnace extends ProcessingItem{
     private double processSpeed;
     private String processEffect;
     
@@ -32,6 +32,7 @@ public abstract class Furnace extends ProcessingItem implements Process{
             ore.setOreValue(processEffect(soldOreValue));
             player.setWallet(ore.getOreValue());
             ore.delete();
+            setCurrentOre(null);
             // oreQueue.remove(ore);
         }
     }
