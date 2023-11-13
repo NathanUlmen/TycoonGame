@@ -3,9 +3,9 @@ import java.util.LinkedList;
 
 public class BasicUpgrader extends ComplexUpgrader{
 
-    public BasicUpgrader(String upgraderName) {
-        super("Basic Upgrader", "+ 4", -1, -1, upgraderName, 0, 0);
-        //TODO Auto-generated constructor stub
+    public BasicUpgrader() {
+        super("+ 4", 4, 0, "Basic Upgrader", 4, 5, direction);
+        
     }
     
     @Override

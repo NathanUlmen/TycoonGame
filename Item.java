@@ -1,6 +1,6 @@
 public abstract class Item {
     
-    private int positionX;
+    protected int positionX;
     public int positionY;
     private int dimensionX;
     private int dimensionY;

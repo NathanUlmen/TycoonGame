@@ -62,7 +62,7 @@ public class TheGameQueue {
             // at the same time.
             // 7. If I wanted to store multiple ore in one Item does that mean that I would need to have each item have their own queue that stores ore?
 
-    public void tycoonTick() {
+    public void tycoonTick() { //O(n) where n is the number of items in theTycoon
         for (int i = 0; i < queueSize; i++) {
             ((ProcessingItem) theTycoon[i]).pullAndProcessOre();
         }

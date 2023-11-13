@@ -4,7 +4,7 @@ import java.util.LinkedList;
 public abstract class Upgrader  extends ProcessingItem {
     private String upgraderEffect;
 
-    public Upgrader(String name, String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
+    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
         // super(positionX, positionY, itemName, dimensionX, dimensionY);
         this.upgraderEffect = upgraderEffect;
