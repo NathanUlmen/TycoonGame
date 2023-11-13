@@ -3,8 +3,8 @@ import java.util.LinkedList;
 
 public class BasicFurnace extends Furnace{
 
-    public BasicFurnace(double processSpeed, String furnaceName, String processEffect, Player player) {
-        super();
+    public BasicFurnace(int positionX, int positionY, String itemName, double processSpeed, String furnaceName, String processEffect, Player player) {
+        super(positionX, positionY, itemName, processSpeed, processEffect, processEffect, player);
     }
 
     @Override

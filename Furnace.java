@@ -3,14 +3,15 @@
 import java.math.BigInteger;
 import java.util.LinkedList;
 
-public abstract class Furnace extends Item implements Process{
+public abstract class Furnace extends ProcessingItem implements Process{
     private double processSpeed;
     private String processEffect;
     protected CircularOreArray<Ore> sharedOreArray;
     protected Player player;
     private LinkedList<Ore> oreQueue = new LinkedList<>();
 
-    public Furnace() {
+    public Furnace(int positionX, int positionY, String itemName, double processSpeed, String furnaceName, String processEffect, Player player) {
+        super(positionX, positionY, "Furnace", positionX, positionY, direction);
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
         // this.oreQueue = oreQueue;

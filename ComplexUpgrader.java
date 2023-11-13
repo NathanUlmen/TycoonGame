@@ -4,7 +4,7 @@ public abstract class ComplexUpgrader extends Upgrader{
 
     public ComplexUpgrader(String name, String upgraderEffect, int positionX,
             int positionY, String itemName, int dimensionX, int dimensionY) {
-        super(name, upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY);
+        super(name, upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY, dimensionY);
         //TODO Auto-generated constructor stub
     }
 

@@ -16,7 +16,7 @@ public class DriverClass {
         Dropper[] droppers = new Dropper[3];
         Upgrader[] upgrader = new Upgrader[3];
         TheGameQueue theQueue = new TheGameQueue();
-        Furnace furnace = new BasicFurnace(0, null, null, player);
+        Furnace furnace = new BasicFurnace(0, 0, null, 0, null, null, player);
         upgrader[0] = new BasicUpgrader(null);
         upgrader[1] = new TheUpgrader(null);
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
@@ -42,14 +42,11 @@ public class DriverClass {
             dropper.stopDropping();
         }
 
-        theQueue.addItem(upgrader[1]);
-        theQueue.addItem(upgrader[0]);
-        theQueue.addItem(furnace);
-        
-        theQueue.displayQueue();
-        
-        theQueue.processOre();
-        
+        theQueue.addItem(upgrader[0], 0);
+        theQueue.addItem(upgrader[1], 1);
+        theQueue.addItem(furnace, 2);
+
+        theQueue.tycoonTick();
 
         
          for (Dropper dropper : droppers) {

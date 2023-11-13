@@ -5,7 +5,7 @@ public abstract class SimpleUpgrader extends Upgrader{
 
     public SimpleUpgrader(String name, String upgraderEffect, int positionX,
             int positionY, String itemName, int dimensionX, int dimensionY) {
-        super(name, upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY);
+        super(name, upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY, direction);
         //TODO Auto-generated constructor stub
     }
 

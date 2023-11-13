@@ -7,6 +7,8 @@ public abstract class Item {
     protected static int direction;
     private String itemName;
     private static TheMap theMap = new TheMap();
+    // **
+    private TheGameQueue itemQueue;
 
     public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
         this.positionX = positionX;
@@ -15,6 +17,7 @@ public abstract class Item {
         this.dimensionX = dimensionX;
         this.dimensionY = dimensionY;
         this.direction = direction;
+        this.itemQueue = null;
 
         switch (direction) {
             case 1:
@@ -76,4 +79,16 @@ public abstract class Item {
         String blab = "";
         return blab;
     }
+
+    // **
+    public TheGameQueue getItemQueue() {
+        return itemQueue;
+    }
+
+    // **
+
+    public void setItemQueue(TheGameQueue queue) {
+        this.itemQueue = queue;
+    }
+
 }
