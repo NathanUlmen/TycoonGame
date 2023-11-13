@@ -9,16 +9,18 @@ import java.util.Queue;
 
 public class DriverClass {
     public static void main(String[] args) {
+        long tracker = System.currentTimeMillis();
         
             
         Player player = new Player(BigInteger.valueOf(0), 0, 0);
         Dropper[] droppers = new Dropper[3];
-        Upgrader[] upgrader = new Upgrader[3];
+        Upgrader[] upgrader = new Upgrader[4];
         TheGameQueue theQueue = new TheGameQueue();
         Furnace furnace = new BasicFurnace(0, 0, null, 0, null, null, player);
-        upgrader[0] = new BasicUpgrader(null);
-        upgrader[1] = new TheUpgrader(null);
-        upgrader[2] = new BasicUpgrader(null);
+        upgrader[0] = new BasicUpgrader();
+        upgrader[1] = new TheUpgrader();
+        upgrader[2] = new BasicUpgrader();
+        upgrader[3] = new BasicUpgrader();
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
 
 
@@ -28,6 +30,7 @@ public class DriverClass {
 
         Ore goldOre = new GoldOre();
         Ore goldOre2 = new GoldOre();
+        Ore goldOre3 = new GoldOre();
 
 
         //Currently wont upgrade the ore stored in upgrader[0] due to the way I made the logic, upgrader[0] never has the ore in this scenario. 
@@ -36,7 +39,8 @@ public class DriverClass {
         theQueue.addItem(upgrader[0], 0);
         theQueue.addItem(upgrader[1], 1);
         theQueue.addItem(upgrader[2], 2);
-        theQueue.addItem(furnace, 3);
+        theQueue.addItem(upgrader[3], 3);
+        theQueue.addItem(furnace, 4);
 
         furnace.setPreviousItem(upgrader[1]);
         upgrader[1].setPreviousItem(upgrader[0]);
@@ -74,10 +78,12 @@ public class DriverClass {
 
         System.out.println("\n" + player.getWallet());
         upgrader[1].setPreviousItem(null);
-        upgrader[2].setPreviousItem(upgrader[0]);
+        upgrader[2].setPreviousItem(upgrader[3]);
         upgrader[0].setPreviousItem(upgrader[2]);
-        upgrader[0].setCurrentOre(goldOre);
-        for (int i = 0; i < 100; i ++) {
+        upgrader[3].setPreviousItem(upgrader[0]);
+        upgrader[2].setCurrentOre(goldOre3);
+        
+        for (int i = 0; i < 900000; i ++) {
             theQueue.tycoonTick();
         }
         
@@ -91,12 +97,15 @@ public class DriverClass {
         }
         System.out.println("\n" + player.getWallet());
 
+        
+
 
 
 
         //Maybe make a for each method that adds each upgrader to the upgrade queue?
 
-    
-
+        long tracker2 = System.currentTimeMillis();
+        tracker = tracker2 - tracker;
+        System.out.println("Time in Milliseconds: " + tracker);
     }
 }

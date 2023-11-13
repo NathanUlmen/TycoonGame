@@ -66,9 +66,9 @@ public class TheGameQueue {
         for (int i = 0; i < queueSize; i++) {
             ((ProcessingItem) theTycoon[i]).pullAndProcessOre();
         }
+        
                                     
-        //All ProcessingItems will Implement a method called process from an interface so its nice and easy and all you gotta do is call process().
-        //this is the process() method:
+        //this is the pullAndProcess() method:
         //Do this for each object in the Queue. Start from last item in queue go to first,
 
         //Check to see if ore is currently stored in object: isOreStored();
