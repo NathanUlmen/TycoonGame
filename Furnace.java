@@ -33,7 +33,6 @@ public abstract class Furnace extends ProcessingItem{
             player.setWallet(ore.getOreValue());
             ore.delete();
             setCurrentOre(null);
-            // oreQueue.remove(ore);
         }
     }
 

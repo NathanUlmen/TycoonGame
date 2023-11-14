@@ -14,6 +14,8 @@ Implement other properties?
 The game should function off of a queue system.
     sort of does it now, need to talk to the professor about that, ConcurrentLinkedQueue?
 
+No clue how this works but maybe Multithread the program? One thread dedicated to tycoonTick
+
 Player Inventory?
 
 

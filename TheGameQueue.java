@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 public class TheGameQueue {
     private ProcessingItem processingItem;
+    private Item item;
+    private Dropper dropperItem;
     private static Item[] theTycoon = new Item[10000];
     private int queueSize;
 
@@ -25,6 +27,15 @@ public class TheGameQueue {
     //removes an item from the queue at a specific index. 
     public void removeItem(Item item, int index) {
         theTycoon[index] = null;
+    }
+
+    //builds the tycoon.
+    public void assembleQueue() {
+        for (int i = 1; i < queueSize; i++) {
+            if(theTycoon[i] instanceof ProcessingItem) {
+                ((ProcessingItem) theTycoon[i]).setPreviousItem((ProcessingItem) theTycoon[i-1]);
+            }
+        }
     }
 
     // public void processOre() {
@@ -63,10 +74,16 @@ public class TheGameQueue {
             // 7. If I wanted to store multiple ore in one Item does that mean that I would need to have each item have their own queue that stores ore?
 
     public void tycoonTick() { //O(n) where n is the number of items in theTycoon
+        
         for (int i = 0; i < queueSize; i++) {
             ((ProcessingItem) theTycoon[i]).pullAndProcessOre();
         }
         
+        for (Item item : theTycoon) {
+            if (item instanceof Dropper) {
+                
+            }
+        }
                                     
         //this is the pullAndProcess() method:
         //Do this for each object in the Queue. Start from last item in queue go to first,
