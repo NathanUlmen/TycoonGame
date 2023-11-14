@@ -1,5 +1,6 @@
+import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.LinkedList;
+import java.math.MathContext;
 
 public class BasicUpgrader extends ComplexUpgrader{
 
@@ -11,6 +12,7 @@ public class BasicUpgrader extends ComplexUpgrader{
     @Override
     protected BigInteger upgradeEffect(BigInteger newOreValue) {
         return newOreValue = newOreValue.add(BigInteger.valueOf(4));
+        // return newOreValue = newOreValue.multiply(BigInteger.valueOf(2));
     }
 
     @Override

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class TheGameQueue {
     private ProcessingItem processingItem;
-    private static Item[] theTycoon = new Item[100];
+    private static Item[] theTycoon = new Item[10000];
     private int queueSize;
 
     // private static LinkedList<ProcessingItem> theTycoon = new LinkedList<>();

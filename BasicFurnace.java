@@ -1,5 +1,5 @@
 import java.math.BigInteger;
-import java.util.LinkedList;
+
 
 public class BasicFurnace extends Furnace{
 

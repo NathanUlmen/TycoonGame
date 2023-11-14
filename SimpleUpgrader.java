@@ -1,5 +1,5 @@
 import java.math.BigInteger;
-import java.util.LinkedList;
+
 
 public abstract class SimpleUpgrader extends Upgrader{
 
@@ -26,7 +26,7 @@ public abstract class SimpleUpgrader extends Upgrader{
             ore.setOreValue(upgradeEffect(newOreValue));
             ore.addUpgradeTag(getThisUpgraderTag());
         } else {
-            System.out.println("Ore has been upgraded the max number of times!");
+            //System.out.println("Ore has been upgraded the max number of times!");
         }
     }
     
