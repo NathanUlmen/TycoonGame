@@ -3,7 +3,7 @@ public abstract class ProcessingItem extends Item{
     protected Ore[] storedOreArray = new Ore[10];
     private ProcessingItem itemToPushTo;
     
-    public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
+    public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
     }
 

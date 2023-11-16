@@ -2,8 +2,8 @@ import java.math.BigInteger;
 
 public abstract class ComplexUpgrader extends Upgrader{
 
-    public ComplexUpgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
-        super(upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY, dimensionY);
+    public ComplexUpgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
+        super(upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY, Direction.UPWARDS);
         //TODO Auto-generated constructor stub
     }
 

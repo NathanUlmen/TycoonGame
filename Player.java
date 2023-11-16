@@ -10,6 +10,8 @@ public class Player {
         this.prestigeCurrency = prestigeCurrency;
     }
 
+    
+
     public void setWallet(BigInteger oreValue) {
         wallet = wallet.add(oreValue);
     }

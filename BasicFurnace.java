@@ -3,8 +3,8 @@ import java.math.BigInteger;
 
 public class BasicFurnace extends Furnace{
 
-    public BasicFurnace(int positionX, int positionY, String itemName, double processSpeed, String furnaceName, String processEffect, Player player) {
-        super(positionX, positionY, itemName, processSpeed, processEffect, processEffect, player);
+    public BasicFurnace(Player player) {
+        super(0, 0, "Basic Furnace", 0, "Sells ore with no Bonus", player, Direction.UPWARDS);
         
     }
 

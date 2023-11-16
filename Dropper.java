@@ -15,8 +15,8 @@ public abstract class Dropper extends Item{
     // private LinkedList<Ore> oreQueue = new LinkedList<>();
     protected static LinkedList<Ore> oreQueue = new LinkedList<Ore>();
 
-    public Dropper(int dropRate, LinkedList<Ore> oreQueue, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
+    public Dropper(int dropRate, LinkedList<Ore> oreQueue, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction UPWARDS) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, UPWARDS);
         this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
         this.timer = new Timer();

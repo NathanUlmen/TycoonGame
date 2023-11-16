@@ -5,7 +5,7 @@ import java.math.MathContext;
 public class BasicUpgrader extends ComplexUpgrader{
 
     public BasicUpgrader() {
-        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, 0);
+        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS);
         
     }
     

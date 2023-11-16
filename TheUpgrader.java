@@ -5,7 +5,7 @@ import java.math.MathContext;
 public class TheUpgrader extends SimpleUpgrader{
 
     public TheUpgrader() {
-        super("(sqr(x+x/3 +10) * 3)^2.033", 0, 0, "The Upgrader", 8, 8, 0);
+        super("(sqr(x+x/3 +10) * 3)^2.033", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS);
     }
     
     @Override

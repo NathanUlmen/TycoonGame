@@ -3,7 +3,7 @@ import java.math.BigInteger;
 
 public abstract class SimpleUpgrader extends Upgrader{
 
-    public SimpleUpgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
+    public SimpleUpgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         super(upgraderEffect, positionX, positionY, itemName, dimensionX, dimensionY, direction);
         //TODO Auto-generated constructor stub
     }

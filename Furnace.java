@@ -7,11 +7,11 @@ public abstract class Furnace extends ProcessingItem{
     private double processSpeed;
     private String processEffect;
     
-    protected Player player;
+    protected static Player player;
     private LinkedList<Ore> oreQueue = new LinkedList<>();
 
-    public Furnace(int positionX, int positionY, String itemName, double processSpeed, String furnaceName, String processEffect, Player player) {
-        super(positionX, positionY, "Furnace", positionX, positionY, 0);
+    public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Player player, Direction direction) {
+        super(positionX, positionY, itemName, positionX, positionY, direction);
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
         // this.oreQueue = oreQueue;

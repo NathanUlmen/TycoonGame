@@ -3,7 +3,7 @@ import java.math.BigInteger;
 public abstract class Upgrader  extends ProcessingItem {
     private String upgraderEffect;
 
-    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
+    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
         // super(positionX, positionY, itemName, dimensionX, dimensionY);
         this.upgraderEffect = upgraderEffect;

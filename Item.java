@@ -1,16 +1,16 @@
 public abstract class Item {
-    
+    protected Direction direction;
     protected int positionX;
     public int positionY;
     private int dimensionX;
     private int dimensionY;
-    protected int direction;
+    // private Direction direction;
     private String itemName;
     protected static TheMap theMap = new TheMap();
     // **
     private TheGameQueue itemQueue;
 
-    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, int direction) {
+    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.itemName = itemName;
@@ -67,11 +67,11 @@ public abstract class Item {
         return dimensionY;
     }
 
-    public int getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
-    public void setDirection(int newDirection) {
+    public void setDirection(Direction newDirection) {
         this.direction = newDirection;
     }
 
@@ -80,16 +80,16 @@ public abstract class Item {
         int newY = positionY;
     
         switch (direction) {
-            case 1:
+            case UPWARDS:
                 newY = positionY + 1;
                 break;
-            case 2:
+            case RIGHT:
                 newX = positionX + 1;
                 break;
-            case 3:
+            case DOWN:
                 newY = positionY - 1;
                 break;
-            case 4:
+            case LEFT:
                 newX = positionX - 1;
                 break;
         }
