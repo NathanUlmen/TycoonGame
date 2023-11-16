@@ -5,14 +5,14 @@ import java.math.MathContext;
 public class BasicUpgrader extends ComplexUpgrader{
 
     public BasicUpgrader() {
-        super("+ 4", 4, 0, "Basic Upgrader", 4, 5, direction);
+        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, 0);
         
     }
     
     @Override
     protected BigInteger upgradeEffect(BigInteger newOreValue) {
-        // return newOreValue = newOreValue.add(BigInteger.valueOf(4));
-        return newOreValue = newOreValue.multiply(BigInteger.valueOf(2));
+        return newOreValue = newOreValue.add(BigInteger.valueOf(4));
+        // return newOreValue = newOreValue.multiply(BigInteger.valueOf(2));
         
     }
 

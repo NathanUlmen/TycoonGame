@@ -11,7 +11,7 @@ public abstract class Furnace extends ProcessingItem{
     private LinkedList<Ore> oreQueue = new LinkedList<>();
 
     public Furnace(int positionX, int positionY, String itemName, double processSpeed, String furnaceName, String processEffect, Player player) {
-        super(positionX, positionY, "Furnace", positionX, positionY, direction);
+        super(positionX, positionY, "Furnace", positionX, positionY, 0);
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
         // this.oreQueue = oreQueue;
@@ -25,14 +25,12 @@ public abstract class Furnace extends ProcessingItem{
 
     //Should remove the ore from the circularOreArray and sell it/add the ore value to your wallet
     public void sell(Ore ore) {
-        if (ore.isDeleted() != false) {
-            System.out.println("This ore has already been sold and is invalid!");
-        } else {
+        if (ore.isDeleted() == false) {
             BigInteger soldOreValue = ore.getOreValue();
             ore.setOreValue(processEffect(soldOreValue));
             player.setWallet(ore.getOreValue());
             ore.delete();
-            setCurrentOre(null);
+            System.out.println(ore.getOreName() + " sold for: " + ore.getOreValue());
         }
     }
 

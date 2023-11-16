@@ -4,9 +4,9 @@ public abstract class Item {
     public int positionY;
     private int dimensionX;
     private int dimensionY;
-    protected static int direction;
+    protected int direction;
     private String itemName;
-    private static TheMap theMap = new TheMap();
+    protected static TheMap theMap = new TheMap();
     // **
     private TheGameQueue itemQueue;
 
@@ -19,25 +19,29 @@ public abstract class Item {
         this.direction = direction;
         this.itemQueue = null;
 
-        switch (direction) {
-            case 1:
-                theMap.isFilled(positionX, positionY+1);
-                break;
-            case 2:
-                theMap.isFilled(positionX+1, dimensionY);
-                break;
-            case 3:
-                theMap.isFilled(dimensionX, dimensionY-1);
-                break;
-            case 4:
-                theMap.isFilled(dimensionX-1, dimensionY);
-                break;
-        }
+        // switch (direction) {
+        //     case 1:
+        //         theMap.isFilled(positionX, positionY+1);
+        //         break;
+        //     case 2:
+        //         theMap.isFilled(positionX+1, dimensionY);
+        //         break;
+        //     case 3:
+        //         theMap.isFilled(dimensionX, dimensionY-1);
+        //         break;
+        //     case 4:
+        //         theMap.isFilled(dimensionX-1, dimensionY);
+        //         break;
+        // }
     }
 
     public Item() {
 
-    } 
+    }
+
+    public void placeItem(int X, int Y) {
+        theMap.addItemToMap(this, X, Y);   
+    }
 
     public int getPositionX() {
         return positionX;
@@ -63,13 +67,35 @@ public abstract class Item {
         return dimensionY;
     }
 
-    // public void setDimensionX() {
+    public int getDirection() {
+        return direction;
+    }
 
-    // }
+    public void setDirection(int newDirection) {
+        this.direction = newDirection;
+    }
 
-    // public void setDimensionY() {
+    public Item getItemInFront() {
+        int newX = positionX;
+        int newY = positionY;
+    
+        switch (direction) {
+            case 1:
+                newY = positionY + 1;
+                break;
+            case 2:
+                newX = positionX + 1;
+                break;
+            case 3:
+                newY = positionY - 1;
+                break;
+            case 4:
+                newX = positionX - 1;
+                break;
+        }
+            return theMap.getItem(newX, newY);
+    }
 
-    // }
 
     public String getItemName() {
         return itemName;

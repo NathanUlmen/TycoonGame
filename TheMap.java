@@ -10,6 +10,8 @@ public class TheMap {
     //This method adds an item to specific coordinates
     public void addItemToMap(Item item, int X, int Y) {
        theMap[X][Y] = item;
+       item.setPositionX(X);
+       item.setPositionY(Y);
     }
     //This method checks to see if there is an item present at the specific coordinates.
     public boolean isFilled(int X, int Y) {
@@ -21,5 +23,18 @@ public class TheMap {
         if (isFilled(X, Y)) {
             return theMap[X][Y];
         } return null;
+    }
+
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < theMap.length; i++) {
+            for (int j = 0; j < theMap[i].length; j++) {
+                Item item = theMap[i][j];
+                if (item != null) {
+                    result.append(String.format("[%d,%d]: %s%n", i, j, item));
+                }
+            }
+        }
+        return result.toString();
     }
 }

@@ -6,10 +6,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DriverClass {
     public static void main(String[] args) {
         long tracker = System.currentTimeMillis();
+        int ticks = 0;
         
         TheMap theMap = new TheMap();    
         Player player = new Player(BigInteger.valueOf(0), 0, 0);
@@ -23,8 +26,10 @@ public class DriverClass {
         upgrader[3] = new BasicUpgrader();
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
         BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
+        
 
-        theMap.addItemToMap(furnace, 0, 0);
+        
+
 
         
         
@@ -33,11 +38,24 @@ public class DriverClass {
         droppers[1] = new RubyDropper();
         droppers[2] = new GoldDropper();
 
-        Ore goldOre = new GoldOre();
-        Ore goldOre2 = new GoldOre();
-        Ore goldOre3 = new GoldOre();
+        // Ore goldOre = new GoldOre();
+        // Ore goldOre2 = new GoldOre();
+        // Ore goldOre3 = new GoldOre();
 
     
+        for (int i = 0; i < droppers.length; i++) {
+            droppers[i].setDirection(1);
+            theQueue.addItem(droppers[i], 4+i);
+        }
+        theQueue.addItem(droppers[0], 5);
+        theQueue.addItem(droppers[1], 6);
+        theQueue.addItem(droppers[2], 7);
+        
+        droppers[0].placeItem(1, 4);
+        droppers[1].placeItem(2, 4);
+        droppers[2].placeItem(3, 4);
+
+        
 
 
         //Currently wont upgrade the ore stored in upgrader[0] due to the way I made the logic, upgrader[0] never has the ore in this scenario. 
@@ -49,15 +67,59 @@ public class DriverClass {
         theQueue.addItem(upgrader[3], 3);
         theQueue.addItem(furnace, 4);
 
-        theQueue.assembleQueue();
+        upgrader[0].placeItem(1, 5);
+        upgrader[1].placeItem(2, 5);
+        upgrader[2].placeItem(3, 5);
+        upgrader[3].placeItem(4, 5);
+        furnace.placeItem(5, 5);
+        System.out.println(droppers[0].getItemInFront().getItemName());
+        // theMap.addItemToMap(upgrader[0], 5, 5);
+        // theMap.addItemToMap(upgrader[1], 5, 6);
+        // theMap.addItemToMap(upgrader[2], 5, 7);
+        // theMap.addItemToMap(upgrader[3], 5, 8);
+        // theMap.addItemToMap(furnace, 5, 9);
+
+        
+        
+
+        for (int i = 0; i < upgrader.length; i++) {
+            upgrader[i].setDirection(2);
+        }
+        
+        // System.out.println(theMap.getItem(5, 5).getItemName());
+        // System.out.println(theMap.getItem(5, 6).getItemName());
+        // System.out.println(theMap.getItem(5, 7).getItemName());
+        // System.out.println(theMap.getItem(5, 8).getItemName());
+
+        
+
+        System.out.println(upgrader[0].getItemInFront().getItemName());
+        
+        
         // furnace.setPreviousItem(upgrader[1]);
         // upgrader[1].setPreviousItem(upgrader[0]);
+        // for (int i = 0; i < 5; i++) {
+        //     upgrader[0].setCurrentOre(new GoldOre());
+        // }
 
-        upgrader[0].setCurrentOre(goldOre2);
+        // upgrader[0].getItemInFront();
 
-        System.out.println(player.getWallet());
 
-        theQueue.tycoonTick();
+        Timer timer = new Timer();
+
+        class Task extends TimerTask {
+            @Override
+            public void run() {
+                theQueue.tycoonTick();
+                System.out.println("\nTotal Money: " + player.getWallet());
+                System.out.println("Task executed at: " + System.currentTimeMillis());
+            }
+        }
+    
+
+        timer.scheduleAtFixedRate(new Task() {
+            
+        }, 0, 1000);
 
 
         
@@ -80,7 +142,7 @@ public class DriverClass {
         //     System.out.println(dropper.toString());
         // }
 
-        System.out.println("\n" + player.getWallet());
+        
 
 
 

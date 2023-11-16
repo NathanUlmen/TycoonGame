@@ -2,11 +2,13 @@
 
 import java.util.LinkedList;
 
+
 public class TheGameQueue {
+    private static TheMap theMap = new TheMap();
     private ProcessingItem processingItem;
     private Item item;
     private Dropper dropperItem;
-    private static Item[] theTycoon = new Item[10000];
+    private static Item[] theTycoon = new Item[1000];
     private int queueSize;
 
     // private static LinkedList<ProcessingItem> theTycoon = new LinkedList<>();
@@ -30,13 +32,13 @@ public class TheGameQueue {
     }
 
     //builds the tycoon.
-    public void assembleQueue() {
-        for (int i = 1; i < queueSize; i++) {
-            if(theTycoon[i] instanceof ProcessingItem) {
-                ((ProcessingItem) theTycoon[i]).setPreviousItem((ProcessingItem) theTycoon[i-1]);
-            }
-        }
-    }
+    // public void assembleQueue() {
+    //     for (int i = 1; i < queueSize; i++) {
+    //         if(theTycoon[i] instanceof ProcessingItem) {
+    //             ((ProcessingItem) theTycoon[i]).setPreviousItem((ProcessingItem) theTycoon[i-1]);
+    //         }
+    //     }
+    // }
 
     // public void processOre() {
     //     for (Ore ore : oreQueue) {
@@ -75,15 +77,14 @@ public class TheGameQueue {
 
     public void tycoonTick() { //O(n) where n is the number of items in theTycoon
         
-        for (int i = 0; i < queueSize; i++) {
-            ((ProcessingItem) theTycoon[i]).pullAndProcessOre();
-        }
-        
-        for (Item item : theTycoon) {
-            if (item instanceof Dropper) {
-                
+        for (int i = 0; i < queueSize; i++) { 
+            if (theTycoon[i] instanceof ProcessingItem) {
+                ((ProcessingItem) theTycoon[i]).processAndPush();
+            } else if (theTycoon[i] instanceof Dropper) {
+                ((Dropper)theTycoon[i]).dropOre();
             }
         }
+
                                     
         //this is the pullAndProcess() method:
         //Do this for each object in the Queue. Start from last item in queue go to first,
