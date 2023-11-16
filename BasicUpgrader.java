@@ -11,9 +11,9 @@ public class BasicUpgrader extends ComplexUpgrader{
     
     @Override
     protected BigInteger upgradeEffect(BigInteger newOreValue) {
-        return newOreValue = newOreValue.add(BigInteger.valueOf(4));
-        // return newOreValue = newOreValue.multiply(BigInteger.valueOf(2));
-        
+        // return newOreValue = newOreValue.add(BigInteger.valueOf(4));
+        return newOreValue = newOreValue.multiply(BigInteger.valueOf(1000000000));
+    
     }
 
     @Override

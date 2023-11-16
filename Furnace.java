@@ -1,14 +1,13 @@
 //The Furnace Class takes an ore and sells it, getting rid of it and granting you money
 
 import java.math.BigInteger;
-import java.util.LinkedList;
+import java.math.BigDecimal;
 
 public abstract class Furnace extends ProcessingItem{
     private double processSpeed;
     private String processEffect;
     
     protected static Player player;
-    private LinkedList<Ore> oreQueue = new LinkedList<>();
 
     public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Player player, Direction direction) {
         super(positionX, positionY, itemName, positionX, positionY, direction);
@@ -25,7 +24,7 @@ public abstract class Furnace extends ProcessingItem{
 
     //Should remove the ore from the circularOreArray and sell it/add the ore value to your wallet
     public void sell(Ore ore) {
-        if (ore.isDeleted() == false) {
+        if (!ore.isDeleted()) {
             BigInteger soldOreValue = ore.getOreValue();
             ore.setOreValue(processEffect(soldOreValue));
             player.setWallet(ore.getOreValue());

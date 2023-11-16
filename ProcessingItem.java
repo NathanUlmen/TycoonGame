@@ -113,6 +113,17 @@ public abstract class ProcessingItem extends Item{
         this.storedOreArray = storedOreArray;
     }
 
+    public String storedOreArrayToString() {
+        StringBuilder result = new StringBuilder("Stored Ore In " + getItemName() + ":\n");
+    
+        for (Ore ore : storedOreArray) {
+            if (ore != null) {
+                result.append(ore.toString()).append("\n");
+            }
+        }
+    
+        return result.toString();
+    }
     
     public abstract void process(Ore ore);
 

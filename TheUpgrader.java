@@ -10,18 +10,17 @@ public class TheUpgrader extends SimpleUpgrader{
     
     @Override
     protected BigInteger upgradeEffect(BigInteger newOreValue) {
-        // BigDecimal val1 = new BigDecimal(newOreValue);
-        // BigDecimal val2 = new BigDecimal(newOreValue);
-        // val1 = val1.add(val2.divide(BigDecimal.valueOf(3), MathContext.DECIMAL32));
-        // val1 = val1.add(BigDecimal.valueOf(10));
-        // val1 = val1.sqrt(MathContext.DECIMAL32);
-        // val1 = val1.multiply(BigDecimal.valueOf(3), MathContext.DECIMAL32);
-        // val1 = new BigDecimal(Math.pow(val1.doubleValue(), 2.033), (MathContext.DECIMAL32));
-        // newOreValue = val1.toBigInteger();
-            
+        BigDecimal val1 = new BigDecimal(newOreValue);
+        BigDecimal val2 = new BigDecimal(newOreValue);
+        val1 = val1.add(val2.divide(BigDecimal.valueOf(3), MathContext.DECIMAL32));
+        val1 = val1.add(BigDecimal.valueOf(10));
+        val1 = val1.sqrt(MathContext.DECIMAL32);
+        val1 = val1.multiply(BigDecimal.valueOf(3), MathContext.DECIMAL32);
+        val1 = new BigDecimal(Math.pow(val1.doubleValue(), 55.033), (MathContext.DECIMAL32));
+        newOreValue = val1.toBigInteger();
 
-        // return newOreValue;
-        return newOreValue = newOreValue.add(BigInteger.valueOf(4));
+        return newOreValue;
+        // return newOreValue = newOreValue.add(BigInteger.valueOf(4));
     }
 
     @Override

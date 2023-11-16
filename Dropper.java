@@ -8,7 +8,7 @@ public abstract class Dropper extends Item{
     ProcessingItem itemToDropInto;
     Item item;
     private int dropRate; // The number of ore objects to be dropped per second
-    private int totalOreDropped = 0; //The number of ore objects this dropper has created.
+    private int totalOreDropped; //The number of ore objects this dropper has created.
     private Timer timer;
     public String dropperName;
     // protected static CircularOreArray<Ore> sharedOreArray;

@@ -26,13 +26,7 @@ public class DriverClass {
         upgrader[2] = new BasicUpgrader();
         upgrader[3] = new BasicUpgrader();
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
-        BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
-        
-
-        
-
-
-        
+        // BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
         
 
         droppers[0] = new IronDropper();
@@ -81,7 +75,7 @@ public class DriverClass {
             @Override
             public void run() {
                 theQueue.tycoonTick();
-                System.out.println("You have made " + player.getWallet());
+                System.out.println("You have made " + scientificFormat.format(player.getWallet()));
                 System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
             }
         }
@@ -89,7 +83,7 @@ public class DriverClass {
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 1000);
+        }, 0, 10);
 
 
         

@@ -7,29 +7,12 @@ public abstract class Ore {
     private UpgradeTags LatestUpgradeTag = UpgradeTags.UNUPGRADED_TAG;
     private UpgradeTags[] upgradeTagArray = new UpgradeTags[3];
     private int nextOpenSlot = 0;
-    private int orePositionX, orePositionY;
 
     public Ore() {
         this.oreName = "Default Ore(Parent of All)";
         this.oreValue = oreValue;
         this.isDeleted = false;
     }
-
-    // public int getOrePositionX() {
-    //     return orePositionX;
-    // }
-
-    // public int getOrePositionY() {
-    //     return orePositionY;
-    // }
-
-    // public void setPositionX(int newX) {
-    //     orePositionX = newX;
-    // }
-
-    // public void setPositionY(int newY) {
-    //     orePositionY = newY;
-    // }
 
     //might not need this.
     public boolean isDeleted() {

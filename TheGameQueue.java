@@ -1,18 +1,15 @@
 //TheGameQueue is the class that stores the Queue of items placed down.
 
-import java.util.LinkedList;
-
-
 public class TheGameQueue {
-    private static TheMap theMap = new TheMap();
-    private ProcessingItem processingItem;
-    private Item item;
-    private Dropper dropperItem;
+    // private static TheMap theMap = new TheMap();
+    // private ProcessingItem processingItem;
+    // private Item item;
+    // private Dropper dropperItem;
     private static Item[] theTycoon = new Item[1000];
     private int queueSize;
 
     // private static LinkedList<ProcessingItem> theTycoon = new LinkedList<>();
-    private static LinkedList<Ore> oreQueue = new LinkedList<Ore>();  
+    // private static LinkedList<Ore> oreQueue = new LinkedList<Ore>();  
     
 
 
@@ -80,6 +77,7 @@ public class TheGameQueue {
         for (int i = 0; i < queueSize; i++) { 
             if (theTycoon[i] instanceof ProcessingItem) {
                 ((ProcessingItem) theTycoon[i]).processAndPush();
+                // System.out.println(((ProcessingItem) theTycoon[i]).storedOreArrayToString());
             } else if (theTycoon[i] instanceof Dropper) {
                 ((Dropper)theTycoon[i]).dropOre();
             }

@@ -11,8 +11,12 @@ Upgrade tags?
 Implement other properties?
     Heat, cold, radiation etc.
 
-The game should function off of a queue system.
-    sort of does it now, need to talk to the professor about that, ConcurrentLinkedQueue?
+Change ore to be BIG DECIMAL by default, Furnace will convert it to BIG int and sell it at the end, that way wont have to convert back and forth alot.
+
+Object reuse, On program run I should create 500 Ore Objects and the the droppers will pull from the pool of ore objects and modify the ore objects value and name so that they are correct.
+Furnaces should reset the ore to default then add them back to the pool of objects.
+
+Do I really need to make a new class for each ore?
 
 No clue how this works but maybe Multithread the program? One thread dedicated to tycoonTick
 
