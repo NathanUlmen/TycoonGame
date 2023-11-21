@@ -74,12 +74,21 @@ public class TheGameQueue {
 
     public void tycoonTick() { //O(n) where n is the number of items in theTycoon
         
-        for (int i = 0; i < queueSize; i++) { 
-            if (theTycoon[i] instanceof ProcessingItem) {
-                ((ProcessingItem) theTycoon[i]).processAndPush();
-                // System.out.println(((ProcessingItem) theTycoon[i]).storedOreArrayToString());
-            } else if (theTycoon[i] instanceof Dropper) {
-                ((Dropper)theTycoon[i]).dropOre();
+        // for (int i = 0; i < queueSize; i++) { 
+        //     if (theTycoon[i] instanceof ProcessingItem) {
+        //         ((ProcessingItem) theTycoon[i]).processAndPush();
+        //         // System.out.println(((ProcessingItem) theTycoon[i]).storedOreArrayToString());
+        //     } else if (theTycoon[i] instanceof Dropper) {
+        //         ((Dropper)theTycoon[i]).dropOre();
+        //     }
+        // }
+
+
+        for (Item item : theTycoon) {
+            if(item instanceof ProcessingItem) {
+                ((ProcessingItem) item).processAndPush();
+            } else if( item instanceof Dropper) {
+                ((Dropper)item).dropOre();
             }
         }
 

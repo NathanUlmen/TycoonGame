@@ -14,7 +14,7 @@ public abstract class Upgrader  extends ProcessingItem {
     }
 
     //this will upgrade the ore, still need to figure out how to make the sharedOreArray.get() automated so I dont have to set it manually. 
-    public  void upgrade(Ore ore) {
+    public void upgrade(Ore ore) {
         performUpgrade(ore);
     }
     

@@ -5,7 +5,7 @@ public class TheMap {
     public Item[][] theMap;
     
     public TheMap() {
-        theMap = new Item[20][20];
+        theMap = new Item[50][50];
     }
     //This method adds an item to specific coordinates
     public void addItemToMap(Item item, int X, int Y) {

@@ -1,34 +1,21 @@
-Create the conveyor class/object types
+Inventory, Its going to be an ADT but what kind would be the best?
+        "Stacking" items in an ADT / other data type like array
 
-Start the GUI side of things?
-
-Save system?
+Should I use A game engine instead of making my own GUI?
 
 Upgrade tags? 
     Sort of done, need to figure out a way to do it for complex upgraders(ones that can upgrade same ore multiple times.)
 
-
 Implement other properties?
     Heat, cold, radiation etc.
 
-Change ore to be BIG DECIMAL by default, Furnace will convert it to BIG int and sell it at the end, that way wont have to convert back and forth alot.
+Change ore to be BIG DECIMAL by default, Furnace will convert it to BIG int and sell it at the end, that way wont have to convert back and forth alot...
 
+Do I really need to make a new class for each ore?
 Object reuse, On program run I should create 500 Ore Objects and the the droppers will pull from the pool of ore objects and modify the ore objects value and name so that they are correct.
 Furnaces should reset the ore to default then add them back to the pool of objects.
 
-Do I really need to make a new class for each ore?
 
-No clue how this works but maybe Multithread the program? One thread dedicated to tycoonTick
-
-Player Inventory?
-
-
-
-Questions for proffesor:
-
-Save game
-
-Folders for each item type?
 
 
 

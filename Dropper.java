@@ -1,7 +1,7 @@
 //The Dropper class creates Ore objects
 
 import java.util.LinkedList;
-import java.util.Timer;
+// import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class Dropper extends Item{
@@ -9,7 +9,7 @@ public abstract class Dropper extends Item{
     Item item;
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped; //The number of ore objects this dropper has created.
-    private Timer timer;
+    // private Timer timer;
     public String dropperName;
     // protected static CircularOreArray<Ore> sharedOreArray;
     // private LinkedList<Ore> oreQueue = new LinkedList<>();
@@ -19,7 +19,7 @@ public abstract class Dropper extends Item{
         super(positionX, positionY, itemName, dimensionX, dimensionY, UPWARDS);
         this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
-        this.timer = new Timer();
+        // this.timer = new Timer();
         this.oreQueue = oreQueue;
     }
 
@@ -54,15 +54,15 @@ public abstract class Dropper extends Item{
     }
 
     //Toggles the dropper off.
-    public void stopDropping() {
-        if (timer != null) {
-            timer.cancel();
-            timer = null;
-            System.out.println(getItemName() + " ore production halted.");
-        } else {
-            System.out.println(getItemName() + " is not dropping ore.");
-        }
-    }
+    // public void stopDropping() {
+    //     if (timer != null) {
+    //         timer.cancel();
+    //         timer = null;
+    //         System.out.println(getItemName() + " ore production halted.");
+    //     } else {
+    //         System.out.println(getItemName() + " is not dropping ore.");
+    //     }
+    // }
 
     //returns the total number of ore that the dropper has produced.
     public int getTotalOreDropped() {
@@ -87,6 +87,7 @@ public abstract class Dropper extends Item{
             
             // Use the setCurrentOre method to add the ore to the ProcessingItem
             processingItem.setCurrentOre(ore);
+            // System.out.println("Ore dropped!");
             
             // Increment the totalOreDropped count
             // System.out.println("New ore Dropped!");

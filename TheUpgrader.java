@@ -16,7 +16,7 @@ public class TheUpgrader extends SimpleUpgrader{
         val1 = val1.add(BigDecimal.valueOf(10));
         val1 = val1.sqrt(MathContext.DECIMAL32);
         val1 = val1.multiply(BigDecimal.valueOf(3), MathContext.DECIMAL32);
-        val1 = new BigDecimal(Math.pow(val1.doubleValue(), 55.033), (MathContext.DECIMAL32));
+        val1 = new BigDecimal(Math.pow(val1.doubleValue(), 2.033), (MathContext.DECIMAL32));
         newOreValue = val1.toBigInteger();
 
         return newOreValue;

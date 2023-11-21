@@ -18,6 +18,12 @@ public abstract class ProcessingItem extends Item{
     //     this.itemToPullFrom = itemToPullFrom;
     // }
 
+    //In order to implement the decorator design pattern I would need to switch everything from type Ore to 
+    //type OreDecorator. From there everything should work just fine, I think...
+
+    // I would just have to make sure that during the process and push method that I add the following before the
+    // process method: storedOre[i] = process(StoredOre[i])
+
     public void setCurrentOre(Ore ore) {
         for (int i = 0; i < storedOreArray.length; i++) {
             if (storedOreArray[i] == null) {
@@ -27,6 +33,7 @@ public abstract class ProcessingItem extends Item{
         }
     }
 
+    //logic needs work this is broken AF
     private void addOre() {
         Ore[] tempArray = itemToPushTo.getStoredOreArray();
         for (int i = 0; i < 5; i++) {
@@ -109,8 +116,8 @@ public abstract class ProcessingItem extends Item{
         addOre();
     }
 
-    public void setStoredOreArray(Ore[] storedOreArray) {
-        this.storedOreArray = storedOreArray;
+    public void setStoredOreArray(Ore[] newStoredOreArray) {
+        this.storedOreArray = newStoredOreArray;
     }
 
     public String storedOreArrayToString() {

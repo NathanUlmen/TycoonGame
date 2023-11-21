@@ -1,21 +1,21 @@
 Research Points:
-    Used to unlock upgrades(Starting cash after rebirth, increased ore limit, maybe even certain items from the shop?) and purchase boxes.
-                            Boxes are basically a slot machine that reward random items that are at your tier, they are the only way to obtain Exotic items.
+    Used to unlock upgrades(Starting cash after rebirth, increased ore limit, maybe even certain items from the shop?) and purchase chests.
+                            chests are basically a slot machine that reward random items that are at your tier, they are the only way to obtain Exotic items.
     Research Points are obtained by processing ore. Each furnace will award research points after processing X amount of ore. The amount of research points awarded will
     vary depending on the furnace being used.
 
 
 RESET/Prestiege sys:
     Upon reaching a specific amount of money you will be able to reset. When you reset you start over loosing all items except a select few. You also gain a random new Item that is especially powerfull.
-    You will also recieve X amount of reset shards. Reset shards can be used to purchase reset tier items. They can also be used to purchase boxes
+    You will also recieve X amount of reset shards. Reset shards can be used to purchase reset tier items. They can also be used to purchase chests
 
 
-Boxes:
-        Standard Box: 75% Research Point Items, 24% Shop Item, 1% Exotic Item.
-        Lucky Box: 86% Research Point Items, 12% Shop Item, 2% Exotic Item.
-        Super Lucky Box: 93% Reseach Point Items, 4% Shop Item, 3% Exotic Item
-        Rigged Box: 100% Exotic Item you dont have.
+Chests:
+        Standard chests: 75% Research Point Items, 24% Shop Item, 1% Exotic Item.
+        Lucky chests: 86% Research Point Items, 12% Shop Item, 2% Exotic Item.
+        Super Lucky chests: 93% Reseach Point Items, 4% Shop Item, 3% Exotic Item
+        Rigged chests: 100% Exotic Item you dont have.
 
-A box will select 3 items, one from each type, Research Point Item, Shop Item, and an Exotic Item
+A Chest will select 3 items, one from each type, Research Point Item, Shop Item, and an Exotic Item
     It will then assign the item the value of its rarity
     then it will generate a random number and reward the items whose number corresponds with the randomly generated item.

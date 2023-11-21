@@ -30,6 +30,9 @@ public abstract class Furnace extends ProcessingItem{
             player.setWallet(ore.getOreValue());
             ore.delete();
             System.out.println(ore.getOreName() + " sold for: " + ore.getOreValue());
+
+            //When an ore is sold its value should be added to your wallet, it should be reset to a defualt 
+            //ore and it should be added back into the "Ore Realm".
         }
     }
 

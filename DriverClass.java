@@ -14,10 +14,10 @@ import java.util.TimerTask;
 public class DriverClass {
     public static void main(String[] args) {
         long tracker = System.currentTimeMillis();
-        int ticks = 0;
-        Player player = new Player(BigInteger.valueOf(0), ticks, ticks);
+       
+        Player player = new Player(BigInteger.valueOf(0), 0, 0);
         TheMap theMap = new TheMap();    
-        Dropper[] droppers = new Dropper[3];
+        Dropper[] droppers = new Dropper[9];
         Upgrader[] upgrader = new Upgrader[4];
         TheGameQueue theQueue = new TheGameQueue();
         Furnace furnace = new BasicFurnace(player);
@@ -26,47 +26,78 @@ public class DriverClass {
         upgrader[2] = new BasicUpgrader();
         upgrader[3] = new BasicUpgrader();
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
-        // BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
+        BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
+        Furnace furnace2 = new BasicFurnace(player);
         
 
         droppers[0] = new IronDropper();
         droppers[1] = new RubyDropper();
         droppers[2] = new GoldDropper();
 
+        for (int i = 0; i <= 46; i++) {
+            basicUpgraders[i] = new BasicUpgrader();
+            theQueue.addItem(basicUpgraders[i], 7+i);
+            basicUpgraders[i].placeItem(0+i, 10);
+            System.out.println("I is: " + i);
+            basicUpgraders[i].setDirection(Direction.RIGHT);
+        }
+
+        furnace2.placeItem(46, 10);
+        theQueue.addItem(furnace2, 140);
+        furnace.setDirection(Direction.UPWARDS);
+
+        // System.out.println(basicUpgraders[46].getItemInFront().getItemName());
+
+        
+
+
+        for (int i = 3; i < droppers.length ; i++) {
+            droppers[i] = new GoldDropper();
+            droppers[i].placeItem(0+i,  9);
+            droppers[i].setDirection(Direction.UPWARDS);
+            theQueue.addItem(droppers[i], 54+i);
+            System.out.println(droppers[i].getItemInFront().getItemName() + i);
+        }
+
+
+        
+        
+
         // Ore goldOre = new GoldOre();
         // Ore goldOre2 = new GoldOre();
         // Ore goldOre3 = new GoldOre();
 
     
-        for (int i = 0; i < droppers.length; i++) {
-            droppers[i].setDirection(Direction.UPWARDS);
-            theQueue.addItem(droppers[i], 4+i);
-        }
-        theQueue.addItem(droppers[0], 5);
-        theQueue.addItem(droppers[1], 6);
-        theQueue.addItem(droppers[2], 7);
-        
-        droppers[0].placeItem(1, 4);
-        droppers[1].placeItem(2, 4);
-        droppers[2].placeItem(3, 4);
+        // for (int i = 0; i < droppers.length; i++) {
+        //     droppers[i].setDirection(Direction.UPWARDS);
+        //     theQueue.addItem(droppers[i], 4+i);
+        // }
+        // theQueue.addItem(droppers[0], 5);
+        // theQueue.addItem(droppers[1], 6);
+        // theQueue.addItem(droppers[2], 7);
 
         
-        theQueue.addItem(upgrader[0], 0);
-        theQueue.addItem(upgrader[1], 1);
-        theQueue.addItem(upgrader[2], 2);
-        theQueue.addItem(upgrader[3], 3);
-        theQueue.addItem(furnace, 4);
+        // droppers[0].placeItem(1, 4);
+        // droppers[1].placeItem(2, 4);
+        // droppers[2].placeItem(3, 4);
 
-        upgrader[0].placeItem(1, 5);
-        upgrader[1].placeItem(2, 5);
-        upgrader[2].placeItem(3, 5);
-        upgrader[3].placeItem(4, 5);
-        furnace.placeItem(5, 5);
-        System.out.println(droppers[0].getItemInFront().getItemName());
+        
+        // theQueue.addItem(upgrader[0], 0);
+        // theQueue.addItem(upgrader[1], 1);
+        // theQueue.addItem(upgrader[2], 2);
+        // theQueue.addItem(upgrader[3], 3);
+        // theQueue.addItem(furnace, 4);
 
-        for (int i = 0; i < upgrader.length; i++) {
-            upgrader[i].setDirection(Direction.RIGHT);
-        }
+        // upgrader[0].placeItem(1, 5);
+        // upgrader[1].placeItem(2, 5);
+        // upgrader[2].placeItem(3, 5);
+        // upgrader[3].placeItem(4, 5);
+        // furnace.placeItem(5, 5);
+        // System.out.println(droppers[0].getItemInFront().getItemName());
+
+        // for (int i = 0; i < upgrader.length; i++) {
+        //     upgrader[i].setDirection(Direction.RIGHT);
+        // }
         
 
         Timer timer = new Timer();
@@ -83,7 +114,7 @@ public class DriverClass {
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 10);
+        }, 0, 1000);
 
 
         
