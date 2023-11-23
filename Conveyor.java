@@ -11,8 +11,8 @@ public abstract class Conveyor extends ProcessingItem {
     }
 
     @Override
-    public void process(Ore ore) {
-        move(ore);
+    public OreDecorator process(OreDecorator ore) {
+        return ore;
     }
 
 }

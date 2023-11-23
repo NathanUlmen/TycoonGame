@@ -1,5 +1,6 @@
 public abstract class Item {
     protected Direction direction;
+    protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft;
     protected int positionX;
     public int positionY;
     private int dimensionX;
@@ -94,6 +95,105 @@ public abstract class Item {
                 break;
         }
             return theMap.getItem(newX, newY);
+    }
+
+    public Item getItemBehind() {
+        int newX = positionX;
+        int newY = positionY;
+
+        switch (direction) {
+            case UPWARDS:
+                newY = positionY - 1;
+                break;
+            case RIGHT:
+                newX = positionX - 1;
+                break;
+            case DOWN:
+                newY = positionY + 1;
+                break;
+            case LEFT:
+                newX = positionX + 1;
+                break;
+        }
+            return theMap.getItem(newX, newY);
+    }
+
+    public Item getItemToRight() {
+        int newX = positionX;
+        int newY = positionY;
+    
+        switch (direction) {
+            case UPWARDS:
+                newX = positionX + 1;
+                break;
+            case RIGHT:
+                newY = positionY + 1;
+                break;
+            case DOWN:
+                newX = positionX - 1;
+                break;
+            case LEFT:
+                newY = positionY - 1;
+                break;
+        }
+        return theMap.getItem(newX, newY);
+    }
+
+    public Item getItemToLeft() {
+        int newX = positionX;
+        int newY = positionY;
+    
+        switch (direction) {
+            case UPWARDS:
+                newX = positionX - 1;
+                break;
+            case RIGHT:
+                newY = positionY - 1;
+                break;
+            case DOWN:
+                newX = positionX + 1;
+                break;
+            case LEFT:
+                newY = positionY + 1;
+                break;
+        }
+        return theMap.getItem(newX, newY);
+    }
+
+    public void setItemInFront() {
+        Item temp = getItemInFront();
+        if (temp instanceof ProcessingItem) {
+            this.itemInFront = (ProcessingItem) temp;
+        } else {
+            itemInFront = null;
+        }
+    }
+
+    public void setItemBehind() {
+        Item temp = getItemBehind();
+        if (temp instanceof ProcessingItem) {
+            this.itemBehind = (ProcessingItem) temp;
+        } else {
+            itemBehind = null;
+        }
+    }
+
+    public void setItemToRight() {
+        Item temp = getItemToRight();
+        if (temp instanceof ProcessingItem) {
+            this.itemToRight = (ProcessingItem) temp;
+        } else {
+            itemToRight = null;
+        }
+    }
+
+    public void setItemToLeft() {
+        Item temp = getItemToLeft();
+        if (temp instanceof ProcessingItem) {
+            this.itemToLeft = (ProcessingItem) temp;
+        } else {
+            itemToLeft = null;
+        }
     }
 
 

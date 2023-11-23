@@ -1,0 +1,56 @@
+public class CircularOreArray<E> {
+    private E[] array;
+    private int size, capacity, front;
+
+    public CircularOreArray (int capacity) {
+        this.capacity = capacity;
+        this.array = (E[]) new Object[capacity];
+        this.size = 0;
+        this.front = 0;
+    }
+
+    public CircularOreArray(Ore ore) {
+    }
+
+    public void add(Ore ore) {
+        if (size < capacity) {
+            array[(front + size) % capacity] = (E) ore;
+            size++;
+        }
+    }
+
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        return array[(front + index) % capacity];
+    }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        // Shift elements to fill the gap
+        for (int i = index; i < size - 1; i++) {
+            array[(front + i) % capacity] = array[(front + i + 1) % capacity];
+        }
+        size--;
+    }
+
+    public int size() {
+        return size;
+    }
+    @Override
+    public String toString() {
+        String circularOreArrayContents = "There are " + size() + " ore in this array";
+
+        return circularOreArrayContents;
+        
+    }
+
+    public void fill() {
+        for (int i = 0; i < array.length; i++) {
+            add(new Ore());
+        }
+    }
+}

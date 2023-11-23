@@ -1,73 +1,70 @@
 //The Dropper class creates Ore objects
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
-// import java.util.Timer;
 import java.util.TimerTask;
 
-public abstract class Dropper extends Item{
-    ProcessingItem itemToDropInto;
-    Item item;
+public abstract class Dropper extends Item implements OreDecorator{
+    private Item item;
+    protected Ore ore;
+    protected OreDecorator internal;
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped; //The number of ore objects this dropper has created.
-    // private Timer timer;
-    public String dropperName;
-    // protected static CircularOreArray<Ore> sharedOreArray;
-    // private LinkedList<Ore> oreQueue = new LinkedList<>();
-    protected static LinkedList<Ore> oreQueue = new LinkedList<Ore>();
+    protected static OreRealm oreRealm = new OreRealm();
+    protected boolean canDrop;
+    
+    
 
-    public Dropper(int dropRate, LinkedList<Ore> oreQueue, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction UPWARDS) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, UPWARDS);
+    public Dropper(int dropRate, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
         this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
-        // this.timer = new Timer();
-        this.oreQueue = oreQueue;
     }
 
-    //Toggles the dropper on, causing it to produce a new ore object and add it to the circular ore array. If the circular Ore array is full the droppers production is paused. 
-    // public void startDropping() {
-    //     if (timer == null) {
-    //         timer = new Timer();
-    //     }
-        
-    //     timer.scheduleAtFixedRate(new TimerTask() {
-    //         @Override
-    //         public void run() {
-    //             if (oreQueue.size() < 250 ) { //This should Be changed to an enum
-    //                 initializeOre();
-    //                 System.out.println(getItemName() + " is Mining a new ore! (Ore# : " + totalOreDropped + ")");
-    //             } else {
-    //                 System.out.println("Ore Limit Reached! Production Paused.");
-    //             }               
-                    
-    //         }
-    //     }, 0, dropRate); // Schedule the task to run every X milliseconds (1 second = 1000)
-    // }
-
-    //creates an ore object
-    protected abstract Ore createOre();
-
-    //Creates an ore object, adds it to the oreQueue, and increments the totalOreDropped
-    private void initializeOre() {
-        Ore ore = createOre();
-        oreQueue.add(ore);
-        totalOreDropped++;
+    public Dropper(Ore ore) {
+        this.internal = null;
+        this.ore = ore;
     }
 
-    //Toggles the dropper off.
-    // public void stopDropping() {
-    //     if (timer != null) {
-    //         timer.cancel();
-    //         timer = null;
-    //         System.out.println(getItemName() + " ore production halted.");
+    public void dropOre() {
+        if (itemInFront != null && itemInFront.isEmpty()) {
+            itemInFront.setStoredOre(createOre());
+            totalOreDropped++;
+            System.out.println("Dropped!");
+        }
+    }
+
+    // public void setItemInFront() {
+    //     Item temp = getItemInFront();
+    //     if (temp instanceof ProcessingItem) {
+    //         this.itemInFront = (ProcessingItem) temp;
+    //         canDrop = true;
     //     } else {
-    //         System.out.println(getItemName() + " is not dropping ore.");
+    //         itemInFront = null;
+    //         canDrop = false;
     //     }
     // }
+
+    @Override
+    public Ore prepare() {
+        Ore result = (ore != null) ? ore : internal.prepare();
+        result.applyBaseStats(baseOreValue(), startingTemp(), setName());
+        return result;
+    }
 
     //returns the total number of ore that the dropper has produced.
     public int getTotalOreDropped() {
         return totalOreDropped;
     }
+
+    //creates an ore object
+    protected abstract OreDecorator createOre();
+
+     protected abstract BigDecimal baseOreValue();
+
+    protected abstract String setName();
+
+    protected abstract int startingTemp();
 
     public String toString() {
         double num = 1000;
@@ -75,26 +72,24 @@ public abstract class Dropper extends Item{
         return dropperInfo;
     }
 
-    public void dropOre() {
-        Item itemInFront = getItemInFront();
-
-    if (itemInFront instanceof ProcessingItem) {
-        itemInFront = getItemInFront();
     
-        if (itemInFront instanceof ProcessingItem) {
-            ProcessingItem processingItem = (ProcessingItem) itemInFront;
-            Ore ore = createOre();
-            
-            // Use the setCurrentOre method to add the ore to the ProcessingItem
-            processingItem.setCurrentOre(ore);
-            // System.out.println("Ore dropped!");
-            
-            // Increment the totalOreDropped count
-            // System.out.println("New ore Dropped!");
-            totalOreDropped++;
-        }
-}
 
+    
+
+    // public void dropOre() {
+    //     Item itemInFront = getItemInFront();
+    //     if (itemInFront instanceof ProcessingItem) {
+    //         itemInFront = getItemInFront();
+    
+    //         if (itemInFront instanceof ProcessingItem) {
+    //             ProcessingItem processingItem = (ProcessingItem) itemInFront;
+    //             Ore ore = createOre();
+    //             processingItem.setCurrentOre(ore);
+    //             totalOreDropped++;
+    //         }
+    //     }
+
+    
     // private void setCurrentOre(Ore ore) {
     //     Ore[] temp = ((ProcessingItem) item).getStoredOreArray();
     
@@ -105,6 +100,6 @@ public abstract class Dropper extends Item{
     //             break; // Break out of the loop after adding one ore
     //         }
     //     }
-    }
 
+   
 }

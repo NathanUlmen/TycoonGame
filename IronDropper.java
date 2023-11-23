@@ -1,10 +1,35 @@
+import java.math.BigDecimal;
+
 public class IronDropper extends Dropper{
+
     public IronDropper() {
-        super(2000, oreQueue, 0, 0, "Iron Dropper", 0, 0, Direction.UPWARDS);
+        super(2000, 0, 0, "Iron Dropper", 0, 0, Direction.UPWARDS);
+    }
+
+    public IronDropper(Ore ore) {
+        super(ore);
+        this. ore = ore;
+        this.internal = null;
     }
 
     @Override
-    protected Ore createOre() {
-        return new IronOre();
+    protected OreDecorator createOre() {
+        OreDecorator ore = new IronDropper((Ore) oreRealm.dequeue());
+        return ore;
+    }
+
+    @Override
+    protected BigDecimal baseOreValue() {
+        return BigDecimal.valueOf(4);
+    }
+
+    @Override
+    protected String setName() {
+        return "Iron Ore";
+    }
+
+    @Override
+    protected int startingTemp() {
+        return 0;
     }
 }

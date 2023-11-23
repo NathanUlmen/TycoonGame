@@ -12,7 +12,7 @@ public class Player {
 
     
 
-    public void setWallet(BigInteger oreValue) {
+    public void addToWallet(BigInteger oreValue) {
         wallet = wallet.add(oreValue);
     }
 

@@ -15,8 +15,7 @@ public class DriverClass {
     public static void main(String[] args) {
         long tracker = System.currentTimeMillis();
        
-        Player player = new Player(BigInteger.valueOf(0), 0, 0);
-        TheMap theMap = new TheMap();    
+        Player player = new Player(BigInteger.valueOf(0), 0, 0);   
         Dropper[] droppers = new Dropper[9];
         Upgrader[] upgrader = new Upgrader[4];
         TheGameQueue theQueue = new TheGameQueue();

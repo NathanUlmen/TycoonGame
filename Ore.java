@@ -1,65 +1,74 @@
-import java.math.BigInteger;
+import java.math.BigDecimal;
 
-public abstract class Ore {
-    protected BigInteger oreValue;
-    protected String oreName;
+public class Ore {
+    private BigDecimal oreValue;
+    private int oreTemperature, upgradeCount;
+    private String oreName;
     private boolean isDeleted;
-    private UpgradeTags LatestUpgradeTag = UpgradeTags.UNUPGRADED_TAG;
-    private UpgradeTags[] upgradeTagArray = new UpgradeTags[3];
-    private int nextOpenSlot = 0;
 
     public Ore() {
-        this.oreName = "Default Ore(Parent of All)";
-        this.oreValue = oreValue;
+        this.oreValue = BigDecimal.valueOf(0);
+        this.oreTemperature = 0;
+        this.oreName = "";
         this.isDeleted = false;
+        this.upgradeCount = 0;
     }
 
-    //might not need this.
-    public boolean isDeleted() {
-        return isDeleted;
+    //
+    public void applyUpgrade(BigDecimal oreValueAfterUpgrade, int temperatureAfterUpgrade) {
+        this.oreValue = oreValueAfterUpgrade;
+        this.oreTemperature = temperatureAfterUpgrade;
     }
 
-    //returns the value of the ore.
-    public BigInteger getOreValue() {
+    public void applyName(String name) {
+        this.oreName = name;
+    }
+
+    public void applyTemperature(int temperatureAfterUpgrade) {
+        this.oreTemperature = temperatureAfterUpgrade;
+    }
+
+    public void applyBaseStats(BigDecimal startingValue, int startingTemp, String name) {
+        this.oreValue = startingValue;
+        this.oreName = name;
+        this.oreTemperature = startingTemp;
+    }
+    
+    public BigDecimal getOreValue() {
         return oreValue;
     }
 
-    public String getOreName() {
-        return oreName;
+    public void setOreValue(BigDecimal newValue) {
+        this.oreValue = newValue;
     }
 
-    //might not need this.
+    public int getOreTemp() {
+        return oreTemperature;
+    }
+    
+    public String getName() {
+        return oreName;
+    }
+    
     public void delete() {
         isDeleted = true;
     }
 
-    //sets the value of the ore from an upgrader. This probably needs work.
-    public void setOreValue(BigInteger newOreValue) {
-        oreValue = newOreValue;
+    public boolean isDeleted() {
+        return isDeleted;
     }
 
-    //returns the upgrade tag
-    public UpgradeTags hasUpgradeTag(UpgradeTags searchedTag) {
-        for (int i = 0; i < upgradeTagArray.length; i++) {
-            if (upgradeTagArray[i] == searchedTag) {
-                return upgradeTagArray[i];
-            }
-        }
-        return null;
+    public void reset() {
+        this.oreValue = BigDecimal.valueOf(0);
+        this.oreTemperature = 0;
+        this.oreName = "";
+        this.isDeleted = false;
+        this.upgradeCount = 0;
     }
 
-    //adds an upgrade tag.
-    public void addUpgradeTag(UpgradeTags upgradeTags) {
-        upgradeTagArray[nextOpenSlot] = upgradeTags;
-    }
-
-    //gets the ores upgrade tag array.
-    public UpgradeTags[] getUpgradeTagArray() {
-        return upgradeTagArray;
-    }
-    
     public String toString() {
-        String oreInfo = "Ore Name: " + oreName + "\nOre Value: " + oreValue + "Ore State: " + isDeleted;
-        return oreInfo;
+        String bars = " -----------------";
+        String oreToString = bars + "\nOre Name: " + oreName + "\nOre Value: " + oreValue + "\nOre Temperature: " + oreTemperature + "\nOre Upgrade Count: " + upgradeCount + "\nOre State: " + isDeleted + "\n";
+        return oreToString;
     }
 }

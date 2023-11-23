@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 
@@ -8,8 +9,9 @@ public class BasicFurnace extends Furnace{
         
     }
 
+
     @Override
-    protected BigInteger processEffect(BigInteger soldOreValue) {
+    protected BigDecimal processEffect(BigDecimal soldOreValue) {
         return soldOreValue;
     }
     
