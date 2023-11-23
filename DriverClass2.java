@@ -41,6 +41,9 @@ public class DriverClass2 {
 
         System.out.println(droppers[0].oreRealm.toString());
 
+        System.out.println(tycoonBuilder.identifySystems().getItemName());
+        tycoonBuilder.identifySystems().getItemName();
+
         
 
         // droppers[0] = new IronDropper();

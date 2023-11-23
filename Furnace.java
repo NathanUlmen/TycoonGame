@@ -1,6 +1,4 @@
 //The Furnace Class takes an ore and sells it, getting rid of it and granting you money
-
-import java.math.BigInteger;
 import java.math.BigDecimal;
 
 public abstract class Furnace extends ProcessingItem{

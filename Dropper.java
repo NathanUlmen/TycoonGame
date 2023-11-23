@@ -1,8 +1,6 @@
 //The Dropper class creates Ore objects
 
 import java.math.BigDecimal;
-import java.util.LinkedList;
-import java.util.TimerTask;
 
 public abstract class Dropper extends Item implements OreDecorator{
     private Item item;
