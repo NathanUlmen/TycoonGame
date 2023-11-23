@@ -31,18 +31,21 @@ public class DriverClass2 {
         furnace2.setDirection(Direction.RIGHT);
 
 
-        System.out.println(droppers[0].getItemInFront().getItemName());
 
         droppers[0].setItemInFront();
         upgrader[0].setItemInFront();
         furnace2.setItemInFront();
 
+        System.out.println(droppers[0].getItemInFront().getItemName() + "\n" + upgrader[0].getItemInFront().getItemName());
+
         droppers[0].oreRealm.fillOreQueue();
 
-        System.out.println(droppers[0].oreRealm.toString());
+        theQueue.addItem(droppers[0], 2);
+        theQueue.addItem(furnace2, 0);
+        theQueue.addItem(upgrader[0], 1);
 
-        System.out.println(tycoonBuilder.identifySystems().getItemName());
-        tycoonBuilder.identifySystems().getItemName();
+        // System.out.println(tycoonBuilder.identifySystems().getItemName());
+        // tycoonBuilder.identifySystems().getItemName();
 
         
 
@@ -69,7 +72,7 @@ public class DriverClass2 {
         // theQueue.addItem(furnace2, 140);
         // furnace.setDirection(Direction.UPWARDS);
 
-        List<List<ProcessingItem>> tycoonSystems = tycoonBuilder.buildTycoons();
+        //List<List<ProcessingItem>> tycoonSystems = tycoonBuilder.buildTycoons();
 
         // droppers[0].setItemInFront();
         // droppers[1].setItemInFront();
@@ -79,9 +82,11 @@ public class DriverClass2 {
         class Task extends TimerTask {
             @Override
             public void run() {
-                tycoonBuilder.fireTycoons(tycoonSystems);
+                //tycoonBuilder.fireTycoons(tycoonSystems);
+                theQueue.tycoonTick();
                 droppers[0].dropOre();
-                System.out.println("You have made " + scientificFormat.format(player.getWallet()));
+                System.out.println("You have made " + scientificFormat.format(player.getWallet())
+                 + " or " +player.getWallet());
                 System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
             }
         }

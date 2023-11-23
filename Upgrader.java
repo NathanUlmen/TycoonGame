@@ -27,7 +27,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     @Override
     public OreDecorator process(OreDecorator ore) {
         System.out.println("Upgraded!");
-        return upgrade(ore);
+        return ore = upgrade(ore);
     }
 
     // //this will upgrade the ore, still need to figure out how to make the sharedOreArray.get() automated so I dont have to set it manually. 
@@ -38,7 +38,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     @Override
     public Ore prepare() {
         Ore result = (ore != null) ? ore : internal.prepare();
-        ore.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()));
+        result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()));
         return result;
     }
     

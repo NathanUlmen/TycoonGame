@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 
 public class BasicUpgrader extends Upgrader{
-    private int maxUpgrades = 4;
+    private final int maxUpgrades = 4;
     private static int numberOfUpgrades = 0;
 
     public BasicUpgrader() {
@@ -36,8 +36,9 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected OreDecorator upgrade(OreDecorator ore) {
-        if (canUpgrade(BasicUpgrader.numberOfUpgrades, maxUpgrades)) {
+        if (canUpgrade(BasicUpgrader.numberOfUpgrades, maxUpgrades) && ore != null) {
             ore = new BasicUpgrader(ore);
+            setStoredOre(ore);
         }
         return ore;
     }

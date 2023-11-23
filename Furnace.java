@@ -3,6 +3,7 @@ import java.math.BigDecimal;
 
 public abstract class Furnace extends ProcessingItem{
     protected static OreRealm oreRealm = new OreRealm();
+    Ore ore;
     private double processSpeed;
     private String processEffect;
     
@@ -23,13 +24,16 @@ public abstract class Furnace extends ProcessingItem{
     }
 
     public void sell(OreDecorator ore) {
-        Ore preparedOre = ore.prepare();
-        preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
-        player.addToWallet(preparedOre.getOreValue().toBigInteger());
-        preparedOre.reset();
-        setStoredOre(null);
-        oreRealm.enqueue(preparedOre);
-        System.out.println("Sold!");
+        if (ore != null) {
+            Ore preparedOre = ore.prepare();
+            preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
+            player.addToWallet(preparedOre.getOreValue().toBigInteger());
+            preparedOre.reset();
+            setStoredOre(null);
+            oreRealm.enqueue(preparedOre);
+            System.out.println("Sold!");
+        }
+        
 
     }
 

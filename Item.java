@@ -1,6 +1,7 @@
 public abstract class Item {
     protected Direction direction;
-    protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft;
+    protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft, itemToPushTo;
+
     protected int positionX;
     public int positionY;
     private int dimensionX;
@@ -163,7 +164,7 @@ public abstract class Item {
     public void setItemInFront() {
         Item temp = getItemInFront();
         if (temp instanceof ProcessingItem) {
-            this.itemInFront = (ProcessingItem) temp;
+            itemToPushTo = this.itemInFront = (ProcessingItem) temp;
         } else {
             itemInFront = null;
         }

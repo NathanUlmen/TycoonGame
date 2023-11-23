@@ -68,7 +68,9 @@ public class Ore {
 
     public String toString() {
         String bars = " -----------------";
-        String oreToString = bars + "\nOre Name: " + oreName + "\nOre Value: " + oreValue + "\nOre Temperature: " + oreTemperature + "\nOre Upgrade Count: " + upgradeCount + "\nOre State: " + isDeleted + "\n";
+        String oreToString = bars + "\nName: " + oreName + "\nValue: " + oreValue + 
+            "\nTemperature: " + oreTemperature + "\nUpgrade Count: " + upgradeCount + 
+            "\nState: " + isDeleted + "\n";
         return oreToString;
     }
 }
