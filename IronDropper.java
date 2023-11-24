@@ -21,7 +21,7 @@ public class IronDropper extends Dropper{
 
     @Override
     protected BigDecimal baseOreValue() {
-        return BigDecimal.valueOf(4);
+        return BigDecimal.valueOf(2);
     }
 
     @Override

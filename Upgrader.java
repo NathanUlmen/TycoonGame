@@ -1,10 +1,11 @@
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     private String upgraderEffect;
     protected Ore ore;
     protected OreDecorator internal;
-    protected boolean canUpgrade;
+    protected static final MathContext hundreths = new MathContext(5);
 
 
     public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
@@ -42,7 +43,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
         return result;
     }
     
-    
+
     protected abstract OreDecorator upgrade(OreDecorator ore);
 
     protected abstract BigDecimal upgradeEffect(BigDecimal newOreValue);
@@ -50,8 +51,10 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected abstract int tempChange(int oreTemperature);
 
     protected boolean canUpgrade(int numberOfUpgrades ,int maxUpgrades) {
-        return numberOfUpgrades <= maxUpgrades;
+        return numberOfUpgrades < maxUpgrades;
     }
+
+    
 
     //the specific upgrade effect will vary depending on the upgrader.
     

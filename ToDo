@@ -29,6 +29,8 @@ OreDecorator Type but that might not be an issue because reseters would attach i
 
 4. Upgrades that use temperature might not work, have not tested.
 
+5. The Decorator pattern isnt working as intended, the numberOfUpgrades property isnt specific to the ore which means they wont work properly. EX: TheUpgrader will upgrade only upgrade one ore one time because after it upgrades and ore it increments the numberOfUpgrades property which breaks it.
+
 
 Things To Clean UP:
 

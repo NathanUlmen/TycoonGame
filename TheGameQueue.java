@@ -5,7 +5,7 @@ public class TheGameQueue {
     // private ProcessingItem processingItem;
     // private Item item;
     // private Dropper dropperItem;
-    private static Item[] theTycoon = new Item[4];
+    private static Item[] theTycoon = new Item[10];
     private int queueSize;
 
     // private static LinkedList<ProcessingItem> theTycoon = new LinkedList<>();

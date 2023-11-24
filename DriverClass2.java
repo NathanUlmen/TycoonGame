@@ -20,6 +20,9 @@ public class DriverClass2 {
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
         BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
         Furnace furnace2 = new BasicFurnace(player);
+        TheUpgrader theUpgrader = new TheUpgrader();
+
+        basicUpgraders[0] = new BasicUpgrader();
 
         droppers[0] = new IronDropper();
 
@@ -27,22 +30,33 @@ public class DriverClass2 {
         droppers[0].setDirection(Direction.UPWARDS);
         upgrader[0].placeItem(5, 6);
         upgrader[0].setDirection(Direction.RIGHT);
-        furnace2.placeItem(6, 6);
+        basicUpgraders[0].placeItem(6, 6);
+        basicUpgraders[0].setDirection(Direction.RIGHT);
+        upgrader[1].placeItem(7, 6);
+        upgrader[1].setDirection(Direction.RIGHT);
+        theUpgrader.placeItem(8, 6);
+        theUpgrader.setDirection(Direction.RIGHT);
+        furnace2.placeItem(9, 6);
         furnace2.setDirection(Direction.RIGHT);
 
 
-
+        basicUpgraders[0].setItemInFront();
         droppers[0].setItemInFront();
+        upgrader[1].setItemInFront();
         upgrader[0].setItemInFront();
         furnace2.setItemInFront();
+        theUpgrader.setItemInFront();
 
         System.out.println(droppers[0].getItemInFront().getItemName() + "\n" + upgrader[0].getItemInFront().getItemName());
 
         droppers[0].oreRealm.fillOreQueue();
 
-        theQueue.addItem(droppers[0], 2);
+        theQueue.addItem(droppers[0], 5);
         theQueue.addItem(furnace2, 0);
-        theQueue.addItem(upgrader[0], 1);
+        theQueue.addItem(theUpgrader, 1);
+        theQueue.addItem(basicUpgraders[0], 3);
+        theQueue.addItem(upgrader[0], 4);
+        theQueue.addItem(upgrader[1], 2);
 
         // System.out.println(tycoonBuilder.identifySystems().getItemName());
         // tycoonBuilder.identifySystems().getItemName();
@@ -94,7 +108,7 @@ public class DriverClass2 {
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 1000);
+        }, 0, 750);
         
     }
 }

@@ -58,6 +58,10 @@ public class Ore {
         return isDeleted;
     }
 
+    public int getUpgradeCount() {
+        return upgradeCount;
+    }
+
     public void reset() {
         this.oreValue = BigDecimal.valueOf(0);
         this.oreTemperature = 0;
