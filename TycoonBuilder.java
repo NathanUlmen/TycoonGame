@@ -45,7 +45,7 @@ public class TycoonBuilder {
         for (List<Item> list : tycoonSystems) {
             for (Item item : list) {
                 if(item instanceof Furnace || item instanceof Upgrader) {
-                    
+                    //Do I use a recursive method to solve this???
                 } else if (item instanceof Conveyor) {
 
                 }

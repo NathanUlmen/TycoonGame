@@ -4,16 +4,53 @@ Inventory, Its going to be an ADT but what kind would be the best?
 Should I use A game engine instead of making my own GUI?
 
 Upgrade tags? 
-    Sort of done, need to figure out a way to do it for complex upgraders(ones that can upgrade same ore multiple times.)
+    (DONE)
 
 Implement other properties?
-    Heat, cold, radiation etc.
+    Heat(DONE), cold(DONE), radiation etc.
 
 Change ore to be BIG DECIMAL by default, Furnace will convert it to BIG int and sell it at the end, that way wont have to convert back and forth alot...
 
 Do I really need to make a new class for each ore?
 Object reuse, On program run I should create 500 Ore Objects and the the droppers will pull from the pool of ore objects and modify the ore objects value and name so that they are correct.
 Furnaces should reset the ore to default then add them back to the pool of objects.
+
+
+BUGS That need to be addressed:
+
+1. The way process and push currently works, the ore will continue to be upgraded even if its not pushed
+to another item, EX: if upgrader cant push ore to anything it will upgrade that ore the next time it tries to 
+push it to something which is not intended.
+
+2. Might need to implement some logic to handle reseters, currently items are only capable of taking
+OreDecorator Type but that might not be an issue because reseters would attach its own upgrade tag imediatly after upgrading, What if multiple reseters?
+
+3. The ore enqueue method on the ore realm doesnt work.
+
+4. Upgrades that use temperature might not work, have not tested.
+
+
+Things To Clean UP:
+
+1. redundancy in the upgrade methods, could just use set.
+
+Things to Create:
+
+1. The TycoonBuilder
+
+2. Inventory system
+
+3. "Weave Methods together"
+
+4. "Create Chests"
+
+5. Prestigie system
+
+6. Layout Saver
+
+
+
+
 
 
 
