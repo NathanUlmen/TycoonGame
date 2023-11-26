@@ -1,10 +1,5 @@
 public abstract class Item {
-    // public enum Direction {
-    //     UPWARDS,
-    //     RIGHT,
-    //     DOWN,
-    //     LEFT
-    // }
+    // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
     protected Direction direction;
     protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft, itemToPushTo;
     protected int positionX;

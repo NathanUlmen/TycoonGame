@@ -35,12 +35,29 @@ public class TycoonBuilder {
 
     //This method will set make all placed items set their ItemInFront.
     public void connectSystems() {
-
+        
     }
+    
 
     //This method will map out and "create" the systems, so that they can be fired in the correct order.
+//              1
+//              | 
+//              2  
+//              |   
+//              3   
+//              | 
+//     ?--?--?--4--?--?--?   
+//     |                 |
+//     ?                 ?
+//     |                 |
+//     ?                 ?
+//     |                 |
+//     ?                 ?----?----?
+//     |                 |         |
+//                       ?         ?
+//                       |         |
     public void createSystems() {
-        for (List<Item> list : tycoonSystems) {
+        for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
                 if(item instanceof Furnace || item instanceof Upgrader) {
                     //Do I use a recursive method to solve this???
@@ -52,6 +69,7 @@ public class TycoonBuilder {
             }
         }
     }
+    
 
     //Goes through all placed items and identifies end points of systems.
     //THIS HAS NOT BEEN TESTED

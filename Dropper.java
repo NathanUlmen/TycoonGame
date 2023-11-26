@@ -5,7 +5,6 @@
 import java.math.BigDecimal;
 
 public abstract class Dropper extends Item implements OreDecorator{
-    private Item item;
     protected Ore ore;
     protected OreDecorator internal;
     private int dropRate; // The number of ore objects to be dropped per second
@@ -16,7 +15,6 @@ public abstract class Dropper extends Item implements OreDecorator{
 
     public Dropper(int dropRate, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
-        this.totalOreDropped = totalOreDropped;
         this.dropRate = dropRate;
     }
 

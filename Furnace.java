@@ -12,7 +12,6 @@ public abstract class Furnace extends ProcessingItem{
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
         // this.oreQueue = oreQueue;
-        this.player = player;
     }
 
     @Override
