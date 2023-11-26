@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TycoonBuilder {
+    //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
     protected static TheMap theMap = new TheMap();
     private List<List<Item>> tycoonSystems = new ArrayList<>();
     private List<Item> allItems = new ArrayList<>();
@@ -43,6 +44,8 @@ public class TycoonBuilder {
             for (Item item : list) {
                 if(item instanceof Furnace || item instanceof Upgrader) {
                     //Do I use a recursive method to solve this???
+                    //Maybe use an algorithm called Breadth-First Search(BFS) to do this
+
                 } else if (item instanceof Conveyor) {
 
                 }
@@ -88,24 +91,18 @@ public class TycoonBuilder {
 
     //This method will look for systems that dont have an end, they are just one big circle.
     public void identifyLoopingSystems(){
-        
+        //from what I can find it seems like I could approach this using an algorithm called
+        //Depth First Search(DFS)
     }
 
     //item.getItemInFront() == null && item.getItemBehind() != null
-    //Makes a list of all the placed Items.
-    public void setAllItems() {
-        allItems.add(getAllPlacedItems());
-    }
 
-    //This method will return all the objects that are on theMap.
-    private Item getAllPlacedItems() {
+    //This method will return all the objects that are on theMap and makes a list of them.
+    public void getAllPlacedItems() {
         ArrayList<Point> filledCoordinates = theMap.getFilledCoordinates();
         for (Point coordinate : filledCoordinates) {
-            int x = coordinate.getX();
-            int y = coordinate.getY();
-            return theMap.getItem(x, y);
+            allItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
         }
-        return null;
     }
 
     private boolean itemBehindIsLinked(Item item) {
@@ -122,79 +119,6 @@ public class TycoonBuilder {
         Item itemToLeft = item.getItemToLeft();
         return itemToLeft != null && itemToLeft.getItemInFront() == item;
     }
-
-
-    
-    
-
-
-
-
-
-    // public void fireTycoons(List<List<ProcessingItem>> tycoonSystems) {
-    //     // Iterate through each tycoon system
-    //     for (List<ProcessingItem> tycoonSystem : tycoonSystems) {
-    //         // Iterate through each processing item in the tycoon system
-    //         for (ProcessingItem processingItem : tycoonSystem) {
-    //             // Process and push the ore for each item
-    //             processingItem.processAndPush();
-    //         }
-    //     }
-    // }
-
-    // public List<List<ProcessingItem>> buildTycoons() {
-    //     List<List<ProcessingItem>> tycoonSystems = new ArrayList<>();
-
-    //     for (int i = 0; i < theMap.theMap.length; i++) {
-    //         for (int j = 0; j < theMap.theMap[i].length; j++) {
-    //             Item currentItem = theMap.getItem(i, j);
-
-    //             // Check if it's a furnace
-    //             if (currentItem instanceof ProcessingItem) {
-    //                 List<ProcessingItem> tycoonSystem = new ArrayList<>();
-    //                 buildSystem((ProcessingItem) currentItem, tycoonSystem);
-    //                 tycoonSystems.add(tycoonSystem);
-    //             }
-    //         }
-    //     }
-
-    //     connectTycoons(tycoonSystems);
-    //     return tycoonSystems;
-
-    // }
-
-    // private void buildSystem(ProcessingItem currentItem, List<ProcessingItem> tycoonSystem) {
-    //     tycoonSystem.add(currentItem);
-
-    //     // Build the system by following the items to the right
-    //     while (currentItem != null) {
-    //         currentItem = (ProcessingItem) currentItem.getItemToRight();
-    //         if (currentItem != null) {
-    //             tycoonSystem.add(currentItem);
-    //         }
-    //     }
-
-    //     // Build the system by following the items to the left
-    //     currentItem = tycoonSystem.get(0);
-    //     while (currentItem != null) {
-    //         currentItem = (ProcessingItem) currentItem.getItemToLeft();
-    //         if (currentItem != null) {
-    //             tycoonSystem.add(currentItem);
-    //         }
-    //     }
-    // }
-
-    // private void connectTycoons(List<List<ProcessingItem>> tycoonSystems) {
-    //     // Iterate through each tycoon system and setItemToPushTo for each item
-    //     for (List<ProcessingItem> tycoonSystem : tycoonSystems) {
-    //         for (int i = 0; i < tycoonSystem.size() - 1; i++) {
-    //             ProcessingItem currentItem = tycoonSystem.get(i);
-    //             ProcessingItem nextItem = tycoonSystem.get(i + 1);
-
-    //             // SetItemToPushTo logic
-    //             currentItem.setItemInFront();
-    //         }
-    //     }
-    // }
+   
 }
 
