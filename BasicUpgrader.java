@@ -35,12 +35,11 @@ public class BasicUpgrader extends Upgrader{
     }
 
     @Override
-    protected OreDecorator upgrade(OreDecorator ore) {
+    protected void upgrade(OreDecorator ore) {
         if (canUpgrade(BasicUpgrader.numberOfUpgrades, maxUpgrades) && ore != null) {
             ore = new BasicUpgrader(ore);
             setStoredOre(ore);
         }
-        return ore;
     }
 
 }

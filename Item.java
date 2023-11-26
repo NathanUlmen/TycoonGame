@@ -1,15 +1,21 @@
 public abstract class Item {
+    // public enum Direction {
+    //     UPWARDS,
+    //     RIGHT,
+    //     DOWN,
+    //     LEFT
+    // }
     protected Direction direction;
     protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft, itemToPushTo;
-
     protected int positionX;
     public int positionY;
     private int dimensionX;
     private int dimensionY;
-    // private Direction direction;
     private String itemName;
     protected static TheMap theMap = new TheMap();
-    // **
+    //Could use singleton pattern instead of thi sbut dont know if its worth it & dont know how singleton works.
+    protected static OreRealm oreRealm = new OreRealm(); 
+    //might not need theGameQueue after Tycoon builder is done.
     private TheGameQueue itemQueue;
 
     public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {

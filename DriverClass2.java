@@ -49,7 +49,7 @@ public class DriverClass2 {
 
         System.out.println(droppers[0].getItemInFront().getItemName() + "\n" + upgrader[0].getItemInFront().getItemName());
 
-        droppers[0].oreRealm.fillOreQueue();
+        //droppers[0].oreRealm.fillStackWithOre();
 
         theQueue.addItem(droppers[0], 5);
         theQueue.addItem(furnace2, 0);
@@ -98,7 +98,7 @@ public class DriverClass2 {
             public void run() {
                 //tycoonBuilder.fireTycoons(tycoonSystems);
                 theQueue.tycoonTick();
-                droppers[0].dropOre();
+                System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
                 System.out.println("You have made " + scientificFormat.format(player.getWallet())
                  + " or " +player.getWallet());
                 System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
@@ -108,7 +108,7 @@ public class DriverClass2 {
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 750);
+        }, 0, 10);
         
     }
 }

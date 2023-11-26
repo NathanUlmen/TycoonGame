@@ -56,11 +56,10 @@ public class TheMap {
     public void addCoordinates(int X, int Y) {
         occupiedCoordinates.add(new Point(X, Y));
     }
-
+    //This might not work like I think it does
     public void removeCoordinates(int X, int Y) {
         occupiedCoordinates.remove(new Point(X, Y));
     }
-
 
     public ArrayList<Point> getFilledCoordinates() {
         return occupiedCoordinates;

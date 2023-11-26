@@ -38,6 +38,8 @@ OreDecorator Type but that might not be an issue because reseters would attach i
 Things To Clean UP:
 
 1. redundancy in the upgrade methods, could just use set instead of a bunch of returns.
+        *Cleaned some of it up but have not tested super thoroughly.
+        *Redundancy in if statements checking to see if ore is null.(DONE)
 
 Things to Create:
 

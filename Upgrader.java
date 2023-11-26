@@ -7,7 +7,6 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected OreDecorator internal;
     protected static final MathContext hundreths = new MathContext(5);
 
-
     public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
         // super(positionX, positionY, itemName, dimensionX, dimensionY);
@@ -21,20 +20,14 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
 
     public Upgrader(Ore ore) {
         this.ore = ore;
-        this.internal = null;
-        
+        this.internal = null;   
     }
     
     @Override
-    public OreDecorator process(OreDecorator ore) {
+    public void process(OreDecorator ore) {
         System.out.println("Upgraded!");
-        return ore = upgrade(ore);
+        upgrade(ore);
     }
-
-    // //this will upgrade the ore, still need to figure out how to make the sharedOreArray.get() automated so I dont have to set it manually. 
-    // public void upgrade(Ore ore) {
-    //     performUpgrade(ore);
-    // }
 
     @Override
     public Ore prepare() {
@@ -42,9 +35,8 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
         result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()));
         return result;
     }
-    
 
-    protected abstract OreDecorator upgrade(OreDecorator ore);
+    protected abstract void upgrade(OreDecorator ore);
 
     protected abstract BigDecimal upgradeEffect(BigDecimal newOreValue);
 
@@ -54,18 +46,9 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
         return numberOfUpgrades < maxUpgrades;
     }
 
-    
-
-    //the specific upgrade effect will vary depending on the upgrader.
-    
-
-    //gets the upgrader tag of the upgrader.
-    // protected abstract UpgradeTags getThisUpgraderTag();
-
-    //
     public String toString() { 
         //String upgraderInfo = "Upgrader Name: " + getItemName() + "\nUpgrader Effect: Increases ore value by " + upgraderEffect;
-        return "Upgrader Name: " + getItemName() + "\nUpgrader Effect: Increases ore value by " + upgraderEffect;
+        return "Name: " + getItemName() + "\nEffect: Increases ore value by " + upgraderEffect;
     }
    
 } 

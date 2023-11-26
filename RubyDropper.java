@@ -15,7 +15,7 @@ public class RubyDropper extends Dropper{
 
     @Override
     protected OreDecorator createOre() {
-        OreDecorator ore = new RubyDropper((Ore) oreRealm.dequeue());
+        OreDecorator ore = new RubyDropper((Ore) oreRealm.pop());
         return ore;
     }
 

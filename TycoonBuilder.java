@@ -8,7 +8,7 @@
 
 // Then it will call getItemBehind, and add that item to the list, repeat until the "system" has been mapped out.
 
-// 		Only conveyors will be able to take ore from all sides which means that I will only have to check to see if there are objects to left and right when I am on conveyor items.
+// Only conveyors will be able to take ore from all sides which means that I will only have to check to see if there are objects to left and right when I am on conveyor items.
 		
 
 
@@ -19,9 +19,6 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-
 
 public class TycoonBuilder {
     protected static TheMap theMap = new TheMap();

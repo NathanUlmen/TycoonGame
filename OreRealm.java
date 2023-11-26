@@ -1,54 +1,56 @@
-//The ore Realm will be a queue of max Length 500(Ore limit). When the ore realm is created it will be full of 500 basic ore objects.
-// Droppers will pull their ore from the ore realm rather than making a new ore object each time they drop an ore and furnaces will return the ore objects fualt ore objects into it, basically
-//recycles the ore objects and limits the amount of ore that can be in the tycoon at a time.
+//The OreRealm is a stack of max Length 500(Ore limit) and when its created it will be full of 500 basic ore objects.
+//Droppers will "pop"/pull their ore from the OreRealm rather than making a new ore object each time they drop an ore.
+//When a furnace sells an Ore it will reset it and return the ore to the OreRealm.
+//This allows for ore objects to be recycled and limits the number of ore objects in that can be present in the tycoon.
 
-import java.util.EmptyStackException;
+import java.util.Arrays;
 
-public class OreRealm<E> implements QueueInterface<E> {
+public class OreRealm implements StackADT<Ore> {
+    private final static int DEFAULT_CAPACITY = 500;
 
-    private final static int DEFAULT_CAPACITY = 100;
-    private E[] queue;
-    private int front, rear, count;
+    private Ore[] stack;
+    private int top;
 
+    
     public OreRealm() {
         this(DEFAULT_CAPACITY);
+        fillStackWithOre();
     }
 
     @SuppressWarnings("unchecked")
     public OreRealm(int initialCapacity) {
-        front = rear = count = 0;
-        this.queue = (E[])(new Object[initialCapacity]);
+        this.top = 0;
+        this.stack = new Ore[initialCapacity];
     }
 
     @Override
-    public void enqueue(E element) {
-        if (size() == queue.length) {
-            expandCapacity();
-        }
-        queue[rear] = element;
-        rear = (rear + 1) % queue.length;
-        count++;
+    public void push(Ore element) {
+        // if (this.size() == this.stack.length) {
+        //     // expand the capacity
+        //     expandCapacity();
+        // }
+        this.stack[this.top] = element;
+        this.top++;
     }
 
     @Override
-    public E dequeue() {
+    public Ore pop() {
         if (this.isEmpty()) {
-            throw new EmptyCollectionException("queue");
+            throw new EmptyCollectionException("stack");
         }
-        E result = queue[front];
-        queue[front] = null;
-
-        front = (front + 1) % queue.length;
-        count--;
+        this.top--;
+        Ore result  = this.stack[this.top];
+        this.stack[this.top] = null;
         return result;
     }
 
     @Override
-    public E first() {
+    public Ore peek() {
         if (this.isEmpty()) {
-            throw new EmptyCollectionException("queue");
+            throw new EmptyCollectionException("stack");
         }
-        return queue[front];
+        Ore result  = this.stack[this.top];
+        return result;
     }
 
     @Override
@@ -58,116 +60,34 @@ public class OreRealm<E> implements QueueInterface<E> {
 
     @Override
     public int size() {
-        return count;
+        return this.top;
+    }
+
+    // @SuppressWarnings("unchecked")
+    private void expandCapacity() {
+        // E[] temp = (E[])(new Object[this.stack.length * 2]);
+        // for (int i = 0; i < this.stack.length; i++) {
+        //     temp[i] = this.stack[i];
+        // }
+        // this.stack = temp;
+        this.stack = Arrays.copyOf(stack, stack.length * 2);
     }
 
     public String toString() {
-        String result = "[";
-        int index = this.front;
+        String result = "";
 
-        for (int i = 0; i < size(); i++) {
-            if (i > 0) {
-                result += ", ";
-            }
-            result += queue[index];
-            index = (index + 1) % queue.length;
+        for (Ore item : stack) {
+            result += "[" + item + "]";
         }
-
-        result += "]";
-
         return result;
     }
 
-    @SuppressWarnings("unchecked")
-    private void expandCapacity() {
-        // E[] larger = Arrays.copyOf(queue, queue.length * 2);
-        E[] larger = (E[])(new Object[queue.length*2]);
-        for (int i = 0; i < size(); i++) {
-            larger[i] = queue[front];
-            front = (front + 1) % queue.length;
-        }
-        front = 0;
-        rear = this.size();
-        queue = larger;
-    }
-    // private Ore[] oreQueue;
-    // private int front, rear, count;
-    // private static int capacity = 500;
-
-    // public OreRealm() {
-    //     this(capacity);
-    // }
-
-    // @SuppressWarnings("unchecked")
-    // public OreRealm(int initialCapacity) {
-    //     oreQueue = (Ore[]) (new Object[initialCapacity]);
-    //     front = rear = count = 0;
-    //     fillOreQueue();
-    // }
-
-    // @Override
-    // public void enqueue(Ore element) {
-    //     if (size() == oreQueue.length) {
-    //         throw new ArrayIndexOutOfBoundsException(null);
-    //     }
-    //     oreQueue[rear] = element;
-    //     rear = (rear + 1) % oreQueue.length;
-    //     count++;
-    // }
-
-    // @Override
-    // public Ore dequeue() {
-    //     if (this.isEmpty()) {
-    //         throw new EmptyStackException();
-    //     }
-    //     Ore result = oreQueue[front];
-    //     oreQueue[front] = null;
-
-    //     front = (front + 1) % oreQueue.length;
-    //     count--;
-    //     return result;
-    // }
-
-    // @Override
-    // public Ore first() {
-    //     if (this.isEmpty()) {
-
-    //     }
-    //     return oreQueue[front];
-    // }
-
-    // @Override
-    // public boolean isEmpty() {
-    //     return size() == 0;
-    // }
-
-    // @Override
-    // public int size() {
-    //     return count;
-    // }
-
-    // public String toString() {
-    //     String result = "[";
-    //     int index = this.front;
-
-    //     for (int i = 0; i < size(); i++) {
-    //         if (i > 0) {
-    //             result += ", ";
-    //         }
-    //         result += oreQueue[index];
-    //         index = (index + 1) % oreQueue.length;
-    //     }
-
-    //     result += "]";
-
-    //     return result;
-    // }
-
-    public void fillOreQueue() {
-        for (int i = 0; i < queue.length; i++) {
-            enqueue((E) new Ore());
+    public void fillStackWithOre() {
+        for (int i = 0; i < stack.length; i++) {
+            push(new Ore());
         }
     }
+    
 }
 
 

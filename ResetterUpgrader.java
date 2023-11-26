@@ -24,12 +24,12 @@ public class ResetterUpgrader extends Upgrader {
     }
 
     @Override
-    protected OreDecorator upgrade(OreDecorator ore) {
+    protected void upgrade(OreDecorator ore) {
         if (canUpgrade(this.numberOfUpgrades, maxUpgrades)) {
-            // Ore realOre = ore.prepare();
             ore = new ResetterUpgrader(ore.prepare());
+            setStoredOre(ore);
         }
-        return ore;
+        
     }
 
     @Override

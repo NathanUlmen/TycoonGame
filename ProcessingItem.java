@@ -13,7 +13,7 @@ public abstract class ProcessingItem extends Item{
     
     public void processOre() {
         if (storedOre != null) {
-            this.storedOre = process(storedOre);
+            process(storedOre);
         }
     }
 
@@ -146,7 +146,7 @@ public abstract class ProcessingItem extends Item{
     //     return result.toString();
     // }
     
-    public abstract OreDecorator process(OreDecorator ore);
+    public abstract void process(OreDecorator ore);
 
 
 }

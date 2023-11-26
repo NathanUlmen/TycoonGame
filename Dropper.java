@@ -1,4 +1,6 @@
-//The Dropper class creates Ore objects
+//The Dropper class "pops"/pulls ore objects from the ore realm "decorates" them with their base stats and properties
+//and then inserts them into the item infront of them.
+
 
 import java.math.BigDecimal;
 
@@ -8,7 +10,6 @@ public abstract class Dropper extends Item implements OreDecorator{
     protected OreDecorator internal;
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped; //The number of ore objects this dropper has created.
-    protected static OreRealm oreRealm = new OreRealm();
     protected boolean canDrop;
     
     
