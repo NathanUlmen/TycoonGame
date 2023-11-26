@@ -29,12 +29,15 @@ OreDecorator Type but that might not be an issue because reseters would attach i
 
 4. Upgrades that use temperature might not work, have not tested.
 
-5. The Decorator pattern isnt working as intended, the numberOfUpgrades property isnt specific to the ore which means they wont work properly. EX: TheUpgrader will upgrade only upgrade one ore one time because after it upgrades and ore it increments the numberOfUpgrades property which breaks it.
+5. The Decorator pattern isnt working as intended, the numberOfUpgrades property isnt specific to the ore which means they wont work properly. EX: TheUpgrader will only upgrade one ore one time because after it upgrades and ore it increments the numberOfUpgrades property which breaks it. This also causes problems when you try and and use multiple instances of the same upgrader EX: 3 basic upgraders.
+                *Could implement a "Temporary" fix so that it functions like the example that I got from professor where it checks when upgrades when its prepared but that would mean that the object could be wrapped in
+                pointless objects/redundancy which seems wasteful/inefficient. 
+                *Ideally the fix would be in the upgraders itself, the upgrader checks to see if the ore has reached its upgrade limit for that "Type" of upgrader if so it wont upgrade the ore at all and nothing will happen otherwise it will just upgrade the ore. 
 
 
 Things To Clean UP:
 
-1. redundancy in the upgrade methods, could just use set.
+1. redundancy in the upgrade methods, could just use set instead of a bunch of returns.
 
 Things to Create:
 

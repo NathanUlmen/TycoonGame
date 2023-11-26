@@ -43,13 +43,4 @@ public class BasicUpgrader extends Upgrader{
         return ore;
     }
 
-    // @Override
-    // public void process(Ore ore) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'process'");
-    // }
-
-    
-
-
 }

@@ -43,11 +43,11 @@ public class Ore {
     }
 
     public int getOreTemp() {
-        return oreTemperature;
+        return this.oreTemperature;
     }
     
     public String getName() {
-        return oreName;
+        return this.oreName;
     }
     
     public void delete() {

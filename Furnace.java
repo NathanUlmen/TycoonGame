@@ -51,7 +51,7 @@ public abstract class Furnace extends ProcessingItem{
     //     }
     // }
 
-    //APplies a bonus to the ore before selling it EX: doubles ore value or adds 10 to ore value.
+    //Applies a bonus to the ore before selling it EX: doubles ore value or adds 10 to ore value.
     protected abstract BigDecimal processEffect(BigDecimal soldOreValue);
 
     public String toString() {

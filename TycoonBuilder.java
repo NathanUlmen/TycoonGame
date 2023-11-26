@@ -40,7 +40,7 @@ public class TycoonBuilder {
 
     }
 
-    //This method will now map out and create the systems
+    //This method will map out and "create" the systems, so that they can be fired in the correct order.
     public void createSystems() {
         for (List<Item> list : tycoonSystems) {
             for (Item item : list) {
@@ -87,6 +87,11 @@ public class TycoonBuilder {
                 //Create new system list and ad
             }
         }
+    }
+
+    //This method will look for systems that dont have an end, they are just one big circle.
+    public void identifyLoopingSystems(){
+        
     }
 
     //item.getItemInFront() == null && item.getItemBehind() != null
