@@ -1,10 +1,10 @@
-public interface StackADT<Ore> {
+public interface StackADT<E> {
     
-    public void push(Ore ore);
+    public void push(E element);
 
-    public Ore pop();
+    public E pop();
 
-    public Ore peek();
+    public E peek();
 
     public boolean isEmpty();
 

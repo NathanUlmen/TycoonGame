@@ -7,9 +7,8 @@ public abstract class Item {
     private int dimensionX;
     private int dimensionY;
     private String itemName;
-    protected static TheMap theMap = new TheMap();
-    //Could use singleton pattern instead of thi sbut dont know if its worth it & dont know how singleton works.
-    protected static OreRealm oreRealm = new OreRealm(); 
+    protected static TheMap theMap = TheMap.getTheMapInstance();
+    
     //might not need theGameQueue after Tycoon builder is done.
     private TheGameQueue itemQueue;
 

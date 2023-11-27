@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 public abstract class Furnace extends ProcessingItem{
     private double processSpeed;
     private String processEffect;
+    protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
     
     protected static Player player;
 

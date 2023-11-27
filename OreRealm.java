@@ -8,10 +8,10 @@ import java.util.Arrays;
 public class OreRealm implements StackADT<Ore> {
     private final static int DEFAULT_CAPACITY = 500;
 
-    private Ore[] stack;
+    private static OreRealm instance;
+    private Ore[] stackOfOre;
     private int top;
 
-    
     public OreRealm() {
         this(DEFAULT_CAPACITY);
         fillStackWithOre();
@@ -20,7 +20,14 @@ public class OreRealm implements StackADT<Ore> {
     @SuppressWarnings("unchecked")
     public OreRealm(int initialCapacity) {
         this.top = 0;
-        this.stack = new Ore[initialCapacity];
+        this.stackOfOre = new Ore[initialCapacity];
+    }
+
+    public static OreRealm getOreRealmInstance(){
+        if(instance == null) {
+            instance = new OreRealm();
+        }
+        return instance;
     }
 
     @Override
@@ -29,7 +36,7 @@ public class OreRealm implements StackADT<Ore> {
         //     // expand the capacity
         //     expandCapacity();
         // }
-        this.stack[this.top] = element;
+        this.stackOfOre[this.top] = element;
         this.top++;
     }
 
@@ -39,8 +46,8 @@ public class OreRealm implements StackADT<Ore> {
             throw new EmptyCollectionException("stack");
         }
         this.top--;
-        Ore result  = this.stack[this.top];
-        this.stack[this.top] = null;
+        Ore result  = this.stackOfOre[this.top];
+        this.stackOfOre[this.top] = null;
         return result;
     }
 
@@ -49,7 +56,7 @@ public class OreRealm implements StackADT<Ore> {
         if (this.isEmpty()) {
             throw new EmptyCollectionException("stack");
         }
-        Ore result  = this.stack[this.top];
+        Ore result  = this.stackOfOre[this.top];
         return result;
     }
 
@@ -70,20 +77,20 @@ public class OreRealm implements StackADT<Ore> {
         //     temp[i] = this.stack[i];
         // }
         // this.stack = temp;
-        this.stack = Arrays.copyOf(stack, stack.length * 2);
+        this.stackOfOre = Arrays.copyOf(stackOfOre, stackOfOre.length * 2);
     }
 
     public String toString() {
         String result = "";
 
-        for (Ore item : stack) {
+        for (Ore item : stackOfOre) {
             result += "[" + item + "]";
         }
         return result;
     }
 
     public void fillStackWithOre() {
-        for (int i = 0; i < stack.length; i++) {
+        for (int i = 0; i < stackOfOre.length; i++) {
             push(new Ore());
         }
     }

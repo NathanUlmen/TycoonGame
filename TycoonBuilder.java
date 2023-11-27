@@ -22,12 +22,12 @@ import java.util.List;
 
 public class TycoonBuilder {
     //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
-    protected static TheMap theMap = new TheMap();
+    protected static TheMap theMap = TheMap.getTheMapInstance();
     private List<List<Item>> tycoonSystems = new ArrayList<>();
     private List<Item> allItems = new ArrayList<>();
     private int index = 0;
 
-    
+
     //This method will fire each List of Different systems, firing the items inside of the list in the correct order.
     public void tycoonTick() {
         
@@ -56,6 +56,7 @@ public class TycoonBuilder {
 //     |                 |         |
 //                       ?         ?
 //                       |         |
+
     public void createSystems() {
         for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
@@ -116,11 +117,19 @@ public class TycoonBuilder {
     //item.getItemInFront() == null && item.getItemBehind() != null
 
     //This method will return all the objects that are on theMap and makes a list of them.
-    public void getAllPlacedItems() {
+    public void setAllPlacedItems() {
         ArrayList<Point> filledCoordinates = theMap.getFilledCoordinates();
         for (Point coordinate : filledCoordinates) {
             allItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
         }
+    }
+
+    public List<Item> getAllPlacedItems() {
+        return allItems;
+    }
+
+    public List<List<Item>> getTycoonSystems() {
+        return tycoonSystems;
     }
 
     private boolean itemBehindIsLinked(Item item) {
@@ -137,6 +146,73 @@ public class TycoonBuilder {
         Item itemToLeft = item.getItemToLeft();
         return itemToLeft != null && itemToLeft.getItemInFront() == item;
     }
+
+    private class BreadthFirstSearchQueue implements QueueADT<Item>{
+
+        @Override
+        public void enqueue(Item element) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'enqueue'");
+        }
+
+        @Override
+        public Item dequeue() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'dequeue'");
+        }
+
+        @Override
+        public Item first() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'first'");
+        }
+
+        @Override
+        public boolean isEmpty() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        }
+
+        @Override
+        public int size() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'size'");
+        }
+        
+    }
    
+    private class DepthFirstSearchStack implements StackADT<Item>{
+
+        @Override
+        public void push(Item elment) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'push'");
+        }
+
+        @Override
+        public Item pop() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'pop'");
+        }
+
+        @Override
+        public Item peek() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'peek'");
+        }
+
+        @Override
+        public boolean isEmpty() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        }
+
+        @Override
+        public int size() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'size'");
+        }
+    
+    }
 }
 

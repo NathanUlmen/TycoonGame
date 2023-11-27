@@ -22,6 +22,8 @@ public class DriverClass2 {
         Furnace furnace2 = new BasicFurnace(player);
         TheUpgrader theUpgrader = new TheUpgrader();
 
+        
+
         basicUpgraders[0] = new BasicUpgrader();
 
         droppers[0] = new IronDropper();
@@ -57,6 +59,11 @@ public class DriverClass2 {
         theQueue.addItem(basicUpgraders[0], 3);
         theQueue.addItem(upgrader[0], 4);
         theQueue.addItem(upgrader[1], 2);
+
+        tycoonBuilder.setAllPlacedItems();
+
+        tycoonBuilder.identifySystems();
+        
 
         // System.out.println(tycoonBuilder.identifySystems().getItemName());
         // tycoonBuilder.identifySystems().getItemName();
@@ -108,7 +115,7 @@ public class DriverClass2 {
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 10);
+        }, 0, 1000);
         
     }
 }

@@ -1,11 +1,11 @@
 //TheMap keeps track of all items that are placed.
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TheMap {
 
+    private static TheMap instance;
     public Item[][] theMap;
     private ArrayList<Point> occupiedCoordinates = new ArrayList<>();
 
@@ -14,6 +14,14 @@ public class TheMap {
     public TheMap() {
         theMap = new Item[50][50];
     }
+
+    public static TheMap getTheMapInstance() {
+        if (instance == null) {
+            instance = new TheMap();
+        }
+        return instance;
+    }
+
     //This method adds an item to specific coordinates
     public void addItemToMap(Item item, int X, int Y) {
        theMap[X][Y] = item;

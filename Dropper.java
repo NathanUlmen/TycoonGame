@@ -10,6 +10,7 @@ public abstract class Dropper extends Item implements OreDecorator{
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped; //The number of ore objects this dropper has created.
     protected boolean canDrop;
+    protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
     
     
 

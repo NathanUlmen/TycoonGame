@@ -39,9 +39,9 @@ Things To Clean UP:
 
 1. redundancy in the upgrade methods, could just use set instead of a bunch of returns.
         *Cleaned some of it up but have not tested super thoroughly.
-        *Redundancy in if statements checking to see if ore is null.(DONE)
+        *Redundancy in if statements checking to see if ore is null.(DONE)'
 
-Things to Create:
+Things to Create/Do:
 
 1. The TycoonBuilder
 
@@ -54,6 +54,10 @@ Things to Create:
 5. Prestigie system
 
 6. Layout Saver
+
+7. Make each Processing Item a queue.
+
+8.Testing
 
 
 
