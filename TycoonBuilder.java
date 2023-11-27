@@ -18,7 +18,9 @@
 // This method will be called everytime an item is placed or removed.
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class TycoonBuilder {
     //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
@@ -148,69 +150,89 @@ public class TycoonBuilder {
     }
 
     private class BreadthFirstSearchQueue implements QueueADT<Item>{
+        private int front, rear, count;
+        private Item[] queue;
 
         @Override
         public void enqueue(Item element) {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'enqueue'");
+            if (size() == queue.length) {
+                expandCapcaity();
+            }
+            queue[rear] = element;
+            count++;
         }
 
         @Override
         public Item dequeue() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'dequeue'");
+            if (isEmpty()) {
+                throw new NoSuchElementException("Nothing left in the Queue");
+            }
+            Item result = queue[front];
+            queue[front]= null;
+            count--;
+            return result;
+
         }
 
         @Override
         public Item first() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'first'");
+            if (isEmpty()) {
+                throw new NoSuchElementException("Nothing in the Queue!");
+            }
+            return queue[front];
         }
 
         @Override
         public boolean isEmpty() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+            return size() == 0;
         }
 
         @Override
         public int size() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'size'");
+            return count;
+        }
+
+        private void expandCapcaity() {
+            Item[] biggerQueue = Arrays.copyOf(queue, queue.length * 2);
+            queue = biggerQueue;
         }
         
     }
    
     private class DepthFirstSearchStack implements StackADT<Item>{
+        private Item[] stackOfItems;
+        private int top;
 
         @Override
-        public void push(Item elment) {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'push'");
+        public void push(Item element) {
+            //check to expand
+            this.stackOfItems[this.top] = element;
+            this.top++;
         }
 
         @Override
         public Item pop() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'pop'");
+            //Check to see if empty
+            Item result = stackOfItems[this.top];
+            stackOfItems[this.top] = null;
+            top--;
+            return result;
         }
 
         @Override
         public Item peek() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'peek'");
+            //Check to see if empty
+            return stackOfItems[this.top];
         }
 
         @Override
         public boolean isEmpty() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+            return size() == 0;
         }
 
         @Override
         public int size() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'size'");
+            return this.top;
         }
     
     }

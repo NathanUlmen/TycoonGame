@@ -56,8 +56,7 @@ public class OreRealm implements StackADT<Ore> {
         if (this.isEmpty()) {
             throw new EmptyCollectionException("stack");
         }
-        Ore result  = this.stackOfOre[this.top];
-        return result;
+        return this.stackOfOre[this.top];
     }
 
     @Override
