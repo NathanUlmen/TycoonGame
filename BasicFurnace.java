@@ -2,11 +2,11 @@ import java.math.BigDecimal;
 
 public class BasicFurnace extends Furnace{
 
-    public BasicFurnace(Player player) {
+    public BasicFurnace() {
         super(0, 0, "Basic Furnace",
             0, "Sells ore with no Bonus",
             player, Direction.UPWARDS);
-        this.player = player;
+        
     }
 
     @Override

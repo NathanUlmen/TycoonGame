@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TheMap {
 
-    private static TheMap instance;
+    private static TheMap theMapInstance;
     public Item[][] theMap;
     private ArrayList<Point> occupiedCoordinates = new ArrayList<>();
 
@@ -16,10 +16,10 @@ public class TheMap {
     }
 
     public static TheMap getTheMapInstance() {
-        if (instance == null) {
-            instance = new TheMap();
+        if (theMapInstance == null) {
+            theMapInstance = new TheMap();
         }
-        return instance;
+        return theMapInstance;
     }
 
     //This method adds an item to specific coordinates
@@ -72,5 +72,6 @@ public class TheMap {
     public ArrayList<Point> getFilledCoordinates() {
         return occupiedCoordinates;
     }
+
 
 }
