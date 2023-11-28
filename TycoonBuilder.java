@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+
 public class TycoonBuilder {
     //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
     protected static TheMap theMap = TheMap.getTheMapInstance();

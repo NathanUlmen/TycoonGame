@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class OreRealm implements StackADT<Ore> {
     private final static int DEFAULT_CAPACITY = 500;
 
-    private static OreRealm instance;
+    private static OreRealm oreRealmInstance;
     private Ore[] stackOfOre;
     private int top;
 
@@ -24,10 +24,10 @@ public class OreRealm implements StackADT<Ore> {
     }
 
     public static OreRealm getOreRealmInstance(){
-        if(instance == null) {
-            instance = new OreRealm();
+        if(oreRealmInstance == null) {
+            oreRealmInstance = new OreRealm();
         }
-        return instance;
+        return oreRealmInstance;
     }
 
     @Override

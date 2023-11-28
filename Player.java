@@ -2,7 +2,11 @@ import java.math.BigInteger;
 
 public class Player {
     private int prestigeLevel, prestigeCurrency;
+    private long specialPoints;
     private BigInteger wallet = BigInteger.valueOf(0);
+    private static Player playerInstance;
+
+    
 
     public Player(BigInteger wallet, int prestigeLevel, int prestigeCurrency) {
         this.wallet = wallet;
@@ -22,8 +26,8 @@ public class Player {
         return wallet;
     }
 
-    public void setPrestigeLevel(){
-        prestigeLevel ++;
+    public void IncrementPrestigeLevel(){
+        prestigeLevel++;
     }
 
     public int getPrestigeLevel(){
@@ -38,8 +42,17 @@ public class Player {
         return prestigeCurrency;
     }
 
+    public static Player getPlayerInstance() {
+        if(playerInstance == null) {
+            playerInstance = new Player();
+        }
+        return playerInstance;
+    }
+
     public String toString() {
-        String playerInfo = "Player Prestige Level: " + prestigeLevel + "\nPlayer Money: " + wallet + "\nPlayer Prestige Currency: " + prestigeCurrency;
+        String playerInfo = "Prestige Level: " + prestigeLevel + "\nWallet: " + wallet + "\nPlayer Prestige Currency: " + prestigeCurrency;
         return playerInfo;
     }
+
+
 }

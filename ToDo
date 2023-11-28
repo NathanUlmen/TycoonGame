@@ -25,8 +25,6 @@ push it to something which is not intended.
 2. Might need to implement some logic to handle reseters, currently items are only capable of taking
 OreDecorator Type but that might not be an issue because reseters would attach its own upgrade tag imediatly after upgrading, What if multiple reseters?
 
-3. The ore enqueue method on the ore realm doesnt work.
-
 4. Upgrades that use temperature might not work, have not tested.
 
 5. The Decorator pattern isnt working as intended, the numberOfUpgrades property isnt specific to the ore which means they wont work properly. EX: TheUpgrader will only upgrade one ore one time because after it upgrades and ore it increments the numberOfUpgrades property which breaks it. This also causes problems when you try and and use multiple instances of the same upgrader EX: 3 basic upgraders.
@@ -45,7 +43,7 @@ Things to Create/Do:
 
 1. The TycoonBuilder
 
-2. Inventory system
+2. Inventory system- would this work best as a List of stacks?
 
 3. "Weave Methods together"
 
@@ -55,9 +53,9 @@ Things to Create/Do:
 
 6. Layout Saver
 
-7. Make each Processing Item a queue.
+7. Make each Processing Item a queue?
 
-8.Testing
+8. Testing  
 
 
 

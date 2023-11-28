@@ -5,8 +5,7 @@ public abstract class Furnace extends ProcessingItem{
     private double processSpeed;
     private String processEffect;
     protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
-    
-    protected static Player player;
+    protected static Player player = Player.getPlayerInstance();
 
     public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Player player, Direction direction) {
         super(positionX, positionY, itemName, positionX, positionY, direction);

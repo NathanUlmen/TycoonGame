@@ -17,14 +17,14 @@ public class DriverClass {
         Dropper[] droppers = new Dropper[9];
         Upgrader[] upgrader = new Upgrader[4];
         TheGameQueue theQueue = new TheGameQueue();
-        Furnace furnace = new BasicFurnace(player);
+        Furnace furnace = new BasicFurnace();
         upgrader[0] = new BasicUpgrader();
         upgrader[1] = new TheUpgrader();
         upgrader[2] = new BasicUpgrader();
         upgrader[3] = new BasicUpgrader();
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
         BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
-        Furnace furnace2 = new BasicFurnace(player);
+        Furnace furnace2 = new BasicFurnace();
         
 
         droppers[0] = new IronDropper();
