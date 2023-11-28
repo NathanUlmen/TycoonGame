@@ -23,7 +23,7 @@ public class Player {
     }
 
     public void setPrestigeLevel(){
-        prestigeLevel ++;
+        prestigeLevel++;
     }
 
     public int getPrestigeLevel(){
