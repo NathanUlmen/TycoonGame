@@ -26,8 +26,8 @@ public class Player {
         return wallet;
     }
 
-    public void IncrementPrestigeLevel(){
-        prestigeLevel++;
+    public void setPrestigeLevel(){
+        prestigeLevel ++;
     }
 
     public int getPrestigeLevel(){

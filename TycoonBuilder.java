@@ -42,23 +42,23 @@ public class TycoonBuilder {
     }
     
 
-    //This method will map out and "create" the systems, so that they can be fired in the correct order.
+//This method will map out and "create" the systems, so that they can be fired in the correct order.
 //              1
 //              | 
 //              2  
 //              |   
 //              3   
 //              | 
-//     ?--?--?--4--?--?--?   
+//     10--8--6--4--5--7--9   
 //     |                 |
-//     ?                 ?
+//     12                11
 //     |                 |
-//     ?                 ?
+//     14                13
 //     |                 |
-//     ?                 ?----?----?
-//     |                 |         |
-//                       ?         ?
-//                       |         |
+//     16                15----18----20
+//     |                 |           |
+//     19                17          21
+//                       |           | 
 
     public void createSystems() {
         for (List<Item> list : tycoonSystems) {                                                         
