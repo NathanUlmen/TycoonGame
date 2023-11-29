@@ -42,4 +42,9 @@ public class BasicUpgrader extends Upgrader{
         //}
     }
 
+    @Override
+    protected int multiOreChange(int multiOre) {
+        return multiOre;
+    }
+
 }

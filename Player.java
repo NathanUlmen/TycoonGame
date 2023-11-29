@@ -26,12 +26,16 @@ public class Player {
         return wallet;
     }
 
-    public void setPrestigeLevel(){
-        prestigeLevel ++;
+    public void incrementPrestigeLevel(){
+        prestigeLevel++;
     }
 
     public int getPrestigeLevel(){
         return prestigeLevel;
+    }
+
+    public void setPrestigeLevel(int newPrestigeLevel) {
+        this.prestigeLevel = newPrestigeLevel;
     }
 
     public void setPrestigeCurrency(){
@@ -42,6 +46,14 @@ public class Player {
         return prestigeCurrency;
     }
 
+    public void setSpecialPoints(long newSpecialPointsValue) {
+        this.specialPoints = newSpecialPointsValue;
+    }
+
+    public long getSpecialPoints() {
+        return specialPoints;
+    }
+
     public static Player getPlayerInstance() {
         if(playerInstance == null) {
             playerInstance = new Player();
@@ -50,7 +62,7 @@ public class Player {
     }
 
     public String toString() {
-        String playerInfo = "Prestige Level: " + prestigeLevel + "\nWallet: " + wallet + "\nPlayer Prestige Currency: " + prestigeCurrency;
+        String playerInfo = "Prestige Level: " + prestigeLevel + "\tWallet: " + wallet + "\tPlayer Prestige Currency: " + prestigeCurrency + "\tSpecial Points: " + specialPoints;
         return playerInfo;
     }
 

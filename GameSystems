@@ -19,3 +19,7 @@ Chests:
 A Chest will select 3 items, one from each type, Research Point Item, Shop Item, and an Exotic Item
     It will then assign the item the value of its rarity
     then it will generate a random number and reward the items whose number corresponds with the randomly generated item.
+
+Process Count:
+    each ore will have a process count which determines how many times its processed by the furnace, basically a way of making for drop rate.
+    EX: if an ore has a process count of 5 that means it will be processed 5 times effectively making it 5 ores,

@@ -46,7 +46,7 @@ public abstract class Dropper extends Item implements OreDecorator{
     @Override
     public Ore prepare() {
         Ore result = (ore != null) ? ore : internal.prepare();
-        result.applyBaseStats(baseOreValue(), startingTemp(), setName());
+        result.applyBaseStats(baseOreValue(), startingTemp(), startingMultiOre(), setName());
         return result;
     }
 
@@ -58,7 +58,9 @@ public abstract class Dropper extends Item implements OreDecorator{
     //creates an ore object
     protected abstract OreDecorator createOre();
 
-     protected abstract BigDecimal baseOreValue();
+    protected abstract BigDecimal baseOreValue();
+
+    protected abstract int startingMultiOre();
 
     protected abstract String setName();
 

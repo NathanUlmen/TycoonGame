@@ -32,7 +32,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     @Override
     public Ore prepare() {
         Ore result = (ore != null) ? ore : internal.prepare();
-        result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()));
+        result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()), multiOreChange(result.getMultiOre()));
         return result;
     }
 
@@ -41,6 +41,8 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected abstract BigDecimal upgradeEffect(BigDecimal newOreValue);
 
     protected abstract int tempChange(int oreTemperature);
+
+    protected abstract int multiOreChange(int multiOre);
 
     protected boolean canUpgrade(int numberOfUpgrades ,int maxUpgrades) {
         return numberOfUpgrades < maxUpgrades;

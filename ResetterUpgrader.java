@@ -42,5 +42,10 @@ public class ResetterUpgrader extends Upgrader {
     protected int tempChange(int oreTemperature) {
         return oreTemperature;
     }
+
+    @Override
+    protected int multiOreChange(int multiOre) {
+        return multiOre;
+    }
     
 }

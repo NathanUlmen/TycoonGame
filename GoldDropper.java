@@ -32,5 +32,10 @@ public class GoldDropper extends Dropper{
     protected int startingTemp() {
         return 0;
     }
+
+    @Override
+    protected int startingMultiOre() {
+        return 1;
+    }
     
 }

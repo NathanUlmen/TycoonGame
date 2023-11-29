@@ -42,4 +42,9 @@ public class TheUpgrader extends Upgrader{
         return oreTemperature;
     }
 
+    @Override
+    protected int multiOreChange(int multiOre) {
+        return multiOre;
+    }
+
 }
