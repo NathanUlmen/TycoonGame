@@ -7,7 +7,8 @@ public abstract class Furnace extends ProcessingItem{
     private String processEffect;
     protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
     protected static Player player = Player.getPlayerInstance();
-    private int currentSpecialProgress, specialPointsReward, specialThreshold;
+    private int currentSpecialProgress, specialPointsReward;
+    protected final int specialThreshold;
 
 
     public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Player player, Direction direction, int specialPointsReward, int specialThreshold, int currentSpecialProgress) {
@@ -28,7 +29,9 @@ public abstract class Furnace extends ProcessingItem{
     public void sell(OreDecorator ore) {
         Ore preparedOre = ore.prepare();
         preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
+        //sells ore
         player.addToWallet(preparedOre.getOreValue().toBigInteger().multiply(BigInteger.valueOf(preparedOre.getMultiOre())));
+        //Logic for special points
         int increment = preparedOre.getMultiOre();
         for (int i = 0; i < increment; i++) {
             currentSpecialProgress++;

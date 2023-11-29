@@ -6,6 +6,8 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected Ore ore;
     protected OreDecorator internal;
     protected static final MathContext hundreths = new MathContext(5);
+    protected boolean upgradeable;
+    private static int numberOfUpgrades;
 
     public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
@@ -25,14 +27,16 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     
     @Override
     public void process(OreDecorator ore) {
-        System.out.println("Upgraded!");
+        // System.out.println("Upgraded!");
         upgrade(ore);
     }
 
     @Override
     public Ore prepare() {
         Ore result = (ore != null) ? ore : internal.prepare();
-        result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()), multiOreChange(result.getMultiOre()));
+        if (upgradeable) {
+            result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()), multiOreChange(result.getMultiOre()));
+        }
         return result;
     }
 

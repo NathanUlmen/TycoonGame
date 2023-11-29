@@ -1,8 +1,7 @@
 import java.math.BigDecimal;
 
 public class TheUpgrader extends Upgrader{
-    private int maxUpgrades = 1;
-    private static int numberOfUpgrades = 0;
+    protected final int upgradeLimit = 1;
 
     public TheUpgrader() {
         super("(2(x+10))^1.0275", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS);
@@ -12,22 +11,18 @@ public class TheUpgrader extends Upgrader{
         super(addition);
         this.internal = addition;
         this.ore = null;
-        numberOfUpgrades++;
     }
 
     public TheUpgrader(Ore ore) {
         super(ore);
         this.ore = ore;
         this.internal = null;
-        numberOfUpgrades++;
     }
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        if (canUpgrade(TheUpgrader.numberOfUpgrades, maxUpgrades)) {
-            ore = new TheUpgrader(ore);
-            setStoredOre(ore);
-        }
+        ore = new TheUpgrader(ore);
+        setStoredOre(ore);
     }
 
     @Override

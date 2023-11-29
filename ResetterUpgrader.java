@@ -4,32 +4,26 @@ public class ResetterUpgrader extends Upgrader {
     private final int maxUpgrades = 1;
     protected int numberOfUpgrades = 0;
 
-    public ResetterUpgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX,
-            int dimensionY, Direction direction) {
-        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", positionX, positionY, itemName, dimensionX, dimensionY, direction);
+    public ResetterUpgrader() {
+        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS);
     }
 
     public ResetterUpgrader(OreDecorator addition) {
         super(addition);
         this.internal = addition;
         this.ore = null;
-        this.numberOfUpgrades++;
     }
 
     public ResetterUpgrader(Ore ore) {
         super(ore);
         this.ore = ore;
         this.internal = null;
-        this.numberOfUpgrades++;
     }
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        if (canUpgrade(this.numberOfUpgrades, maxUpgrades)) {
-            ore = new ResetterUpgrader(ore.prepare());
-            setStoredOre(ore);
-        }
-        
+        ore = new ResetterUpgrader(ore.prepare());
+        setStoredOre(ore);
     }
 
     @Override

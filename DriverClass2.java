@@ -113,7 +113,7 @@ public class DriverClass2 {
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 50);
+        }, 0, 100);
         
     }
 }

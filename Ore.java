@@ -2,15 +2,14 @@ import java.math.BigDecimal;
 
 public class Ore {
     private BigDecimal oreValue;
-    private int oreTemperature, upgradeCount, multiOre;
+    private int oreTemperature, upgradeCount, multiOre, oreHistory;
     private String oreName;
-    private boolean isDeleted;
+
 
     public Ore() {
         this.oreValue = BigDecimal.valueOf(0);
         this.oreTemperature = 0;
         this.oreName = "";
-        this.isDeleted = false;
         this.upgradeCount = 0;
         this.multiOre = 1;
     }
@@ -52,14 +51,6 @@ public class Ore {
     public String getName() {
         return this.oreName;
     }
-    
-    public void delete() {
-        isDeleted = true;
-    }
-
-    public boolean isDeleted() {
-        return isDeleted;
-    }
 
     public int getUpgradeCount() {
         return upgradeCount;
@@ -73,20 +64,29 @@ public class Ore {
         this.multiOre = newMultiOre;
     }
 
+    public int getOreHistory() {
+		return oreHistory;
+	}
+
+	public void setOreHistory(int oreHistory) {
+		this.oreHistory = oreHistory;
+	}
+
     public void reset() {
         this.oreValue = BigDecimal.valueOf(0);
         this.oreTemperature = 0;
         this.oreName = "";
-        this.isDeleted = false;
         this.upgradeCount = 0;
         this.multiOre = 0;
     }
+
+    
 
     public String toString() {
         String bars = " -----------------";
         String oreToString = bars + "\nName: " + oreName + "\nValue: " + oreValue + 
             "\nTemperature: " + oreTemperature + "\nUpgrade Count: " + upgradeCount + 
-            "\nState: " + isDeleted + "\n";
+            "\nState: ";
         return oreToString;
     }
 }

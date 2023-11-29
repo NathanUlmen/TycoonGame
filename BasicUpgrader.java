@@ -1,8 +1,9 @@
 import java.math.BigDecimal;
 
 public class BasicUpgrader extends Upgrader{
-    private final int maxUpgrades = 4;
+    private static final int maxUpgrades = 4;
     private static int numberOfUpgrades = 0;
+
 
     public BasicUpgrader() {
         super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS);
@@ -13,6 +14,7 @@ public class BasicUpgrader extends Upgrader{
         super(addition);
         this.internal = addition;
         this.ore = null;
+        upgradeable = BasicUpgrader.numberOfUpgrades <= 4;
         // numberOfUpgrades++;
     }
 
@@ -20,6 +22,7 @@ public class BasicUpgrader extends Upgrader{
         super(ore);
         this.ore = ore;
         this.internal = null;
+        // upgradeable = this.numberOfUpgrades <= 4;
         // numberOfUpgrades++;
     }
     
@@ -36,15 +39,13 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        // if (canUpgrade(BasicUpgrader.numberOfUpgrades, maxUpgrades) && ore != null) {
-            ore = new BasicUpgrader(ore);
-            setStoredOre(ore);
-        //}
+        ore = new BasicUpgrader(ore);
+        setStoredOre(ore);
     }
 
     @Override
     protected int multiOreChange(int multiOre) {
         return multiOre;
     }
-
+    
 }
