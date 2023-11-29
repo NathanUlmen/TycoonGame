@@ -29,7 +29,8 @@ public abstract class Furnace extends ProcessingItem{
         Ore preparedOre = ore.prepare();
         preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
         player.addToWallet(preparedOre.getOreValue().toBigInteger().multiply(BigInteger.valueOf(preparedOre.getMultiOre())));
-        for (int i = 0; i < preparedOre.getMultiOre(); i++) {
+        int increment = preparedOre.getMultiOre();
+        for (int i = 0; i < increment; i++) {
             currentSpecialProgress++;
             if (specialThreshold < currentSpecialProgress) {
                 player.setSpecialPoints(player.getSpecialPoints()+specialPointsReward);        
