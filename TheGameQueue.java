@@ -5,7 +5,7 @@ public class TheGameQueue {
     // private ProcessingItem processingItem;
     // private Item item;
     // private Dropper dropperItem;
-    private static Item[] theTycoon = new Item[10];
+    private static Item[] theTycoon = new Item[100];
     private int queueSize;
 
     // private static LinkedList<ProcessingItem> theTycoon = new LinkedList<>();
@@ -112,6 +112,26 @@ public class TheGameQueue {
         //dropper will check to see if the Processing item its inserting an ore into has an ore
         //if no ore is present the dropper will then insert an ore into that object.
         }
+
+        public void connectAll() {
+            for (Item item : theTycoon) {
+                if (item != null) {
+                    item.setItemInFront();
+                }
+            }
+        }
+
+        public String toString() {
+            String result ="";
+            for (Item item : theTycoon) {
+                if (item != null) {
+                    result += "\n" +item.toString();
+                }
+            }
+            return result;
+        }
+
+    
         
 
         

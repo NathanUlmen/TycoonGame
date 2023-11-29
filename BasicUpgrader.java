@@ -13,14 +13,14 @@ public class BasicUpgrader extends Upgrader{
         super(addition);
         this.internal = addition;
         this.ore = null;
-        numberOfUpgrades++;
+        // numberOfUpgrades++;
     }
 
     public BasicUpgrader(Ore ore) {
         super(ore);
         this.ore = ore;
         this.internal = null;
-        numberOfUpgrades++;
+        // numberOfUpgrades++;
     }
     
 
@@ -36,10 +36,10 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        if (canUpgrade(BasicUpgrader.numberOfUpgrades, maxUpgrades) && ore != null) {
+        // if (canUpgrade(BasicUpgrader.numberOfUpgrades, maxUpgrades) && ore != null) {
             ore = new BasicUpgrader(ore);
             setStoredOre(ore);
-        }
+        //}
     }
 
 }

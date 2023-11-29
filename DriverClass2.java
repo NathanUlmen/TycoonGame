@@ -18,51 +18,49 @@ public class DriverClass2 {
         upgrader[2] = new BasicUpgrader();
         upgrader[3] = new BasicUpgrader();
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
-        BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
+        BasicUpgrader[] basicUpgraders = new BasicUpgrader[40];
         Furnace furnace2 = new BasicFurnace();
         TheUpgrader theUpgrader = new TheUpgrader();
 
+        //Test Bed:
+
+        
+        //Initialize and place Droppers
+        
+        droppers[0] = new IronDropper();
+        droppers[1] = new GoldDropper();
+        droppers[2] = new RubyDropper();
+
+        droppers[0].placeItem(1, 5, Direction.UPWARDS);
+        // droppers[1].placeItem(2, 5, Direction.UPWARDS);
+        // droppers[2].placeItem(3, 5, Direction.UPWARDS);
+
+
+        //Initialized and place ProcessingItems
+        for (int i = 0; i < basicUpgraders.length; i++) {
+            basicUpgraders[i] = new BasicUpgrader();
+            basicUpgraders[i].placeItem(basicUpgraders.length-i, 6, Direction.RIGHT);
+            theQueue.addItem(basicUpgraders[i], i+1);
+        }
+        
+        furnace.placeItem(basicUpgraders.length+1, 6, Direction.RIGHT);
+        theQueue.addItem(furnace, 0);
+        // theQueue.addItem(droppers[2], basicUpgraders.length+1);
+        // theQueue.addItem(droppers[1], basicUpgraders.length+2);
+        theQueue.addItem(droppers[0], basicUpgraders.length+3);
+
         
 
-        basicUpgraders[0] = new BasicUpgrader();
-
-        droppers[0] = new IronDropper();
-
-        droppers[0].placeItem(5, 5);
-        droppers[0].setDirection(Direction.UPWARDS);
-        upgrader[0].placeItem(5, 6);
-        upgrader[0].setDirection(Direction.RIGHT);
-        basicUpgraders[0].placeItem(6, 6);
-        basicUpgraders[0].setDirection(Direction.RIGHT);
-        upgrader[1].placeItem(7, 6);
-        upgrader[1].setDirection(Direction.RIGHT);
-        theUpgrader.placeItem(8, 6);
-        theUpgrader.setDirection(Direction.RIGHT);
-        furnace2.placeItem(9, 6);
-        furnace2.setDirection(Direction.RIGHT);
+        System.out.println(theQueue.toString());
 
 
-        basicUpgraders[0].setItemInFront();
-        droppers[0].setItemInFront();
-        upgrader[1].setItemInFront();
-        upgrader[0].setItemInFront();
-        furnace2.setItemInFront();
-        theUpgrader.setItemInFront();
+        theQueue.connectAll();
 
-        System.out.println(droppers[0].getItemInFront().getItemName() + "\n" + upgrader[0].getItemInFront().getItemName());
+        // tycoonBuilder.setAllPlacedItems();
 
-        //droppers[0].oreRealm.fillStackWithOre();
+        // tycoonBuilder.identifySystems();
 
-        theQueue.addItem(droppers[0], 5);
-        theQueue.addItem(furnace2, 0);
-        theQueue.addItem(theUpgrader, 1);
-        theQueue.addItem(basicUpgraders[0], 3);
-        theQueue.addItem(upgrader[0], 4);
-        theQueue.addItem(upgrader[1], 2);
 
-        tycoonBuilder.setAllPlacedItems();
-
-        tycoonBuilder.identifySystems();
         
 
         // System.out.println(tycoonBuilder.identifySystems().getItemName());

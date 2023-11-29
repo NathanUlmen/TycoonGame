@@ -41,8 +41,11 @@ public abstract class Item {
 
     }
 
-    public void placeItem(int X, int Y) {
+    public void placeItem(int X, int Y, Direction direction) {
         theMap.addItemToMap(this, X, Y);   
+        this.direction = direction;
+        this.positionX = X;
+        this.positionY = Y;
     }
 
     public int getPositionX() {

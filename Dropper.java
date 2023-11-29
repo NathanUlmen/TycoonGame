@@ -66,7 +66,7 @@ public abstract class Dropper extends Item implements OreDecorator{
 
     public String toString() {
         double num = 1000;
-        String dropperInfo = "Dropper Name: " + getItemName() + "\nDrop Rate: " + num/dropRate + " Ores per second\nTotal Ore Dropped: " + totalOreDropped;
+        String dropperInfo = "Dropper Name: " + getItemName() + "\tTotal Ore Dropped: " + totalOreDropped + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
         return dropperInfo;
     }
 
