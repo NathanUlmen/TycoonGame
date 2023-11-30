@@ -9,10 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResetterUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResetterUpgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TheUpgrader.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/LibGDX",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701290895998</updated>
       <workItem from="1701290897331" duration="1141000" />
-      <workItem from="1701304469381" duration="9737000" />
+      <workItem from="1701304469381" duration="11545000" />
     </task>
     <servers />
   </component>

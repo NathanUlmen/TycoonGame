@@ -8,7 +8,7 @@ public abstract class Furnace extends ProcessingItem{
     protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
     protected static Player player = Player.getPlayerInstance();
     private int currentSpecialProgress;
-    private final int specialPointsReward;
+    private final long specialPointsReward;
     protected final int specialThreshold;
 
 
