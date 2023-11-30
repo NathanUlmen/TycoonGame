@@ -29,10 +29,25 @@ public abstract class Furnace extends ProcessingItem{
 
     public void sell(OreDecorator ore) {
         Ore preparedOre = ore.prepare();
-        preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
+        // preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
+        sellTheOre(preparedOre);
         //sells ore
-        player.addToWallet(preparedOre.getOreValue().toBigInteger().multiply(BigInteger.valueOf(preparedOre.getMultiOre())));
+        // player.addToWallet(preparedOre.getOreValue().toBigInteger().multiply(BigInteger.valueOf(preparedOre.getMultiOre())));
         //Logic for special points
+        calculateSpecialPoints(preparedOre);
+
+        preparedOre.reset();
+        setStoredOre(null);
+        oreRealm.push(preparedOre);
+        //System.out.println("Sold!");
+    }
+
+    private void sellTheOre(Ore preparedOre) {
+        BigDecimal processedValue = processEffect(preparedOre.getOreValue().multiply(BigDecimal.valueOf(preparedOre.getMultiOre())));
+        player.addToWallet(processedValue.toBigInteger());
+    }
+
+    private void calculateSpecialPoints(Ore preparedOre) {
         int increment = preparedOre.getMultiOre();
         for (int i = 0; i < increment; i++) {
             currentSpecialProgress++;
@@ -41,10 +56,6 @@ public abstract class Furnace extends ProcessingItem{
                 currentSpecialProgress=0;
             }
         }
-        preparedOre.reset();
-        setStoredOre(null);
-        oreRealm.push(preparedOre);
-        //System.out.println("Sold!");
     }
 
     //Applies a bonus to the ore before selling it EX: doubles ore value or adds 10 to ore value.

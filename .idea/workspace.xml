@@ -10,24 +10,22 @@
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GoldDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoldDropper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IronDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/IronDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OreDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OreHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProcessingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueueADT.java" beforeDir="false" afterPath="$PROJECT_DIR$/QueueADT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ResetterUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResetterUpgrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RubyDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RubyDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackADT.java" beforeDir="false" afterPath="$PROJECT_DIR$/StackADT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheGameQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheGameQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Dropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Dropper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/GoldDropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/GoldDropper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/IronDropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/IronDropper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ResetterUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/ResetterUpgrader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/RubyDropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/RubyDropper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TheUpgrader.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701290895998</updated>
       <workItem from="1701290897331" duration="1141000" />
-      <workItem from="1701304469381" duration="4304000" />
+      <workItem from="1701304469381" duration="7925000" />
     </task>
     <servers />
   </component>
@@ -98,7 +96,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BasicUpgrader.java</url>
-          <line>42</line>
+          <line>43</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

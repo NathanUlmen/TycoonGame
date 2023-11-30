@@ -14,8 +14,7 @@ public class GoldDropper extends Dropper{
     
     @Override
     protected OreDecorator createOre() {
-        OreDecorator ore = new GoldDropper(oreRealm.pop());
-        return ore;
+        return new GoldDropper(oreRealm.pop());
     }
 
     @Override

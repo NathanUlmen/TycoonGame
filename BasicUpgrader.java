@@ -35,13 +35,13 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
-        return newOreValue = newOreValue.multiply(BigDecimal.valueOf(40000000));
+        return newOreValue.multiply(BigDecimal.valueOf(40000000));
+        // return BigDecimal.valueOf(2).multiply(newOreValue.add(BigDecimal.TEN)).pow((int) 1.0275);
     }
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        ore = new BasicUpgrader(ore);
-        setStoredOre(ore);
+        setStoredOre(new BasicUpgrader(ore));
     }
 
     @Override

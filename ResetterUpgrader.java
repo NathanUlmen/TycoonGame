@@ -22,11 +22,11 @@ public class ResetterUpgrader extends Upgrader {
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        ore = new ResetterUpgrader(ore.prepare());
-        setStoredOre(ore);
+        setStoredOre(new ResetterUpgrader(ore.prepare()));
     }
 
     @Override
+    //Ore.getUpgradeCount might not work.
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
         newOreValue = newOreValue.multiply(BigDecimal.valueOf(ore.getUpgradeCount()/10), hundreths);
         return newOreValue;

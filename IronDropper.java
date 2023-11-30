@@ -14,9 +14,7 @@ public class IronDropper extends Dropper{
 
     @Override
     protected OreDecorator createOre() {
-        OreDecorator ore = new IronDropper(oreRealm.pop());
-        System.out.println("Ore Created!");
-        return ore;
+        return new IronDropper(oreRealm.pop());
     }
 
     @Override
