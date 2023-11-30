@@ -5,7 +5,7 @@ public class TheGameQueue {
     // private ProcessingItem processingItem;
     // private Item item;
     // private Dropper dropperItem;
-    private static Item[] theTycoon = new Item[100];
+    private static final Item[] theTycoon = new Item[100];
     private int queueSize;
 
     // private static LinkedList<ProcessingItem> theTycoon = new LinkedList<>();
@@ -125,7 +125,7 @@ public class TheGameQueue {
             String result ="";
             for (Item item : theTycoon) {
                 if (item != null) {
-                    result += "\n" +item.toString();
+                    result += "\n" + item;
                 }
             }
             return result;

@@ -2,11 +2,11 @@ import java.math.BigDecimal;
 
 public class BasicUpgrader extends Upgrader{
     private static final int maxUpgrades = 4;
-    private static int numberOfUpgrades = 0;
-
+    private boolean canModify;
+    private static int numberOfUpgrades;
 
     public BasicUpgrader() {
-        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS);
+        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, 4);
         
     }
 
@@ -14,7 +14,8 @@ public class BasicUpgrader extends Upgrader{
         super(addition);
         this.internal = addition;
         this.ore = null;
-        upgradeable = BasicUpgrader.numberOfUpgrades <= 4;
+        // this.numberOfUpgrades = getNumberOfUpgrades();
+        // upgradeable = BasicUpgrader.numberOfUpgrades <= maxUpgrades;
         // numberOfUpgrades++;
     }
 
@@ -34,7 +35,7 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
-        return newOreValue = newOreValue.add(BigDecimal.valueOf(4));
+        return newOreValue = newOreValue.multiply(BigDecimal.valueOf(40000000));
     }
 
     @Override
@@ -48,4 +49,7 @@ public class BasicUpgrader extends Upgrader{
         return multiOre;
     }
     
+    // public static int getNumberOfUpgrades() {
+    //     return numberOfUpgrades;
+    // }
 }

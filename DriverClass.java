@@ -34,7 +34,7 @@ public class DriverClass {
         for (int i = 0; i <= 46; i++) {
             basicUpgraders[i] = new BasicUpgrader();
             theQueue.addItem(basicUpgraders[i], 7+i);
-            basicUpgraders[i].placeItem(0+i, 10, null);
+            basicUpgraders[i].placeItem(i, 10, null);
             System.out.println("I is: " + i);
             basicUpgraders[i].setDirection(Direction.RIGHT);
         }
@@ -50,7 +50,7 @@ public class DriverClass {
 
         for (int i = 3; i < droppers.length ; i++) {
             droppers[i] = new GoldDropper();
-            droppers[i].placeItem(0+i,  9, null);
+            droppers[i].placeItem(i,  9, null);
             droppers[i].setDirection(Direction.UPWARDS);
             theQueue.addItem(droppers[i], 54+i);
             System.out.println(droppers[i].getItemInFront().getItemName() + i);

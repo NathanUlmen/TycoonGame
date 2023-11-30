@@ -1,0 +1,68 @@
+Inventory, Its going to be an ADT but what kind would be the best?
+        "Stacking" items in an ADT / other data type like array
+
+Should I use A game engine instead of making my own GUI?
+
+Upgrade tags? 
+    (DONE)
+
+Implement other properties?
+    Heat(DONE), cold(DONE), radiation etc.
+
+Change ore to be BIG DECIMAL by default, Furnace will convert it to BIG int and sell it at the end, that way wont have to convert back and forth alot...
+
+Do I really need to make a new class for each ore?
+Object reuse, On program run I should create 500 Ore Objects and the the droppers will pull from the pool of ore objects and modify the ore objects value and name so that they are correct.
+Furnaces should reset the ore to default then add them back to the pool of objects.
+
+
+BUGS That need to be addressed:
+
+1. The way process and push currently works, the ore will continue to be upgraded even if its not pushed
+to another item, EX: if upgrader cant push ore to anything it will upgrade that ore the next time it tries to 
+push it to something which is not intended.
+
+2. Might need to implement some logic to handle reseters, currently items are only capable of taking
+OreDecorator Type but that might not be an issue because reseters would attach its own upgrade tag imediatly after upgrading, What if multiple reseters?
+
+4. Upgrades that use temperature might not work, have not tested.
+
+5. The Decorator pattern isnt working as intended, the numberOfUpgrades property isnt specific to the ore which means they wont work properly. EX: TheUpgrader will only upgrade one ore one time because after it upgrades and ore it increments the numberOfUpgrades property which breaks it. This also causes problems when you try and and use multiple instances of the same upgrader EX: 3 basic upgraders.
+                *Could implement a "Temporary" fix so that it functions like the example that I got from professor where it checks when upgrades when its prepared but that would mean that the object could be wrapped in
+                pointless objects/redundancy which seems wasteful/inefficient. 
+                *Ideally the fix would be in the upgraders itself, the upgrader checks to see if the ore has reached its upgrade limit for that "Type" of upgrader if so it wont upgrade the ore at all and nothing will happen otherwise it will just upgrade the ore. 
+
+
+Things To Clean UP:
+
+1. redundancy in the upgrade methods, could just use set instead of a bunch of returns.
+        *Cleaned some of it up but have not tested super thoroughly.
+        *Redundancy in if statements checking to see if ore is null.(DONE)'
+
+Things to Create/Do:
+
+1. The TycoonBuilder
+
+2. Inventory system- would this work best as a List of stacks?
+
+3. "Weave Methods together"
+
+4. "Create Chests"
+
+5. Prestigie system
+
+6. Layout Saver
+
+7. Make each Processing Item a queue?
+
+8. Testing  
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ public abstract class Dropper extends Item implements OreDecorator{
         if (itemInFront != null && itemInFront.isEmpty()) {
             itemInFront.setStoredOre(createOre());
             totalOreDropped++;
-            System.out.println("Dropped!");
+            //System.out.println("Dropped!");
         }
     }
 

@@ -3,11 +3,12 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public abstract class Furnace extends ProcessingItem{
-    private double processSpeed;
-    private String processEffect;
+    private final double processSpeed;
+    private final String processEffect;
     protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
     protected static Player player = Player.getPlayerInstance();
-    private int currentSpecialProgress, specialPointsReward;
+    private int currentSpecialProgress;
+    private final int specialPointsReward;
     protected final int specialThreshold;
 
 
@@ -43,7 +44,7 @@ public abstract class Furnace extends ProcessingItem{
         preparedOre.reset();
         setStoredOre(null);
         oreRealm.push(preparedOre);
-        System.out.println("Sold!");
+        //System.out.println("Sold!");
     }
 
     //Applies a bonus to the ore before selling it EX: doubles ore value or adds 10 to ore value.

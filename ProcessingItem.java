@@ -1,7 +1,7 @@
 public abstract class ProcessingItem extends Item{
     protected OreDecorator storedOre;
     // private ProcessingItem itemToPushTo = itemInFront;
-    private boolean hasBeenUpgraded =  false;
+    private final boolean hasBeenUpgraded =  false;
     
     public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);

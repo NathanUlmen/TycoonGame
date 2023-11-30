@@ -5,7 +5,7 @@ public class ResetterUpgrader extends Upgrader {
     protected int numberOfUpgrades = 0;
 
     public ResetterUpgrader() {
-        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS);
+        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS, 1);
     }
 
     public ResetterUpgrader(OreDecorator addition) {

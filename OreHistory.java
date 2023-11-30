@@ -3,9 +3,9 @@
 public enum OreHistory {
     RENEWAL_FORGE(1), FIRE(2), AIR(4);
 
-	private int bit;
+	private final int bit;
 
-	private OreHistory(int bit) {
+	OreHistory(int bit) {
 		this.bit = bit;
 	}
 

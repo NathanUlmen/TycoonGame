@@ -4,7 +4,7 @@ public class TheUpgrader extends Upgrader{
     protected final int upgradeLimit = 1;
 
     public TheUpgrader() {
-        super("(2(x+10))^1.0275", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS);
+        super("(2(x+10))^1.0275", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS, 1);
     }
     
     public TheUpgrader(OreDecorator addition) {

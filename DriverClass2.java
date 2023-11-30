@@ -51,7 +51,7 @@ public class DriverClass2 {
 
         
 
-        System.out.println(theQueue.toString());
+        System.out.println(theQueue);
 
 
         theQueue.connectAll();
@@ -103,7 +103,7 @@ public class DriverClass2 {
             public void run() {
                 //tycoonBuilder.fireTycoons(tycoonSystems);
                 theQueue.tycoonTick();
-                System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
+                //System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
                 System.out.println("You have made " + scientificFormat.format(player.getWallet())
                  + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
                 System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
@@ -113,7 +113,7 @@ public class DriverClass2 {
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 100);
+        }, 0, 1);
         
     }
 }

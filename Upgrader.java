@@ -7,12 +7,14 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected OreDecorator internal;
     protected static final MathContext hundreths = new MathContext(5);
     protected boolean upgradeable;
-    private static int numberOfUpgrades;
+    protected static int numberOfUpgrades;
+    private static int maxUpgrades;
 
-    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
+    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, int maxUpgrades) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
         // super(positionX, positionY, itemName, dimensionX, dimensionY);
         this.upgraderEffect = upgraderEffect;
+        Upgrader.maxUpgrades = maxUpgrades;
     }
 
     public Upgrader(OreDecorator addition) {
@@ -34,9 +36,9 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     @Override
     public Ore prepare() {
         Ore result = (ore != null) ? ore : internal.prepare();
-        if (upgradeable) {
+        // if (upgradeable) {
             result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()), multiOreChange(result.getMultiOre()));
-        }
+        // }
         return result;
     }
 

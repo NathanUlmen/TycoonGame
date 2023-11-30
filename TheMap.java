@@ -7,7 +7,7 @@ public class TheMap {
 
     private static TheMap theMapInstance;
     public Item[][] theMap;
-    private ArrayList<Point> occupiedCoordinates = new ArrayList<>();
+    private final ArrayList<Point> occupiedCoordinates = new ArrayList<>();
 
 
     

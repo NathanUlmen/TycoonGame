@@ -1,14 +1,14 @@
 public interface QueueADT<E> {
     
-    public void enqueue(E element);
+    void enqueue(E element);
 
-    public E dequeue();
+    E dequeue();
 
-    public E first();
+    E first();
 
-    public boolean isEmpty();
+    boolean isEmpty();
 
-    public int size();
+    int size();
 
-    public String toString();
+    String toString();
 }

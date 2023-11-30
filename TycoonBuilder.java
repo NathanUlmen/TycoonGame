@@ -26,8 +26,8 @@ import java.util.NoSuchElementException;
 public class TycoonBuilder {
     //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
     protected static TheMap theMap = TheMap.getTheMapInstance();
-    private List<List<Item>> tycoonSystems = new ArrayList<>();
-    private List<Item> allItems = new ArrayList<>();
+    private final List<List<Item>> tycoonSystems = new ArrayList<>();
+    private final List<Item> allItems = new ArrayList<>();
     private int index = 0;
 
 
