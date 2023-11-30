@@ -28,9 +28,6 @@ public class TheUpgrader extends Upgrader{
     @Override
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
         //Equation: (2(oreValue+10))^1.0275
-        // newOreValue = new BigDecimal(Math.pow(newOreValue.add(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(2)).doubleValue(), 1.0275), hundreths);
-        
-        // .setScale(hundreths, RoundingMode.HALF_UP);
         return BigDecimal.valueOf(2).multiply(newOreValue.add(BigDecimal.TEN)).pow((int) 1.0275).round(hundreths);
     }
 

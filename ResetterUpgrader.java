@@ -26,7 +26,7 @@ public class ResetterUpgrader extends Upgrader {
     }
 
     @Override
-    //Ore.getUpgradeCount might not work.
+    //Ore.getUpgradeCount might not work, needs testing.
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
         newOreValue = newOreValue.multiply(BigDecimal.valueOf(ore.getUpgradeCount()/10), hundreths);
         return newOreValue;

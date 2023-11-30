@@ -35,7 +35,7 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
-        return newOreValue.multiply(BigDecimal.valueOf(40000000));
+        return newOreValue.add(BigDecimal.valueOf(4));
         // return BigDecimal.valueOf(2).multiply(newOreValue.add(BigDecimal.TEN)).pow((int) 1.0275);
     }
 
