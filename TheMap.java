@@ -8,13 +8,11 @@ public class TheMap {
     private static TheMap theMapInstance;
     public Item[][] theMap;
     private final ArrayList<Point> occupiedCoordinates = new ArrayList<>();
-
-
     
     public TheMap() {
         theMap = new Item[50][50];
     }
-
+    //Used for the singleton design pattern.
     public static TheMap getTheMapInstance() {
         if (theMapInstance == null) {
             theMapInstance = new TheMap();

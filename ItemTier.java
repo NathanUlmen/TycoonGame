@@ -1,3 +1,3 @@
-public enum ItemTiers {
+public enum ItemTier {
     NORMAL, UNCOMMON, RARE, SUPER_RARE, EXOTIC, PINNACLE, SPECIAL, 
 }

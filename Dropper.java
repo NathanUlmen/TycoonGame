@@ -32,17 +32,6 @@ public abstract class Dropper extends Item implements OreDecorator{
         }
     }
 
-    // public void setItemInFront() {
-    //     Item temp = getItemInFront();
-    //     if (temp instanceof ProcessingItem) {
-    //         this.itemInFront = (ProcessingItem) temp;
-    //         canDrop = true;
-    //     } else {
-    //         itemInFront = null;
-    //         canDrop = false;
-    //     }
-    // }
-
     @Override
     public Ore prepare() {
         Ore result = (ore != null) ? ore : internal.prepare();
@@ -69,35 +58,5 @@ public abstract class Dropper extends Item implements OreDecorator{
     public String toString() {
         return "Dropper Name: " + getItemName() + "\tTotal Ore Dropped: " + totalOreDropped + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
-
-    
-
-    
-
-    // public void dropOre() {
-    //     Item itemInFront = getItemInFront();
-    //     if (itemInFront instanceof ProcessingItem) {
-    //         itemInFront = getItemInFront();
-    
-    //         if (itemInFront instanceof ProcessingItem) {
-    //             ProcessingItem processingItem = (ProcessingItem) itemInFront;
-    //             Ore ore = createOre();
-    //             processingItem.setCurrentOre(ore);
-    //             totalOreDropped++;
-    //         }
-    //     }
-
-    
-    // private void setCurrentOre(Ore ore) {
-    //     Ore[] temp = ((ProcessingItem) item).getStoredOreArray();
-    
-    //     // Find the first empty slot in the array and add the ore
-    //     for (int i = 0; i < temp.length; i++) {
-    //         if (temp[i] == null) {
-    //             temp[i] = ore;
-    //             break; // Break out of the loop after adding one ore
-    //         }
-    //     }
-
    
 }

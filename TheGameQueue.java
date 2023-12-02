@@ -1,5 +1,5 @@
 //TheGameQueue is the class that stores the Queue of items placed down.
-
+//This Class is no longer relevant
 public class TheGameQueue {
     // private static TheMap theMap = new TheMap();
     // private ProcessingItem processingItem;

@@ -8,23 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Item$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Item$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$BreadthFirstSearchQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$BreadthFirstSearchQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$DepthFirstSearchStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$DepthFirstSearchStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +73,7 @@
       <workItem from="1701459861732" duration="578000" />
       <workItem from="1701460691584" duration="1137000" />
       <workItem from="1701462099874" duration="131000" />
-      <workItem from="1701462246909" duration="33000" />
+      <workItem from="1701462246909" duration="4165000" />
     </task>
     <servers />
   </component>
@@ -102,6 +87,11 @@
           <url>file://$PROJECT_DIR$/BasicUpgrader.java</url>
           <line>45</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ProcessingItem.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

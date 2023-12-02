@@ -16,7 +16,6 @@
 
 
 // This method will be called everytime an item is placed or removed.
-//s
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,7 +68,6 @@ public class TycoonBuilder {
 //     |                 |           |
 //     19                17          21
 //                       |           | 
-//s
     public void createSystems() {
         system.clear();
         for (List<Item> list : tycoonSystems) {                                                         
@@ -127,9 +125,7 @@ public class TycoonBuilder {
         //Depth First Search(DFS)
     }
 
-    //item.getItemInFront() == null && item.getItemBehind() != null
-
-    //This method will return all the objects that are on theMap and makes a list of them.
+    //This method will return all the objects that are on theMap and makes a list of them, it will also SetItemInFront for them.
     public void setAllPlacedItems() {
         allItems.clear();
         ArrayList<Point> filledCoordinates = theMap.getFilledCoordinates();
@@ -167,10 +163,11 @@ public class TycoonBuilder {
             return;
         }
         system.add(currentItem);
+        
         if (currentItem instanceof Furnace || currentItem instanceof Upgrader) {
             //furances and upgraders can only take items from behind.
-            
             exploreSystem(currentItem.getItemBehind());
+
         } else if (currentItem instanceof Conveyor) {
             //conveyors can take items from left, right, and behind.
             exploreSystem(currentItem.getItemToLeft());
@@ -229,14 +226,6 @@ public class TycoonBuilder {
         
     }
 
-    private class ListOfSystem {
-        private List<Item> system = new ArrayList<>();
-
-        public ListOfSystem() {
-
-        }
-    }
-   
     private class DepthFirstSearchStack implements StackADT<Item>{
         private Item[] stackOfItems;
         private int top;

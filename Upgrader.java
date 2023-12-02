@@ -12,7 +12,6 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
 
     public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, int maxUpgrades) {
         super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
-        // super(positionX, positionY, itemName, dimensionX, dimensionY);
         this.upgraderEffect = upgraderEffect;
         Upgrader.maxUpgrades = maxUpgrades;
     }
@@ -55,7 +54,6 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     }
 
     public String toString() { 
-        //String upgraderInfo = "Upgrader Name: " + getItemName() + "\nUpgrader Effect: Increases ore value by " + upgraderEffect;
         return "Name: " + getItemName() + "\tEffect: Increases ore value by " + upgraderEffect + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
    
