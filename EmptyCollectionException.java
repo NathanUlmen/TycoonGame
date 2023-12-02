@@ -4,3 +4,4 @@ public class EmptyCollectionException extends RuntimeException {
         super("The " + collection + " is empty.");
     }
 }
+//test
