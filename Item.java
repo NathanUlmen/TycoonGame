@@ -7,7 +7,7 @@ public abstract class Item {
     private int dimensionX;
     private int dimensionY;
     private String itemName;
-    protected static TheMap theMap = TheMap.getTheMapInstance();
+    protected static final TheMap theMap = TheMap.getTheMapInstance();
     
     //might not need theGameQueue after Tycoon builder is done.
     private TheGameQueue itemQueue;

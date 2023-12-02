@@ -5,8 +5,8 @@ import java.math.BigInteger;
 public abstract class Furnace extends ProcessingItem{
     private final double processSpeed;
     private final String processEffect;
-    protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
-    protected static Player player = Player.getPlayerInstance();
+    protected static final OreRealm oreRealm = OreRealm.getOreRealmInstance();
+    protected static final Player player = Player.getPlayerInstance();
     private int currentSpecialProgress;
     private final long specialPointsReward;
     protected final int specialThreshold;

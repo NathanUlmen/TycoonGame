@@ -6,7 +6,7 @@ import java.util.List;
 public class TheMap {
 
     private static TheMap theMapInstance;
-    public Item[][] theMap;
+    public final Item[][] theMap;
     private final ArrayList<Point> occupiedCoordinates = new ArrayList<>();
     
     public TheMap() {
