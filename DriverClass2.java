@@ -49,10 +49,16 @@ public class DriverClass2 {
         // theQueue.addItem(droppers[1], basicUpgraders.length+2);
         theQueue.addItem(droppers[0], basicUpgraders.length+3);
 
+
+        
+        System.out.println(tycoonBuilder.system.toString());
+
+
         
 
-        System.out.println(theQueue);
-
+        // System.out.println(theQueue);
+        
+        
 
         theQueue.connectAll();
 
@@ -95,6 +101,7 @@ public class DriverClass2 {
 
         // droppers[0].setItemInFront();
         // droppers[1].setItemInFront();
+        //s
         // droppers[2].setItemInFront();
         Timer timer = new Timer();
 
@@ -102,7 +109,13 @@ public class DriverClass2 {
             @Override
             public void run() {
                 //tycoonBuilder.fireTycoons(tycoonSystems);
-                theQueue.tycoonTick();
+                tycoonBuilder.setAllPlacedItems();
+                tycoonBuilder.identifySystems();
+                tycoonBuilder.createSystems();
+                // tycoonBuilder.connectSystems();
+                tycoonBuilder.tycoonTick();
+                droppers[0].dropOre();
+                // theQueue.tycoonTick();
                 //System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
                 System.out.println("You have made " + scientificFormat.format(player.getWallet())
                  + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());

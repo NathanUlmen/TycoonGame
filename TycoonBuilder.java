@@ -16,7 +16,7 @@
 
 
 // This method will be called everytime an item is placed or removed.
-
+//s
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,19 +26,29 @@ import java.util.NoSuchElementException;
 public class TycoonBuilder {
     //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
     protected static TheMap theMap = TheMap.getTheMapInstance();
-    private final List<List<Item>> tycoonSystems = new ArrayList<>();
-    private final List<Item> allItems = new ArrayList<>();
-    private int index = 0;
+    private List<List<Item>> tycoonSystems = new ArrayList<>();
+    public List<Item> allItems = new ArrayList<>();
+    public List<Item> system = new ArrayList();
 
+    private BreadthFirstSearchQueue systemExplorerQueue = new BreadthFirstSearchQueue();
+    
 
     //This method will fire each List of Different systems, firing the items inside of the list in the correct order.
     public void tycoonTick() {
-        
+        for (Item item : system) {
+            if(item instanceof ProcessingItem) {
+                ((ProcessingItem) item).processAndPush();
+            } else if( item instanceof Dropper) {
+                ((Dropper)item).dropOre();
+            }
+        }
     }
 
     //This method will set make all placed items set their ItemInFront.
     public void connectSystems() {
-        
+        for (Item item : system) {
+            item.setItemInFront();
+        }
     }
     
 
@@ -59,25 +69,25 @@ public class TycoonBuilder {
 //     |                 |           |
 //     19                17          21
 //                       |           | 
-
+//s
     public void createSystems() {
+        system.clear();
         for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
-                if(item instanceof Furnace || item instanceof Upgrader) {
+                // system.add(item);
+                exploreSystem(item);
                     //Do I use a recursive method to solve this???
                     //Maybe use an algorithm called Breadth-First Search(BFS) to do this
-
-                } else if (item instanceof Conveyor) {
-
-                }
             }
         }
     }
-    
+
 
     //Goes through all placed items and identifies end points of systems.
     //THIS HAS NOT BEEN TESTED
     public void identifySystems() {
+        int index = 0;
+        tycoonSystems.clear();
         for (Item item : allItems) {
             if(item instanceof Furnace) {
                 //Create new system list and add this to front
@@ -121,8 +131,10 @@ public class TycoonBuilder {
 
     //This method will return all the objects that are on theMap and makes a list of them.
     public void setAllPlacedItems() {
+        allItems.clear();
         ArrayList<Point> filledCoordinates = theMap.getFilledCoordinates();
         for (Point coordinate : filledCoordinates) {
+            theMap.getItem(coordinate.getX(), coordinate.getY()).setItemInFront();
             allItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
         }
     }
@@ -148,6 +160,23 @@ public class TycoonBuilder {
     private boolean itemToLeftIsLinked(Item item) {
         Item itemToLeft = item.getItemToLeft();
         return itemToLeft != null && itemToLeft.getItemInFront() == item;
+    }
+
+    private void exploreSystem(Item currentItem) {
+        if (currentItem == null || currentItem instanceof Dropper) {
+            return;
+        }
+        system.add(currentItem);
+        if (currentItem instanceof Furnace || currentItem instanceof Upgrader) {
+            //furances and upgraders can only take items from behind.
+            
+            exploreSystem(currentItem.getItemBehind());
+        } else if (currentItem instanceof Conveyor) {
+            //conveyors can take items from left, right, and behind.
+            exploreSystem(currentItem.getItemToLeft());
+            exploreSystem(currentItem.getItemToRight());
+            exploreSystem(currentItem.getItemBehind());
+        }
     }
 
     private class BreadthFirstSearchQueue implements QueueADT<Item>{
@@ -198,6 +227,14 @@ public class TycoonBuilder {
             queue = biggerQueue;
         }
         
+    }
+
+    private class ListOfSystem {
+        private List<Item> system = new ArrayList<>();
+
+        public ListOfSystem() {
+
+        }
     }
    
     private class DepthFirstSearchStack implements StackADT<Item>{

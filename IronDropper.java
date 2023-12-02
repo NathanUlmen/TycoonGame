@@ -8,7 +8,7 @@ public class IronDropper extends Dropper{
 
     public IronDropper(Ore ore) {
         super(ore);
-        this. ore = ore;
+        this.ore = ore;
         this.internal = null;
     }
 
