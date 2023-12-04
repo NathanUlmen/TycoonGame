@@ -7,7 +7,7 @@ public class BasicUpgrader extends Upgrader{
 
     public BasicUpgrader() {
         super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, 4);
-        
+        //s
     }
 
     public BasicUpgrader(OreDecorator addition) {
