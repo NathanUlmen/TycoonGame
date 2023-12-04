@@ -36,7 +36,11 @@ public class TheMap {
     }
     //This method checks to see if there is an item present at the specific coordinates.
     public boolean isFilled(int X, int Y) {
-        return theMap[X][Y] != null;
+        if(X < 0 || X > 49 || Y < 0 || Y > 49) {
+            return false;
+        } else {
+            return theMap[X][Y] != null;
+        }
     }
 
     //this method gets the item at a specific set of coordinates

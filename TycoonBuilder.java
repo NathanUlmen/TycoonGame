@@ -163,7 +163,7 @@ public class TycoonBuilder {
             return;
         }
         system.add(currentItem);
-        
+    
         if (currentItem instanceof Furnace || currentItem instanceof Upgrader) {
             //furances and upgraders can only take items from behind.
             exploreSystem(currentItem.getItemBehind());

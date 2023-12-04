@@ -1,6 +1,7 @@
-public abstract class Conveyor extends ProcessingItem {
-    public Conveyor(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
+public class Conveyor extends ProcessingItem {
+
+    public Conveyor() {
+        super(-1, -1, "Conveyor", 2, 2, Direction.UPWARDS);
         //TODO Auto-generated constructor stub
     }
 

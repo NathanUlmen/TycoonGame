@@ -19,16 +19,16 @@ public class DriverClass2 {
         BasicUpgrader[] basicUpgraders = new BasicUpgrader[40];
         Furnace furnace2 = new BasicFurnace();
         TheUpgrader theUpgrader = new TheUpgrader();
+        Conveyor[] conveyors = new Conveyor[2900];
 
         //Test Bed:
 
-        
+        //Test 1(A line of upgraders leading into one furnace):
         //Initialize and place Droppers
-        
         droppers[0] = new IronDropper();
         droppers[1] = new GoldDropper();
         droppers[2] = new RubyDropper();
-
+        
         droppers[0].placeItem(1, 5, Direction.UPWARDS);
         // droppers[1].placeItem(2, 5, Direction.UPWARDS);
         // droppers[2].placeItem(3, 5, Direction.UPWARDS);
@@ -43,6 +43,20 @@ public class DriverClass2 {
         
         furnace.placeItem(basicUpgraders.length+1, 6, Direction.RIGHT);
 
+        //Test2(The entire 50x50 map is filled with conveyor items, making a snaking pattern, a dropper is in the top right corner and a furnace is in the bottom right):
+        // for (int i = 0; i < conveyors.length; i++) {
+        //     conveyors[i] = new Conveyor();
+        // }
+
+        // droppers[0] = new IronDropper();
+        // droppers[0].placeItem(0, 0, Direction.UPWARDS);
+
+        // for (int i = 0; i < 48; i++) {
+        //     conveyors[i].placeItem(0, i+1, Direction.UPWARDS);
+        // }
+
+        // furnace.placeItem(0, 49, Direction.UPWARDS);
+        
 
 
 
@@ -53,14 +67,16 @@ public class DriverClass2 {
         class Task extends TimerTask {
             @Override
             public void run() {
-                tycoonBuilder.setAllPlacedItems();
-                tycoonBuilder.identifySystems();
-                tycoonBuilder.createSystems();
-                tycoonBuilder.tycoonTick();
-                droppers[0].dropOre();
-                //System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
-                //System.out.println("You have made " + scientificFormat.format(player.getWallet())
-                 //+ " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
+                    tycoonBuilder.setAllPlacedItems();
+                    tycoonBuilder.identifySystems();
+                    tycoonBuilder.createSystems();
+                    tycoonBuilder.tycoonTick();
+                    droppers[0].dropOre();
+
+
+                System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
+                System.out.println("You have made " + scientificFormat.format(player.getWallet())
+                 + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
                 //System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
             }
         }
@@ -71,4 +87,6 @@ public class DriverClass2 {
         }, 0, 1);
         
     }
+
+    
 }
