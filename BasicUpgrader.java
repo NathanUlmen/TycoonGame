@@ -3,11 +3,10 @@ import java.math.BigDecimal;
 public class BasicUpgrader extends Upgrader{
     private static final int maxUpgrades = 4;
     private boolean canModify;
-    private static int numberOfUpgrades;
+    
 
     public BasicUpgrader() {
         super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, 4);
-        //s
     }
 
     public BasicUpgrader(OreDecorator addition) {
