@@ -9,21 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicFurnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Dropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Dropper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ItemTiers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TheMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ToDo" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/ToDo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$BreadthFirstSearchQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$BreadthFirstSearchQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$DepthFirstSearchStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$DepthFirstSearchStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Upgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Upgrader.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +22,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -89,7 +77,8 @@
       <workItem from="1701462099874" duration="131000" />
       <workItem from="1701462246909" duration="4165000" />
       <workItem from="1701482673557" duration="3777000" />
-      <workItem from="1701487299390" duration="690000" />
+      <workItem from="1701487299390" duration="2403000" />
+      <workItem from="1701720812353" duration="3684000" />
     </task>
     <servers />
   </component>
@@ -127,7 +116,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/DriverClass2.java</url>
-          <line>11</line>
+          <line>10</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

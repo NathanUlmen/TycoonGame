@@ -6,10 +6,10 @@ import java.util.TimerTask;
 public class DriverClass2 {
     public static void main(String[] args) {
         TycoonBuilder tycoonBuilder = new TycoonBuilder();
-        Player player = Player.getPlayerInstance();  
         Dropper[] droppers = new Dropper[9];
         Upgrader[] upgrader = new Upgrader[4];
         TheGameQueue theQueue = new TheGameQueue();
+        Player player = Player.getPlayerInstance();
         Furnace furnace = new BasicFurnace();
         upgrader[0] = new BasicUpgrader();
         upgrader[1] = new TheUpgrader();
@@ -58,9 +58,9 @@ public class DriverClass2 {
                 tycoonBuilder.createSystems();
                 tycoonBuilder.tycoonTick();
                 droppers[0].dropOre();
-                //System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
-                //System.out.println("You have made " + scientificFormat.format(player.getWallet())
-                 //+ " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
+                System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
+                System.out.println("You have made " + scientificFormat.format(player.getWallet())
+                 + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
                 //System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
             }
         }

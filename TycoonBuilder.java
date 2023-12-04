@@ -81,7 +81,7 @@ public class TycoonBuilder {
     }
 
 
-    //Goes through all placed items and identifies end points of systems.
+    //Goes through all placed items and identifies end points of systems. Could use parallel stream for this?
     //THIS HAS NOT BEEN TESTED
     public void identifySystems() {
         int index = 0;
