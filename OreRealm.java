@@ -43,7 +43,7 @@ public class OreRealm implements StackADT<Ore> {
     @Override
     public Ore pop() {
         if (this.isEmpty()) {
-            throw new EmptyCollectionException("stack");
+            throw new EmptyCollectionException("Ore Realm is out of ore!");
         }
         this.top--;
         Ore result  = this.stackOfOre[this.top];
