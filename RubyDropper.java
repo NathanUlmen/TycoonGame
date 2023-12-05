@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class RubyDropper extends Dropper{
 
     public RubyDropper() {
-        super(1000, 0, 0, "Ruby Dropper", 0, 0, Direction.UPWARDS);
+        super(1000, 0, 0, "Ruby Dropper", 0, 0, Direction.UPWARDS, ItemTier.NORMAL);
         
     }
 

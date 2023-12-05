@@ -3,8 +3,8 @@ public abstract class ProcessingItem extends Item{
     // private ProcessingItem itemToPushTo = itemInFront;
     private final boolean hasBeenUpgraded =  false;
     
-    public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
+    public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier);
     }
 
     public ProcessingItem() {

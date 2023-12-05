@@ -6,7 +6,7 @@ public class BasicUpgrader extends Upgrader{
     
 
     public BasicUpgrader() {
-        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, 4);
+        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, 4, ItemTier.NORMAL);
     }
 
     public BasicUpgrader(OreDecorator addition) {
@@ -25,7 +25,6 @@ public class BasicUpgrader extends Upgrader{
         // upgradeable = this.numberOfUpgrades <= 4;
         // numberOfUpgrades++;
     }
-    
 
     @Override
     protected int tempChange(int oreTemperature) {

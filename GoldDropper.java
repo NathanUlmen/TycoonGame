@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class GoldDropper extends Dropper{
 
     public GoldDropper() {
-        super(1000, 0, 0, "Gold Dropper", 0, 0, Direction.UPWARDS);
+        super(1000, 0, 0, "Gold Dropper", 0, 0, Direction.UPWARDS, ItemTier.NORMAL);
     }
 
     public GoldDropper(Ore ore) {

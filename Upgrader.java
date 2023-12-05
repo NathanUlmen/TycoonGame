@@ -10,8 +10,8 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected static int numberOfUpgrades;
     private static int maxUpgrades;
 
-    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, int maxUpgrades) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
+    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, int maxUpgrades, ItemTier tier) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier);
         this.upgraderEffect = upgraderEffect;
         Upgrader.maxUpgrades = maxUpgrades;
     }
