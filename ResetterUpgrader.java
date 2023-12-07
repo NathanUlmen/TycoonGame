@@ -1,11 +1,9 @@
 import java.math.BigDecimal;
 
 public class ResetterUpgrader extends Upgrader {
-    private final int maxUpgrades = 1;
-    protected int numberOfUpgrades = 0;
 
     public ResetterUpgrader() {
-        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS, 1, ItemTier.SPECIAL);
+        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS, UpgradeTag.RENEWAL_FORGE);
     }
 
     public ResetterUpgrader(OreDecorator addition) {
@@ -22,13 +20,14 @@ public class ResetterUpgrader extends Upgrader {
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        setStoredOre(new ResetterUpgrader(ore.prepare()));
+        setStoredOre(new ResetterUpgrader(ore));
+        ore.prepareTags().resetNonResetterTags();
     }
 
     @Override
     //Ore.getUpgradeCount might not work, needs testing.
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
-        newOreValue = newOreValue.multiply(BigDecimal.valueOf(ore.getUpgradeCount()/10), hundreths);
+        newOreValue = newOreValue.multiply(BigDecimal.valueOf(1), hundreths);
         return newOreValue;
     }
 

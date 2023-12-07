@@ -2,10 +2,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class TheUpgrader extends Upgrader{
-    protected final int upgradeLimit = 1;
 
     public TheUpgrader() {
-        super("(2(x+10))^1.0275", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS, 1, ItemTier.PINNACLE);
+        super("(2(x+10))^1.0275", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS, UpgradeTag.THE_FINAL_UPGRADER);
     }
     
     public TheUpgrader(OreDecorator addition) {
@@ -22,7 +21,11 @@ public class TheUpgrader extends Upgrader{
 
     @Override
     protected void upgrade(OreDecorator ore) {
-        setStoredOre(new TheUpgrader(ore));
+        // if (ore.prepareTags().getUpgradeTag(upgradeIndex) > 0)  {
+            setStoredOre(new TheUpgrader(ore));
+        //     ore.prepareTags().decrementUpgradeTag(upgradeIndex);
+        // }
+        
     }
 
     @Override

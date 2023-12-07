@@ -6,14 +6,12 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected Ore ore;
     protected OreDecorator internal;
     protected static final MathContext hundreths = new MathContext(5);
-    protected boolean upgradeable;
-    protected static int numberOfUpgrades;
-    private static int maxUpgrades;
+    protected UpgradeTag upgradeTag;
 
-    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, int maxUpgrades, ItemTier tier) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier);
+    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, UpgradeTag upgradeTag) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
         this.upgraderEffect = upgraderEffect;
-        Upgrader.maxUpgrades = maxUpgrades;
+        this.upgradeTag = upgradeTag;
     }
 
     public Upgrader(OreDecorator addition) {
@@ -28,8 +26,10 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     
     @Override
     public void process(OreDecorator ore) {
-        // System.out.println("Upgraded!");
-        upgrade(ore);
+        if (ore.prepareTags().getUpgradeTag(upgradeTag) > 0)  {
+            upgrade(ore);
+            ore.prepareTags().decrementUpgradeTag(upgradeTag);
+        }
     }
 
     @Override
@@ -38,6 +38,12 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
         // if (upgradeable) {
             result.applyUpgrade(upgradeEffect(result.getOreValue()), tempChange(result.getOreTemp()), multiOreChange(result.getMultiOre()));
         // }
+        return result;
+    }
+
+    @Override
+    public Ore prepareTags() {
+        Ore result = (ore != null) ? ore : internal.prepareTags();
         return result;
     }
 

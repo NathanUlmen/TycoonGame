@@ -1,12 +1,9 @@
 import java.math.BigDecimal;
 
-public class BasicUpgrader extends Upgrader{
-    private static final int maxUpgrades = 4;
-    private boolean canModify;
-    
+public class BasicUpgrader extends Upgrader{   
 
     public BasicUpgrader() {
-        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, 4, ItemTier.NORMAL);
+        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, UpgradeTag.BASIC_UPGRADER);
     }
 
     public BasicUpgrader(OreDecorator addition) {
@@ -33,7 +30,7 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
-        return newOreValue.multiply(BigDecimal.valueOf(400000000));
+        return newOreValue.add(BigDecimal.valueOf(4));
         // return BigDecimal.valueOf(2).multiply(newOreValue.add(BigDecimal.TEN)).pow((int) 1.0275);
     }
 

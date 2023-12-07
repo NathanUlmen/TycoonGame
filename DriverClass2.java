@@ -16,7 +16,7 @@ public class DriverClass2 {
         upgrader[2] = new BasicUpgrader();
         upgrader[3] = new BasicUpgrader();
         NumberFormat scientificFormat = new DecimalFormat("0.0E0");
-        BasicUpgrader[] basicUpgraders = new BasicUpgrader[40];
+        Upgrader[] genericUpgrader = new Upgrader[40];
         Furnace furnace2 = new BasicFurnace();
         TheUpgrader theUpgrader = new TheUpgrader();
         Conveyor[] conveyors = new Conveyor[2900];
@@ -27,23 +27,34 @@ public class DriverClass2 {
 
         //Test 1(A line of upgraders leading into one furnace):
         //Initialize and place Droppers
-        // droppers[0] = new IronDropper();
-        // droppers[1] = new GoldDropper();
-        // droppers[2] = new RubyDropper();
+        droppers[0] = new IronDropper();
+        droppers[1] = new GoldDropper();
+        droppers[2] = new RubyDropper();
         
-        // droppers[0].placeItem(1, 5, Direction.UPWARDS);
-        // // droppers[1].placeItem(2, 5, Direction.UPWARDS);
-        // // droppers[2].placeItem(3, 5, Direction.UPWARDS);
+        droppers[0].placeItem(1, 5, Direction.UPWARDS);
+        // droppers[1].placeItem(2, 5, Direction.UPWARDS);
+        // droppers[2].placeItem(3, 5, Direction.UPWARDS);
 
 
-        // //Initialize and place Processing Items
-        // for (int i = 0; i < basicUpgraders.length; i++) {
-        //     basicUpgraders[i] = new BasicUpgrader();
-        //     basicUpgraders[i].placeItem(basicUpgraders.length-i, 6, Direction.RIGHT);
-        //     theQueue.addItem(basicUpgraders[i], i+1);
-        // }
+        //Initialize and place Processing Items
+        for (int i = 0; i < genericUpgrader.length; i++) {
+            if (i == 20) {
+                genericUpgrader[i] = new ResetterUpgrader();
+            } else if(i == 15){
+                genericUpgrader[i] = new TheUpgrader();
+            } else {
+                genericUpgrader[i] = new BasicUpgrader();
+            }
+            
+            genericUpgrader[i].placeItem(genericUpgrader.length-i, 6, Direction.RIGHT);
+        }
         
-        // furnace.placeItem(basicUpgraders.length+1, 6, Direction.RIGHT);
+        furnace.placeItem(genericUpgrader.length+1, 6, Direction.RIGHT);
+
+        
+
+
+        
 
         //Test2(A 2500 item long line of Basic Upgraders with a dropper at the beginning and a furnace at the end:
         // droppers[0] = new IronDropper();
