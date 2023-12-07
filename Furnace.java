@@ -19,7 +19,6 @@ public abstract class Furnace extends ProcessingItem{
         this.specialPointsReward = specialPointsReward;
         this.specialThreshold = specialThreshold;
         // this.oreQueue = oreQueue;
-
     }
 
     @Override
@@ -46,6 +45,7 @@ public abstract class Furnace extends ProcessingItem{
     private void sellTheOre(Ore preparedOre) {
         BigDecimal processedValue = processEffect(preparedOre.getOreValue().multiply(BigDecimal.valueOf(preparedOre.getMultiOre())));
         player.addToWallet(processedValue.toBigInteger());
+        System.out.println("sold for:" +processedValue);
     }
 
     private void calculateSpecialPoints(Ore preparedOre) {
