@@ -39,11 +39,6 @@ public abstract class Dropper extends Item implements OreDecorator{
         return result;
     }
 
-    public Ore prepareTags() {
-        Ore result = (ore != null) ? ore : internal.prepareTags();
-        return result;
-    }
-
     //returns the total number of ore that the dropper has produced.
     public int getTotalOreDropped() {
         return totalOreDropped;

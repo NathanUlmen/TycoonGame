@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class BasicUpgrader extends Upgrader{   
 
     public BasicUpgrader() {
-        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, UpgradeTag.BASIC_UPGRADER);
+        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, UpgradeTag.BASIC_UPGRADER, ItemTier.NORMAL);
     }
 
     public BasicUpgrader(OreDecorator addition) {

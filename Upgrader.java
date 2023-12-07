@@ -8,8 +8,8 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected static final MathContext hundreths = new MathContext(5);
     protected UpgradeTag upgradeTag;
 
-    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, UpgradeTag upgradeTag) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
+    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, UpgradeTag upgradeTag, ItemTier tier) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier);
         this.upgraderEffect = upgraderEffect;
         this.upgradeTag = upgradeTag;
     }
