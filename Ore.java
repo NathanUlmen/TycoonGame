@@ -5,7 +5,7 @@ public class Ore {
     private int oreTemperature, upgradeCount, multiOre, oreHistory;
     private String oreName;
     private int[] upgradeTag = new int[400]; //The number of different upgraders in the game.
-    private UpgradeTag upgradeTags;
+    
 
     public Ore() {
         this.oreValue = BigDecimal.valueOf(0);
