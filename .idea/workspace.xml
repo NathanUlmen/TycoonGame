@@ -9,15 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OreDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResetterUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResetterUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheUpgrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,21 +34,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/TycoonGame",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/TycoonGame&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DriverClass2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DriverClass2" />
@@ -89,6 +84,8 @@
       <workItem from="1701726150651" duration="2402000" />
       <workItem from="1701730253606" duration="24000" />
       <workItem from="1701982535883" duration="142000" />
+      <workItem from="1701990374448" duration="1082000" />
+      <workItem from="1701991469049" duration="5862000" />
     </task>
     <servers />
   </component>
@@ -113,11 +110,6 @@
           <url>file://$PROJECT_DIR$/ProcessingItem.java</url>
           <line>20</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Upgrader.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

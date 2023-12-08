@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class ResetterUpgrader extends Upgrader {
 
     public ResetterUpgrader() {
-        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS, UpgradeTag.RENEWAL_FORGE);
+        super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS, UpgradeTag.RENEWAL_FORGE, ItemTier.PRESTIGE);
     }
 
     public ResetterUpgrader(OreDecorator addition) {

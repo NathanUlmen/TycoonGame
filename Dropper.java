@@ -10,7 +10,7 @@ public abstract class Dropper extends Item implements OreDecorator{
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped; //The number of ore objects this dropper has created.
     protected boolean canDrop;
-    protected static OreRealm oreRealm = OreRealm.getOreRealmInstance();
+    protected final static OreRealm oreRealm = OreRealm.getOreRealmInstance();
     
     
 
@@ -39,9 +39,22 @@ public abstract class Dropper extends Item implements OreDecorator{
         return result;
     }
 
+    @Override
     public Ore prepareTags() {
         Ore result = (ore != null) ? ore : internal.prepareTags();
         return result;
+    }
+    //Decorator method
+    @Override
+    public int getUpgradeTag(UpgradeTag tag) {
+        return ore.getUpgradeTag(tag);
+    }
+    //Decorator method
+    @Override
+    public void decrementUpgradeTag(UpgradeTag tag) {
+        if (ore != null) {
+            ore.decrementUpgradeTag(tag);
+        }
     }
 
     //returns the total number of ore that the dropper has produced.

@@ -84,9 +84,9 @@ public class DriverClass2 {
                 droppers[0].dropOre();
 
 
-                System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
-                System.out.println("You have made " + scientificFormat.format(player.getWallet())
-                 + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
+                // System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
+                 System.out.println("You have made " + scientificFormat.format(player.getWallet())
+                  + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
                 //System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
             }
         }

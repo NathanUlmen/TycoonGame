@@ -1,7 +1,5 @@
 //The Furnace Class takes an ore and processes it, returning it to the OreRealm and granting you money;
 import java.math.BigDecimal;
-import java.math.BigInteger;
-
 public abstract class Furnace extends ProcessingItem{
     private final double processSpeed;
     private final String processEffect;

@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class BasicUpgrader extends Upgrader{   
 
     public BasicUpgrader() {
-        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, UpgradeTag.BASIC_UPGRADER);
+        super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, UpgradeTag.BASIC_UPGRADER, ItemTier.NORMAL);
     }
 
     public BasicUpgrader(OreDecorator addition) {
@@ -31,7 +31,7 @@ public class BasicUpgrader extends Upgrader{
     @Override
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
         return newOreValue.add(BigDecimal.valueOf(4));
-        // return BigDecimal.valueOf(2).multiply(newOreValue.add(BigDecimal.TEN)).pow((int) 1.0275);
+        // return BigDecimal.valueOf(20).multiply(newOreValue.add(BigDecimal.TEN)).pow((int) 2.0275);
     }
 
     @Override

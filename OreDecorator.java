@@ -4,4 +4,10 @@ public interface OreDecorator {
 
     Ore prepareTags();
 
+    int getUpgradeTag(UpgradeTag tag);
+
+    void decrementUpgradeTag(UpgradeTag tag);
+
+    // int getUpgradeCount();
+
 }

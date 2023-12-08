@@ -1,10 +1,9 @@
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class TheUpgrader extends Upgrader{
 
     public TheUpgrader() {
-        super("(2(x+10))^1.0275", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS, UpgradeTag.THE_FINAL_UPGRADER);
+        super("(2(x+10))^1.0275", 0, 0, "The Upgrader", 8, 8, Direction.UPWARDS, UpgradeTag.THE_FINAL_UPGRADER, ItemTier.PINNACLE);
     }
     
     public TheUpgrader(OreDecorator addition) {
