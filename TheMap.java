@@ -1,16 +1,16 @@
 //TheMap keeps track of all items that are placed.
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TheMap {
 
     private static TheMap theMapInstance;
     public final Item[][] theMap;
+    private final int MAP_DIMENSION = 50;
     private final ArrayList<Point> occupiedCoordinates = new ArrayList<>();
     
     public TheMap() {
-        theMap = new Item[50][50];
+        theMap = new Item[MAP_DIMENSION][MAP_DIMENSION];
     }
     //Used for the singleton design pattern.
     public static TheMap getTheMapInstance() {
@@ -36,7 +36,7 @@ public class TheMap {
     }
     //This method checks to see if there is an item present at the specific coordinates.
     public boolean isFilled(int X, int Y) {
-        if(X < 0 || X > 49 || Y < 0 || Y > 49) {
+        if(X < 0 || X > MAP_DIMENSION -1 || Y < 0 || Y > MAP_DIMENSION -1) {
             return false;
         } else {
             return theMap[X][Y] != null;

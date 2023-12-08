@@ -14,8 +14,8 @@ public abstract class Dropper extends Item implements OreDecorator{
     
     
 
-    public Dropper(int dropRate, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction);
+    public Dropper(int dropRate, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier);
         this.dropRate = dropRate;
     }
 

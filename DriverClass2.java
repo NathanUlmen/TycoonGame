@@ -22,6 +22,7 @@ public class DriverClass2 {
         Conveyor[] conveyors = new Conveyor[2900];
         Upgrader[] upgraderz = new Upgrader[2500];
 
+
         //Test Bed:
 
         //Test 1(A line of upgraders leading into one furnace):
@@ -55,7 +56,7 @@ public class DriverClass2 {
 
         
 
-        //Test2(A 2500 item long lin of Basic Upgraders with a dropper at the beginning and a furnace at the end.:
+        //Test2(A 2500 item long line of Basic Upgraders with a dropper at the beginning and a furnace at the end:
         // droppers[0] = new IronDropper();
         // droppers[0].placeItem(0, 2, Direction.RIGHT);
         // for (int i = 0; i < upgraderz.length; i++) {

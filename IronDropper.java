@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class IronDropper extends Dropper{
 
     public IronDropper() {
-        super(2000, 0, 0, "Iron Dropper", 0, 0, Direction.UPWARDS);
+        super(2000, 0, 0, "Iron Dropper", 0, 0, Direction.UPWARDS, ItemTier.NORMAL);
     }
 
     public IronDropper(Ore ore) {

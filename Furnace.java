@@ -12,8 +12,8 @@ public abstract class Furnace extends ProcessingItem{
     protected final int specialThreshold;
 
 
-    public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Direction direction, int specialPointsReward, int specialThreshold, int currentSpecialProgress) {
-        super(positionX, positionY, itemName, positionX, positionY, direction);
+    public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Direction direction, int specialPointsReward, int specialThreshold, int currentSpecialProgress, ItemTier tier) {
+        super(positionX, positionY, itemName, positionX, positionY, direction, tier);
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
         this.specialPointsReward = specialPointsReward;

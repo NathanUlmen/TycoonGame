@@ -22,7 +22,6 @@ public class BasicUpgrader extends Upgrader{
         // upgradeable = this.numberOfUpgrades <= 4;
         // numberOfUpgrades++;
     }
-    
 
     @Override
     protected int tempChange(int oreTemperature) {

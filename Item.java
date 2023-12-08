@@ -1,6 +1,7 @@
 public abstract class Item {
     // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
-    protected Direction direction;
+    private Direction direction;
+    protected ItemTier tier;
     protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft, itemToPushTo;
     protected int positionX;
     public int positionY;
@@ -10,17 +11,16 @@ public abstract class Item {
     protected static final TheMap theMap = TheMap.getTheMapInstance();
     
     //might not need theGameQueue after Tycoon builder is done.
-    private TheGameQueue itemQueue;
 
-    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction) {
+
+    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.itemName = itemName;
         this.dimensionX = dimensionX;
         this.dimensionY = dimensionY;
         this.direction = direction;
-        this.itemQueue = null;
-
+        
         // switch (direction) {
         //     case 1:
         //         theMap.isFilled(positionX, positionY+1);
@@ -210,15 +210,8 @@ public abstract class Item {
         return blab;
     }
 
-    // **
-    public TheGameQueue getItemQueue() {
-        return itemQueue;
-    }
-
-    // **
-
-    public void setItemQueue(TheGameQueue queue) {
-        this.itemQueue = queue;
+    public ItemTier getTier() {
+        return this.tier;
     }
 
 

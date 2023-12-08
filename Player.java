@@ -6,8 +6,6 @@ public class Player {
     private BigInteger wallet = BigInteger.valueOf(0);
     private static Player playerInstance;
 
-    
-
     public Player(BigInteger wallet, int prestigeLevel, int prestigeCurrency) {
         this.wallet = wallet;
         this.prestigeLevel = prestigeLevel;
