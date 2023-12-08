@@ -30,6 +30,10 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
             upgrade(ore);
             ore.prepareTags().decrementUpgradeTag(upgradeTag);
         }
+        // if (ore.getUpgradeTag(upgradeTag) > 0) {
+        //     upgrade(ore);
+        //     ore.decrementUpgradeTag(upgradeTag);
+        // }
     }
 
     @Override
@@ -46,6 +50,24 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
         Ore result = (ore != null) ? ore : internal.prepareTags();
         return result;
     }
+    //Decorator method
+    @Override
+    public int getUpgradeTag(UpgradeTag tag) {
+        if (ore != null) {
+            return ore.getUpgradeTag(tag);
+        } else {
+            return 0;
+        }
+    }
+    //Decorator Method
+    @Override
+    public void decrementUpgradeTag(UpgradeTag tag) {
+        if (ore != null) {
+            ore.decrementUpgradeTag(tag);
+        }
+        
+    }
+
 
     protected abstract void upgrade(OreDecorator ore);
 
@@ -62,5 +84,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     public String toString() { 
         return "Name: " + getItemName() + "\tEffect: Increases ore value by " + upgraderEffect + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
+
+    
    
 } 
