@@ -53,7 +53,7 @@ public class DriverClass {
             droppers[i].placeItem(i,  9, null);
             droppers[i].setDirection(Direction.UPWARDS);
             theQueue.addItem(droppers[i], 54+i);
-            System.out.println(droppers[i].getItemInFront().getItemName() + i);
+            System.out.println(droppers[i].determineItemInFront().getItemName() + i);
         }
 
 

@@ -1,11 +1,11 @@
+import java.lang.ref.WeakReference;
 public abstract class Item {
     // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
     public enum ItemType {DROPPER, FURNACE, UPGRADER, CONVEYOR};
-
     protected ItemType type;
     private Direction direction;
     protected ItemTier tier;
-    protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft, itemToPushTo;
+    protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft;
     protected int positionX;
     public int positionY;
     private int dimensionX;
@@ -46,10 +46,10 @@ public abstract class Item {
     }
 
     public void placeItem(int X, int Y, Direction direction) {
-        theMap.addItemToMap(this, X, Y);   
         this.direction = direction;
         this.positionX = X;
         this.positionY = Y;
+        theMap.addItemToMap(this, X, Y); 
     }
 
     public int getPositionX() {
@@ -84,7 +84,7 @@ public abstract class Item {
         this.direction = newDirection;
     }
 
-    public Item getItemInFront() {
+    public Item determineItemInFront() {
         int newX = positionX;
         int newY = positionY;
     
@@ -105,7 +105,7 @@ public abstract class Item {
             return theMap.getItem(newX, newY);
     }
 
-    public Item getItemBehind() {
+    public Item determineItemBehind() {
         int newX = positionX;
         int newY = positionY;
 
@@ -126,7 +126,7 @@ public abstract class Item {
             return theMap.getItem(newX, newY);
     }
 
-    public Item getItemToRight() {
+    public Item determineItemToRight() {
         int newX = positionX;
         int newY = positionY;
     
@@ -147,7 +147,7 @@ public abstract class Item {
         return theMap.getItem(newX, newY);
     }
 
-    public Item getItemToLeft() {
+    public Item determineItemToLeft() {
         int newX = positionX;
         int newY = positionY;
     
@@ -166,19 +166,26 @@ public abstract class Item {
                 break;
         }
         return theMap.getItem(newX, newY);
+    }
+
+    public void setAllSurroundingItems() {
+        setItemInFront();
+        setItemBehind();
+        setItemToRight();
+        setItemToLeft();
     }
 
     public void setItemInFront() {
-        Item temp = getItemInFront();
+        Item temp = determineItemInFront();
         if (temp instanceof ProcessingItem) {
-            itemToPushTo = this.itemInFront = (ProcessingItem) temp;
+            this.itemInFront = (ProcessingItem) temp;
         } else {
             itemInFront = null;
         }
     }
 
     public void setItemBehind() {
-        Item temp = getItemBehind();
+        Item temp = determineItemBehind();
         if (temp instanceof ProcessingItem) {
             this.itemBehind = (ProcessingItem) temp;
         } else {
@@ -187,7 +194,7 @@ public abstract class Item {
     }
 
     public void setItemToRight() {
-        Item temp = getItemToRight();
+        Item temp = determineItemToRight();
         if (temp instanceof ProcessingItem) {
             this.itemToRight = (ProcessingItem) temp;
         } else {
@@ -196,13 +203,30 @@ public abstract class Item {
     }
 
     public void setItemToLeft() {
-        Item temp = getItemToLeft();
+        Item temp = determineItemToLeft();
         if (temp instanceof ProcessingItem) {
             this.itemToLeft = (ProcessingItem) temp;
         } else {
             itemToLeft = null;
         }
     }
+
+    public ProcessingItem getItemInFront() {
+        return this.itemInFront;
+    }
+
+    public ProcessingItem getItemBehind() {
+        return this.itemBehind;
+    }
+
+    public ProcessingItem getItemToRight() {
+        return this.itemToRight;
+    }
+
+    public ProcessingItem getItemToLeft(){
+        return this.itemToLeft;
+    }
+
 
     public ItemType getType() {
         return this.type;

@@ -10,7 +10,7 @@ public class Player {
     private static Player playerInstance;
     private List<Stack<Item>> inventory = new ArrayList<>();
     private Stack<Item> stackOfItems = new Stack<>();
-
+    private long numberOfTicks = 0;
 
     public Player(BigInteger wallet, int prestigeLevel, int prestigeCurrency) {
         this.wallet = wallet;
@@ -83,6 +83,14 @@ public class Player {
             playerInstance = new Player();
         }
         return playerInstance;
+    }
+
+    public void incrementTicks() {
+        numberOfTicks++;
+    }
+
+    public long getNumberOfTicks() {
+        return numberOfTicks;
     }
 
 

@@ -16,8 +16,8 @@ public abstract class ProcessingItem extends Item{
     }
 
     public void pushToItem() {
-        if (itemToPushTo != null && itemToPushTo.isEmpty()) {
-            itemToPushTo.setStoredOre(this.storedOre);
+        if (itemInFront != null && itemInFront.isEmpty()) {
+            itemInFront.setStoredOre(this.storedOre);
             setStoredOre(null);
         }
     }
@@ -97,9 +97,9 @@ public abstract class ProcessingItem extends Item{
 
     public void setItemToPushTo(Item item) {
         if (item instanceof ProcessingItem) {
-            this.itemToPushTo = (ProcessingItem) item;
+            this.itemInFront = (ProcessingItem) item;
         } else {
-            this.itemToPushTo = null;
+            this.itemInFront = null;
         }
     }
 

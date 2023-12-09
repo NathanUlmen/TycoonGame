@@ -8,6 +8,7 @@ public class TheMap {
     public final Item[][] theMap;
     private final int MAP_DIMENSION = 5000;
     private final ArrayList<Point> occupiedCoordinates = new ArrayList<>();
+    protected static final TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
     
     public TheMap() {
         theMap = new Item[MAP_DIMENSION][MAP_DIMENSION];
@@ -26,6 +27,7 @@ public class TheMap {
        item.setPositionX(X);
        item.setPositionY(Y);
        addCoordinates(X, Y);
+       tycoonBuilder.updateTycoon();
     }
 
     public void removeItemFromMap(int X, int Y) {
@@ -33,6 +35,7 @@ public class TheMap {
         theMap[X][Y].setPositionY(-1);
         theMap[X][Y] = null;
         removeCoordinates(X, Y);
+        tycoonBuilder.updateTycoon();
     }
     //This method checks to see if there is an item present at the specific coordinates.
     public boolean isFilled(int X, int Y) {

@@ -24,6 +24,7 @@ import java.util.NoSuchElementException;
 
 public class TycoonBuilder {
     //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
+    private static TycoonBuilder tycoonBuilder;
     protected static TheMap theMap = TheMap.getTheMapInstance();
     private List<List<Item>> tycoonSystems = new ArrayList<>();
     public List<Item> allItems = new ArrayList<>();
@@ -31,8 +32,14 @@ public class TycoonBuilder {
     private List<Dropper> listOfDroppers = new ArrayList<>();
 
     private BreadthFirstSearchQueue systemExplorerQueue = new BreadthFirstSearchQueue();
-    
 
+    public static TycoonBuilder getTycoonBuilderInstance() {
+        if (tycoonBuilder == null) {
+            return tycoonBuilder = new TycoonBuilder();
+        }
+        return tycoonBuilder;
+    }
+    
     //This method will fire each List of Different systems, firing the items inside of the list in the correct order.
     public void tycoonTick() {
         for (Item item : allSystems) {
@@ -59,6 +66,12 @@ public class TycoonBuilder {
         for (Item item : allSystems) {
             item.setItemInFront();
         }
+    }
+
+    public void updateTycoon() {
+        setAllPlacedItems();
+        identifySystems();
+        createSystems();
     }
     
 
@@ -159,7 +172,6 @@ public class TycoonBuilder {
                     tycoonSystems.add(index, newSystem);
                     index++;
                 }
-
                 break;
 
             case DROPPER:
@@ -183,7 +195,7 @@ public class TycoonBuilder {
         for (Point coordinate : filledCoordinates) {
             // Item currentItem = theMap.getItem(coordinate.getX(), coordinate.getY());
             // currentItem.setItemInFront();
-            theMap.getItem(coordinate.getX(), coordinate.getY()).setItemInFront();
+            theMap.getItem(coordinate.getX(), coordinate.getY()).setAllSurroundingItems();
             allItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
         }
     }
