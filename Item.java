@@ -1,4 +1,3 @@
-import java.lang.ref.WeakReference;
 public abstract class Item {
     // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
     public enum ItemType {DROPPER, FURNACE, UPGRADER, CONVEYOR};

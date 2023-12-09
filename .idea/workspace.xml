@@ -9,21 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Conveyor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProcessingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ProcessingItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/ProcessingItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$BreadthFirstSearchQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$BreadthFirstSearchQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$DepthFirstSearchStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$DepthFirstSearchStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +84,7 @@
       <workItem from="1701990374448" duration="1082000" />
       <workItem from="1701991469049" duration="6469000" />
       <workItem from="1702017436227" duration="9046000" />
-      <workItem from="1702074573937" duration="13181000" />
+      <workItem from="1702074573937" duration="13511000" />
     </task>
     <servers />
   </component>

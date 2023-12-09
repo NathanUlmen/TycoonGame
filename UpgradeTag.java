@@ -1,4 +1,4 @@
-//This is the upgradeTag class, it is used to limit the number of Times an ore can be upgraded by a specific upgrader type.
+//This is the upgradeTag class, it is used to limit the number of times an ore can be upgraded by a specific upgrader type.
 public enum UpgradeTag {
     BASIC_UPGRADER(0, 4, false),
     THE_FINAL_UPGRADER(1, 1, false),
