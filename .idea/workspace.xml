@@ -9,10 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OreDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,8 @@
       <workItem from="1701730253606" duration="24000" />
       <workItem from="1701982535883" duration="142000" />
       <workItem from="1701990374448" duration="1082000" />
-      <workItem from="1701991469049" duration="5862000" />
+      <workItem from="1701991469049" duration="6469000" />
+      <workItem from="1702017436227" duration="4288000" />
     </task>
     <servers />
   </component>

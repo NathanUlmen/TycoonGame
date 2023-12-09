@@ -10,32 +10,7 @@
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoldDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoldDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IronDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/IronDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/BasicFurnace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/BasicFurnace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Conveyor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Conveyor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2$1Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Dropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Dropper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/GoldDropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/GoldDropper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/IronDropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/IronDropper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ItemTier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/ItemTier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/OreRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/OreRealm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ProcessingItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/ProcessingItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ResetterUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/ResetterUpgrader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/RubyDropper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/RubyDropper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TheMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheUpgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/TheUpgrader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/UpgradeTag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/UpgradeTag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Upgrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TycoonGame/Upgrader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +83,8 @@
       <workItem from="1701730253606" duration="24000" />
       <workItem from="1701982535883" duration="142000" />
       <workItem from="1701990374448" duration="1082000" />
-      <workItem from="1701991469049" duration="18000" />
+      <workItem from="1701991469049" duration="6469000" />
+      <workItem from="1702017436227" duration="1181000" />
     </task>
     <servers />
   </component>

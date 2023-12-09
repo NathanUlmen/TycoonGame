@@ -119,6 +119,22 @@ public class TycoonBuilder {
         }
     }
 
+    // public void identify(Item item) {
+    //     switch () {
+    //         case Furnace:
+                
+    //             break;
+        
+    //         case ProcessingItem :
+
+    //             break;
+
+    //         case Conveyor :
+
+    //             break;
+    //     }
+    // }
+
     //This method will look for systems that dont have an end, they are just one big circle.
     public void identifyLoopingSystems(){
         //from what I can find it seems like I could approach this using an algorithm called
