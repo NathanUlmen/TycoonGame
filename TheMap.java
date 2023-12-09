@@ -6,7 +6,7 @@ public class TheMap {
 
     private static TheMap theMapInstance;
     public final Item[][] theMap;
-    private final int MAP_DIMENSION = 50;
+    private final int MAP_DIMENSION = 5000;
     private final ArrayList<Point> occupiedCoordinates = new ArrayList<>();
     
     public TheMap() {
@@ -64,11 +64,13 @@ public class TheMap {
     }
 
     public void addCoordinates(int X, int Y) {
-        occupiedCoordinates.add(new Point(X, Y));
+        Point newPoint = new Point(X, Y);
+        occupiedCoordinates.add(newPoint);
     }
     //This might not work like I think it does
     public void removeCoordinates(int X, int Y) {
-        occupiedCoordinates.remove(new Point(X, Y));
+        Point pointToBeRemoved = new Point(X, Y);
+        occupiedCoordinates.remove(pointToBeRemoved);
     }
 
     public ArrayList<Point> getFilledCoordinates() {

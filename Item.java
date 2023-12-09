@@ -1,5 +1,8 @@
 public abstract class Item {
     // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
+    public enum ItemType {DROPPER, FURNACE, UPGRADER, CONVEYOR};
+
+    protected ItemType type;
     private Direction direction;
     protected ItemTier tier;
     protected ProcessingItem itemInFront, itemBehind, itemToRight, itemToLeft, itemToPushTo;
@@ -13,13 +16,14 @@ public abstract class Item {
     //might not need theGameQueue after Tycoon builder is done.
 
 
-    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier) {
+    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier, ItemType type) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.itemName = itemName;
         this.dimensionX = dimensionX;
         this.dimensionY = dimensionY;
         this.direction = direction;
+        this.type = type;
         
         // switch (direction) {
         //     case 1:
@@ -200,6 +204,9 @@ public abstract class Item {
         }
     }
 
+    public ItemType getType() {
+        return this.type;
+    }
 
     public String getItemName() {
         return itemName;

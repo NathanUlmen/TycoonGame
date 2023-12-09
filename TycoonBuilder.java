@@ -27,25 +27,36 @@ public class TycoonBuilder {
     protected static TheMap theMap = TheMap.getTheMapInstance();
     private List<List<Item>> tycoonSystems = new ArrayList<>();
     public List<Item> allItems = new ArrayList<>();
-    public List<Item> system = new ArrayList();
+    public List<Item> allSystems = new ArrayList();
+    private List<Dropper> listOfDroppers = new ArrayList<>();
 
     private BreadthFirstSearchQueue systemExplorerQueue = new BreadthFirstSearchQueue();
     
 
     //This method will fire each List of Different systems, firing the items inside of the list in the correct order.
     public void tycoonTick() {
-        for (Item item : system) {
+        for (Item item : allSystems) {
+            ((ProcessingItem) item).processAndPush();
+        }
+        for (Dropper dropper : listOfDroppers) {
+            dropper.dropOre();
+        }
+    }
+
+    private void fireAllSystems() {
+        for (Item item : allSystems) {
             if(item instanceof ProcessingItem) {
                 ((ProcessingItem) item).processAndPush();
-            } else if( item instanceof Dropper) {
-                ((Dropper)item).dropOre();
             }
+        for (Dropper dropper : listOfDroppers) {
+            dropper.dropOre();
+        }
         }
     }
 
     //This method will set make all placed items set their ItemInFront.
     public void connectSystems() {
-        for (Item item : system) {
+        for (Item item : allSystems) {
             item.setItemInFront();
         }
     }
@@ -69,7 +80,7 @@ public class TycoonBuilder {
 //     19                17          21
 //                       |           | 
     public void createSystems() {
-        system.clear();
+        allSystems.clear();
         for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
                 // system.add(item);
@@ -83,57 +94,81 @@ public class TycoonBuilder {
 
     //Goes through all placed items and identifies end points of systems.
     //THIS HAS NOT BEEN TESTED
-    public void identifySystems() {
-        int index = 0;
-        tycoonSystems.clear();
-        for (Item item : allItems) {
-            if(item instanceof Furnace) {
-                //Create new system list and add this to front
-                List<Item> newSystem = new ArrayList<>();
-                newSystem.add(item);
-                tycoonSystems.add(index, newSystem);
-                index++;
-            } else if (item.getItemInFront() == null) {
-                if (item instanceof ProcessingItem) {
-                    if (itemBehindIsLinked(item)) {
-                        //Create a new system list and add this to the front.
-                        List<Item> newSystem = new ArrayList<>();
-                        newSystem.add(item);
-                        tycoonSystems.add(index, newSystem);
-                        index++;
-                    } else if (item instanceof Conveyor) {
-                        if(itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
-                            //create a new system list and add this to the front.
-                            List<Item> newSystem = new ArrayList<>();
-                            newSystem.add(item);
-                            tycoonSystems.add(index, newSystem);
-                            index++;
-                        }
-                    }
+    // public void identifySystems() {
+    //     int index = 0;
+    //     tycoonSystems.clear();
+    //     for (Item item : allItems) {
+    //         if(item instanceof Furnace) {
+    //             //Create new system list and add this to front
+    //             List<Item> newSystem = new ArrayList<>();
+    //             newSystem.add(item);
+    //             tycoonSystems.add(index, newSystem);
+    //             index++;
+    //         } else if (item.getItemInFront() == null) {
+    //             if (item instanceof ProcessingItem) {
+    //                 if (itemBehindIsLinked(item)) {
+    //                     //Create a new system list and add this to the front.
+    //                     List<Item> newSystem = new ArrayList<>();
+    //                     newSystem.add(item);
+    //                     tycoonSystems.add(index, newSystem);
+    //                     index++;
+    //                 } else if (item instanceof Conveyor) {
+    //                     if(itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
+    //                         //create a new system list and add this to the front.
+    //                         List<Item> newSystem = new ArrayList<>();
+    //                         newSystem.add(item);
+    //                         tycoonSystems.add(index, newSystem);
+    //                         index++;
+    //                     }
+    //                 }
                     
 
 
+    //             }
+    //             //Create new system list and ad
+    //         }
+    //     }
+    // }
+
+    public void identifySystems() {
+        int index = 0;
+        tycoonSystems.clear();
+        listOfDroppers.clear();
+        for (Item item : allItems) {
+            switch (item.getType()) {
+            case FURNACE:
+                if (item.getItemInFront() == null && itemBehindIsLinked(item)){
+                    List<Item> newSystem = new ArrayList<>();
+                    newSystem.add(item);
+                    tycoonSystems.add(index, newSystem);
+                    index++;
                 }
-                //Create new system list and ad
+                break;
+            case UPGRADER :
+                if (item.getItemInFront() == null && itemBehindIsLinked(item)) {
+                    List<Item> newSystem = new ArrayList<>();
+                    newSystem.add(item);
+                    tycoonSystems.add(index, newSystem);
+                    index++;   
+                }
+                break;
+            case CONVEYOR:
+                if (item.getItemInFront() == null && itemBehindIsLinked(item) || itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
+                    List<Item> newSystem = new ArrayList<>();
+                    newSystem.add(item);
+                    tycoonSystems.add(index, newSystem);
+                    index++;
+                }
+
+                break;
+
+            case DROPPER:
+                listOfDroppers.add((Dropper) item);
+                break;
+            
             }
         }
     }
-
-    // public void identify(Item item) {
-    //     switch () {
-    //         case Furnace:
-                
-    //             break;
-        
-    //         case ProcessingItem :
-
-    //             break;
-
-    //         case Conveyor :
-
-    //             break;
-    //     }
-    // }
 
     //This method will look for systems that dont have an end, they are just one big circle.
     public void identifyLoopingSystems(){
@@ -146,6 +181,8 @@ public class TycoonBuilder {
         allItems.clear();
         ArrayList<Point> filledCoordinates = theMap.getFilledCoordinates();
         for (Point coordinate : filledCoordinates) {
+            // Item currentItem = theMap.getItem(coordinate.getX(), coordinate.getY());
+            // currentItem.setItemInFront();
             theMap.getItem(coordinate.getX(), coordinate.getY()).setItemInFront();
             allItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
         }
@@ -178,9 +215,9 @@ public class TycoonBuilder {
         if (currentItem == null || currentItem instanceof Dropper) {
             return;
         }
-        system.add(currentItem);
+        allSystems.add(currentItem);
     
-        if (currentItem instanceof Furnace || currentItem instanceof Upgrader) {
+        if (currentItem instanceof Upgrader || currentItem instanceof Furnace) {
             //furances and upgraders can only take items from behind.
             exploreSystem(currentItem.getItemBehind());
 

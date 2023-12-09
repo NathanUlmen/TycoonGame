@@ -3,8 +3,8 @@ public abstract class ProcessingItem extends Item{
     // private ProcessingItem itemToPushTo = itemInFront;
     private final boolean hasBeenUpgraded =  false;
     
-    public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier);
+    public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier, ItemType type) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier, type);
     }
 
     public ProcessingItem() {
@@ -12,21 +12,21 @@ public abstract class ProcessingItem extends Item{
     }
     
     public void processOre() {
-        if (storedOre != null) {
-            process(storedOre);
-        }
+        process(storedOre);
     }
 
     public void pushToItem() {
-        if (itemToPushTo != null && itemToPushTo.isEmpty() && !this.isEmpty()) {
+        if (itemToPushTo != null && itemToPushTo.isEmpty()) {
             itemToPushTo.setStoredOre(this.storedOre);
             setStoredOre(null);
         }
     }
 
     public void processAndPush() {
-        processOre();
-        pushToItem();
+        if (storedOre != null) {
+            processOre();
+            pushToItem();
+        }
     }
 
     public void setStoredOre(OreDecorator oreToBeStored) {

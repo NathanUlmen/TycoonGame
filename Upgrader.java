@@ -9,7 +9,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     protected UpgradeTag upgradeTag;
 
     public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, UpgradeTag upgradeTag, ItemTier tier) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier);
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier, ItemType.UPGRADER);
         this.upgraderEffect = upgraderEffect;
         this.upgradeTag = upgradeTag;
     }

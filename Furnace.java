@@ -11,7 +11,7 @@ public abstract class Furnace extends ProcessingItem{
 
 
     public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Direction direction, int specialPointsReward, int specialThreshold, int currentSpecialProgress, ItemTier tier) {
-        super(positionX, positionY, itemName, positionX, positionY, direction, tier);
+        super(positionX, positionY, itemName, positionX, positionY, direction, tier, ItemType.FURNACE);
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
         this.specialPointsReward = specialPointsReward;
@@ -43,7 +43,7 @@ public abstract class Furnace extends ProcessingItem{
     private void sellTheOre(Ore preparedOre) {
         BigDecimal processedValue = processEffect(preparedOre.getOreValue().multiply(BigDecimal.valueOf(preparedOre.getMultiOre())));
         player.addToWallet(processedValue.toBigInteger());
-        System.out.println("sold for:" +processedValue);
+        // System.out.println("sold for:" +processedValue);
     }
 
     private void calculateSpecialPoints(Ore preparedOre) {
