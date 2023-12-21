@@ -39,25 +39,21 @@ public class TycoonBuilder {
         }
         return tycoonBuilder;
     }
+
     
     //This method will fire each List of Different systems, firing the items inside of the list in the correct order.
     public void tycoonTick() {
+        //Need to Check to see if wasModified before calling updateTycoon.
+        updateTycoon();
+        fireAllSystems();
+    }
+
+    private void fireAllSystems() {
         for (Item item : allSystems) {
             ((ProcessingItem) item).processAndPush();
         }
         for (Dropper dropper : listOfDroppers) {
             dropper.dropOre();
-        }
-    }
-
-    private void fireAllSystems() {
-        for (Item item : allSystems) {
-            if(item instanceof ProcessingItem) {
-                ((ProcessingItem) item).processAndPush();
-            }
-        for (Dropper dropper : listOfDroppers) {
-            dropper.dropOre();
-        }
         }
     }
 
@@ -173,11 +169,10 @@ public class TycoonBuilder {
                     index++;
                 }
                 break;
-
             case DROPPER:
                 listOfDroppers.add((Dropper) item);
                 break;
-            
+
             }
         }
     }
@@ -231,13 +226,22 @@ public class TycoonBuilder {
     
         if (currentItem instanceof Upgrader || currentItem instanceof Furnace) {
             //furances and upgraders can only take items from behind.
-            exploreSystem(currentItem.getItemBehind());
+            if (itemBehindIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemBehind());
+            }
 
         } else if (currentItem instanceof Conveyor) {
             //conveyors can take items from left, right, and behind.
-            exploreSystem(currentItem.getItemToLeft());
-            exploreSystem(currentItem.getItemToRight());
-            exploreSystem(currentItem.getItemBehind());
+            if (itemBehindIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemBehind());
+            }
+            if (itemToLeftIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemToLeft());
+            }
+            if (itemToRightIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemToRight());
+            }
+
         }
     }
 

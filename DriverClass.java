@@ -26,6 +26,7 @@ public class DriverClass {
         BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
         Furnace furnace2 = new BasicFurnace();
         
+        
 
         droppers[0] = new IronDropper();
         droppers[1] = new RubyDropper();

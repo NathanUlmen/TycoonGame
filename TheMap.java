@@ -18,7 +18,7 @@ public class TheMap {
         if (theMapInstance == null) {
             theMapInstance = new TheMap();
         }
-        return theMapInstance;
+        return theMapInstance; 
     }
 
     //This method adds an item to specific coordinates

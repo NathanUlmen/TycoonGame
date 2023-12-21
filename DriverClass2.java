@@ -12,6 +12,7 @@ public class DriverClass2 {
     static TheGameQueue theQueue = new TheGameQueue();
     static Furnace furnace = new BasicFurnace();
     static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
+    static NumberFormat numberFormat = new DecimalFormat();
     static Upgrader[] genericUpgrader = new Upgrader[40];
     static Furnace furnace2 = new BasicFurnace();
     static TheUpgrader theUpgrader = new TheUpgrader();
@@ -87,8 +88,8 @@ public class DriverClass2 {
     
 
 
-        // FixedTest(300000);
-        InfinteTimerTest(1);
+        FixedTest(1);
+        // InfinteTimerTest(1);
 
 
     }
@@ -96,18 +97,23 @@ public class DriverClass2 {
     private static void FixedTest(int numberOfTicks) {
         long start, end;
         start = System.currentTimeMillis();
-        while(count < numberOfTicks) {
-            // tycoonBuilder.setAllPlacedItems();
-            // tycoonBuilder.identifySystems();
-            // tycoonBuilder.createSystems();
+
+        for (int i = 0; i < numberOfTicks; i++) {
             tycoonBuilder.tycoonTick();
-            count++;
         }
+
         end = System.currentTimeMillis();
-        System.out.println(end-start + "Milliseconds");
-        System.out.println((end-start)/1000 + " Seconds");
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        String formattedMilliseconds = nf.format(end - start);
+        String formattedNumberOfTicks = nf.format(numberOfTicks);
+
+        String infoString = "\nIt took ";
+        infoString += formattedMilliseconds + " Milliseconds";
+        infoString += " or " + (end - start) / 1000 + " Seconds";
+        infoString += " to run tycoonTick " + formattedNumberOfTicks + " times.";
+        System.out.println(infoString);
         System.out.println("You have made " + scientificFormat.format(player.getWallet())
-                  + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
+                   + " or " + player.getWallet() + "\nCurrent Special Points: " + player.getSpecialPoints());
     }
 
     private static void InfinteTimerTest(int period) {
@@ -117,9 +123,9 @@ public class DriverClass2 {
             
             @Override
             public void run() {
-                tycoonBuilder.setAllPlacedItems();
-                tycoonBuilder.identifySystems();
-                tycoonBuilder.createSystems();
+                // tycoonBuilder.setAllPlacedItems();
+                // tycoonBuilder.identifySystems();
+                // tycoonBuilder.createSystems();
                 tycoonBuilder.tycoonTick();
                 player.incrementTicks();
                 // System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
@@ -135,8 +141,4 @@ public class DriverClass2 {
             
         }, 0, period);
     }
-
-    
-    
-    
 }
