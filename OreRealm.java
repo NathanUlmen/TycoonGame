@@ -94,6 +94,10 @@ public class OreRealm implements StackADT<Ore> {
             push(new Ore());
         }
     }
+
+    public int getNumberOfOreNotInStack() {
+        return DEFAULT_CAPACITY - size();
+    }
     
 }
 

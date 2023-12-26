@@ -174,6 +174,11 @@ public abstract class Item {
         setItemToLeft();
     }
 
+    public void setFrontAndBack() {
+        setItemInFront();
+        setItemBehind();
+    }
+
     public void setItemInFront() {
         Item temp = determineItemInFront();
         if (temp instanceof ProcessingItem) {

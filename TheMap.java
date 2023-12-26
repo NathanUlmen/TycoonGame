@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class TheMap {
 
     private static TheMap theMapInstance;
-    public final Item[][] theMap;
+    private final Item[][] theMap;
     private final int MAP_DIMENSION = 5000;
-    private final ArrayList<Point> occupiedCoordinates = new ArrayList<>();
-    protected static final TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
+    private ArrayList<Item> occupiedCoordinates = new ArrayList<>();
+    // protected static final TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
     
     public TheMap() {
         theMap = new Item[MAP_DIMENSION][MAP_DIMENSION];
@@ -26,16 +26,16 @@ public class TheMap {
        theMap[X][Y] = item;
        item.setPositionX(X);
        item.setPositionY(Y);
-       addCoordinates(X, Y);
-       tycoonBuilder.updateTycoon();
+       occupiedCoordinates.add(theMap[X][Y]);
+    //    tycoonBuilder.updateTycoon();
     }
 
     public void removeItemFromMap(int X, int Y) {
         theMap[X][Y].setPositionX(-1);
         theMap[X][Y].setPositionY(-1);
         theMap[X][Y] = null;
-        removeCoordinates(X, Y);
-        tycoonBuilder.updateTycoon();
+        occupiedCoordinates.remove(theMap[X][Y]);
+        // tycoonBuilder.updateTycoon();
     }
     //This method checks to see if there is an item present at the specific coordinates.
     public boolean isFilled(int X, int Y) {
@@ -66,18 +66,8 @@ public class TheMap {
         return result.toString();
     }
 
-    public void addCoordinates(int X, int Y) {
-        Point newPoint = new Point(X, Y);
-        occupiedCoordinates.add(newPoint);
-    }
-    //This might not work like I think it does
-    public void removeCoordinates(int X, int Y) {
-        Point pointToBeRemoved = new Point(X, Y);
-        occupiedCoordinates.remove(pointToBeRemoved);
-    }
-
-    public ArrayList<Point> getFilledCoordinates() {
-        return occupiedCoordinates;
+    public ArrayList<Item> getFilledCoordinates() {
+        return new ArrayList<>(occupiedCoordinates);
     }
 
 

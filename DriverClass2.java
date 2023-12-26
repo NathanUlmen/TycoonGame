@@ -14,11 +14,12 @@ public class DriverClass2 {
     static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
     static NumberFormat numberFormat = new DecimalFormat();
     static Upgrader[] genericUpgrader = new Upgrader[40];
-    static Furnace furnace2 = new BasicFurnace();
+    // static Furnace furnace2 = new BasicFurnace();
     static TheUpgrader theUpgrader = new TheUpgrader();
     static Conveyor[] conveyors = new Conveyor[2900];
-    static Upgrader[] upgraderz = new Upgrader[2500];
+    static Upgrader[] upgraderz = new Upgrader[10];
     static Ore ore = new Ore();
+    static OreRealm oreRealm = OreRealm.getOreRealmInstance();
 
     public static void main(String[] args) {
         // long count = 0;
@@ -49,7 +50,7 @@ public class DriverClass2 {
         // droppers[2].placeItem(3, 5, Direction.UPWARDS);
 
 
-        // Initialize and place Processing Items
+        // // Initialize and place Processing Items
         // for (int i = 0; i < genericUpgrader.length; i++) {
         //     if (i == 20) {
         //         genericUpgrader[i] = new ResetterUpgrader();
@@ -64,31 +65,29 @@ public class DriverClass2 {
         
         // furnace.placeItem(genericUpgrader.length+1, 6, Direction.RIGHT);
 
-        
 
-
-        
 
         //Test2(A 2500 item long line of Basic Upgraders with a dropper at the beginning and a furnace at the end:
+        
         droppers[0] = new IronDropper();
         droppers[0].placeItem(0, 2, Direction.RIGHT);
         for (int i = 0; i < upgraderz.length; i++) {
             upgraderz[i] = new BasicUpgrader();
             upgraderz[i].placeItem(1+i, 2, Direction.RIGHT);
-            conveyors[i] = new Conveyor();
-            conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
-            if (i % 5 == 0) {
-                conveyors[i].setStoredOre(new BasicUpgrader(ore));
-            }
+            //  conveyors[i] = new Conveyor();
+            //  conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
+            //  if (i % 5 == 0) {
+            //      conveyors[i].setStoredOre(new BasicUpgrader(ore));
+            //  }
             
         }
-        furnace.placeItem(upgraderz.length, 2, Direction.RIGHT);
-
+        furnace.placeItem(upgraderz.length+1, 2, Direction.RIGHT);
+        
     
     
 
 
-        FixedTest(1);
+        FixedTest(12);
         // InfinteTimerTest(1);
 
 
@@ -100,7 +99,12 @@ public class DriverClass2 {
 
         for (int i = 0; i < numberOfTicks; i++) {
             tycoonBuilder.tycoonTick();
+            // System.out.println("Number of active ore: " + oreRealm.getNumberOfOreNotInStack());
+            // System.out.println("Number of Ore Dropped: " + droppers[0].getTotalOreDropped());
         }
+
+        // System.out.println(tycoonBuilder.getTycoonSystems());
+    // System.out.println(tycoonBuilder.getAllPlacedItems());
 
         end = System.currentTimeMillis();
         NumberFormat nf = NumberFormat.getNumberInstance();
@@ -140,5 +144,9 @@ public class DriverClass2 {
         timer.scheduleAtFixedRate(new Task() {
             
         }, 0, period);
+    }
+
+    private static void simpleSetup() {
+
     }
 }

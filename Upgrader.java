@@ -82,7 +82,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
     }
 
     public String toString() { 
-        return "Name: " + getItemName() + "\tEffect: Increases ore value by " + upgraderEffect + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
+        return "Name: " + getItemName() + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
 
     

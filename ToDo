@@ -42,6 +42,10 @@ Things To Clean UP:
 Things to Create/Do:
 
 1. The TycoonBuilder(DONE, need to test for bugs)
+        Ore is moving twice as fast as it should, I dont know what this is caused by yet....
+        This is being caused by the IdentifySystems method, which is adding the furnace twice which then creates a copy of the same system, causing it to fire twice each tick....
+        The Problem is caused by adding the furnace to a spot that was already on the map, even though the item is overriden/removed there are still two Point References to that spot...
+        
 
 2. Inventory system- would this work best as a List of stacks?
 

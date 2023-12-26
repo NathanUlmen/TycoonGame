@@ -17,9 +17,7 @@
 
 // This method will be called everytime an item is placed or removed.
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 
 public class TycoonBuilder {
@@ -27,11 +25,9 @@ public class TycoonBuilder {
     private static TycoonBuilder tycoonBuilder;
     protected static TheMap theMap = TheMap.getTheMapInstance();
     private List<List<Item>> tycoonSystems = new ArrayList<>();
-    public List<Item> allItems = new ArrayList<>();
-    public List<Item> allSystems = new ArrayList();
+    public List<Item> allPlacedItems = new ArrayList<>();
+    public List<Item> allSystems = new ArrayList<>();
     private List<Dropper> listOfDroppers = new ArrayList<>();
-
-    private BreadthFirstSearchQueue systemExplorerQueue = new BreadthFirstSearchQueue();
 
     public static TycoonBuilder getTycoonBuilderInstance() {
         if (tycoonBuilder == null) {
@@ -50,20 +46,17 @@ public class TycoonBuilder {
 
     private void fireAllSystems() {
         for (Item item : allSystems) {
-            ((ProcessingItem) item).processAndPush();
+            if (item instanceof ProcessingItem) {
+                ((ProcessingItem) item).processAndPush();
+//                System.out.println(item.toString() + " fired");
+            }
         }
         for (Dropper dropper : listOfDroppers) {
             dropper.dropOre();
+            // System.out.println("Dropped Ore!");
         }
     }
-
-    //This method will set make all placed items set their ItemInFront.
-    public void connectSystems() {
-        for (Item item : allSystems) {
-            item.setItemInFront();
-        }
-    }
-
+    
     public void updateTycoon() {
         setAllPlacedItems();
         identifySystems();
@@ -143,7 +136,7 @@ public class TycoonBuilder {
         int index = 0;
         tycoonSystems.clear();
         listOfDroppers.clear();
-        for (Item item : allItems) {
+        for (Item item : allPlacedItems) {
             switch (item.getType()) {
             case FURNACE:
                 if (item.getItemInFront() == null && itemBehindIsLinked(item)){
@@ -151,6 +144,7 @@ public class TycoonBuilder {
                     newSystem.add(item);
                     tycoonSystems.add(index, newSystem);
                     index++;
+                    //System.out.println("Furnace added to tycoonSystems.");
                 }
                 break;
             case UPGRADER :
@@ -176,6 +170,36 @@ public class TycoonBuilder {
             }
         }
     }
+    
+    private void exploreSystem(Item currentItem) {
+        if (currentItem == null || currentItem instanceof Dropper) {
+            return;
+        }
+
+        // if (!allSystems.contains(currentItem)) {
+            allSystems.add(currentItem);
+        // }
+        
+        if (currentItem instanceof Upgrader || currentItem instanceof Furnace) {
+            //furances and upgraders can only take items from behind.
+            if (itemBehindIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemBehind());  
+            }
+
+        } else if (currentItem instanceof Conveyor) {
+            //conveyors can take items from left, right, and behind.
+            if (itemBehindIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemBehind());
+            }
+            if (itemToLeftIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemToLeft());
+            }
+            if (itemToRightIsLinked(currentItem)) {
+                exploreSystem(currentItem.getItemToRight());
+            }
+
+        }
+    }
 
     //This method will look for systems that dont have an end, they are just one big circle.
     public void identifyLoopingSystems(){
@@ -185,18 +209,24 @@ public class TycoonBuilder {
 
     //This method will return all the objects that are on theMap and makes a list of them, it will also SetItemInFront for them.
     public void setAllPlacedItems() {
-        allItems.clear();
-        ArrayList<Point> filledCoordinates = theMap.getFilledCoordinates();
-        for (Point coordinate : filledCoordinates) {
-            // Item currentItem = theMap.getItem(coordinate.getX(), coordinate.getY());
-            // currentItem.setItemInFront();
-            theMap.getItem(coordinate.getX(), coordinate.getY()).setAllSurroundingItems();
-            allItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
-        }
+        allPlacedItems.clear();
+        allPlacedItems = theMap.getFilledCoordinates();
+            for (Item item : allPlacedItems) {
+                item.setAllSurroundingItems();
+            }
+        // for (Point coordinate : filledCoordinates) {
+        //     // Item currentItem = theMap.getItem(coordinate.getX(), coordinate.getY());
+        //     // currentItem.setItemInFront();
+        //     theMap.getItem(coordinate.getX(), coordinate.getY()).setAllSurroundingItems();
+        //     if (theMap.getItem(coordinate.getX(), coordinate.getY()) instanceof Furnace) {
+        //         System.out.println("FURNACE!!");
+        //     }
+        //     allPlacedItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
+        // }
     }
 
     public List<Item> getAllPlacedItems() {
-        return allItems;
+        return allPlacedItems;
     }
 
     public List<List<Item>> getTycoonSystems() {
@@ -218,119 +248,5 @@ public class TycoonBuilder {
         return itemToLeft != null && itemToLeft.getItemInFront() == item;
     }
 
-    private void exploreSystem(Item currentItem) {
-        if (currentItem == null || currentItem instanceof Dropper) {
-            return;
-        }
-        allSystems.add(currentItem);
-    
-        if (currentItem instanceof Upgrader || currentItem instanceof Furnace) {
-            //furances and upgraders can only take items from behind.
-            if (itemBehindIsLinked(currentItem)) {
-                exploreSystem(currentItem.getItemBehind());
-            }
-
-        } else if (currentItem instanceof Conveyor) {
-            //conveyors can take items from left, right, and behind.
-            if (itemBehindIsLinked(currentItem)) {
-                exploreSystem(currentItem.getItemBehind());
-            }
-            if (itemToLeftIsLinked(currentItem)) {
-                exploreSystem(currentItem.getItemToLeft());
-            }
-            if (itemToRightIsLinked(currentItem)) {
-                exploreSystem(currentItem.getItemToRight());
-            }
-
-        }
-    }
-
-    private class BreadthFirstSearchQueue implements QueueADT<Item>{
-        private int front, rear, count;
-        private Item[] queue;
-
-        @Override
-        public void enqueue(Item element) {
-            if (size() == queue.length) {
-                expandCapcaity();
-            }
-            queue[rear] = element;
-            count++;
-        }
-
-        @Override
-        public Item dequeue() {
-            if (isEmpty()) {
-                throw new NoSuchElementException("Nothing left in the Queue");
-            }
-            Item result = queue[front];
-            queue[front]= null;
-            count--;
-            return result;
-
-        }
-
-        @Override
-        public Item first() {
-            if (isEmpty()) {
-                throw new NoSuchElementException("Nothing in the Queue!");
-            }
-            return queue[front];
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return size() == 0;
-        }
-
-        @Override
-        public int size() {
-            return count;
-        }
-
-        private void expandCapcaity() {
-            Item[] biggerQueue = Arrays.copyOf(queue, queue.length * 2);
-            queue = biggerQueue;
-        }
-        
-    }
-
-    private class DepthFirstSearchStack implements StackADT<Item>{
-        private Item[] stackOfItems;
-        private int top;
-
-        @Override
-        public void push(Item element) {
-            //check to expand
-            this.stackOfItems[this.top] = element;
-            this.top++;
-        }
-
-        @Override
-        public Item pop() {
-            //Check to see if empty
-            Item result = stackOfItems[this.top];
-            stackOfItems[this.top] = null;
-            top--;
-            return result;
-        }
-
-        @Override
-        public Item peek() {
-            //Check to see if empty
-            return stackOfItems[this.top];
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return size() == 0;
-        }
-
-        @Override
-        public int size() {
-            return this.top;
-        }
-    
-    }
 }
 
