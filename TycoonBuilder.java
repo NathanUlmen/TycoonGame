@@ -21,7 +21,6 @@ import java.util.List;
 
 
 public class TycoonBuilder {
-    //This might not be using the same instance of TheMaps as the items are(Use singleton design pattern?)
     private static TycoonBuilder tycoonBuilder;
     protected static TheMap theMap = TheMap.getTheMapInstance();
     private List<List<Item>> tycoonSystems = new ArrayList<>();
@@ -39,17 +38,17 @@ public class TycoonBuilder {
     
     //This method will fire each List of Different systems, firing the items inside of the list in the correct order.
     public void tycoonTick() {
-        //Need to Check to see if wasModified before calling updateTycoon.
+        //Would check to see if wasModified before calling updateTycoon.
         updateTycoon();
         fireAllSystems();
     }
 
-    private void fireAllSystems() {
+    public void fireAllSystems() {
         for (Item item : allSystems) {
-            if (item instanceof ProcessingItem) {
+            // if (item instanceof ProcessingItem) {
                 ((ProcessingItem) item).processAndPush();
 //                System.out.println(item.toString() + " fired");
-            }
+            // }
         }
         for (Dropper dropper : listOfDroppers) {
             dropper.dropOre();
@@ -85,52 +84,10 @@ public class TycoonBuilder {
         allSystems.clear();
         for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
-                // system.add(item);
                 exploreSystem(item);
-                    //Do I use a recursive method to solve this???
-                    //Maybe use an algorithm called Breadth-First Search(BFS) to do this
             }
         }
     }
-
-
-    //Goes through all placed items and identifies end points of systems.
-    //THIS HAS NOT BEEN TESTED
-    // public void identifySystems() {
-    //     int index = 0;
-    //     tycoonSystems.clear();
-    //     for (Item item : allItems) {
-    //         if(item instanceof Furnace) {
-    //             //Create new system list and add this to front
-    //             List<Item> newSystem = new ArrayList<>();
-    //             newSystem.add(item);
-    //             tycoonSystems.add(index, newSystem);
-    //             index++;
-    //         } else if (item.getItemInFront() == null) {
-    //             if (item instanceof ProcessingItem) {
-    //                 if (itemBehindIsLinked(item)) {
-    //                     //Create a new system list and add this to the front.
-    //                     List<Item> newSystem = new ArrayList<>();
-    //                     newSystem.add(item);
-    //                     tycoonSystems.add(index, newSystem);
-    //                     index++;
-    //                 } else if (item instanceof Conveyor) {
-    //                     if(itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
-    //                         //create a new system list and add this to the front.
-    //                         List<Item> newSystem = new ArrayList<>();
-    //                         newSystem.add(item);
-    //                         tycoonSystems.add(index, newSystem);
-    //                         index++;
-    //                     }
-    //                 }
-                    
-
-
-    //             }
-    //             //Create new system list and ad
-    //         }
-    //     }
-    // }
 
     public void identifySystems() {
         int index = 0;
@@ -139,20 +96,13 @@ public class TycoonBuilder {
         for (Item item : allPlacedItems) {
             switch (item.getType()) {
             case FURNACE:
+            case UPGRADER:
                 if (item.getItemInFront() == null && itemBehindIsLinked(item)){
                     List<Item> newSystem = new ArrayList<>();
                     newSystem.add(item);
                     tycoonSystems.add(index, newSystem);
                     index++;
                     //System.out.println("Furnace added to tycoonSystems.");
-                }
-                break;
-            case UPGRADER :
-                if (item.getItemInFront() == null && itemBehindIsLinked(item)) {
-                    List<Item> newSystem = new ArrayList<>();
-                    newSystem.add(item);
-                    tycoonSystems.add(index, newSystem);
-                    index++;   
                 }
                 break;
             case CONVEYOR:
@@ -172,20 +122,16 @@ public class TycoonBuilder {
     }
     
     private void exploreSystem(Item currentItem) {
-        if (currentItem == null || currentItem instanceof Dropper) {
-            return;
-        }
-
+        if (currentItem == null || currentItem instanceof Dropper) { return; } //Guard Statement
+        
         // if (!allSystems.contains(currentItem)) {
             allSystems.add(currentItem);
         // }
-        
         if (currentItem instanceof Upgrader || currentItem instanceof Furnace) {
             //furances and upgraders can only take items from behind.
             if (itemBehindIsLinked(currentItem)) {
                 exploreSystem(currentItem.getItemBehind());  
             }
-
         } else if (currentItem instanceof Conveyor) {
             //conveyors can take items from left, right, and behind.
             if (itemBehindIsLinked(currentItem)) {
@@ -197,32 +143,21 @@ public class TycoonBuilder {
             if (itemToRightIsLinked(currentItem)) {
                 exploreSystem(currentItem.getItemToRight());
             }
-
         }
     }
 
     //This method will look for systems that dont have an end, they are just one big circle.
     public void identifyLoopingSystems(){
-        //from what I can find it seems like I could approach this using an algorithm called
-        //Depth First Search(DFS)
+        
     }
 
     //This method will return all the objects that are on theMap and makes a list of them, it will also SetItemInFront for them.
     public void setAllPlacedItems() {
         allPlacedItems.clear();
         allPlacedItems = theMap.getFilledCoordinates();
-            for (Item item : allPlacedItems) {
-                item.setAllSurroundingItems();
-            }
-        // for (Point coordinate : filledCoordinates) {
-        //     // Item currentItem = theMap.getItem(coordinate.getX(), coordinate.getY());
-        //     // currentItem.setItemInFront();
-        //     theMap.getItem(coordinate.getX(), coordinate.getY()).setAllSurroundingItems();
-        //     if (theMap.getItem(coordinate.getX(), coordinate.getY()) instanceof Furnace) {
-        //         System.out.println("FURNACE!!");
-        //     }
-        //     allPlacedItems.add(theMap.getItem(coordinate.getX(), coordinate.getY()));
-        // }
+        for (Item item : allPlacedItems) {
+            item.setAllSurroundingItems();
+        }
     }
 
     public List<Item> getAllPlacedItems() {

@@ -1,206 +1,170 @@
-import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class DriverClass {
-    public static void main(String[] args) {
-        long tracker = System.currentTimeMillis();
-       
-        Player player = new Player(BigInteger.valueOf(0), 0, 0);   
-        Dropper[] droppers = new Dropper[9];
-        Upgrader[] upgrader = new Upgrader[4];
-        TheGameQueue theQueue = new TheGameQueue();
-        Furnace furnace = new BasicFurnace();
-        upgrader[0] = new BasicUpgrader();
-        upgrader[1] = new TheUpgrader();
-        upgrader[2] = new BasicUpgrader();
-        upgrader[3] = new BasicUpgrader();
-        NumberFormat scientificFormat = new DecimalFormat("0.0E0");
-        BasicUpgrader[] basicUpgraders = new BasicUpgrader[900];
-        Furnace furnace2 = new BasicFurnace();
-        
-        
-
-        droppers[0] = new IronDropper();
-        droppers[1] = new RubyDropper();
-        droppers[2] = new GoldDropper();
-
-        for (int i = 0; i <= 46; i++) {
-            basicUpgraders[i] = new BasicUpgrader();
-            theQueue.addItem(basicUpgraders[i], 7+i);
-            basicUpgraders[i].placeItem(i, 10, null);
-            System.out.println("I is: " + i);
-            basicUpgraders[i].setDirection(Direction.RIGHT);
-        }
-
-        furnace2.placeItem(46, 10, null);
-        theQueue.addItem(furnace2, 140);
-        furnace.setDirection(Direction.UPWARDS);
-
-        // System.out.println(basicUpgraders[46].getItemInFront().getItemName());
-
-        
-
-
-        for (int i = 3; i < droppers.length ; i++) {
-            droppers[i] = new GoldDropper();
-            droppers[i].placeItem(i,  9, null);
-            droppers[i].setDirection(Direction.UPWARDS);
-            theQueue.addItem(droppers[i], 54+i);
-            System.out.println(droppers[i].determineItemInFront().getItemName() + i);
-        }
-
-
-        
-        
-
-        // Ore goldOre = new GoldOre();
-        // Ore goldOre2 = new GoldOre();
-        // Ore goldOre3 = new GoldOre();
-
+    static final int hundred = 100;
+    static final int ten = 10;
+    static final int thousand = 1000;
+    static final int twentyFiveHundred = 2500;
+    static long count = 0;
+    final static TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
+    final static Player player = Player.getPlayerInstance();  
+    static Dropper[] droppers = new Dropper[ten];
+    static Conveyor[] conveyors = new Conveyor[twentyFiveHundred];
+    static Upgrader[] upgraders = new Upgrader[twentyFiveHundred];
+    static Furnace[] furnaces = new Furnace[hundred];
+    static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
     
-        // for (int i = 0; i < droppers.length; i++) {
-        //     droppers[i].setDirection(Direction.UPWARDS);
-        //     theQueue.addItem(droppers[i], 4+i);
+    static Ore ore = new Ore();
+
+    public static void main(String[] args) {
+        // long count = 0;
+        // TycoonBuilder tycoonBuilder = new TycoonBuilder();
+        // Player player = Player.getPlayerInstance();  
+        // Dropper[] droppers = new Dropper[9];
+        // Upgrader[] upgrader = new Upgrader[4];
+        // TheGameQueue theQueue = new TheGameQueue();
+        // Furnace furnace = new BasicFurnace();
+        // NumberFormat scientificFormat = new DecimalFormat("0.0E0");
+        // Upgrader[] genericUpgrader = new Upgrader[40];
+        // Furnace furnace2 = new BasicFurnace();
+        // TheUpgrader theUpgrader = new TheUpgrader();
+        // Conveyor[] conveyors = new Conveyor[2900];
+        // Upgrader[] upgraderz = new Upgrader[2500];
+
+
+        //Test Bed:
+
+        //Test 1(A line of upgraders leading into one furnace):
+        //Initialize and place Droppers
+        // droppers[0] = new IronDropper();
+        // droppers[1] = new GoldDropper();
+        // droppers[2] = new RubyDropper();
+        
+        // droppers[0].placeItem(1, 5, Direction.UPWARDS);
+        // droppers[1].placeItem(2, 5, Direction.UPWARDS);
+        // droppers[2].placeItem(3, 5, Direction.UPWARDS);
+
+
+        // // Initialize and place Processing Items
+        // for (int i = 0; i < genericUpgrader.length; i++) {
+        //     if (i == 20) {
+        //         genericUpgrader[i] = new ResetterUpgrader();
+        //     } else if(i == 15){
+        //         genericUpgrader[i] = new TheUpgrader();
+        //     } else {
+        //         genericUpgrader[i] = new BasicUpgrader();
+        //     }
+            
+        //     genericUpgrader[i].placeItem(genericUpgrader.length-i, 6, Direction.RIGHT);
         // }
-        // theQueue.addItem(droppers[0], 5);
-        // theQueue.addItem(droppers[1], 6);
-        // theQueue.addItem(droppers[2], 7);
-
         
-        // droppers[0].placeItem(1, 4);
-        // droppers[1].placeItem(2, 4);
-        // droppers[2].placeItem(3, 4);
+        // furnace.placeItem(genericUpgrader.length+1, 6, Direction.RIGHT);
 
+
+
+        //Test2(A 2500 item long line of Basic Upgraders with a dropper at the beginning and a furnace at the end:
         
-        // theQueue.addItem(upgrader[0], 0);
-        // theQueue.addItem(upgrader[1], 1);
-        // theQueue.addItem(upgrader[2], 2);
-        // theQueue.addItem(upgrader[3], 3);
-        // theQueue.addItem(furnace, 4);
-
-        // upgrader[0].placeItem(1, 5);
-        // upgrader[1].placeItem(2, 5);
-        // upgrader[2].placeItem(3, 5);
-        // upgrader[3].placeItem(4, 5);
-        // furnace.placeItem(5, 5);
-        // System.out.println(droppers[0].getItemInFront().getItemName());
-
-        // for (int i = 0; i < upgrader.length; i++) {
-        //     upgrader[i].setDirection(Direction.RIGHT);
-        // }
+        droppers[0] = new IronDropper();
+        droppers[0].placeItem(0, 2, Direction.RIGHT);
+        for (int i = 0; i < upgraders.length; i++) {
+            upgraders[i] = new BasicUpgrader();
+            upgraders[i].placeItem(1+i, 2, Direction.RIGHT);
+             conveyors[i] = new Conveyor();
+             conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
+             if (i % 5 == 0) {
+                conveyors[i].setStoredOre(new BasicUpgrader(ore));
+             }
+            
+        }
+        furnaces[0] = new BasicFurnace();
+        furnaces[0].placeItem(upgraders.length+1, 2, Direction.RIGHT);
         
+    
+    
 
+
+        FixedTest(1000000*2);
+        // InfinteTimerTest(1);
+        // timedTest(10);
+
+    }
+
+    private static void FixedTest(int numberOfTicks) {
+        long start, end;
+        start = System.currentTimeMillis();
+        tycoonBuilder.updateTycoon();
+        for (int i = 0; i < numberOfTicks; i++) {
+            // tycoonBuilder.tycoonTick();
+            tycoonBuilder.fireAllSystems();
+            // System.out.println("Number of active ore: " + oreRealm.getNumberOfOreNotInStack());
+            // System.out.println("Number of Ore Dropped: " + droppers[0].getTotalOreDropped());
+        }
+
+        // System.out.println(tycoonBuilder.getTycoonSystems());
+    // System.out.println(tycoonBuilder.getAllPlacedItems());
+
+        end = System.currentTimeMillis();
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        String formattedMilliseconds = nf.format(end - start);
+        String formattedNumberOfTicks = nf.format(numberOfTicks);
+
+        String infoString = "\nIt took ";
+        infoString += formattedMilliseconds + " Milliseconds";
+        infoString += " or " + (end - start) / 1000 + " Seconds";
+        infoString += " to run tycoonTick " + formattedNumberOfTicks + " times.";
+        System.out.println(infoString);
+        System.out.println("You have made " + scientificFormat.format(player.getWallet())
+                   + " or " + player.getWallet() + "\nCurrent Special Points: " + player.getSpecialPoints());
+    }
+
+    private static void InfinteTimerTest(int period) {
         Timer timer = new Timer();
 
         class Task extends TimerTask {
+            
             @Override
             public void run() {
-                theQueue.tycoonTick();
-                System.out.println("You have made " + scientificFormat.format(player.getWallet()));
-                System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
+                // tycoonBuilder.setAllPlacedItems();
+                // tycoonBuilder.identifySystems();
+                // tycoonBuilder.createSystems();
+                tycoonBuilder.tycoonTick();
+                player.incrementTicks();
+                // System.out.println("Ore dropped: " + droppers[0].getTotalOreDropped());
+                // System.out.println("You have made " + scientificFormat.format(player.getWallet())
+                //   + " or " +player.getWallet() + "\nCurrentSpcialPoints: " + player.getSpecialPoints());
+                //System.out.println("Task executed at: " + System.currentTimeMillis() +"\n");
+                System.out.println("Number of Ticks: " + player.getNumberOfTicks());
             }
         }
     
 
         timer.scheduleAtFixedRate(new Task() {
             
-        }, 0, 1000);
+        }, 0, period);
+    }
 
-
+    private static void timedTest(long timeToRun) {
+        long start, end;
+        int ticks = 0;
+        start = System.currentTimeMillis();
+        end = start + (timeToRun * 1000);
+        tycoonBuilder.updateTycoon();
+        while (System.currentTimeMillis() < end) {
+            tycoonBuilder.fireAllSystems();
+            ticks++;
+            end = System.currentTimeMillis();
+        }
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        String formattedMilliseconds = nf.format(end - start);
+        String formattedNumberOfTicks = nf.format(ticks);
         
-        // for (Dropper dropper : droppers) {
-        //     dropper.startDropping();
-        // }
+        String infoString = "Ran " + ticks + " ticks in " + timeToRun + " seconds";
+        System.out.println(infoString);
+    }
+    private static void simpleSetup() {
 
-        // try {
-        //     Thread.sleep(5000); // Sleep for 10 seconds to allow ore generation
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
-
-        // for (Dropper dropper : droppers) {
-        //     dropper.stopDropping();
-        // }
-
-        
-        //  for (Dropper dropper : droppers) {
-        //     System.out.println(dropper.toString());
-        // }
-
-        
-
-
-
-        // upgrader[1].setPreviousItem(null);
-        // upgrader[2].setPreviousItem(upgrader[3]);
-        // upgrader[0].setPreviousItem(upgrader[2]);
-        // upgrader[3].setPreviousItem(upgrader[0]);
-        // upgrader[2].setCurrentOre(goldOre3);
-        
-        // for (int i = 0; i < 900000; i ++) {
-        //     theQueue.tycoonTick();
-        // }
-        
-        // upgrader[0].setPreviousItem(null);
-        // upgrader[1].setPreviousItem(upgrader[0]);
-        // upgrader[2].setPreviousItem(upgrader[1]);
-        // furnace.setPreviousItem(upgrader[2]);
-
-        // for (int i = 0; i < 100; i ++) {
-        //     theQueue.tycoonTick();
-        // }
-        // System.out.println("\n" + player.getWallet());
-        // theQueue.addItem(furnace, 0);
-
-        // for (int i = 0; i < basicUpgraders.length; i++) {
-        //     basicUpgraders[i] = new BasicUpgrader();
-
-        //     // Add each BasicUpgrader to theQueue
-        //     theQueue.addItem(basicUpgraders[i], i + 1); // Start from index 1 to avoid overwriting furnace
-
-        //     // Set the previous item for each BasicUpgrader
-        //     if (i > 0) {
-        //         basicUpgraders[i].setPreviousItem(basicUpgraders[i - 1]);
-        //     }
-
-        //     // Set a GoldOre object in every other BasicUpgrader
-            
-        //         basicUpgraders[i].setCurrentOre(new GoldOre());
-            
-        // }
-        // basicUpgraders[1].setPreviousItem(basicUpgraders[899]);
-
-        // long tracker3 = System.currentTimeMillis();
-        // for (int i = 0; i <1000; i++) {
-        //     theQueue.tycoonTick();
-        // }
-
-        // furnace.setPreviousItem(basicUpgraders[899]);
-
-        // for (int i = 0; i <100; i++) {
-        //     theQueue.tycoonTick();
-        // }
-
-        // System.out.println("\n" + player.getWallet());
-        // long tracker4 = System.currentTimeMillis();
-        // tracker3 = tracker4 - tracker3;
-        // System.out.println("Time in Milliseconds: " + tracker3);
-        // System.out.println();
-        
-
-
-        //Maybe make a for each method that adds each upgrader to the upgrade queue?
-
-        long tracker2 = System.currentTimeMillis();
-        tracker = tracker2 - tracker;
-        System.out.println("Time in Milliseconds: " + tracker);
     }
 }

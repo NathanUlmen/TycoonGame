@@ -68,7 +68,6 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
         
     }
 
-
     protected abstract void upgrade(OreDecorator ore);
 
     protected abstract BigDecimal upgradeEffect(BigDecimal newOreValue);

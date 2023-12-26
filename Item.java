@@ -1,6 +1,6 @@
 public abstract class Item {
     // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
-    public enum ItemType {DROPPER, FURNACE, UPGRADER, CONVEYOR};
+    public enum ItemType {DROPPER, FURNACE, UPGRADER, CONVEYOR}
     protected ItemType type;
     private Direction direction;
     protected ItemTier tier;
