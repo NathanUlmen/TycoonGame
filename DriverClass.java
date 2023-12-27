@@ -8,12 +8,13 @@ public class DriverClass {
     static final int ten = 10;
     static final int thousand = 1000;
     static final int twentyFiveHundred = 2500;
+    static final int twentyThousand = 20000;
     static long count = 0;
     final static TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
     final static Player player = Player.getPlayerInstance();  
     static Dropper[] droppers = new Dropper[ten];
-    static Conveyor[] conveyors = new Conveyor[twentyFiveHundred];
-    static Upgrader[] upgraders = new Upgrader[twentyFiveHundred];
+    static Conveyor[] conveyors = new Conveyor[8000];
+    static Upgrader[] upgraders = new Upgrader[2500];
     static Furnace[] furnaces = new Furnace[hundred];
     static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
     
@@ -72,12 +73,11 @@ public class DriverClass {
         for (int i = 0; i < upgraders.length; i++) {
             upgraders[i] = new BasicUpgrader();
             upgraders[i].placeItem(1+i, 2, Direction.RIGHT);
-             conveyors[i] = new Conveyor();
-             conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
+            conveyors[i] = new Conveyor();
+            conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
              if (i % 5 == 0) {
                 conveyors[i].setStoredOre(new BasicUpgrader(ore));
              }
-            
         }
         furnaces[0] = new BasicFurnace();
         furnaces[0].placeItem(upgraders.length+1, 2, Direction.RIGHT);
@@ -85,8 +85,8 @@ public class DriverClass {
     
     
 
-
-        FixedTest(1000000*2);
+        // tycoonBuilder.tycoonTick();
+        FixedTest(1);
         // InfinteTimerTest(1);
         // timedTest(10);
 

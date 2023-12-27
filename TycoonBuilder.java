@@ -17,7 +17,14 @@
 
 // This method will be called everytime an item is placed or removed.
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 
 public class TycoonBuilder {
@@ -47,17 +54,21 @@ public class TycoonBuilder {
         for (Item item : allSystems) {
             // if (item instanceof ProcessingItem) {
                 ((ProcessingItem) item).processAndPush();
-//                System.out.println(item.toString() + " fired");
+                //System.out.println(item.toString() + " fired");
             // }
         }
         for (Dropper dropper : listOfDroppers) {
             dropper.dropOre();
             // System.out.println("Dropped Ore!");
         }
+
+
     }
     
     public void updateTycoon() {
-        setAllPlacedItems();
+       setAllPlacedItems();
+        //  setAllPlacedItemsMultiThreaded();
+        // identifySystemsMultithreaded();
         identifySystems();
         createSystems();
     }
@@ -84,6 +95,7 @@ public class TycoonBuilder {
         allSystems.clear();
         for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
+                // exploreSystemQueue(item);
                 exploreSystem(item);
             }
         }
@@ -155,9 +167,15 @@ public class TycoonBuilder {
     public void setAllPlacedItems() {
         allPlacedItems.clear();
         allPlacedItems = theMap.getFilledCoordinates();
-        for (Item item : allPlacedItems) {
+        // if (allPlacedItems.size() > 1250) {
+        //     allPlacedItems.parallelStream().forEach(Item::setAllSurroundingItems);    
+        // } else {
+            for (Item item : allPlacedItems) {
             item.setAllSurroundingItems();
+        // }
         }
+        
+        
     }
 
     public List<Item> getAllPlacedItems() {
@@ -183,5 +201,127 @@ public class TycoonBuilder {
         return itemToLeft != null && itemToLeft.getItemInFront() == item;
     }
 
+    public void identifySystemsMultithreaded() {
+        int numberOfThreads = Runtime.getRuntime().availableProcessors() - 1;
+        ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
+
+        int chunkSize = allPlacedItems.size() / numberOfThreads;
+
+        for (int i = 0; i < numberOfThreads; i++) {
+            int start = i * chunkSize;
+            int end = (i == numberOfThreads - 1) ? allPlacedItems.size() : (i + 1) * chunkSize;
+
+            List<Item> sublist = allPlacedItems.subList(start, end);
+
+            executorService.submit(() -> identifySystemsPartial(sublist));
+        }
+
+        executorService.shutdown();
+
+        try {
+            executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void identifySystemsPartial(List<Item> items) {
+        int index = 0;
+    
+        for (Item item : items) {
+            switch (item.getType()) {
+                case FURNACE:
+                case UPGRADER:
+                    if (item.getItemInFront() == null && itemBehindIsLinked(item)) {
+                        List<Item> newSystem = new ArrayList<>();
+                        newSystem.add(item);
+                        tycoonSystems.add(index, newSystem);
+                        index++;
+                    }
+                    break;
+                case CONVEYOR:
+                    if (item.getItemInFront() == null && itemBehindIsLinked(item) ||
+                            itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
+                        List<Item> newSystem = new ArrayList<>();
+                        newSystem.add(item);
+                        tycoonSystems.add(index, newSystem);
+                        index++;
+                    }
+                    break;
+                case DROPPER:
+                    listOfDroppers.add((Dropper) item);
+                    break;
+            }
+        }
+    }
+
+    public void setAllPlacedItemsMultiThreaded() {
+        allPlacedItems.clear();
+        allPlacedItems = theMap.getFilledCoordinates();
+        int numberOfThreads = 2;
+        ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
+
+        int chunkSize = allPlacedItems.size() / numberOfThreads;
+
+        for (int i = 0; i < numberOfThreads; i++) {
+            int start = i * chunkSize;
+            int end = (i == numberOfThreads - 1) ? allPlacedItems.size() : (i + 1) * chunkSize;
+
+            List<Item> sublist = allPlacedItems.subList(start, end);
+
+            executor.submit(() -> setAllPlacedItemsPartial(sublist));
+        }
+        executor.shutdown();
+    }
+
+    private void setAllPlacedItemsPartial(List<Item> items) {
+        for (Item item : items) {
+            item.setAllSurroundingItems();
+        }
+    }
+
+    private void exploreSystemQueue(Item currentItem) {
+        if (currentItem == null || currentItem instanceof Dropper) {
+            return; // Guard Statement
+        }
+    
+        Queue<Item> queue = new LinkedList<>();
+        Set<Item> visited = new HashSet<>(); // Use a Set for efficiency
+        queue.add(currentItem);
+    
+        while (!queue.isEmpty()) {
+            Item current = queue.poll();
+    
+            if (visited.add(current)) {
+                // If true, the item was not in the set, and we add it to allSystems.
+                allSystems.add(current);
+    
+                boolean isUpgraderOrFurnace = current instanceof Upgrader || current instanceof Furnace;
+                boolean isConveyor = current instanceof Conveyor;
+    
+                if (isUpgraderOrFurnace || isConveyor) {
+                    // furnaces, upgraders, and conveyors can take items from behind.
+                    Item behind = current.getItemBehind();
+                    if (behind != null && itemBehindIsLinked(current)) {
+                        queue.add(behind);
+                    }
+    
+                    if (isConveyor) {
+                        // conveyors can take items from left and right.
+                        Item toLeft = current.getItemToLeft();
+                        if (toLeft != null && itemToLeftIsLinked(current)) {
+                            queue.add(toLeft);
+                        }
+    
+                        Item toRight = current.getItemToRight();
+                        if (toRight != null && itemToRightIsLinked(current)) {
+                            queue.add(toRight);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 

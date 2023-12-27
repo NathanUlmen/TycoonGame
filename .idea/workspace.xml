@@ -9,11 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bugs" beforeDir="false" afterPath="$PROJECT_DIR$/Bugs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheGameQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
     </list>
@@ -48,6 +45,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -100,7 +98,8 @@
       <workItem from="1702017436227" duration="9046000" />
       <workItem from="1702074573937" duration="13511000" />
       <workItem from="1702106824404" duration="67000" />
-      <workItem from="1703559570062" duration="4311000" />
+      <workItem from="1703559570062" duration="5737000" />
+      <workItem from="1703626523601" duration="8243000" />
     </task>
     <servers />
   </component>
@@ -122,14 +121,28 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ProcessingItem.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/UpgradeTag.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TheMap.java</url>
           <line>47</line>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TycoonBuilder.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/DriverClass.java</url>
+          <line>22</line>
+          <properties class="DriverClass" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
