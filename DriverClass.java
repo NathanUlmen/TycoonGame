@@ -15,27 +15,12 @@ public class DriverClass {
     static Dropper[] droppers = new Dropper[ten];
     static Conveyor[] conveyors = new Conveyor[8000];
     static Upgrader[] upgraders = new Upgrader[2500];
-    static Furnace[] furnaces = new Furnace[hundred];
+    static Furnace[] furnaces = new Furnace[2500];
     static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
     
     static Ore ore = new Ore();
 
     public static void main(String[] args) {
-        // long count = 0;
-        // TycoonBuilder tycoonBuilder = new TycoonBuilder();
-        // Player player = Player.getPlayerInstance();  
-        // Dropper[] droppers = new Dropper[9];
-        // Upgrader[] upgrader = new Upgrader[4];
-        // TheGameQueue theQueue = new TheGameQueue();
-        // Furnace furnace = new BasicFurnace();
-        // NumberFormat scientificFormat = new DecimalFormat("0.0E0");
-        // Upgrader[] genericUpgrader = new Upgrader[40];
-        // Furnace furnace2 = new BasicFurnace();
-        // TheUpgrader theUpgrader = new TheUpgrader();
-        // Conveyor[] conveyors = new Conveyor[2900];
-        // Upgrader[] upgraderz = new Upgrader[2500];
-
-
         //Test Bed:
 
         //Test 1(A line of upgraders leading into one furnace):
@@ -75,10 +60,13 @@ public class DriverClass {
             upgraders[i].placeItem(1+i, 2, Direction.RIGHT);
             conveyors[i] = new Conveyor();
             conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
-             if (i % 5 == 0) {
+            if (i % 5 == 0) {
                 conveyors[i].setStoredOre(new BasicUpgrader(ore));
-             }
+            }
+            // furnaces[i] = new BasicFurnace();
+            // furnaces[i].placeItem(4+i, i, Direction.RIGHT);
         }
+        // furnaces[0].removeItem();
         furnaces[0] = new BasicFurnace();
         furnaces[0].placeItem(upgraders.length+1, 2, Direction.RIGHT);
         
@@ -86,7 +74,8 @@ public class DriverClass {
     
 
         // tycoonBuilder.tycoonTick();
-        FixedTest(1);
+        // tycoonBuilder.tycoonTick();
+        FixedTest(1000);
         // InfinteTimerTest(1);
         // timedTest(10);
 

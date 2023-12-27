@@ -50,6 +50,9 @@ public abstract class Item {
         this.positionY = Y;
         theMap.addItemToMap(this, X, Y); 
     }
+    public void removeItem() {
+        theMap.removeItemFromMap(this.positionX, this.positionY);
+    }
 
     public int getPositionX() {
         return positionX;

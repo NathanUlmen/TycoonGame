@@ -51,6 +51,12 @@ public class TycoonBuilder {
     }
 
     public void fireAllSystems() {
+        // allSystems.parallelStream().forEachOrdered(item -> {
+        //     // if (item instanceof ProcessingItem) {
+        //     ((ProcessingItem) item).processAndPush();
+        //     //System.out.println(item.toString() + " fired");
+        //     // }
+        // });
         for (Item item : allSystems) {
             // if (item instanceof ProcessingItem) {
                 ((ProcessingItem) item).processAndPush();
