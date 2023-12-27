@@ -56,7 +56,7 @@ public abstract class Upgrader extends ProcessingItem implements OreDecorator{
         if (ore != null) {
             return ore.getUpgradeTag(tag);
         } else {
-            return 0;
+            return -1; //Something went wrong if this is being returned.
         }
     }
     //Decorator Method
