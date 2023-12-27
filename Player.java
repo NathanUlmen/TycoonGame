@@ -8,8 +8,7 @@ public class Player {
     private long specialPoints;
     private BigInteger wallet = BigInteger.valueOf(0);
     private static Player playerInstance;
-    private List<Stack<Item>> inventory = new ArrayList<>();
-    private Stack<Item> stackOfItems = new Stack<>();
+    public static Inventory inventory = Inventory.getInventoryInstance();
     private long numberOfTicks = 0;
 
     public Player(BigInteger wallet, int prestigeLevel, int prestigeCurrency) {
@@ -21,26 +20,7 @@ public class Player {
     public Player() {
         
     }
-    //Method to addItem to inventory
-    public void addItem(Item item, int quantity) {
-        for (Stack<Item> stack : inventory) {
-            if (stack.peek().equals(item)) {
-                for (int i = 0; i < quantity; i++) {
-                    stack.push(item);
-                }
-                return;
-            }
-        }
-    }
-    //Method to removeItem from inventory
-    public void removeItem(Item item) {
-        for (Stack<Item> stack : inventory) {
-            if (stack.peek().equals(item)) {
-                stack.pop();
-                return;
-            }
-        }
-    }
+    
 
     public void addToWallet(BigInteger oreValue) {
         wallet = wallet.add(oreValue);
@@ -92,8 +72,6 @@ public class Player {
     public long getNumberOfTicks() {
         return numberOfTicks;
     }
-
-
 
     public String toString() {
         String playerInfo = "Prestige Level: " + prestigeLevel + "\tWallet: " + wallet + "\tPlayer Prestige Currency: " + prestigeCurrency + "\tSpecial Points: " + specialPoints;

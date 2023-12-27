@@ -249,5 +249,9 @@ public abstract class Item {
         return this.tier;
     }
 
+    public Class<?> getItemType() {
+        return this.getClass();
+    }
+
 
 }
