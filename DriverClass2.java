@@ -20,15 +20,17 @@ public class DriverClass2 {
             player.inventory.addItem(upgraders[i], 2);
         }
 
-        player.inventory.printInventoryAsList();
+        // player.inventory.printInventoryAsList();
         // player.inventory.printInventory();
 
         player.inventory.sortInventory();
 
         // player.inventory.printInventoryAsList();
         player.inventory.printInventory();
-        String filePath = "inventory_output.txt";
+        player.inventory.removeItem(droppers[1]); 
+        player.inventory.printInventory();
+        // String filePath = "inventory_output.txt";
 
-        player.inventory.writeInventoryToFile(filePath);
+        // player.inventory.writeInventoryToFile(filePath);
     }
 }

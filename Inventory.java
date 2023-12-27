@@ -47,7 +47,7 @@ public class Inventory {
     //Method to removeItem from inventory
     public void removeItem(Item item) {
         for (Stack<Item> stack : inventoryList) {
-            if (stack.peek().equals(item)) {
+            if (stack.peek().getItemType() == item.getItemType()) {
                 stack.pop();
                 return;
             }
