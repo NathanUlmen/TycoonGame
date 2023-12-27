@@ -1,3 +1,7 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,12 +27,10 @@ public class Inventory {
         }
     }
 
-
-
     //Method to addItem to inventory
     public void addItem(Item item, int quantity) {
         for (Stack<Item> stack : inventoryList) {
-            if (stack.peek().equals(item)) {
+            if (stack.peek().getItemType() == item.getItemType()) {
                 for (int i = 0; i < quantity; i++) {
                     stack.push(item);
                 }
@@ -52,6 +54,7 @@ public class Inventory {
         }
     }
 
+    //Not fully working yet, the sorting by type is broken.
     public void sortInventory() {
         // Custom comparator for sorting by type and then by name
         Comparator<Stack<Item>> comparator = new Comparator<Stack<Item>>() {
@@ -90,24 +93,44 @@ public class Inventory {
     }
 
     public void printInventory() {
-        System.out.println("Inventory:");
-
-        // Map to store the count of each item type
-        Map<String, Integer> itemCounts = new HashMap<>();
-
+        System.out.println("\nInventory: \n");
+      
         for (Stack<Item> stack : inventoryList) {
             Item item = stack.peek();
-            String itemType = item.getItemName();
             int itemCount = stack.size();
-
-            // Update the count in the map
-            itemCounts.put(itemType, itemCounts.getOrDefault(itemType, 0) + itemCount);
-        }
-
-        // Print the summarized inventory
-        for (Map.Entry<String, Integer> entry : itemCounts.entrySet()) {
-            System.out.println(entry.getValue() + "x " + entry.getKey());
+            String itemType = itemCount + "x " + item.getItemName();
+            System.out.println(itemType);
+            System.out.println("--------");
         }
     }
 
+    public void writeInventoryToFile(String filePath) {
+        // Create content to write to the file
+        StringBuilder content = new StringBuilder();
+        content.append("Inventory:\n");
+
+        for (Stack<Item> stack : inventoryList) {
+            Item item = stack.peek();
+            int itemCount = stack.size();
+            String itemType = itemCount + "x " + item.getItemName();
+            content.append(itemType).append("\n--------\n");
+        }
+
+        // Write to the file
+        try {
+            // Specify the file path as a Path object
+            Path path = Path.of(filePath);
+
+            // Convert the content to bytes
+            byte[] contentBytes = content.toString().getBytes();
+
+            // Write the content to the file, create the file if it doesn't exist
+            Files.write(path, contentBytes, StandardOpenOption.CREATE);
+
+            System.out.println("File written successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+ 
 }

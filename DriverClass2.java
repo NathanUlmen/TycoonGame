@@ -8,22 +8,27 @@ public class DriverClass2 {
 
     public static void main(String[] args) {
         for (int i = 0; i < droppers.length; i++) {
-            droppers[i] = new IronDropper();
+            
             if (i % 3 == 0) {
+                droppers[i] = new RubyDropper();
                 upgraders[i] = new TheUpgrader();
             } else {
                 upgraders[i] = new BasicUpgrader();
+                droppers[i] = new IronDropper();
             }
             player.inventory.addItem(droppers[i], 1);
-            player.inventory.addItem(upgraders[i], 1);
+            player.inventory.addItem(upgraders[i], 2);
         }
 
         player.inventory.printInventoryAsList();
-        player.inventory.printInventory();
+        // player.inventory.printInventory();
 
         player.inventory.sortInventory();
 
-        player.inventory.printInventoryAsList();
+        // player.inventory.printInventoryAsList();
         player.inventory.printInventory();
+        String filePath = "inventory_output.txt";
+
+        player.inventory.writeInventoryToFile(filePath);
     }
 }
