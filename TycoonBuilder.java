@@ -17,15 +17,7 @@
 
 // This method will be called everytime an item is placed or removed.
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 
 public class TycoonBuilder {
     private static TycoonBuilder tycoonBuilder;

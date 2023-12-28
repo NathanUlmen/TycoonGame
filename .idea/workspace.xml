@@ -7,26 +7,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoldDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoldDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IronDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/IronDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OreDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResetterUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResetterUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RubyDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RubyDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheUpgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
-    </list>
+    <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="Cleaned up/Removed Decorator" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
@@ -110,8 +103,17 @@
       <workItem from="1703626523601" duration="8243000" />
       <workItem from="1703648520292" duration="2825000" />
       <workItem from="1703718873584" duration="11563000" />
-      <workItem from="1703751844544" duration="1145000" />
+      <workItem from="1703751844544" duration="1293000" />
     </task>
+    <task id="LOCAL-00001" summary="Cleaned up/Removed Decorator">
+      <option name="closed" value="true" />
+      <created>1703753078410</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703753078410</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,20 +130,9 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UpgradeTag.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TheMap.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="l" />
+    <MESSAGE value="Cleaned up/Removed Decorator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up/Removed Decorator" />
   </component>
 </project>
