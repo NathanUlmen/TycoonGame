@@ -7,23 +7,6 @@ public class BasicUpgrader extends Upgrader{
         super("+ 4", 0, 0, "Basic Upgrader", 4, 5, Direction.UPWARDS, UpgradeTag.BASIC_UPGRADER, ItemTier.NORMAL);
     }
 
-    public BasicUpgrader(OreDecorator addition) {
-        super(addition);
-        this.internal = addition;
-        this.ore = null;
-        // this.numberOfUpgrades = getNumberOfUpgrades();
-        // upgradeable = BasicUpgrader.numberOfUpgrades <= maxUpgrades;
-        // numberOfUpgrades++;
-    }
-
-    public BasicUpgrader(Ore ore) {
-        super(ore);
-        this.ore = ore;
-        this.internal = null;
-        // upgradeable = this.numberOfUpgrades <= 4;
-        // numberOfUpgrades++;
-    }
-
     @Override
     protected int tempChange(int oreTemperature) {
         return oreTemperature;

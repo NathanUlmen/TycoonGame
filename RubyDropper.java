@@ -6,13 +6,7 @@ public class RubyDropper extends Dropper{
         super(1000, 0, 0, "Ruby Dropper", 0, 0, Direction.UPWARDS, ItemTier.NORMAL);
         
     }
-
-    public RubyDropper(Ore ore) {
-        super(ore);
-        this.ore = ore;
-        this.internal = null;
-    }
-
+    
     @Override
     protected BigDecimal baseOreValue() {
         return BigDecimal.valueOf(400);

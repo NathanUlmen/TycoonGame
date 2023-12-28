@@ -4,9 +4,8 @@
 
 import java.math.BigDecimal;
 
-public abstract class Dropper extends Item implements OreDecorator{
+public abstract class Dropper extends Item{
     protected Ore ore;
-    protected OreDecorator internal;
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped; //The number of ore objects this dropper has created.
     protected boolean canDrop;
@@ -19,43 +18,13 @@ public abstract class Dropper extends Item implements OreDecorator{
         this.dropRate = dropRate;
     }
 
-    public Dropper(Ore ore) {
-        this.internal = null;
-        this.ore = ore;
-    }
-
     public void dropOre() {
         if (itemInFront != null && itemInFront.isEmpty() && !oreRealm.isEmpty()) {
-            ore = createOre();
+            Ore ore = createOre();
             ore.applyBaseStats(baseOreValue(), startingTemp(), startingMultiOre(), setName());
             itemInFront.setOre(ore);
             totalOreDropped++;
             //System.out.println("Dropped!");
-        }
-    }
-
-    @Override
-    public Ore prepare() {
-        Ore result = (ore != null) ? ore : internal.prepare();
-        result.applyBaseStats(baseOreValue(), startingTemp(), startingMultiOre(), setName());
-        return result;
-    }
-
-    @Override
-    public Ore prepareTags() {
-        Ore result = (ore != null) ? ore : internal.prepareTags();
-        return result;
-    }
-    //Decorator method
-    @Override
-    public int getUpgradeTag(UpgradeTag tag) {
-        return ore.getUpgradeTag(tag);
-    }
-    //Decorator method
-    @Override
-    public void decrementUpgradeTag(UpgradeTag tag) {
-        if (ore != null) {
-            ore.decrementUpgradeTag(tag);
         }
     }
 

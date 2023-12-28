@@ -6,12 +6,6 @@ public class IronDropper extends Dropper{
         super(2000, 0, 0, "Iron Dropper", 0, 0, Direction.UPWARDS, ItemTier.NORMAL);
     }
 
-    public IronDropper(Ore ore) {
-        super(ore);
-        this.ore = ore;
-        this.internal = null;
-    }
-
     @Override
     protected BigDecimal baseOreValue() {
         return BigDecimal.valueOf(2);

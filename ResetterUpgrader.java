@@ -6,18 +6,6 @@ public class ResetterUpgrader extends Upgrader {
         super("Multiplies ore value by upgrade count / 10 and resets all upgrade tags", 0, 0, "Renewal Forge", 10, 10, Direction.UPWARDS, UpgradeTag.RENEWAL_FORGE, ItemTier.PRESTIGE);
     }
 
-    public ResetterUpgrader(OreDecorator addition) {
-        super(addition);
-        this.internal = addition;
-        this.ore = null;
-    }
-
-    public ResetterUpgrader(Ore ore) {
-        super(ore);
-        this.ore = ore;
-        this.internal = null;
-    }
-
     @Override
     protected void upgrade(Ore ore) {
         ore.applyUpgrade(upgradeEffect(ore.getOreValue()));

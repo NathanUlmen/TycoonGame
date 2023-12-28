@@ -51,21 +51,9 @@ public class TycoonBuilder {
     }
 
     public void fireAllSystems() {
-        // allSystems.parallelStream().forEachOrdered(item -> {
-        //     // if (item instanceof ProcessingItem) {
-        //     ((ProcessingItem) item).processAndPush();
-        //     //System.out.println(item.toString() + " fired");
-        //     // }
-        // });
-        // allSystems.parallelStream().forEach(item -> {
-        //     ((ProcessingItem) item).processOre();
-        // });
         for (Item item : allSystems) {
-            // if (item instanceof ProcessingItem) {
-                ((ProcessingItem) item).processAndPush();
-                // ((ProcessingItem) item).pushToItem();
-                //System.out.println(item.toString() + " fired");
-            // }
+            ((ProcessingItem) item).processAndPush();
+            //System.out.println(item.toString() + " fired");
         }
         for (Dropper dropper : listOfDroppers) {
             dropper.dropOre();
@@ -112,7 +100,6 @@ public class TycoonBuilder {
     }
 
     public void identifySystems() {
-        int index = 0;
         tycoonSystems.clear();
         listOfDroppers.clear();
         for (Item item : allPlacedItems) {
@@ -123,7 +110,6 @@ public class TycoonBuilder {
                     List<Item> newSystem = new ArrayList<>();
                     newSystem.add(item);
                     tycoonSystems.add(newSystem);
-                    index++;
                     //System.out.println("Furnace added to tycoonSystems.");
                 }
                 break;
@@ -131,8 +117,8 @@ public class TycoonBuilder {
                 if (item.getItemInFront() == null && itemBehindIsLinked(item) || itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
                     List<Item> newSystem = new ArrayList<>();
                     newSystem.add(item);
-                    tycoonSystems.add(index, newSystem);
-                    index++;
+                    tycoonSystems.add(newSystem);
+                    //System.out.println("Conveyor added to tycoonSystems");
                 }
                 break;
             case DROPPER:

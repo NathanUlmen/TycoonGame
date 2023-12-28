@@ -5,13 +5,6 @@ public class GoldDropper extends Dropper{
     public GoldDropper() {
         super(1000, 0, 0, "Gold Dropper", 0, 0, Direction.UPWARDS, ItemTier.NORMAL);
     }
-
-    public GoldDropper(Ore ore) {
-        super(ore);
-        this.ore = ore;
-        this.internal = null;
-    }
-
     @Override
     protected BigDecimal baseOreValue() {
         return BigDecimal.valueOf(4);

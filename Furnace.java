@@ -25,14 +25,8 @@ public abstract class Furnace extends ProcessingItem{
     }
 
     public void sell(Ore ore) {
-        // preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
-        //sells ore
         sellTheOre(ore);
-        
-        // player.addToWallet(preparedOre.getOreValue().toBigInteger().multiply(BigInteger.valueOf(preparedOre.getMultiOre())));
-        //Logic for special points
         calculateSpecialPoints(ore);
-
         ore.reset();
         setOre(null);
         oreRealm.push(ore);
