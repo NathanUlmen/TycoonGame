@@ -4,7 +4,7 @@ public class Ore {
     private BigDecimal oreValue;
     private int oreTemperature, upgradeCount, multiOre, oreHistory;
     private String oreName;
-    private int[] upgradeTag = new int[400]; //The number of different upgraders in the game.
+    private final int[] upgradeTag = new int[400]; //The number of different upgraders in the game.
     
 
     public Ore() {
@@ -21,6 +21,10 @@ public class Ore {
         this.oreTemperature = temperatureAfterUpgrade;
         this.multiOre = multiOreAfterUpgrade;
         this.upgradeCount++;
+    }
+
+    public void applyUpgrade(BigDecimal oreValueAfterUpgrade) {
+        this.oreValue = oreValueAfterUpgrade;
     }
 
     public void applyBaseStats(BigDecimal startingValue, int startingTemp, int StartingMultiOre, String name) {

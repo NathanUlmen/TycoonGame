@@ -10,7 +10,7 @@ public class Conveyor extends ProcessingItem {
     }
 
     @Override
-    public void process(OreDecorator ore) {
+    public void process(Ore ore) {
         // System.out.println("Item moved!");
     }
 

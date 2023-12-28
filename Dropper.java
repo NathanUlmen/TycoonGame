@@ -26,7 +26,9 @@ public abstract class Dropper extends Item implements OreDecorator{
 
     public void dropOre() {
         if (itemInFront != null && itemInFront.isEmpty() && !oreRealm.isEmpty()) {
-            itemInFront.setStoredOre(createOre());
+            ore = createOre();
+            ore.applyBaseStats(baseOreValue(), startingTemp(), startingMultiOre(), setName());
+            itemInFront.setOre(ore);
             totalOreDropped++;
             //System.out.println("Dropped!");
         }
@@ -63,7 +65,9 @@ public abstract class Dropper extends Item implements OreDecorator{
     }
 
     //creates an ore object
-    protected abstract OreDecorator createOre();
+    protected Ore createOre(){
+        return oreRealm.pop();
+    }
 
     protected abstract BigDecimal baseOreValue();
 

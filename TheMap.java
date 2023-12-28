@@ -8,7 +8,7 @@ public class TheMap {
     private static TheMap theMapInstance;
     private final Item[][] theMap;
     private final int MAP_DIMENSION = 2600;
-    private ArrayList<Item> occupiedCoordinates = new ArrayList<>();
+    private final ArrayList<Item> occupiedCoordinates = new ArrayList<>();
     // protected static final TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
     
     public TheMap() {
@@ -63,9 +63,9 @@ public class TheMap {
         return result.toString();
     }
 
-    public ArrayList<Item> getFilledCoordinates() {
-        return new ArrayList<>(occupiedCoordinates);
-    }
+        public ArrayList<Item> getFilledCoordinates() {
+            return new ArrayList<>(occupiedCoordinates);
+        }
 
 
 }

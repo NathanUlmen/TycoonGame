@@ -19,9 +19,9 @@ public class ResetterUpgrader extends Upgrader {
     }
 
     @Override
-    protected void upgrade(OreDecorator ore) {
-        setStoredOre(new ResetterUpgrader(ore));
-        ore.prepareTags().resetNonResetterTags();
+    protected void upgrade(Ore ore) {
+        ore.applyUpgrade(upgradeEffect(ore.getOreValue()));
+        ore.resetNonResetterTags();
     }
 
     @Override

@@ -9,13 +9,80 @@
   <component name="ChangeListManager">
     <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicFurnace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Conveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Conveyor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoldDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoldDropper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IronDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/IronDropper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OreRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProcessingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessingItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResetterUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResetterUpgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RubyDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RubyDropper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheUpgrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UpgradeTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/UpgradeTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/BasicFurnace.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/BasicUpgrader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Bugs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Conveyor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass$1Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/DriverClass2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Dropper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/EmptyCollectionException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/ClassHierarchy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/DemoUI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/F-Scenario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/LoopWithSwitchScenario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/MapExample.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/SnakeScenario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/T-Scenario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ExamplePictures/T-Scenario2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Furnace.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/GameSystems" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/GoldDropper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Inventory$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Inventory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/IronDropper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Item$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Item$ItemType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ItemTier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Ore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/OreDecorator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/OreHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/OreRealm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ProcessingItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/QueueADT.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ResetterUpgrader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/RubyDropper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/StackADT.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TheUpgrader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/ToDo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/TycoonGame.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/UpgradeTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/Upgrader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TycoonGame/inventory_output.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +93,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -37,22 +104,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/TycoonGame&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/TycoonGame",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.DriverClass">
     <configuration name="DriverClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DriverClass" />
@@ -103,7 +171,8 @@
       <workItem from="1702106824404" duration="67000" />
       <workItem from="1703559570062" duration="5737000" />
       <workItem from="1703626523601" duration="8243000" />
-      <workItem from="1703648520292" duration="1013000" />
+      <workItem from="1703648520292" duration="2825000" />
+      <workItem from="1703718873584" duration="11563000" />
     </task>
     <servers />
   </component>

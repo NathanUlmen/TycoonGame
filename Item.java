@@ -89,7 +89,7 @@ public abstract class Item {
     public Item determineItemInFront() {
         int newX = positionX;
         int newY = positionY;
-    
+
         switch (direction) {
             case UPWARDS:
                 newY = positionY + 1;
@@ -104,7 +104,7 @@ public abstract class Item {
                 newX = positionX - 1;
                 break;
         }
-            return theMap.getItem(newX, newY);
+        return theMap.getItem(newX, newY);
     }
 
     public Item determineItemBehind() {
@@ -125,13 +125,13 @@ public abstract class Item {
                 newX = positionX + 1;
                 break;
         }
-            return theMap.getItem(newX, newY);
+        return theMap.getItem(newX, newY);
     }
 
     public Item determineItemToRight() {
         int newX = positionX;
         int newY = positionY;
-    
+
         switch (direction) {
             case UPWARDS:
                 newX = positionX + 1;
@@ -152,7 +152,7 @@ public abstract class Item {
     public Item determineItemToLeft() {
         int newX = positionX;
         int newY = positionY;
-    
+
         switch (direction) {
             case UPWARDS:
                 newX = positionX - 1;
@@ -169,6 +169,42 @@ public abstract class Item {
         }
         return theMap.getItem(newX, newY);
     }
+
+//    private void setItemsRelativeToDirection(Direction direction) {
+//        int newX = positionX;
+//        int newY = positionY;
+//
+//        switch (direction) {
+//            case UPWARDS -> {
+//                itemInFront = theMap.getItem(positionX, positionY+1);
+//                itemBehind = theMap.getItem();
+//                itemToRight = theMap.getItem();
+//                itemToLeft = theMap.getItem();
+//                break;
+//            }
+//            case RIGHT -> {
+//                itemInFront = theMap.getItem();
+//                itemBehind = theMap.getItem();
+//                itemToRight = theMap.getItem();
+//                itemToLeft = theMap.getItem();
+//                break;
+//            }
+//            case DOWN -> {
+//                itemInFront = theMap.getItem();
+//                itemBehind = theMap.getItem();
+//                itemToRight = theMap.getItem();
+//                itemToLeft = theMap.getItem();
+//                break;
+//            }
+//            case LEFT -> {
+//                itemInFront = theMap.getItem();
+//                itemBehind = theMap.getItem();
+//                itemToRight = theMap.getItem();
+//                itemToLeft = theMap.getItem();
+//                break;
+//            }
+//        }
+//    }
 
     public void setAllSurroundingItems() {
         setItemInFront();

@@ -3,7 +3,7 @@ public class DriverClass2 {
 
     static Dropper[] droppers = new Dropper[10];
     static Conveyor[] conveyors = new Conveyor[8000];
-    static Upgrader[] upgraders = new Upgrader[2500];
+    static Upgrader[] upgraders = new Upgrader[100];
     static Furnace[] furnaces = new Furnace[20];
 
     public static void main(String[] args) {
@@ -16,19 +16,19 @@ public class DriverClass2 {
                 upgraders[i] = new BasicUpgrader();
                 droppers[i] = new IronDropper();
             }
-            player.inventory.addItem(droppers[i], 1);
-            player.inventory.addItem(upgraders[i], 2);
+            Player.inventory.addItem(droppers[i], 1);
+            Player.inventory.addItem(upgraders[i], 2);
         }
 
         // player.inventory.printInventoryAsList();
         // player.inventory.printInventory();
 
-        player.inventory.sortInventory();
+        Player.inventory.sortInventory();
 
         // player.inventory.printInventoryAsList();
-        player.inventory.printInventory();
-        player.inventory.removeItem(droppers[1]); 
-        player.inventory.printInventory();
+        Player.inventory.printInventory();
+        Player.inventory.removeItem(droppers[1]);
+        Player.inventory.printInventory();
         // String filePath = "inventory_output.txt";
 
         // player.inventory.writeInventoryToFile(filePath);

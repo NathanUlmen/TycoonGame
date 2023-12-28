@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class BasicUpgrader extends Upgrader{   
 
@@ -30,13 +31,13 @@ public class BasicUpgrader extends Upgrader{
 
     @Override
     protected BigDecimal upgradeEffect(BigDecimal newOreValue) {
-//      return newOreValue.add(BigDecimal.valueOf(4));
-        return BigDecimal.valueOf(20).multiply(newOreValue.add(BigDecimal.TEN)).pow((int) 2.0275);
+         return newOreValue.add(BigDecimal.valueOf(4));
+//        return BigDecimal.valueOf(2).multiply(newOreValue.add(BigDecimal.valueOf(10))).pow((int) 1.0275);
     }
 
     @Override
-    protected void upgrade(OreDecorator ore) {
-        setStoredOre(new BasicUpgrader(ore));
+    protected void upgrade(Ore ore) {
+        ore.applyUpgrade(upgradeEffect(ore.getOreValue()));
     }
 
     @Override

@@ -14,7 +14,7 @@ public class DriverClass {
     final static Player player = Player.getPlayerInstance();  
     static Dropper[] droppers = new Dropper[ten];
     static Conveyor[] conveyors = new Conveyor[8000];
-    static Upgrader[] upgraders = new Upgrader[2500];
+    static Upgrader[] upgraders = new Upgrader[10];
     static Furnace[] furnaces = new Furnace[2500];
     static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
     
@@ -60,9 +60,9 @@ public class DriverClass {
             upgraders[i].placeItem(1+i, 2, Direction.RIGHT);
             conveyors[i] = new Conveyor();
             conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
-            if (i % 5 == 0) {
-                conveyors[i].setStoredOre(new BasicUpgrader(ore));
-            }
+            // if (i % 5 == 0) {
+            //     // conveyors[i].setOre(ore);
+            // }
             // furnaces[i] = new BasicFurnace();
             // furnaces[i].placeItem(4+i, i, Direction.RIGHT);
         }
@@ -73,9 +73,8 @@ public class DriverClass {
     
     
 
-        // tycoonBuilder.tycoonTick();
-        // tycoonBuilder.tycoonTick();
-        FixedTest(1000);
+
+        FixedTest(12);
         // InfinteTimerTest(1);
         // timedTest(10);
 
@@ -84,10 +83,10 @@ public class DriverClass {
     private static void FixedTest(int numberOfTicks) {
         long start, end;
         start = System.currentTimeMillis();
-        tycoonBuilder.updateTycoon();
+        // tycoonBuilder.updateTycoon();
         for (int i = 0; i < numberOfTicks; i++) {
-            // tycoonBuilder.tycoonTick();
-            tycoonBuilder.fireAllSystems();
+            tycoonBuilder.tycoonTick();
+            // tycoonBuilder.fireAllSystems();
             // System.out.println("Number of active ore: " + oreRealm.getNumberOfOreNotInStack());
             // System.out.println("Number of Ore Dropped: " + droppers[0].getTotalOreDropped());
         }

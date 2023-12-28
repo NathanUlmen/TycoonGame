@@ -4,10 +4,10 @@
 //This allows for ore objects to be recycled and limits the number of ore objects in that can be present in the tycoon.
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 
 public class OreRealm implements StackADT<Ore> {
     private final static int DEFAULT_CAPACITY = 500;
-
     private static OreRealm oreRealmInstance;
     private Ore[] stackOfOre;
     private int top;

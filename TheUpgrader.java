@@ -19,12 +19,8 @@ public class TheUpgrader extends Upgrader{
     }
 
     @Override
-    protected void upgrade(OreDecorator ore) {
-        // if (ore.prepareTags().getUpgradeTag(upgradeIndex) > 0)  {
-            setStoredOre(new TheUpgrader(ore));
-        //     ore.prepareTags().decrementUpgradeTag(upgradeIndex);
-        // }
-        
+    protected void upgrade(Ore ore) {
+        ore.applyUpgrade(upgradeEffect(ore.getOreValue()));
     }
 
     @Override

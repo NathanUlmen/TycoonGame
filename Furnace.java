@@ -20,23 +20,22 @@ public abstract class Furnace extends ProcessingItem{
     }
 
     @Override
-    public void process(OreDecorator ore) {
+    public void process(Ore ore) {
         sell(ore);
     }
 
-    public void sell(OreDecorator ore) {
-        Ore preparedOre = ore.prepare();
+    public void sell(Ore ore) {
         // preparedOre.setOreValue(processEffect(preparedOre.getOreValue()));
         //sells ore
-        sellTheOre(preparedOre);
+        sellTheOre(ore);
         
         // player.addToWallet(preparedOre.getOreValue().toBigInteger().multiply(BigInteger.valueOf(preparedOre.getMultiOre())));
         //Logic for special points
-        calculateSpecialPoints(preparedOre);
+        calculateSpecialPoints(ore);
 
-        preparedOre.reset();
-        setStoredOre(null);
-        oreRealm.push(preparedOre);
+        ore.reset();
+        setOre(null);
+        oreRealm.push(ore);
         //System.out.println("Sold!");
     }
 

@@ -14,11 +14,6 @@ public class RubyDropper extends Dropper{
     }
 
     @Override
-    protected OreDecorator createOre() {
-        return new RubyDropper(oreRealm.pop());
-    }
-
-    @Override
     protected BigDecimal baseOreValue() {
         return BigDecimal.valueOf(400);
     }

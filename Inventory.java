@@ -13,8 +13,8 @@ import java.util.Stack;
 
 public class Inventory {
     private static Inventory inventory;
-    private List<Stack<Item>> inventoryList = new ArrayList<>();
-    private Stack<Item> itemStack = new Stack<>();
+    private final List<Stack<Item>> inventoryList = new ArrayList<>();
+    private final Stack<Item> itemStack = new Stack<>();
 
     public Inventory() {
 

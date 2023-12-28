@@ -13,11 +13,6 @@ public class IronDropper extends Dropper{
     }
 
     @Override
-    protected OreDecorator createOre() {
-        return new IronDropper(oreRealm.pop());
-    }
-
-    @Override
     protected BigDecimal baseOreValue() {
         return BigDecimal.valueOf(2);
     }

@@ -11,11 +11,6 @@ public class GoldDropper extends Dropper{
         this.ore = ore;
         this.internal = null;
     }
-    
-    @Override
-    protected OreDecorator createOre() {
-        return new GoldDropper(oreRealm.pop());
-    }
 
     @Override
     protected BigDecimal baseOreValue() {
