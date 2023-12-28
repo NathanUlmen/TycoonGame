@@ -1,0 +1,9 @@
+Inventory:
+12x Basic Upgrader
+--------
+6x Iron Dropper
+--------
+4x Ruby Dropper
+--------
+8x The Upgrader
+--------
