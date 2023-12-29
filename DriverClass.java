@@ -14,7 +14,7 @@ public class DriverClass {
     final static Player player = Player.getPlayerInstance();  
     static Dropper[] droppers = new Dropper[ten];
     static Conveyor[] conveyors = new Conveyor[8000];
-    static Upgrader[] upgraders = new Upgrader[10];
+    static Upgrader[] upgraders = new Upgrader[2500];
     static Furnace[] furnaces = new Furnace[2500];
     static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
     
@@ -74,7 +74,7 @@ public class DriverClass {
     
 
 
-        FixedTest(12);
+        FixedTest(300000);
         // InfinteTimerTest(1);
         // timedTest(10);
 

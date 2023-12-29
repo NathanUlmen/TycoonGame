@@ -16,8 +16,7 @@
 
 
 // This method will be called everytime an item is placed or removed.
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class TycoonBuilder {
     private static TycoonBuilder tycoonBuilder;
@@ -56,10 +55,10 @@ public class TycoonBuilder {
     }
     
     public void updateTycoon() {
-        setAllPlacedItems();
-        identifySystems();
+       setAllPlacedItems();
         // setAllPlacedItemsParallel();
-        // identifySystemsParallel();
+       identifySystems();
+        //  identifySystemsParallel();
         createSystems();
     }
     
@@ -85,8 +84,8 @@ public class TycoonBuilder {
         allSystems.clear();
         for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
-                // exploreSystemQueue(item);
-                exploreSystem(item);
+                 exploreSystemQueue(item);
+//                exploreSystem(item);
             }
         }
     }
@@ -218,6 +217,13 @@ public class TycoonBuilder {
         Item itemToLeft = item.getItemToLeft();
         return itemToLeft != null && itemToLeft.getItemInFront() == item;
     }
+
+   private void exploreSystemQueue(Item currentItem){
+        if (currentItem == null || currentItem instanceof Dropper) { return;} // Guard Statement
+        //If needed can revist this if the recursive varient of this method is not working well enough.
+   }
+
+
 
 }
 

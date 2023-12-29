@@ -40,7 +40,12 @@ public class TheMap {
     }
     //This method checks to see if there is an item present at the specific coordinates.
     public boolean isFilled(int X, int Y) {
-        return X >= 0 && X < MAP_DIMENSION && Y >= 0 && Y < MAP_DIMENSION && Objects.nonNull(theMap[X][Y]);
+        if(X < 0 || X > MAP_DIMENSION -1 || Y < 0 || Y > MAP_DIMENSION -1) {
+            return false;
+        } else {
+            return theMap[X][Y] != null;
+        }
+//        return X >= 0 && X < MAP_DIMENSION && Y >= 0 && Y < MAP_DIMENSION && Objects.nonNull(theMap[X][Y]);
     }
 
     //this method gets the item at a specific set of coordinates
