@@ -4,6 +4,7 @@ public class Player {
     private int prestigeLevel, prestigeCurrency;
     private long specialPoints;
     private BigInteger wallet = BigInteger.valueOf(0);
+    private BigInteger mostMoneyObtained = BigInteger.valueOf(0);
     private static Player playerInstance;
     public static Inventory inventory = Inventory.getInventoryInstance();
     private long numberOfTicks = 0;
@@ -21,10 +22,26 @@ public class Player {
 
     public void addToWallet(BigInteger oreValue) {
         wallet = wallet.add(oreValue);
+        mostMoneyObtainedCheck();
+    }
+
+    public void setWallet(BigInteger valueToSetTo)  {
+        wallet = valueToSetTo;
+        mostMoneyObtainedCheck();
+    }
+    
+    private void mostMoneyObtainedCheck() {
+        if (mostMoneyObtained.compareTo(wallet) == -1) {
+            mostMoneyObtained = wallet;
+        }
     }
 
     public BigInteger getWallet() {
         return wallet;
+    }
+
+    public BigInteger getMostMoneyObtained() {
+        return mostMoneyObtained;
     }
 
     public Inventory getInventory() {

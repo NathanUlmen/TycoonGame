@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 public class DriverClass2 {
     final static Player player = Player.getPlayerInstance();  
 
@@ -22,17 +24,17 @@ public class DriverClass2 {
         }
 
 
-        player.getInventory().printInventory();
+        // player.getInventory().printInventory();
 
-        player.getInventory().addItem(generator.rewardItem(ItemGenerator.RewardType.STANDARD_CHEST), 1);
+        // player.getInventory().addItem(generator.rewardItem(ItemGenerator.RewardType.STANDARD_CHEST), 1);
 
-        player.getInventory().printInventory();
+        // player.getInventory().printInventory();
 
-        System.out.println(new Conveyor().toString());
+        // System.out.println(new Conveyor().toString());
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println(generator.rewardItem(ItemGenerator.RewardType.STANDARD_CHEST).toString());
-        }
+        // for (int i = 0; i < 100; i++) {
+        //     System.out.println(generator.rewardItem(ItemGenerator.RewardType.STANDARD_CHEST).toString());
+        // } 
         
         
     }
