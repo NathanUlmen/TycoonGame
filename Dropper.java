@@ -47,7 +47,7 @@ public abstract class Dropper extends Item{
     protected abstract int startingTemp();
 
     public String toString() {
-        return "Dropper Name: " + getItemName() + "\tTotal Ore Dropped: " + totalOreDropped + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
+        return "Name: " + getItemName() + "\tTotal Ore Dropped: " + totalOreDropped + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
    
 }

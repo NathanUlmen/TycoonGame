@@ -54,7 +54,7 @@ public abstract class Furnace extends ProcessingItem{
     protected abstract BigDecimal processEffect(BigDecimal soldOreValue);
 
     public String toString() {
-        return "|Name: " +getItemName() + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
+        return "Name: " +getItemName() + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
 
     

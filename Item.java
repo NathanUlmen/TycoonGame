@@ -280,8 +280,7 @@ public abstract class Item {
     }
 
     public String toString() {
-        String blab = "";
-        return blab;
+        return itemName;
     }
 
     public ItemTier getTier() {

@@ -27,6 +27,9 @@ public class Player {
         return wallet;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
     public void incrementPrestigeLevel(){
         prestigeLevel++;
     }
