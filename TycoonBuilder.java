@@ -21,10 +21,11 @@ import java.util.*;
 public class TycoonBuilder {
     private static TycoonBuilder tycoonBuilder;
     protected static TheMap theMap = TheMap.getTheMapInstance();
-    private final List<List<Item>> tycoonSystems = new ArrayList<>();
-    public List<Item> allPlacedItems = new ArrayList<>();
-    public List<Item> allSystems = new ArrayList<>();
-    private final List<Dropper> listOfDroppers = new ArrayList<>();
+    private List<List<Item>> tycoonSystems = new ArrayList<>();
+    public List<Item> allSystems = new ArrayList<>(2501);
+    private List<Dropper> listOfDroppers = new ArrayList<>(2501);
+
+    private OreRealm oreRealm = OreRealm.getOreRealmInstance();
 
     public static TycoonBuilder getTycoonBuilderInstance() {
         if (tycoonBuilder == null) {
@@ -39,6 +40,10 @@ public class TycoonBuilder {
         //Would check to see if wasModified before calling updateTycoon.
         updateTycoon();
         fireAllSystems();
+        //Go through all active ore on the map and set it so that they are able to be moved again.
+        for (Ore ore: oreRealm.getActiveOre()) {
+            ore.setProcessable(true);
+        }
     }
 
     public void fireAllSystems() {
@@ -55,13 +60,26 @@ public class TycoonBuilder {
     }
     
     public void updateTycoon() {
-       setAllPlacedItems();
-        // setAllPlacedItemsParallel();
+        //Goes through all items on the map and sets the items around them
+        for (Item item : theMap.getFilledCoordinates()) {
+            item.setAllSurroundingItems();
+        }
+//       setAllPlacedItems();
+//       setAllPlacedItemsParallel();
+        //Goes through all items on the map and identifies systems.
        identifySystems();
         //  identifySystemsParallel();
+        //Goes through all potential systems and map them out.
         createSystems();
     }
-    
+
+    public void alternate() {
+        setAllPlacedItems();
+        for (Item item : theMap.getFilledCoordinates()) {
+            ((ProcessingItem)item).processAndPush();
+        }
+
+    }
 
 //This method will map out and "create" the systems, so that they can be fired in the correct order.
 //              1
@@ -84,8 +102,8 @@ public class TycoonBuilder {
         allSystems.clear();
         for (List<Item> list : tycoonSystems) {                                                         
             for (Item item : list) {
-                 exploreSystemQueue(item);
-//                exploreSystem(item);
+                //  exploreSystemQueue(item);
+               exploreSystem(item);
             }
         }
     }
@@ -93,7 +111,7 @@ public class TycoonBuilder {
     public void identifySystems() {
         tycoonSystems.clear();
         listOfDroppers.clear();
-        for (Item item : allPlacedItems) {
+        for (Item item : theMap.getFilledCoordinates()) {
             switch (item.getType()) {
             case FURNACE:
             case UPGRADER:
@@ -123,7 +141,7 @@ public class TycoonBuilder {
     public void identifySystemsParallel() {
         tycoonSystems.clear();
         listOfDroppers.clear();
-        allPlacedItems.parallelStream().forEach(item -> {
+        theMap.getFilledCoordinates().parallelStream().forEach(item -> {
             switch (item.getType()) {
             case FURNACE:
             case UPGRADER:
@@ -182,21 +200,17 @@ public class TycoonBuilder {
 
     //This method will return all the objects that are on theMap and makes a list of them, it will also SetItemInFront for them.
     public void setAllPlacedItems() {
-        allPlacedItems.clear();
-        allPlacedItems = theMap.getFilledCoordinates();
-        for (Item item : allPlacedItems) {
+        for (Item item : theMap.getFilledCoordinates()) {
             item.setAllSurroundingItems();
         }
     }
     
     public void setAllPlacedItemsParallel() {
-        allPlacedItems.clear();
-        allPlacedItems = theMap.getFilledCoordinates();
-        allPlacedItems.parallelStream().forEach(Item::setAllSurroundingItems);
+        theMap.getFilledCoordinates().parallelStream().forEach(Item::setAllSurroundingItems);
     }
 
     public List<Item> getAllPlacedItems() {
-        return allPlacedItems;
+        return theMap.getFilledCoordinates();
     }
 
     public List<List<Item>> getTycoonSystems() {
@@ -219,8 +233,7 @@ public class TycoonBuilder {
     }
 
    private void exploreSystemQueue(Item currentItem){
-        if (currentItem == null || currentItem instanceof Dropper) { return;} // Guard Statement
-        //If needed can revist this if the recursive varient of this method is not working well enough.
+        currentItem.getItemBehind();
    }
 
 

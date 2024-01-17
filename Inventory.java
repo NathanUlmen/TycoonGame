@@ -90,6 +90,15 @@ public class Inventory {
         }
     }
 
+    public boolean hasItem(Item item) {
+        for (Stack<Item> stack: inventoryList) {
+            if (stack.peek().getItemName() == item.getItemName()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void printInventory() {
         System.out.println("\nInventory: \n");
       

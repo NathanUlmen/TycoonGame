@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.MathContext;
 
 public abstract class Upgrader extends ProcessingItem{
@@ -7,8 +8,8 @@ public abstract class Upgrader extends ProcessingItem{
     protected static final MathContext hundreths = new MathContext(5);
     protected UpgradeTag upgradeTag;
 
-    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, UpgradeTag upgradeTag, ItemTier tier) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier, ItemType.UPGRADER);
+    public Upgrader(String upgraderEffect, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, UpgradeTag upgradeTag, ItemTier tier, BigInteger value) {
+        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier, ItemType.UPGRADER, value);
         this.upgraderEffect = upgraderEffect;
         this.upgradeTag = upgradeTag;
     }

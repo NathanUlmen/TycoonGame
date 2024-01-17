@@ -11,7 +11,7 @@ public class ItemGenerator {
     private Random generator= new Random();
 
     public ItemGenerator() {
-
+        System.exit(0);
     }
 
     public int coinFlip() {

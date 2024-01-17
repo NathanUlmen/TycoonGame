@@ -8,6 +8,7 @@ public class Player {
     private static Player playerInstance;
     public static Inventory inventory = Inventory.getInventoryInstance();
     private long numberOfTicks = 0;
+    protected static TheShop shopInstance = TheShop.getShopInstance();
 
     public Player(BigInteger wallet, int prestigeLevel, int prestigeCurrency) {
         this.wallet = wallet;
@@ -20,16 +21,20 @@ public class Player {
     }
     
 
-    public void addToWallet(BigInteger oreValue) {
-        wallet = wallet.add(oreValue);
+    public void addToWallet(BigInteger value) {
+        wallet = wallet.add(value);
         mostMoneyObtainedCheck();
+    }
+
+    public void subtractFromWallet(BigInteger value) {
+        wallet = wallet.subtract(value);
     }
 
     public void setWallet(BigInteger valueToSetTo)  {
         wallet = valueToSetTo;
         mostMoneyObtainedCheck();
     }
-    
+
     private void mostMoneyObtainedCheck() {
         if (mostMoneyObtained.compareTo(wallet) == -1) {
             mostMoneyObtained = wallet;
@@ -74,6 +79,19 @@ public class Player {
     public long getSpecialPoints() {
         return specialPoints;
     }
+
+    public void buyItem(Item itemToBeBought) {
+        inventory.addItem(shopInstance.sellToPlayer(itemToBeBought), 1);
+    }
+
+    public void sellItem(Item itemToBeSold) {
+        if (inventory.hasItem(itemToBeSold)) {
+            inventory.removeItem(itemToBeSold);
+            shopInstance.buyItemFromPlayer(itemToBeSold);
+        }
+    }
+
+
 
     public static Player getPlayerInstance() {
         if(playerInstance == null) {

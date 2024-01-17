@@ -14,6 +14,13 @@ public class ListOfAllGameItems {
         return gameItemsInsance;
     }
 
+    public ListOfAllGameItems() {
+        populateOtherItems();
+        populatePrestiegeItems();
+        populateResearchItems();
+        populateShopItems();
+    }
+
 
     public List<Item> getEligblePrestiegeItems(int playerPrestiegeLevel) {
         int min, max;
@@ -57,16 +64,22 @@ public class ListOfAllGameItems {
     public void populateResearchItems() {
         reasearchItems = new ArrayList<>();
 
+
+
         //Should Make an algorithm to sort this.
         // prestiegeItems.add();
     }
 
     public void populateShopItems() {
         shopItems = new ArrayList<>();
+        shopItems.add(new IronDropper());
+        shopItems.add(new BasicFurnace());
+        shopItems.add(new BasicUpgrader());
     }
 
     public void populateOtherItems() {
         otherItems = new ArrayList<>();
+        otherItems.add(new TheUpgrader());
     }
 
     

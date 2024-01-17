@@ -1,23 +1,26 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Ore {
     private BigDecimal oreValue;
     private int oreTemperature, upgradeCount, multiOre, oreHistory;
     private String oreName;
+    private Boolean processable;
     private final int[] upgradeTag = new int[400]; //The number of different upgraders in the game.
     
 
     public Ore() {
-        this.oreValue = BigDecimal.valueOf(0);
+        this.oreValue = BigDecimal.valueOf(0).setScale(6, RoundingMode.HALF_UP);
         this.oreTemperature = 0;
         this.oreName = "";
         this.upgradeCount = 0;
         this.multiOre = 1;
+        this.processable = true;
         setDefualtTags();
     }
 
     public void applyUpgrade(BigDecimal oreValueAfterUpgrade, int temperatureAfterUpgrade, int multiOreAfterUpgrade) {
-        this.oreValue = oreValueAfterUpgrade;
+        this.oreValue = oreValueAfterUpgrade.setScale(6, RoundingMode.HALF_UP);
         this.oreTemperature = temperatureAfterUpgrade;
         this.multiOre = multiOreAfterUpgrade;
         this.upgradeCount++;
@@ -28,7 +31,7 @@ public class Ore {
     }
 
     public void applyBaseStats(BigDecimal startingValue, int startingTemp, int StartingMultiOre, String name) {
-        this.oreValue = startingValue;
+        this.oreValue = startingValue.setScale(6, RoundingMode.HALF_UP);
         this.oreName = name;
         this.oreTemperature = startingTemp;
         this.multiOre = StartingMultiOre;
@@ -44,7 +47,13 @@ public class Ore {
             upgradeTag[tag.getTagIndex()]--;
         }
     }
-    
+
+    public void setProcessable(boolean state) {
+        processable = state;
+    }
+    public boolean canBeProcessed() {
+        return processable;
+    }
     public BigDecimal getOreValue() {
         return oreValue;
     }
@@ -87,6 +96,7 @@ public class Ore {
         this.oreName = "";
         this.upgradeCount = 0;
         this.multiOre = 0;
+        this.processable = true;
         setDefualtTags();
     }
 
@@ -109,8 +119,7 @@ public class Ore {
     }
 
     public String toString() {
-        String bars = " -----------------";
-        String oreToString = bars + "\nName: " + oreName + "\nValue: " + oreValue + 
+        String oreToString = "\nName: " + oreName + "\nValue: " + oreValue + 
             "\nTemperature: " + oreTemperature + "\nUpgrade Count: " + upgradeCount + 
             "\nState: ";
         return oreToString;

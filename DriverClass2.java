@@ -1,4 +1,6 @@
 import java.math.BigInteger;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class DriverClass2 {
     final static Player player = Player.getPlayerInstance();  
@@ -23,19 +25,34 @@ public class DriverClass2 {
             Player.inventory.addItem(upgraders[i], 2);
         }
 
+        System.out.println();
+        System.out.println(player.getInventory().hasItem(new RubyDropper()));
+        System.out.println(player.getInventory().hasItem(new ResetterUpgrader()));
+        player.setWallet(BigInteger.valueOf(10000));
+        System.out.println("Wallet Before:" + player.getWallet());
+        player.getInventory().printInventory();
 
-        // player.getInventory().printInventory();
+        player.sellItem(new BasicFurnace());
 
-        // player.getInventory().addItem(generator.rewardItem(ItemGenerator.RewardType.STANDARD_CHEST), 1);
+        System.out.println("Wallet After:" + player.getWallet() );
+        player.getInventory().printInventory();
 
-        // player.getInventory().printInventory();
+        test();
 
-        // System.out.println(new Conveyor().toString());
-
-        // for (int i = 0; i < 100; i++) {
-        //     System.out.println(generator.rewardItem(ItemGenerator.RewardType.STANDARD_CHEST).toString());
-        // } 
+       
         
         
+    }
+
+    private static void test() {
+        int numOfThreads = Runtime.getRuntime().availableProcessors();
+        int min, max;
+        min = max = 0;
+
+        int chunck = 100/numOfThreads;
+        
+        for (int i = 0; i <numOfThreads ; i++) {
+            System.out.println("Min: " + (chunck*i) +"Max: " + (chunck*+(i+1)));
+        }
     }
 }

@@ -2,25 +2,22 @@
 //Droppers will "pop"/pull their ore from the OreRealm rather than making a new ore object each time they drop an ore.
 //When a furnace sells an Ore it will reset it and return the ore to the OreRealm.
 //This allows for ore objects to be recycled and limits the number of ore objects in that can be present in the tycoon.
+//The oreRealm also keeps track of the ore that are active in the tycoon, and is used to set ore state to moveable at the end of each tick.
 
-import java.util.Arrays;
-import java.util.EmptyStackException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class OreRealm implements StackADT<Ore> {
-    private final static int DEFAULT_CAPACITY = 500;
+public class OreRealm {
     private static OreRealm oreRealmInstance;
-    private Ore[] stackOfOre;
-    private int top;
+    private final Ore[] stackOfOre;
+    private final List<Ore> activeOre;
+    private int top = 0;
 
     public OreRealm() {
-        this(DEFAULT_CAPACITY);
+        this.top = Constants.ORE_LIMIT;
+        stackOfOre = new Ore[Constants.ORE_LIMIT];
+        activeOre = new ArrayList<>(Constants.ORE_LIMIT);
         fillStackWithOre();
-    }
-
-    @SuppressWarnings("unchecked")
-    public OreRealm(int initialCapacity) {
-        this.top = 0;
-        this.stackOfOre = new Ore[initialCapacity];
     }
 
     public static OreRealm getOreRealmInstance(){
@@ -30,29 +27,20 @@ public class OreRealm implements StackADT<Ore> {
         return oreRealmInstance;
     }
 
-    @Override
-    public void push(Ore element) {
-        // if (this.size() == this.stack.length) {
-        //     // expand the capacity
-        //     expandCapacity();
-        // }
+    public void takeOre(Ore element) {
+        activeOre.remove(element);
         this.stackOfOre[this.top] = element;
         this.top++;
     }
 
-    @Override
-    public Ore pop() {
-        //This check is done in the dropper class now.
-        // if (this.isEmpty()) {
-        //     throw new EmptyCollectionException("Ore Realm is out of ore!");
-        // }
+    public Ore giveOre() {
         this.top--;
-        Ore result  = this.stackOfOre[this.top];
+        Ore result = this.stackOfOre[this.top];
         this.stackOfOre[this.top] = null;
+        activeOre.add(result);
         return result;
     }
 
-    @Override
     public Ore peek() {
         if (this.isEmpty()) {
             throw new EmptyCollectionException("stack");
@@ -60,24 +48,12 @@ public class OreRealm implements StackADT<Ore> {
         return this.stackOfOre[this.top];
     }
 
-    @Override
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    @Override
     public int size() {
         return this.top;
-    }
-
-    // @SuppressWarnings("unchecked")
-    private void expandCapacity() {
-        // E[] temp = (E[])(new Object[this.stack.length * 2]);
-        // for (int i = 0; i < this.stack.length; i++) {
-        //     temp[i] = this.stack[i];
-        // }
-        // this.stack = temp;
-        this.stackOfOre = Arrays.copyOf(stackOfOre, stackOfOre.length * 2);
     }
 
     public String toString() {
@@ -91,14 +67,21 @@ public class OreRealm implements StackADT<Ore> {
 
     public void fillStackWithOre() {
         for (int i = 0; i < stackOfOre.length; i++) {
-            push(new Ore());
+            stackOfOre[i] = new Ore();
         }
     }
 
     public int getNumberOfOreNotInStack() {
-        return DEFAULT_CAPACITY - size();
+        return activeOre.size();
     }
-    
+
+    public List<Ore> getActiveOre() {
+        return activeOre;
+    }
+    public int getActiveOre2() {
+        return Constants.ORE_LIMIT-size();
+    }
+
 }
 
 

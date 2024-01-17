@@ -1,3 +1,6 @@
+import java.math.BigInteger;
+import java.sql.Statement;
+
 public abstract class Item {
     // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
     public enum ItemType {DROPPER, FURNACE, UPGRADER, CONVEYOR}
@@ -11,11 +14,11 @@ public abstract class Item {
     private int dimensionY;
     private String itemName;
     protected static final TheMap theMap = TheMap.getTheMapInstance();
+    protected BigInteger itemValue;
+    protected final OreRealm oreRealm = OreRealm.getOreRealmInstance();
     
     //might not need theGameQueue after Tycoon builder is done.
-
-
-    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier, ItemType type) {
+    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier, ItemType type, BigInteger value) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.itemName = itemName;
@@ -23,6 +26,7 @@ public abstract class Item {
         this.dimensionY = dimensionY;
         this.direction = direction;
         this.type = type;
+        itemValue = value;
         
         // switch (direction) {
         //     case 1:
@@ -252,6 +256,10 @@ public abstract class Item {
         } else {
             itemToLeft = null;
         }
+    }
+
+    public BigInteger getValue() {
+        return itemValue;
     }
 
     public ProcessingItem getItemInFront() {

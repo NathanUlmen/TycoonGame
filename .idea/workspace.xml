@@ -7,12 +7,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="Cleaned up/Removed Decorator">
+    <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conveyor2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Furnace2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProcessingItem2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Upgrade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Upgrader2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicFurnace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Conveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Conveyor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoldDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoldDropper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IronDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/IronDropper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ListOfAllGameItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/ListOfAllGameItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OreRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProcessingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessingItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QueueADT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResetterUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResetterUpgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RubyDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RubyDropper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StackADT.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TheMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheUpgrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UpgradeTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/UpgradeTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +52,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -35,6 +66,23 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;NathanUlmen&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="287273ef-6752-4e2f-b0d5-2dad06735389" />
+        <option name="url" value="https://github.com/NathanUlmen/TycoonGame.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../Program Files/Eclipse Adoptium/jdk-11.0.13.8-hotspot/lib/src.zip!/java.base/java/util/Queue.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -44,31 +92,35 @@
 }</component>
   <component name="ProjectId" id="2Yrk4SnI10giFoVMxvYlAnDsq8o" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/TycoonGame",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DriverClass.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nathan/Downloads/visualvm_217/visualvm_217/bin/visualvm.exe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.DriverClass">
     <configuration name="DriverClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DriverClass" />
@@ -84,12 +136,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DriverClass" />
+      <item itemvalue="Application.DriverClass2" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.DriverClass" />
         <item itemvalue="Application.DriverClass2" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.21-corretto-11.0.21-f644763e9732-97de7592" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -124,6 +187,23 @@
       <workItem from="1703751844544" duration="1293000" />
       <workItem from="1703800295897" duration="6616000" />
       <workItem from="1703814957211" duration="7843000" />
+      <workItem from="1703888147984" duration="8498000" />
+      <workItem from="1703897288883" duration="103000" />
+      <workItem from="1703897400413" duration="916000" />
+      <workItem from="1704439359596" duration="331000" />
+      <workItem from="1704439702813" duration="51000" />
+      <workItem from="1704493700775" duration="3295000" />
+      <workItem from="1704927060471" duration="8678000" />
+      <workItem from="1704940610289" duration="3812000" />
+      <workItem from="1704954053595" duration="125000" />
+      <workItem from="1704954238344" duration="1473000" />
+      <workItem from="1705000365224" duration="2318000" />
+      <workItem from="1705202200141" duration="1540000" />
+      <workItem from="1705305572761" duration="574000" />
+      <workItem from="1705353554461" duration="1746000" />
+      <workItem from="1705358663935" duration="6310000" />
+      <workItem from="1705436143446" duration="11618000" />
+      <workItem from="1705447942818" duration="2330000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up/Removed Decorator">
       <option name="closed" value="true" />

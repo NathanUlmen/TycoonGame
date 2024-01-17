@@ -1,5 +1,7 @@
 //The Furnace Class takes an ore and processes it, returning it to the OreRealm and granting you money;
 import java.math.BigDecimal;
+import java.math.BigInteger;
+
 public abstract class Furnace extends ProcessingItem{
     private final double processSpeed;
     private final String processEffect;
@@ -10,8 +12,8 @@ public abstract class Furnace extends ProcessingItem{
     protected final int specialThreshold;
 
 
-    public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Direction direction, int specialPointsReward, int specialThreshold, int currentSpecialProgress, ItemTier tier) {
-        super(positionX, positionY, itemName, positionX, positionY, direction, tier, ItemType.FURNACE);
+    public Furnace(int positionX, int positionY, String itemName, double processSpeed, String processEffect, Direction direction, int specialPointsReward, int specialThreshold, int currentSpecialProgress, ItemTier tier, BigInteger value) {
+        super(positionX, positionY, itemName, positionX, positionY, direction, tier, ItemType.FURNACE, value);
         this.processSpeed = processSpeed;
         this.processEffect = processEffect;
         this.specialPointsReward = specialPointsReward;
@@ -29,14 +31,13 @@ public abstract class Furnace extends ProcessingItem{
         calculateSpecialPoints(ore);
         ore.reset();
         setOre(null);
-        oreRealm.push(ore);
+        oreRealm.takeOre(ore);
         //System.out.println("Sold!");
     }
 
     private void sellTheOre(Ore preparedOre) {
         BigDecimal processedValue = processEffect(preparedOre.getOreValue().multiply(BigDecimal.valueOf(preparedOre.getMultiOre())));
         player.addToWallet(processedValue.toBigInteger());
-        // System.out.println("sold for:" +processedValue);
     }
 
     private void calculateSpecialPoints(Ore preparedOre) {
