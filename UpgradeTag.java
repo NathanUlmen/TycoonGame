@@ -2,8 +2,8 @@
 public enum UpgradeTag {
     BASIC_UPGRADER(0, 200, false),
     THE_FINAL_UPGRADER(1, 1, false),
-    RENEWAL_FORGE(2,1, true);
-    
+    RENEWAL_FORGE(2, 1, true);
+
 
     private final int maxUpgrades;
     private final int upgradeIndex;

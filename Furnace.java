@@ -1,8 +1,9 @@
 //The Furnace Class takes an ore and processes it, returning it to the OreRealm and granting you money;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public abstract class Furnace extends ProcessingItem{
+public abstract class Furnace extends ProcessingItem {
     private final double processSpeed;
     private final String processEffect;
     protected static final OreRealm oreRealm = OreRealm.getOreRealmInstance();
@@ -45,8 +46,8 @@ public abstract class Furnace extends ProcessingItem{
         for (int i = 0; i < increment; i++) {
             currentSpecialProgress++;
             if (specialThreshold < currentSpecialProgress) {
-                player.setSpecialPoints(player.getSpecialPoints()+specialPointsReward);        
-                currentSpecialProgress=0;
+                player.setSpecialPoints(player.getSpecialPoints() + specialPointsReward);
+                currentSpecialProgress = 0;
             }
         }
     }
@@ -55,10 +56,9 @@ public abstract class Furnace extends ProcessingItem{
     protected abstract BigDecimal processEffect(BigDecimal soldOreValue);
 
     public String toString() {
-        return "Name: " +getItemName() + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
+        return "Name: " + getItemName() + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
 
-    
 
 }
 

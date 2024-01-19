@@ -9,13 +9,13 @@
 // Then it will call getItemBehind, and add that item to the list, repeat until the "system" has been mapped out.
 
 // Only conveyors will be able to take ore from all sides which means that I will only have to check to see if there are objects to left and right when I am on conveyor items.
-		
 
 
 // it will then have all the items setItem to push to.
 
 
 // This method will be called everytime an item is placed or removed.
+
 import java.util.*;
 
 public class TycoonBuilder {
@@ -34,14 +34,14 @@ public class TycoonBuilder {
         return tycoonBuilder;
     }
 
-    
+
     //This method will fire each List of Different systems, firing the items inside of the list in the correct order.
     public void tycoonTick() {
         //Would check to see if wasModified before calling updateTycoon.
         updateTycoon();
         fireAllSystems();
         //Go through all active ore on the map and set it so that they are able to be moved again.
-        for (Ore ore: oreRealm.getActiveOre()) {
+        for (Ore ore : oreRealm.getActiveOre()) {
             ore.setProcessable(true);
         }
     }
@@ -58,7 +58,7 @@ public class TycoonBuilder {
 
 
     }
-    
+
     public void updateTycoon() {
         //Goes through all items on the map and sets the items around them
         for (Item item : theMap.getFilledCoordinates()) {
@@ -67,7 +67,7 @@ public class TycoonBuilder {
 //       setAllPlacedItems();
 //       setAllPlacedItemsParallel();
         //Goes through all items on the map and identifies systems.
-       identifySystems();
+        identifySystems();
         //  identifySystemsParallel();
         //Goes through all potential systems and map them out.
         createSystems();
@@ -76,12 +76,12 @@ public class TycoonBuilder {
     public void alternate() {
         setAllPlacedItems();
         for (Item item : theMap.getFilledCoordinates()) {
-            ((ProcessingItem)item).processAndPush();
+            ((ProcessingItem) item).processAndPush();
         }
 
     }
 
-//This method will map out and "create" the systems, so that they can be fired in the correct order.
+    //This method will map out and "create" the systems, so that they can be fired in the correct order.
 //              1
 //              | 
 //              2  
@@ -100,10 +100,10 @@ public class TycoonBuilder {
 //                       |           | 
     public void createSystems() {
         allSystems.clear();
-        for (List<Item> list : tycoonSystems) {                                                         
+        for (List<Item> list : tycoonSystems) {
             for (Item item : list) {
                 //  exploreSystemQueue(item);
-               exploreSystem(item);
+                exploreSystem(item);
             }
         }
     }
@@ -113,26 +113,26 @@ public class TycoonBuilder {
         listOfDroppers.clear();
         for (Item item : theMap.getFilledCoordinates()) {
             switch (item.getType()) {
-            case FURNACE:
-            case UPGRADER:
-                if (item.getItemInFront() == null && itemBehindIsLinked(item)){
-                    List<Item> newSystem = new ArrayList<>();
-                    newSystem.add(item);
-                    tycoonSystems.add(newSystem);
-                    //System.out.println("Furnace added to tycoonSystems.");
-                }
-                break;
-            case CONVEYOR:
-                if (item.getItemInFront() == null && itemBehindIsLinked(item) || itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
-                    List<Item> newSystem = new ArrayList<>();
-                    newSystem.add(item);
-                    tycoonSystems.add(newSystem);
-                    //System.out.println("Conveyor added to tycoonSystems");
-                }
-                break;
-            case DROPPER:
-                listOfDroppers.add((Dropper) item);
-                break;
+                case FURNACE:
+                case UPGRADER:
+                    if (item.getItemInFront() == null && itemBehindIsLinked(item)) {
+                        List<Item> newSystem = new ArrayList<>();
+                        newSystem.add(item);
+                        tycoonSystems.add(newSystem);
+                        //System.out.println("Furnace added to tycoonSystems.");
+                    }
+                    break;
+                case CONVEYOR:
+                    if (item.getItemInFront() == null && itemBehindIsLinked(item) || itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
+                        List<Item> newSystem = new ArrayList<>();
+                        newSystem.add(item);
+                        tycoonSystems.add(newSystem);
+                        //System.out.println("Conveyor added to tycoonSystems");
+                    }
+                    break;
+                case DROPPER:
+                    listOfDroppers.add((Dropper) item);
+                    break;
 
             }
         }
@@ -142,41 +142,43 @@ public class TycoonBuilder {
         tycoonSystems.clear();
         listOfDroppers.clear();
         theMap.getFilledCoordinates().parallelStream().forEach(item -> {
-            switch (item.getType()) {
-            case FURNACE:
-            case UPGRADER:
-                if (item.getItemInFront() == null && itemBehindIsLinked(item)){
-                    List<Item> newSystem = new ArrayList<>();
-                    newSystem.add(item);
-                    tycoonSystems.add(newSystem);
-                    //System.out.println("Furnace added to tycoonSystems.");
+                    switch (item.getType()) {
+                        case FURNACE:
+                        case UPGRADER:
+                            if (item.getItemInFront() == null && itemBehindIsLinked(item)) {
+                                List<Item> newSystem = new ArrayList<>();
+                                newSystem.add(item);
+                                tycoonSystems.add(newSystem);
+                                //System.out.println("Furnace added to tycoonSystems.");
+                            }
+                            break;
+                        case CONVEYOR:
+                            if (item.getItemInFront() == null && itemBehindIsLinked(item) || itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
+                                List<Item> newSystem = new ArrayList<>();
+                                newSystem.add(item);
+                                tycoonSystems.add(newSystem);
+                            }
+                            break;
+                        case DROPPER:
+                            listOfDroppers.add((Dropper) item);
+                            break;
+                    }
                 }
-                break;
-            case CONVEYOR:
-                if (item.getItemInFront() == null && itemBehindIsLinked(item) || itemToRightIsLinked(item) || itemToLeftIsLinked(item)) {
-                    List<Item> newSystem = new ArrayList<>();
-                    newSystem.add(item);
-                    tycoonSystems.add(newSystem);
-                }
-                break;
-            case DROPPER:
-                listOfDroppers.add((Dropper) item);
-                break;
-            }
-        }
         );
     }
-    
+
     private void exploreSystem(Item currentItem) {
-        if (currentItem == null || currentItem instanceof Dropper) { return; } //Guard Statement
-        
+        if (currentItem == null || currentItem instanceof Dropper) {
+            return;
+        } //Guard Statement
+
         // if (!allSystems.contains(currentItem)) {
-            allSystems.add(currentItem);
+        allSystems.add(currentItem);
         // }
         if (currentItem instanceof Upgrader || currentItem instanceof Furnace) {
             //furances and upgraders can only take items from behind.
             if (itemBehindIsLinked(currentItem)) {
-                exploreSystem(currentItem.getItemBehind());  
+                exploreSystem(currentItem.getItemBehind());
             }
         } else if (currentItem instanceof Conveyor) {
             //conveyors can take items from left, right, and behind.
@@ -194,8 +196,8 @@ public class TycoonBuilder {
     }
 
     //This method will look for systems that dont have an end, they are just one big circle.
-    public void identifyLoopingSystems(){
-        
+    public void identifyLoopingSystems() {
+
     }
 
     //This method will return all the objects that are on theMap and makes a list of them, it will also SetItemInFront for them.
@@ -204,7 +206,7 @@ public class TycoonBuilder {
             item.setAllSurroundingItems();
         }
     }
-    
+
     public void setAllPlacedItemsParallel() {
         theMap.getFilledCoordinates().parallelStream().forEach(Item::setAllSurroundingItems);
     }
@@ -232,10 +234,9 @@ public class TycoonBuilder {
         return itemToLeft != null && itemToLeft.getItemInFront() == item;
     }
 
-   private void exploreSystemQueue(Item currentItem){
+    private void exploreSystemQueue(Item currentItem) {
         currentItem.getItemBehind();
-   }
-
+    }
 
 
 }

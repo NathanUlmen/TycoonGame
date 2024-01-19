@@ -17,9 +17,9 @@ public class Player {
     }
 
     public Player() {
-        
+
     }
-    
+
 
     public void addToWallet(BigInteger value) {
         wallet = wallet.add(value);
@@ -30,7 +30,7 @@ public class Player {
         wallet = wallet.subtract(value);
     }
 
-    public void setWallet(BigInteger valueToSetTo)  {
+    public void setWallet(BigInteger valueToSetTo) {
         wallet = valueToSetTo;
         mostMoneyObtainedCheck();
     }
@@ -52,11 +52,12 @@ public class Player {
     public Inventory getInventory() {
         return inventory;
     }
-    public void incrementPrestigeLevel(){
+
+    public void incrementPrestigeLevel() {
         prestigeLevel++;
     }
 
-    public int getPrestigeLevel(){
+    public int getPrestigeLevel() {
         return prestigeLevel;
     }
 
@@ -64,8 +65,8 @@ public class Player {
         this.prestigeLevel = newPrestigeLevel;
     }
 
-    public void setPrestigeCurrency(){
-        prestigeCurrency =1;
+    public void setPrestigeCurrency() {
+        prestigeCurrency = 1;
     }
 
     public int getPrestigeCurrency() {
@@ -92,9 +93,8 @@ public class Player {
     }
 
 
-
     public static Player getPlayerInstance() {
-        if(playerInstance == null) {
+        if (playerInstance == null) {
             playerInstance = new Player();
         }
         return playerInstance;
@@ -112,8 +112,6 @@ public class Player {
         String playerInfo = "Prestige Level: " + prestigeLevel + "\tWallet: " + wallet + "\tPlayer Prestige Currency: " + prestigeCurrency + "\tSpecial Points: " + specialPoints;
         return playerInfo;
     }
-
-    
 
 
 }

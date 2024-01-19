@@ -11,14 +11,14 @@ public class DriverClass {
     static final int twentyThousand = 20000;
     static long count = 0;
     final static TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
-    final static Player player = Player.getPlayerInstance();  
+    final static Player player = Player.getPlayerInstance();
     static Dropper[] droppers = new Dropper[ten];
     static Conveyor[] conveyors = new Conveyor[8000];
     static Upgrader[] upgraders = new Upgrader[2500];
     static Furnace[] furnaces = new Furnace[2500];
     static NumberFormat scientificFormat = new DecimalFormat("0.0E0");
     static OreRealm oreRealm = OreRealm.getOreRealmInstance();
-    
+
     static Ore ore = new Ore();
 
     public static void main(String[] args) {
@@ -51,16 +51,15 @@ public class DriverClass {
         // furnace.placeItem(genericUpgrader.length+1, 6, Direction.RIGHT);
 
 
-
         //Test2(A 2500 item long line of Basic Upgraders with a dropper at the beginning and a furnace at the end:
 
         droppers[0] = new IronDropper();
         droppers[0].placeItem(0, 2, Direction.RIGHT);
-        for (int i = 0; i < upgraders.length-1; i++) {
+        for (int i = 0; i < upgraders.length - 1; i++) {
             upgraders[i] = new BasicUpgrader();
-            upgraders[i].placeItem(1+i, 2, Direction.RIGHT);
+            upgraders[i].placeItem(1 + i, 2, Direction.RIGHT);
             conveyors[i] = new Conveyor();
-            conveyors[i].placeItem(1+i, 10, Direction.RIGHT);
+            conveyors[i].placeItem(1 + i, 10, Direction.RIGHT);
             // if (i % 5 == 0) {
             //     // conveyors[i].setOre(ore);
             // }
@@ -91,7 +90,7 @@ public class DriverClass {
         }
 
         // System.out.println(tycoonBuilder.getTycoonSystems());
-    // System.out.println(tycoonBuilder.getAllPlacedItems());
+        // System.out.println(tycoonBuilder.getAllPlacedItems());
 
         end = System.currentTimeMillis();
         NumberFormat nf = NumberFormat.getNumberInstance();
@@ -104,14 +103,14 @@ public class DriverClass {
         infoString += " to run tycoonTick " + formattedNumberOfTicks + " times.";
         System.out.println(infoString);
         System.out.println("You have made " + scientificFormat.format(player.getWallet())
-                   + " or " + player.getWallet() + "\nCurrent Special Points: " + player.getSpecialPoints());
+                + " or " + player.getWallet() + "\nCurrent Special Points: " + player.getSpecialPoints());
     }
 
     private static void InfinteTimerTest(int period) {
         Timer timer = new Timer();
 
         class Task extends TimerTask {
-            
+
             @Override
             public void run() {
                 // tycoonBuilder.setAllPlacedItems();
@@ -126,10 +125,10 @@ public class DriverClass {
                 System.out.println("Number of Ticks: " + player.getNumberOfTicks());
             }
         }
-    
+
 
         timer.scheduleAtFixedRate(new Task() {
-            
+
         }, 0, period);
     }
 
@@ -147,10 +146,11 @@ public class DriverClass {
         NumberFormat nf = NumberFormat.getNumberInstance();
         String formattedMilliseconds = nf.format(end - start);
         String formattedNumberOfTicks = nf.format(ticks);
-        
+
         String infoString = "Ran " + ticks + " ticks in " + timeToRun + " seconds";
         System.out.println(infoString);
     }
+
     private static void simpleSetup() {
 
     }

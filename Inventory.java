@@ -13,6 +13,8 @@ public class Inventory {
     private static Inventory inventory;
     private final List<Stack<Item>> inventoryList = new ArrayList<>();
 
+    private final List<InventoryNode<Item>> inventoryNodes = new ArrayList<>();
+
     public Inventory() {
 
     }
@@ -60,21 +62,21 @@ public class Inventory {
             public int compare(Stack<Item> stack1, Stack<Item> stack2) {
                 Item item1 = stack1.peek();
                 Item item2 = stack2.peek();
-    
+
                 // Compare by type
                 String type1 = item1.getItemType().getSimpleName();
                 String type2 = item2.getItemType().getSimpleName();
                 int typeComparison = type1.compareTo(type2);
-    
+
                 if (typeComparison != 0) {
                     return typeComparison;
                 }
-    
+
                 // If types are the same, compare by name
                 return item1.getItemName().compareTo(item2.getItemName());
             }
         };
-    
+
         // Sort the inventory using the comparator
         Collections.sort(inventoryList, comparator);
     }
@@ -91,7 +93,7 @@ public class Inventory {
     }
 
     public boolean hasItem(Item item) {
-        for (Stack<Item> stack: inventoryList) {
+        for (Stack<Item> stack : inventoryList) {
             if (stack.peek().getItemName() == item.getItemName()) {
                 return true;
             }
@@ -101,7 +103,7 @@ public class Inventory {
 
     public void printInventory() {
         System.out.println("\nInventory: \n");
-      
+
         for (Stack<Item> stack : inventoryList) {
             Item item = stack.peek();
             int itemCount = stack.size();
@@ -139,5 +141,5 @@ public class Inventory {
             e.printStackTrace();
         }
     }
- 
+
 }

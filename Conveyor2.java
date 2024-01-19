@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class Conveyor2 extends Item implements ProcessingItem2{
+public class Conveyor2 extends Item implements ProcessingItem2 {
     protected Ore ore;
     private ProcessingItem2 itemInFront;
     private Queue<Ore> storedOre = new ArrayDeque<>(Constants.STORED_ORE_LIMIT);
@@ -9,7 +9,6 @@ public class Conveyor2 extends Item implements ProcessingItem2{
     public void setStoredOre(Ore oreToBeStored) {
         this.ore = oreToBeStored;
     }
-
     @Override
     public void addOre(Ore ore) {
         storedOre.add(ore);
@@ -21,8 +20,8 @@ public class Conveyor2 extends Item implements ProcessingItem2{
             Ore o = storedOre.remove();
             o.reset();
             oreRealm.takeOre(o);
-        }else {
-             if (storedOre.peek() != null && storedOre.peek().canBeProcessed()) {
+        } else {
+            if (storedOre.peek() != null && storedOre.peek().canBeProcessed()) {
                 Ore o = storedOre.remove();
                 o.setProcessable(false);
                 itemInFront.addOre(o);
@@ -40,4 +39,13 @@ public class Conveyor2 extends Item implements ProcessingItem2{
         return this.ore == null;
     }
 
+    @Override
+    public void morphTo(Item item) {
+
+    }
+
+    @Override
+    public void reset() {
+
+    }
 }

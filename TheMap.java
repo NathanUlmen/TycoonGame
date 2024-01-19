@@ -8,27 +8,28 @@ public class TheMap {
     private static TheMap theMapInstance;
     private final Item[][] theMap;
     private final int MAP_DIMENSION = 2600;
-    public final ArrayList<Item> occupiedCoordinates = new ArrayList<>(Constants.GRID_AREA+100);
+    public final ArrayList<Item> occupiedCoordinates = new ArrayList<>(Constants.GRID_AREA + 100);
     // protected static final TycoonBuilder tycoonBuilder = TycoonBuilder.getTycoonBuilderInstance();
-    
+
     public TheMap() {
         theMap = new Item[Constants.GRID_DIMENSIONS][Constants.GRID_DIMENSIONS];
     }
+
     //Used for the singleton design pattern.
     public static TheMap getTheMapInstance() {
         if (theMapInstance == null) {
             theMapInstance = new TheMap();
         }
-        return theMapInstance; 
+        return theMapInstance;
     }
 
     //This method adds an item to specific coordinates
     public void addItemToMap(Item item, int X, int Y) {
-       theMap[X][Y] = item;
-       item.setPositionX(X);
-       item.setPositionY(Y);
-       occupiedCoordinates.add(theMap[X][Y]);
-    //    tycoonBuilder.updateTycoon();
+        theMap[X][Y] = item;
+        item.setPositionX(X);
+        item.setPositionY(Y);
+        occupiedCoordinates.add(theMap[X][Y]);
+        //    tycoonBuilder.updateTycoon();
     }
 
     public void removeItemFromMap(int X, int Y) {
@@ -38,9 +39,10 @@ public class TheMap {
         occupiedCoordinates.remove(theMap[X][Y]);
         // tycoonBuilder.updateTycoon();
     }
+
     //This method checks to see if there is an item present at the specific coordinates.
     public boolean isFilled(int X, int Y) {
-        if(X < 0 || X > Constants.GRID_DIMENSIONS -1 || Y < 0 || Y > Constants.GRID_DIMENSIONS -1) {
+        if (X < 0 || X > Constants.GRID_DIMENSIONS - 1 || Y < 0 || Y > Constants.GRID_DIMENSIONS - 1) {
             return false;
         } else {
             return theMap[X][Y] != null;
@@ -52,7 +54,8 @@ public class TheMap {
     public Item getItem(int X, int Y) {
         if (isFilled(X, Y)) {
             return theMap[X][Y];
-        } return null;
+        }
+        return null;
     }
 
     public String toString() {
@@ -68,10 +71,10 @@ public class TheMap {
         return result.toString();
     }
 
-        public ArrayList<Item> getFilledCoordinates() {
+    public ArrayList<Item> getFilledCoordinates() {
 //            return new ArrayList<>(occupiedCoordinates);
-            return occupiedCoordinates;
-        }
+        return occupiedCoordinates;
+    }
 
 
 }

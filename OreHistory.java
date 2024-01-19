@@ -3,18 +3,20 @@
 public enum OreHistory {
     RENEWAL_FORGE(1), FIRE(2), AIR(4);
 
-	private final int bit;
+    private final int bit;
 
-	OreHistory(int bit) {
-		this.bit = bit;
-	}
+    OreHistory(int bit) {
+        this.bit = bit;
+    }
 
-	public boolean wasUpgraded(Ore ore) {
-		return (ore.getOreHistory() & bit) == bit;
-	}
+    public boolean wasUpgraded(Ore ore) {
+        return (ore.getOreHistory() & bit) == bit;
+    }
 
-	public void add(Ore ore) {
-		if (this.wasUpgraded(ore)) { return; } // already upgraded with this upgrader
-		ore.setOreHistory(ore.getOreHistory() + bit);
-	}
+    public void add(Ore ore) {
+        if (this.wasUpgraded(ore)) {
+            return;
+        } // already upgraded with this upgrader
+        ore.setOreHistory(ore.getOreHistory() + bit);
+    }
 }

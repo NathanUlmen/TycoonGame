@@ -5,21 +5,19 @@
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public abstract class Dropper extends Item{
+public abstract class Dropper extends Item {
     protected Ore ore;
     private int dropRate; // The number of ore objects to be dropped per second
     private int totalOreDropped; //The number of ore objects this dropper has created.
     protected boolean canDrop;
     private BigInteger itemValue = new BigInteger("0");
-    private String oreName = "l",  description = "" ;
+    private String oreName = "l", description = "";
     private BigDecimal oreValue = new BigDecimal("0");
-    private int oreTemp= 0, multiOre = 0;
+    private int oreTemp = 0, multiOre = 0;
     private int numberOwned = 1;
-    
-    
+
 
     public Dropper(int dropRate, int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier, BigInteger value) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier, ItemType.DROPPER, value);
         this.dropRate = dropRate;
     }
 
@@ -48,7 +46,7 @@ public abstract class Dropper extends Item{
     }
 
     //creates an ore object
-    protected Ore createOre(){
+    protected Ore createOre() {
         return oreRealm.giveOre();
     }
 
@@ -63,5 +61,5 @@ public abstract class Dropper extends Item{
     public String toString() {
         return "Name: " + getItemName() + "\tTotal Ore Dropped: " + totalOreDropped + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
-   
+
 }

@@ -16,4 +16,8 @@ public class Conveyor extends ProcessingItem {
         // System.out.println("Item moved!");
     }
 
+    @Override
+    public void morphTo(Item item) {
+
+    }
 }

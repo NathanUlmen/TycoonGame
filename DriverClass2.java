@@ -3,7 +3,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class DriverClass2 {
-    final static Player player = Player.getPlayerInstance();  
+    final static Player player = Player.getPlayerInstance();
 
     static Dropper[] droppers = new Dropper[10];
     static Conveyor[] conveyors = new Conveyor[8000];
@@ -13,7 +13,7 @@ public class DriverClass2 {
 
     public static void main(String[] args) {
         for (int i = 0; i < droppers.length; i++) {
-            
+
             if (i % 3 == 0) {
                 droppers[i] = new RubyDropper();
                 upgraders[i] = new TheUpgrader();
@@ -34,14 +34,12 @@ public class DriverClass2 {
 
         player.sellItem(new BasicFurnace());
 
-        System.out.println("Wallet After:" + player.getWallet() );
+        System.out.println("Wallet After:" + player.getWallet());
         player.getInventory().printInventory();
 
         test();
 
-       
-        
-        
+
     }
 
     private static void test() {
@@ -49,10 +47,10 @@ public class DriverClass2 {
         int min, max;
         min = max = 0;
 
-        int chunck = 100/numOfThreads;
-        
-        for (int i = 0; i <numOfThreads ; i++) {
-            System.out.println("Min: " + (chunck*i) +"Max: " + (chunck*+(i+1)));
+        int chunck = 100 / numOfThreads;
+
+        for (int i = 0; i < numOfThreads; i++) {
+            System.out.println("Min: " + (chunck * i) + "Max: " + (chunck * +(i + 1)));
         }
     }
 }

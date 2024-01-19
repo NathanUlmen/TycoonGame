@@ -29,5 +29,5 @@ public class ResetterUpgrader extends Upgrader {
     protected int multiOreChange(int multiOre) {
         return multiOre;
     }
-    
+
 }

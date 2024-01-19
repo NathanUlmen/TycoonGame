@@ -20,8 +20,8 @@ public class OreRealm {
         fillStackWithOre();
     }
 
-    public static OreRealm getOreRealmInstance(){
-        if(oreRealmInstance == null) {
+    public static OreRealm getOreRealmInstance() {
+        if (oreRealmInstance == null) {
             oreRealmInstance = new OreRealm();
         }
         return oreRealmInstance;
@@ -78,8 +78,9 @@ public class OreRealm {
     public List<Ore> getActiveOre() {
         return activeOre;
     }
+
     public int getActiveOre2() {
-        return Constants.ORE_LIMIT-size();
+        return Constants.ORE_LIMIT - size();
     }
 
 }

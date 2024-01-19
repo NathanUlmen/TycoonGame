@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class IronDropper extends Dropper{
+public class IronDropper extends Dropper {
 
     public IronDropper() {
         super(2000, 0, 0, "Iron Dropper", 0, 0, Direction.UPWARDS, ItemTier.NORMAL, BigInteger.valueOf(40));
@@ -27,5 +27,5 @@ public class IronDropper extends Dropper{
         return 1;
     }
 
-    
+
 }

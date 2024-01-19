@@ -2,14 +2,21 @@ import java.math.BigDecimal;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class Upgrader2 extends Item implements ProcessingItem2{
+public class Upgrader2 extends Item implements ProcessingItem2 {
     protected Ore ore;
     ProcessingItem2 itemInFront;
     private Queue<Ore> storedOre = new ArrayDeque<>(Constants.STORED_ORE_LIMIT);
 
-    private int numberToMove =1;
+    private int numberToMove = 1;
     protected UpgradeTag upgradeTag;
-//    private Upgrade upgrade;
+
+    //    private Upgrade upgrade;
+
+
+    public Upgrader2(String name, String description, String itemValue, String itemTier) {
+        super(name, description, itemValue);
+
+    }
     @Override
     public void setStoredOre(Ore oreToBeStored) {
 
@@ -53,20 +60,30 @@ public class Upgrader2 extends Item implements ProcessingItem2{
     public void pushToItem() {
         if (itemInFront != null && itemInFront.isEmpty() && ore.canBeProcessed()) {
             ore.setProcessable(false);
-            itemInFront.setOre(this.ore);
+//            itemInFront.setOre(this.ore);
             setStoredOre(null);
         }
     }
+
     @Override
     public boolean isEmpty() {
         return this.ore == null;
     }
+
     public void upgrade(Ore ore) {
 //        upgrade.upgrade(this.ore);
         ore.applyUpgrade(upgradeEffect(this.ore.getOreValue()));
     }
+
     public BigDecimal upgradeEffect(BigDecimal oreValue) {
         return oreValue.add(BigDecimal.valueOf(1));
     }
 
+    @Override
+    public void morphTo(Item item) {
+        setItemName(item.getItemName());
+        setItemDescription(item.getItemDescription());
+        setItemValue(item.getValue());
+
+    }
 }

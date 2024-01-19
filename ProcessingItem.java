@@ -1,17 +1,17 @@
 import java.math.BigInteger;
 
-public abstract class ProcessingItem extends Item{
+public abstract class ProcessingItem extends Item {
     protected Ore ore;
     // private ProcessingItem itemToPushTo = itemInFront;
-    
-    public ProcessingItem(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier, ItemType type, BigInteger value) {
-        super(positionX, positionY, itemName, dimensionX, dimensionY, direction, tier, type, value);
+
+    public ProcessingItem(String itemName, String description, String value) {
+        super(itemName, description, value);
     }
 
     public ProcessingItem() {
 
     }
-    
+
     public void processOre() {
         if (ore != null) {
             process(ore);
@@ -35,9 +35,11 @@ public abstract class ProcessingItem extends Item{
     public void setOre(Ore oreToBeStored) {
         this.ore = oreToBeStored;
     }
+
     public boolean isEmpty() {
         return ore == null;
     }
+
     public abstract void process(Ore ore);
 
 

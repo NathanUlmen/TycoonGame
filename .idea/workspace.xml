@@ -7,22 +7,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Conveyor2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Furnace2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProcessingItem2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upgrade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upgrader2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="035989b2-ae84-4b83-b8eb-11e6bb517856" name="Changes" comment="Reworking tycoon tick">
+      <change afterPath="$PROJECT_DIR$/InventoryNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Morphable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicFurnace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicUpgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Conveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Conveyor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Conveyor2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Conveyor2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverClass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DriverClass2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dropper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmptyCollectionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/EmptyCollectionException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Furnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Furnace2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Furnace2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GoldDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoldDropper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IronDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/IronDropper.java" afterDir="false" />
@@ -30,19 +29,21 @@
       <change beforePath="$PROJECT_DIR$/ItemGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/ItemGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ListOfAllGameItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/ListOfAllGameItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OreHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OreRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/OreRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OriginalOre.java" beforeDir="false" afterPath="$PROJECT_DIR$/OriginalOre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProcessingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueueADT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProcessingItem2.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessingItem2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ResetterUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResetterUpgrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RubyDropper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RubyDropper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackADT.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TheMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheShop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheUpgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/TheUpgrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TycoonBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/TycoonBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UpgradeTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/UpgradeTag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upgrader2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Upgrader2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +53,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -203,7 +204,11 @@
       <workItem from="1705353554461" duration="1746000" />
       <workItem from="1705358663935" duration="6310000" />
       <workItem from="1705436143446" duration="11618000" />
-      <workItem from="1705447942818" duration="2330000" />
+      <workItem from="1705447942818" duration="4988000" />
+      <workItem from="1705453093206" duration="7171000" />
+      <workItem from="1705513686260" duration="14626000" />
+      <workItem from="1705530999843" duration="10366000" />
+      <workItem from="1705608742971" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up/Removed Decorator">
       <option name="closed" value="true" />
@@ -213,7 +218,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703753078410</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Reworking tycoon tick">
+      <option name="closed" value="true" />
+      <created>1705450427712</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705450427712</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Reworking tycoon tick">
+      <option name="closed" value="true" />
+      <created>1705450443387</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705450443387</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +254,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="l" />
     <MESSAGE value="Cleaned up/Removed Decorator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up/Removed Decorator" />
+    <MESSAGE value="Reworking tycoon tick" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reworking tycoon tick" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

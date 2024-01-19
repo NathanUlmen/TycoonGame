@@ -10,6 +10,7 @@ public class TheShop {
     public TheShop() {
 
     }
+
     public static TheShop getShopInstance() {
         if (theShop == null) {
             return theShop = new TheShop();
@@ -25,8 +26,8 @@ public class TheShop {
         return itemToBeSold;//Might be an error here....
     }
 
-    public void buyItemFromPlayer(Item toBeBought){
-        if (0==0) {
+    public void buyItemFromPlayer(Item toBeBought) {
+        if (0 == 0) {
 
         }
         playerInstance.addToWallet(toBeBought.getValue().divide(BigInteger.valueOf(2)));

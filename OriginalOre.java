@@ -58,12 +58,11 @@
 //     public UpgradeTags[] getUpgradeTagArray() {
 //         return upgradeTagArray;
 //     }
-    
+
 //     public String toString() {
 //         String oreInfo = "Ore Name: " + oreName + "\nOre Value: " + oreValue + "Ore State: " + isDeleted;
 //         return oreInfo;
 //     }
 
-    
-    
+
 // }

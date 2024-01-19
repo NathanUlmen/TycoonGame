@@ -1,9 +1,10 @@
 import java.math.BigInteger;
-import java.sql.Statement;
 
-public abstract class Item {
+public abstract class Item implements Morphable {
+
     // public enum Direction {UPWARDS, RIGHT, DOWN, LEFT }
     public enum ItemType {DROPPER, FURNACE, UPGRADER, CONVEYOR}
+
     protected ItemType type;
     private Direction direction;
     protected ItemTier tier;
@@ -12,22 +13,20 @@ public abstract class Item {
     public int positionY;
     private int dimensionX;
     private int dimensionY;
-    private String itemName;
+
+
+
+    private String itemName, itemDescription;
     protected static final TheMap theMap = TheMap.getTheMapInstance();
     protected BigInteger itemValue;
     protected final OreRealm oreRealm = OreRealm.getOreRealmInstance();
-    
+
     //might not need theGameQueue after Tycoon builder is done.
-    public Item(int positionX, int positionY, String itemName, int dimensionX, int dimensionY, Direction direction, ItemTier tier, ItemType type, BigInteger value) {
-        this.positionX = positionX;
-        this.positionY = positionY;
+    public Item( String itemName, String itemDescription, String value) {
         this.itemName = itemName;
-        this.dimensionX = dimensionX;
-        this.dimensionY = dimensionY;
-        this.direction = direction;
-        this.type = type;
-        itemValue = value;
-        
+        this.itemDescription = itemDescription;
+        itemValue = new BigInteger(value);
+
         // switch (direction) {
         //     case 1:
         //         theMap.isFilled(positionX, positionY+1);
@@ -52,8 +51,9 @@ public abstract class Item {
         this.direction = direction;
         this.positionX = X;
         this.positionY = Y;
-        theMap.addItemToMap(this, X, Y); 
+        theMap.addItemToMap(this, X, Y);
     }
+
     public void removeItem() {
         theMap.removeItemFromMap(this.positionX, this.positionY);
     }
@@ -262,6 +262,10 @@ public abstract class Item {
         return itemValue;
     }
 
+    public String getValueString() {
+        return itemValue.toString();
+    }
+
     public ProcessingItem getItemInFront() {
         return this.itemInFront;
     }
@@ -274,7 +278,7 @@ public abstract class Item {
         return this.itemToRight;
     }
 
-    public ProcessingItem getItemToLeft(){
+    public ProcessingItem getItemToLeft() {
         return this.itemToLeft;
     }
 
@@ -295,8 +299,55 @@ public abstract class Item {
         return this.tier;
     }
 
+    public String getItemDescription() {
+        return this.itemDescription;
+    }
+
     public Class<?> getItemType() {
         return this.getClass();
+    }
+    public void setType(ItemType type) {
+        this.type = type;
+    }
+
+    public void setTier(ItemTier tier) {
+        this.tier = tier;
+    }
+
+    public void setItemInFront(ProcessingItem itemInFront) {
+        this.itemInFront = itemInFront;
+    }
+
+    public void setItemBehind(ProcessingItem itemBehind) {
+        this.itemBehind = itemBehind;
+    }
+
+    public void setItemToRight(ProcessingItem itemToRight) {
+        this.itemToRight = itemToRight;
+    }
+
+    public void setItemToLeft(ProcessingItem itemToLeft) {
+        this.itemToLeft = itemToLeft;
+    }
+
+    public void setDimensionX(int dimensionX) {
+        this.dimensionX = dimensionX;
+    }
+
+    public void setDimensionY(int dimensionY) {
+        this.dimensionY = dimensionY;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
+    }
+
+    public void setItemValue(BigInteger itemValue) {
+        this.itemValue = itemValue;
     }
 
 

@@ -7,7 +7,7 @@ public class Ore {
     private String oreName;
     private Boolean processable;
     private final int[] upgradeTag = new int[400]; //The number of different upgraders in the game.
-    
+
 
     public Ore() {
         this.oreValue = BigDecimal.valueOf(0).setScale(6, RoundingMode.HALF_UP);
@@ -51,9 +51,11 @@ public class Ore {
     public void setProcessable(boolean state) {
         processable = state;
     }
+
     public boolean canBeProcessed() {
         return processable;
     }
+
     public BigDecimal getOreValue() {
         return oreValue;
     }
@@ -65,7 +67,7 @@ public class Ore {
     public int getOreTemp() {
         return this.oreTemperature;
     }
-    
+
     public String getName() {
         return this.oreName;
     }
@@ -83,12 +85,12 @@ public class Ore {
     }
 
     public int getOreHistory() {
-		return oreHistory;
-	}
+        return oreHistory;
+    }
 
-	public void setOreHistory(int oreHistory) {
-		this.oreHistory = oreHistory;
-	}
+    public void setOreHistory(int oreHistory) {
+        this.oreHistory = oreHistory;
+    }
 
     public void reset() {
         this.oreValue = BigDecimal.valueOf(0);
@@ -109,7 +111,7 @@ public class Ore {
     }
 
     public void setDefualtTags() {
-        for (UpgradeTag tag: UpgradeTag.values()) {
+        for (UpgradeTag tag : UpgradeTag.values()) {
             setUpgradeTag(tag);
         }
     }
@@ -119,9 +121,9 @@ public class Ore {
     }
 
     public String toString() {
-        String oreToString = "\nName: " + oreName + "\nValue: " + oreValue + 
-            "\nTemperature: " + oreTemperature + "\nUpgrade Count: " + upgradeCount + 
-            "\nState: ";
+        String oreToString = "\nName: " + oreName + "\nValue: " + oreValue +
+                "\nTemperature: " + oreTemperature + "\nUpgrade Count: " + upgradeCount +
+                "\nState: ";
         return oreToString;
     }
 }

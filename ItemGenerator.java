@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Random;
 
 public class ItemGenerator {
-    public enum RewardType {STANDARD_CHEST, LUCKY_CHEST, SUPER_LUCKY_CHEST, RIGGED_CHEST, PRESTIEGE};
+    public enum RewardType {STANDARD_CHEST, LUCKY_CHEST, SUPER_LUCKY_CHEST, RIGGED_CHEST, PRESTIEGE}
+
+    ;
     private static Player player = Player.getPlayerInstance();
     private static ListOfAllGameItems listOfGameItems = ListOfAllGameItems.getGameItemsInstance();
     private final long seed = 123;
-    private Random generator= new Random();
+    private Random generator = new Random();
 
     public ItemGenerator() {
         System.exit(0);
@@ -27,11 +29,11 @@ public class ItemGenerator {
             case STANDARD_CHEST:
                 return rewardChestItem(75, 24, 1);
             case LUCKY_CHEST:
-                return rewardChestItem(52, 46,  2);
+                return rewardChestItem(52, 46, 2);
             case SUPER_LUCKY_CHEST:
                 return rewardChestItem(1, 75, 24);
             case RIGGED_CHEST:
-                return rewardChestItem(0,0, 100);
+                return rewardChestItem(0, 0, 100);
             case PRESTIEGE:
                 return rewardPrestiegeItem();
         }
@@ -60,7 +62,7 @@ public class ItemGenerator {
         //Get List of Available Prestiege Items from game List by passing in player prestige level.
         List<Item> eligbleItems = listOfGameItems.getEligblePrestiegeItems(player.getPrestigeLevel());
         return eligbleItems.get(generator.nextInt(eligbleItems.size()));
-        
+
     }
 
 }

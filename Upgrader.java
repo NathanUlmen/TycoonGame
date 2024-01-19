@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 
-public abstract class Upgrader extends ProcessingItem{
+public abstract class Upgrader extends ProcessingItem {
     private String upgraderEffect;
     protected Ore ore;
     protected static final MathContext hundreths = new MathContext(5);
@@ -16,7 +16,7 @@ public abstract class Upgrader extends ProcessingItem{
 
     @Override
     public void process(Ore ore) {
-        if (ore.getUpgradeTag(upgradeTag) > 0)  {
+        if (ore.getUpgradeTag(upgradeTag) > 0) {
             upgrade(ore);
             ore.decrementUpgradeTag(upgradeTag);
         }
@@ -30,7 +30,7 @@ public abstract class Upgrader extends ProcessingItem{
 
     protected abstract int multiOreChange(int multiOre);
 
-    protected boolean canUpgrade(int numberOfUpgrades ,int maxUpgrades) {
+    protected boolean canUpgrade(int numberOfUpgrades, int maxUpgrades) {
         return numberOfUpgrades < maxUpgrades;
     }
 
@@ -38,6 +38,5 @@ public abstract class Upgrader extends ProcessingItem{
         return "Name: " + getItemName() + "\tPosition: X:" + getPositionX() + " Y:" + getPositionY();
     }
 
-    
-   
+
 } 
